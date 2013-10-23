@@ -1,2 +1,3 @@
 Sébastien
 Jeremy
+Guillaume
