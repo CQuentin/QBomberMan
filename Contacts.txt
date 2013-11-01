@@ -6,7 +6,8 @@ mails :
  quentin.cheynet@etu.univ-amu.fr
  jean-philippe.huguet@etu.univ-amu.fr
 skype :
-  sebastien_tr	
+  sebastien_tr
+  guillaumebroc
 Tel :
   
   06-06-42-10-47 (Clément)
