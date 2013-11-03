@@ -1,0 +1,34 @@
+Outils et méthodes utilisées
+============================
+
+Outils
+------
+	Le langage C++ standard 2011, le framework Qt 5.1.1, Qt Creator 2.8.1, le compilateur g++ (au moins la version 4.2.1), LibreOffice (au moins la version 3.4) ou Microsoft Word (au moins la version 2007), git 1.8.1.3 ou supérieure. Divers logiciels UML.
+
+Méthodes
+--------
+	Nous avons utilisé la méthode Agile.
+
+Conventions de noms de fichiers et de dossiers :
+	– pas d'accent
+	– pas d'espace
+
+Convention de codage :
+	– nom de classes :
+		– première lettre en majuscule
+		– camelcase
+		– pas de underscore
+
+		Exemple : FenetreDePreference
+
+	– noms de méthodes (fonctions membres) :
+		– première lettre en minuscule
+		– camelcase ou tout en minuscule séparé par underscore
+
+	– noms de variables :
+		– première lettre en minuscule
+		– camelcase ou tout en minuscule séparé par underscore
+
+	– noms de constantes :
+		– tout en majuscules
+		– underscore autorisé
