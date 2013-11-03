@@ -1,4 +1,4 @@
-Outils et méthodes utilisées
+Outils et méthodes utilisés
 ============================
 
 Outils
@@ -13,8 +13,8 @@ Conventions de noms de fichiers et de dossiers :
 	– pas d'accent
 	– pas d'espace
 
-Convention de codage :
-	– nom de classes :
+Conventions de codage :
+	– noms de classes :
 		– première lettre en majuscule
 		– camelcase
 		– pas de underscore
@@ -30,7 +30,7 @@ Convention de codage :
 		– camelcase ou tout en minuscule séparé par underscore
 
 	– noms de constantes :
-		– tout en majuscules
+		– tout en majuscule
 		– underscore autorisé
 
 Auteur : Guillaume Broc
