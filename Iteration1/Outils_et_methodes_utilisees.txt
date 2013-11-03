@@ -32,3 +32,5 @@ Convention de codage :
 	– noms de constantes :
 		– tout en majuscules
 		– underscore autorisé
+
+Auteur : Guillaume Broc
