@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     ajouter_brique(true, 170, 400);
     afficher_mur();
 
-    personnage = new QGraphicsPixmapItem(QPixmap("./ressource/personnage.png"));
+    personnage = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/personnage.png"));
     personnage->setPos(90, 415);
     scene->addItem(personnage);
 
@@ -37,13 +37,13 @@ void MainWindow::ajouter_brique(bool cassable, int x, int y)
 {
     if(cassable)
     {
-        QGraphicsPixmapItem * brique = new QGraphicsPixmapItem(QPixmap("./ressource/brique_cassable.png"));
+        QGraphicsPixmapItem * brique = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/brique_cassable.png"));
         brique->setPos(x, y);
         briques_cassables.push_back(brique);
     }
     else
     {
-        QGraphicsPixmapItem * brique = new QGraphicsPixmapItem(QPixmap("./ressource/brique_incassable.png"));
+        QGraphicsPixmapItem * brique = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/brique_incassable.png"));
         brique->setPos(x, y);
         briques_incassables.push_back(brique);
     }
