@@ -1,0 +1,15 @@
+CONSEILS
+========
+
+Ne pas ouvrir avec Qt Creator.
+
+Lignes de compilation :
+qmake -project
+qmake -config release
+make
+
+Ligne pour lancer le programme :
+./Game1
+
+
+REMARQUE : Si vous lancez le programme en double-cliquant sur le fichier exécutable, il se peut qu'il ne trouve pas les images à afficher ! Lancez-le depuis le Terminal, en vous plaçant dans le bon dossier.
