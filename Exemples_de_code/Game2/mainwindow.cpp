@@ -11,11 +11,18 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 	// QPixmap img("128px-Feed-icon.png");
 	// scene->addPixmap(img);
 
-	ajouter_brique(true, 50, 50);
-	ajouter_brique(true, 150, 50);
-	ajouter_brique(true, 150, 250);
-	ajouter_brique(false, 250, 350);
+	ajouter_brique(false, 50, 450);
+	ajouter_brique(false, 70, 450);
+	ajouter_brique(false, 90, 450);
+	ajouter_brique(false, 110, 450);
+	ajouter_brique(false, 130, 450);
+	ajouter_brique(true, 150, 400);
+	ajouter_brique(true, 170, 400);
 	afficher_mur();
+
+	personnage = new QGraphicsPixmapItem(QPixmap("images/personnage.png"));
+	personnage->setPos(90, 415);
+	scene->addItem(personnage);
 
 	view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -27,6 +34,12 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 /* Destructeur de la classe MainWindow */
 MainWindow::~MainWindow()
 {
+	for(int i=0; i<(int) briques_incassables.size(); i++)
+		delete briques_incassables[i];
+
+	for(int i=0; i<(int) briques_cassables.size(); i++)
+		delete briques_cassables[i];
+	delete personnage;
 	delete view;
 	delete scene;
 	// delete background;
@@ -36,13 +49,13 @@ void MainWindow::ajouter_brique(bool cassable, int x, int y)
 {
 	if(cassable)
 	{
-		QGraphicsPixmapItem * brique = new QGraphicsPixmapItem(QPixmap("brique_cassable.png"));
+		QGraphicsPixmapItem * brique = new QGraphicsPixmapItem(QPixmap("images/brique_cassable.png"));
 		brique->setPos(x, y);
 		briques_cassables.push_back(brique);
 	}
 	else
 	{
-		QGraphicsPixmapItem * brique = new QGraphicsPixmapItem(QPixmap("brique_incassable.png"));
+		QGraphicsPixmapItem * brique = new QGraphicsPixmapItem(QPixmap("images/brique_incassable.png"));
 		brique->setPos(x, y);
 		briques_incassables.push_back(brique);
 	}
@@ -50,9 +63,9 @@ void MainWindow::ajouter_brique(bool cassable, int x, int y)
 
 void MainWindow::afficher_mur()
 {
-	for(int i=0; i<briques_incassables.size(); i++)
+	for(int i=0; i<(int) briques_incassables.size(); i++)
 		scene->addItem(briques_incassables[i]);
 
-	for(int i=0; i<briques_cassables.size(); i++)
+	for(int i=0; i<(int) briques_cassables.size(); i++)
 		scene->addItem(briques_cassables[i]);
 }

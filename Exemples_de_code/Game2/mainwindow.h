@@ -19,6 +19,7 @@ class MainWindow : public QMainWindow
 		QPixmap * background;
 		std::vector<QGraphicsPixmapItem *> briques_cassables;
 		std::vector<QGraphicsPixmapItem *> briques_incassables;
+		QGraphicsPixmapItem * personnage;
 
 	public:
     		explicit MainWindow(QWidget * parent = 0);
