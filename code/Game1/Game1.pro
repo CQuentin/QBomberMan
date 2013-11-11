@@ -8,5 +8,9 @@ DEPENDPATH += . vue
 INCLUDEPATH += . vue
 
 # Input
-HEADERS += vue/mainwindow.h
-SOURCES += main.cpp vue/mainwindow.cpp
+HEADERS += vue/mainwindow.h \
+    modele/brique.h \
+    modele/joueur.h
+SOURCES += main.cpp vue/mainwindow.cpp \
+    modele/brique.cpp \
+    modele/joueur.cpp
