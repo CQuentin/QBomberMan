@@ -7,6 +7,9 @@
 #include <QGraphicsItem>
 #include <QPixmap>
 #include <QGraphicsPixmapItem>
+#include <QDebug>
+#include <QWidget>
+    #include <QKeyEvent>
 
 class MainWindow : public QMainWindow
 {
@@ -19,6 +22,7 @@ class MainWindow : public QMainWindow
 
 	public:
     		explicit MainWindow(QWidget * parent = 0);
+             void keyPressEvent(QKeyEvent* event);
     		~MainWindow();
 
 	// public slots:

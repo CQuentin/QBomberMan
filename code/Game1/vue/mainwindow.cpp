@@ -3,6 +3,7 @@
 /* Constructeur de la classe MainWindow */
 MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 {
+
 	scene = new QGraphicsScene(0, 0, 900, 600, this);
 	view = new QGraphicsView(scene, this);
     background = new QPixmap("../Game1/ressource/IMG_8708_blue_Sky2.jpg");
@@ -26,6 +27,21 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 	view->setFixedWidth(900);
 	view->setFixedHeight(600);
 	view->show();
+}
+
+void MainWindow::keyPressEvent(QKeyEvent* event) {
+    switch(event->key()){
+    case Qt::Key_Z:
+        qDebug()<<"haut";
+        break;
+    case Qt::Key_Q:
+        qDebug()<<"gauche";
+        break;
+    case Qt::Key_D:
+        qDebug()<<"droite";
+        break;
+       default : break;
+    }
 }
 
 /* Destructeur de la classe MainWindow */
