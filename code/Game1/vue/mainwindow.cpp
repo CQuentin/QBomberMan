@@ -3,25 +3,30 @@
 /* Constructeur de la classe MainWindow */
 MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 {
-    scene = new QGraphicsScene(0, 0, 900, 600, this);
+    largeur = 900;
+    hauteur = 600;
+
+    grille.resize(45*30);
+
+    scene = new QGraphicsScene(0, 0, largeur, hauteur, this);
     view = new QGraphicsView(scene, this);
+
+    //TODO : gérer avec des classes niveau
+
+
+    for (int i =0; i< 45; i++)
+        ajouterBrique(false,i,29);
+
+
+
     // background = new QPixmap("IMG_8708_blue_Sky2.jpg");
     // scene->setBackgroundBrush(*background);
 
-    // QPixmap img("128px-Feed-icon.png");
-    // scene->addPixmap(img);
 
-    ajouter_brique(false, 50, 450);
-    ajouter_brique(false, 70, 450);
-    ajouter_brique(false, 90, 450);
-    ajouter_brique(false, 110, 450);
-    ajouter_brique(false, 130, 450);
-    ajouter_brique(true, 150, 400);
-    ajouter_brique(true, 170, 400);
-    afficher_mur();
+
 
     personnage = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/personnage.png"));
-    personnage->setPos(90, 415);
+    personnage->setPos(0, 0);
     scene->addItem(personnage);
 
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -33,30 +38,22 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
 
 
-void MainWindow::ajouter_brique(bool cassable, int x, int y)
+void MainWindow::ajouterBrique(bool cassable, int x, int y)
 {
-    if(cassable)
-    {
-        QGraphicsPixmapItem * brique = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/brique_cassable.png"));
-        brique->setPos(x, y);
-        briques_cassables.push_back(brique);
-    }
-    else
-    {
-        QGraphicsPixmapItem * brique = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/brique_incassable.png"));
-        brique->setPos(x, y);
-        briques_incassables.push_back(brique);
-    }
+    int posX = getPositionXFromGrille(x);
+    int posY = getPositionYFromGrille(y);
+    int indice = getGrilleFromPosition(x,y);
+
+    qDebug()<<" posx :" << posX << " posY :" << posY;
+
+
+    grille[indice] = new Brique(cassable,posX,posY);
+    QGraphicsPixmapItem * testp = grille[indice]->getPicture();
+
+
+    scene->addItem(grille[indice]->getPicture());
 }
 
-void MainWindow::afficher_mur()
-{
-    for(int i=0; i<(int) briques_incassables.size(); i++)
-        scene->addItem(briques_incassables[i]);
-
-    for(int i=0; i<(int) briques_cassables.size(); i++)
-        scene->addItem(briques_cassables[i]);
-}
 
 void MainWindow::keyPressEvent(QKeyEvent* event) {
     qreal x = 0,y = 0;
@@ -85,6 +82,35 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
     }
     personnage->moveBy(x,y);
 }
+
+
+QPoint MainWindow::getPositionFromGrille(int x,int y){
+    // 20 car une case = 20p,
+    // à modifier pour gérer les différentes tailles
+    return QPoint(x * 20 , y * 20 );
+}
+
+int MainWindow::getPositionXFromGrille(int i){
+    // 20 car une case = 20p,
+    // à modifier pour gérer les différentes tailles
+    return i * 20;
+}
+
+int MainWindow::getPositionYFromGrille(int i){
+    // 20 car une case = 20p,
+    // à modifier pour gérer les différentes tailles
+
+    return (i * 20);
+}
+
+int MainWindow::getGrilleFromPosition(int x, int y){
+    x = x/20;
+    y = y/20;
+
+    return 45*x + y;
+}
+
+
 
 /* Destructeur de la classe MainWindow */
 MainWindow::~MainWindow()

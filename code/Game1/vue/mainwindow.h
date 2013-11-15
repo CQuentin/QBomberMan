@@ -12,7 +12,8 @@
 #include <QWidget>
     #include <QKeyEvent>
 #include <QDebug>
-
+#include <QVector>
+#include "../modele/brique.h"
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -24,14 +25,27 @@ class MainWindow : public QMainWindow
         std::vector<QGraphicsPixmapItem *> briques_cassables;
         std::vector<QGraphicsPixmapItem *> briques_incassables;
         QGraphicsPixmapItem * personnage;
+        int largeur;
+        int hauteur;
+
+        // vector :  45 * 30 cases pour du 900*600. Une case = 20*20px
+        // imaginer qu'on a un vector 2d de 45*30 pour utiliser x et y
+        // Brique : remplacer plus tard par élément
+        QVector<Brique*> grille;
 
     public:
             explicit MainWindow(QWidget * parent = 0);
-            ~MainWindow();
-        void keyPressEvent(QKeyEvent* event);
-        void ajouter_brique(bool cassable, int x, int y);
-        void afficher_mur();
 
+        void keyPressEvent(QKeyEvent* event);
+        void ajouterBrique(bool cassable, int x, int y);
+
+        QPoint getPositionFromGrille(int x, int y);
+        int getPositionXFromGrille(int i);
+        int getPositionYFromGrille(int i);
+        int getGrilleFromPosition(int x, int y);
+
+
+         ~MainWindow();
     // public slots:
 };
 
