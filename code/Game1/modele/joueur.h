@@ -1,17 +1,28 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
-
+#include <QString>
+#include <QGraphicsPixmapItem>
+#include <QPixmap>
+#include "brique.h"
+#include <QDebug>
 class Joueur
 {
 public:
     Joueur(int x ,int y);
     void newPosition (int x , int y);
     void detruireJoueur();
+    QGraphicsPixmapItem *getPicture();
+    void setPicture(QGraphicsPixmapItem *);
+    bool isColising(int indice, QVector<Brique*> grille);
+    int getX();
+    int getY();
+    void setX(int x);
+    void setY(int y);
 
 private :
     int posX;
     int posY;
-    void setX(int x);
-    void setY(int y);
+
+    QGraphicsPixmapItem *picture;
 };
 #endif // JOUEUR_H

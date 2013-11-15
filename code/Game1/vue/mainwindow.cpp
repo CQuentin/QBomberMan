@@ -8,26 +8,27 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
     grille.resize(45*30);
 
+
     scene = new QGraphicsScene(0, 0, largeur, hauteur, this);
     view = new QGraphicsView(scene, this);
 
+    /*  -------------- début niveau -------------------- */
+
     //TODO : gérer avec des classes niveau
-
-
+    ajouterPersonnage(0,0);
     for (int i =0; i< 45; i++)
         ajouterBrique(false,i,29);
 
+    for (int j =29; j>= 15; j--)
+        ajouterBrique(false,30,j);
 
+    /*  -------------- fin niveau -------------------- */
 
     // background = new QPixmap("IMG_8708_blue_Sky2.jpg");
     // scene->setBackgroundBrush(*background);
 
 
 
-
-    personnage = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/personnage.png"));
-    personnage->setPos(0, 0);
-    scene->addItem(personnage);
 
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -36,7 +37,12 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     view->show();
 }
 
-
+void MainWindow::ajouterPersonnage(int x, int y){
+    int posX = getPositionXFromGrille(x);
+    int posY = getPositionYFromGrille(y);
+    personnage = new Joueur(posX,posY);
+    scene->addItem(personnage->getPicture());
+}
 
 void MainWindow::ajouterBrique(bool cassable, int x, int y)
 {
@@ -51,7 +57,7 @@ void MainWindow::ajouterBrique(bool cassable, int x, int y)
 
 
 void MainWindow::keyPressEvent(QKeyEvent* event) {
-    qreal x = 0,y = 0;
+    qreal x = 0,y =0 ;
     switch(event->key()){
     case Qt::Key_Z:
         //personnage->moveBy(0,-5);
@@ -75,7 +81,19 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
         break;
        default : break;
     }
-    personnage->moveBy(x,y);
+    int newX = personnage->getX()+x;
+    int newY = personnage->getY()+y;
+
+        qDebug()<<"pos ="<<getGrilleFromPosition(newX,newY) << " x : "<<newX << " y " << newY;
+
+    if(!personnage->isColising(getGrilleFromPosition(newX,newY),grille)){
+        personnage->setX(newX);
+        personnage->setY(newY);
+        personnage->getPicture()->moveBy(x,y);
+    }
+
+
+
 }
 
 
@@ -102,7 +120,7 @@ int MainWindow::getGrilleFromPosition(int x, int y){
     x = x/20;
     y = y/20;
 
-    return 45*x + y;
+    return 45*y + x;
 }
 
 
@@ -110,11 +128,8 @@ int MainWindow::getGrilleFromPosition(int x, int y){
 /* Destructeur de la classe MainWindow */
 MainWindow::~MainWindow()
 {
-    for(int i=0; i<(int) briques_incassables.size(); i++)
-        delete briques_incassables[i];
-
-    for(int i=0; i<(int) briques_cassables.size(); i++)
-        delete briques_cassables[i];
+    for(int i=0; i<(int) grille.size(); i++)
+        delete grille[i];
     delete personnage;
     delete view;
     delete scene;

@@ -14,6 +14,8 @@
 #include <QDebug>
 #include <QVector>
 #include "../modele/brique.h"
+#include "../modele/joueur.h"
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -22,9 +24,7 @@ class MainWindow : public QMainWindow
         QGraphicsScene * scene;
         QGraphicsView * view;
         QPixmap * background;
-        std::vector<QGraphicsPixmapItem *> briques_cassables;
-        std::vector<QGraphicsPixmapItem *> briques_incassables;
-        QGraphicsPixmapItem * personnage;
+        Joueur * personnage;
         int largeur;
         int hauteur;
 
@@ -38,6 +38,7 @@ class MainWindow : public QMainWindow
 
         void keyPressEvent(QKeyEvent* event);
         void ajouterBrique(bool cassable, int x, int y);
+        void ajouterPersonnage(int x, int y);
 
         QPoint getPositionFromGrille(int x, int y);
         int getPositionXFromGrille(int i);
