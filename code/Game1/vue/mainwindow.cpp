@@ -44,12 +44,7 @@ void MainWindow::ajouterBrique(bool cassable, int x, int y)
     int posY = getPositionYFromGrille(y);
     int indice = getGrilleFromPosition(x,y);
 
-    qDebug()<<" posx :" << posX << " posY :" << posY;
-
-
     grille[indice] = new Brique(cassable,posX,posY);
-    QGraphicsPixmapItem * testp = grille[indice]->getPicture();
-
 
     scene->addItem(grille[indice]->getPicture());
 }
