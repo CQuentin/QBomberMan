@@ -13,7 +13,7 @@ public:
     void detruireJoueur();
     QGraphicsPixmapItem *getPicture();
     void setPicture(QGraphicsPixmapItem *);
-    bool isColising(int indice, QVector<Brique*> grille);
+    bool isColising(int i, int j, QVector<QVector<Brique *> > grille);
     int getX();
     int getY();
     void setX(int x);

@@ -31,19 +31,20 @@ class MainWindow : public QMainWindow
         // vector :  45 * 30 cases pour du 900*600. Une case = 20*20px
         // imaginer qu'on a un vector 2d de 45*30 pour utiliser x et y
         // Brique : remplacer plus tard par élément
-        QVector<Brique*> grille;
+       QVector<QVector<Brique*> > grille;
 
     public:
             explicit MainWindow(QWidget * parent = 0);
 
         void keyPressEvent(QKeyEvent* event);
-        void ajouterBrique(bool cassable, int x, int y);
-        void ajouterPersonnage(int x, int y);
+        void ajouterBrique(bool cassable, int i, int j);
+        void ajouterPersonnage(int i, int j);
 
-        QPoint getPositionFromGrille(int x, int y);
+        QPoint getPositionFromGrille(int i, int j);
         int getPositionXFromGrille(int i);
-        int getPositionYFromGrille(int i);
-        int getGrilleFromPosition(int x, int y);
+        int getPositionYFromGrille(int j);
+        int getGrilleIFromPosition(int x);
+        int getGrilleJFromPosition(int y);
 
 
          ~MainWindow();

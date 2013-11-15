@@ -6,8 +6,10 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     largeur = 900;
     hauteur = 600;
 
-    grille.resize(45*30);
+    grille.resize(45);
 
+    for(int i = 0; i<45; i++)
+        grille[i].resize(30);
 
     scene = new QGraphicsScene(0, 0, largeur, hauteur, this);
     view = new QGraphicsView(scene, this);
@@ -37,27 +39,27 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     view->show();
 }
 
-void MainWindow::ajouterPersonnage(int x, int y){
-    int posX = getPositionXFromGrille(x);
-    int posY = getPositionYFromGrille(y);
+void MainWindow::ajouterPersonnage(int i, int j){
+    int posX = getPositionXFromGrille(i);
+    int posY = getPositionYFromGrille(j);
     personnage = new Joueur(posX,posY);
     scene->addItem(personnage->getPicture());
 }
 
-void MainWindow::ajouterBrique(bool cassable, int x, int y)
+void MainWindow::ajouterBrique(bool cassable, int i, int j)
 {
-    int posX = getPositionXFromGrille(x);
-    int posY = getPositionYFromGrille(y);
-    int indice = getGrilleFromPosition(x,y);
+    int posX = getPositionXFromGrille(i);
+    int posY = getPositionYFromGrille(j);
 
-    grille[indice] = new Brique(cassable,posX,posY);
+    grille[i][j] = new Brique(cassable,posX,posY);
 
-    scene->addItem(grille[indice]->getPicture());
+    scene->addItem(grille[i][j]->getPicture());
 }
 
 
 void MainWindow::keyPressEvent(QKeyEvent* event) {
     qreal x = 0,y =0 ;
+    int correctionX =0, correctionY = 0;
     switch(event->key()){
     case Qt::Key_Z:
         //personnage->moveBy(0,-5);
@@ -72,21 +74,21 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
     case Qt::Key_D:
         //personnage->moveBy(5,0);
         x += 5;
+        correctionX = 22;
         qDebug()<<"droite";
         break;
     case Qt::Key_S:
        // personnage->moveBy(0,5);
         y += 5;
-        qDebug()<<"droite";
+        qDebug()<<"bas";
+        correctionY = 36;
         break;
        default : break;
     }
     int newX = personnage->getX()+x;
     int newY = personnage->getY()+y;
 
-        qDebug()<<"pos ="<<getGrilleFromPosition(newX,newY) << " x : "<<newX << " y " << newY;
-
-    if(!personnage->isColising(getGrilleFromPosition(newX,newY),grille)){
+    if(!personnage->isColising(getGrilleIFromPosition(newX + correctionX),getGrilleJFromPosition(newY + correctionY),grille)){
         personnage->setX(newX);
         personnage->setY(newY);
         personnage->getPicture()->moveBy(x,y);
@@ -97,10 +99,10 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
 }
 
 
-QPoint MainWindow::getPositionFromGrille(int x,int y){
+QPoint MainWindow::getPositionFromGrille(int i, int j){
     // 20 car une case = 20p,
     // à modifier pour gérer les différentes tailles
-    return QPoint(x * 20 , y * 20 );
+    return QPoint(i * 20 , j * 20 );
 }
 
 int MainWindow::getPositionXFromGrille(int i){
@@ -109,18 +111,21 @@ int MainWindow::getPositionXFromGrille(int i){
     return i * 20;
 }
 
-int MainWindow::getPositionYFromGrille(int i){
+int MainWindow::getPositionYFromGrille( int j){
     // 20 car une case = 20p,
     // à modifier pour gérer les différentes tailles
 
-    return (i * 20);
+    return j*20;
 }
 
-int MainWindow::getGrilleFromPosition(int x, int y){
-    x = x/20;
-    y = y/20;
+int MainWindow::getGrilleIFromPosition(int x){
+    return x/20;
 
-    return 45*y + x;
+}
+
+int MainWindow::getGrilleJFromPosition(int y){
+    return  y/20;
+
 }
 
 
@@ -129,7 +134,8 @@ int MainWindow::getGrilleFromPosition(int x, int y){
 MainWindow::~MainWindow()
 {
     for(int i=0; i<(int) grille.size(); i++)
-        delete grille[i];
+        for(int j=0; j<(int) grille.size(); j++)
+            delete grille[i][j];
     delete personnage;
     delete view;
     delete scene;

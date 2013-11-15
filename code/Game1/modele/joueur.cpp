@@ -46,12 +46,12 @@ QGraphicsPixmapItem* Joueur::getPicture(){
     return picture;
 }
 
-bool Joueur::isColising(int indice, QVector<Brique *> grille){
+bool Joueur::isColising(int i, int j, QVector<QVector<Brique *> > grille){
 
     //TODO
-    //    Brique *test = grille[indice];
+    Brique *test = grille[i][j];
 
-//    if (test == NULL)
-//        return false;
-    return false;
+    if (test == NULL)
+        return false;
+    return true;
 }
