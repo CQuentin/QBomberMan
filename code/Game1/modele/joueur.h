@@ -3,11 +3,19 @@
 #include <QString>
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
-#include "brique.h"
 #include <QDebug>
+#include "brique.h"
 class Joueur
 {
 public:
+    /*!
+     * \brief Constructeur
+     *
+     * Constructeur de la classe Joueur
+     *
+     * \param x,y La position du personnage
+     * \author Clément CARLES,Quentin CHEYNET
+     */
     Joueur(int x ,int y);
     void newPosition (int x , int y);
     void detruireJoueur();
@@ -50,20 +58,52 @@ public:
     /*!
      * \brief assignation d'un entier x à posX
      * \param x La position x du personnage
-     * \author Quentin CHEYNET
+     * \author Clément CARLES
      */
     void setX(int x);
 
     /*!
      * \brief assignation d'un entier y à posY
      * \param y La position y du personnage
-     * \author Quentin CHEYNET
+     * \author Clément CARLES
      */
     void setY(int y);
+
+    /*!
+     * \brief renvoie la hauteur maximum à laquelle le personnage peut sauter
+     * \return maxHigh
+     * \author Quentin CHEYNET
+     */
+    int getMaxH();
+
+    /*!
+     * \brief renvoie la hauteur courrante après un saut
+     * \return currentHigh
+     * \author Quentin CHEYNET
+     */
+    int getCurrentH();
+
+    /*!
+     * \brief assignation d'un entier h à maxHigh
+     * \param h La hauteur maximum à laquelle le personnage peut sauter
+     * \author Quentin CHEYNET
+     */
+    void setMaxH(int h);
+
+    /*!
+     * \brief assignation d'un entier h à currantH
+     * \param h La hauteur courrante après un saut
+     * \author Quentin CHEYNET
+     */
+    void setCurrentH(int h);
 
 private :
     int posX;
     int posY;
+    int maxHigh;
+    int currentHigh;
     QGraphicsPixmapItem *picture;
+
+
 };
 #endif // JOUEUR_H

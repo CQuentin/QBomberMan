@@ -6,6 +6,8 @@ Joueur::Joueur(int x ,int y){
     setY(y);
     picture = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/personnage.png"));
     picture->setPos(x,y);
+    maxHigh = 50;
+    currentHigh = 0;
 
 }
 
@@ -22,12 +24,12 @@ void Joueur::setY(int y)
 {
     this->posY = y;
 }
-//Q
+
 int Joueur::getX()
 {
     return posX;
 }
-//Q
+
 int Joueur::getY()
 {
     return posY;
@@ -46,12 +48,29 @@ QGraphicsPixmapItem* Joueur::getPicture(){
     return picture;
 }
 
-bool Joueur::isColising(int i, int j, QVector<QVector<Brique *> > grille){
+bool Joueur::isColliding(int i, int j, QVector<QVector<Brique *> > grille){
 
-    //TODO
     Brique *test = grille[i][j];
 
     if (test == NULL)
         return false;
     return true;
 }
+
+
+int Joueur::getMaxH(){
+    return maxHigh;
+}
+
+int Joueur::getCurrentH(){
+    return currentHigh;
+}
+
+void Joueur::setMaxH(int h){
+    maxHigh = h;
+}
+
+void Joueur::setCurrentH(int h){
+    currentHigh = h;
+}
+

@@ -29,6 +29,7 @@ class MainWindow : public QMainWindow
         int largeur;
         int hauteur;
         QBasicTimer timer;
+        int gravity;
 
         // vector :  45 * 30 cases pour du 900*600. Une case = 20*20px
         // Brique : remplacer plus tard par élément
@@ -158,12 +159,31 @@ class MainWindow : public QMainWindow
 
         /*!
          * \brief fait bouger un personnage en prenant en compte les collisions
-         *
+         *  TODO : placer une partie dans Joueur
          * \param x Abscisse de l'image dans scene
          * \param Y Ordonnée de l'image dans scene
          * \author Quentin CHEYNET
          */
-        void bouger(int x, int y);
+        void tryMove(int x, int y);
+        /*!
+         * \brief fait sauter un personnage en prenant en compte les collisions
+         *  TODO : placer une partie dans Joueur
+         * \author Quentin CHEYNET
+         */
+        void tryJump();
+
+        /*!
+         * \brief inverse le signe de la gravité
+         * \author Quentin CHEYNET
+         */
+        void toggleGravity();
+
+        /*!
+         * \brief renvoie la valeur de la gravité
+         * \return gravity
+         * \author Quentin CHEYNET
+         */
+        int getGravity();
 
          ~MainWindow();
     // public slots:
