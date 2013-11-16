@@ -39,7 +39,7 @@ public:
     * \param j Colonne de la grille à regarder
     * \author Quentin CHEYNET
     */
-    bool isColliding(int i, int j, QVector<QVector<Brique *> > grille);
+    bool isColising(int i, int j, QVector<QVector<Brique *> > grille);
 
     /*!
      * \brief renvoie la position x du personnage
