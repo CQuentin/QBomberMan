@@ -225,7 +225,7 @@ int newY = personnage->getY()+y;
             else
                 posGrilleJ = getGrilleJFromPosition(newY + j * tailleC);
 
-             if(personnage->isColliding(posGrilleI,posGrilleJ,grille)){
+             if(personnage->isColising(posGrilleI,posGrilleJ,grille)){
                 colision  = true;
             }
 
