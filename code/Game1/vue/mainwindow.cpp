@@ -18,11 +18,16 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
     //TODO : gérer avec des classes niveau
     ajouterPersonnage(0,0);
+    ajouterBrique(false,5,5);
+
     for (int i =0; i< 45; i++)
         ajouterBrique(false,i,29);
 
     for (int j =29; j>= 15; j--)
         ajouterBrique(false,30,j);
+
+    for (int i =30; i< 37; i++)
+        ajouterBrique(false,i,15);
 
     /*  -------------- fin niveau -------------------- */
 
@@ -63,7 +68,8 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
     //taille personnage : 36 * 22
     // TODO : mettre dans attribut joueur, ou faire un gets size de l'image (attention si on prend l'image entière)
 
-    int correctionX =0, correctionY = 0;
+    int hauteurP = 36, largeurP = 22, tailleC = 20;
+    bool colision = false;
     switch(event->key()){
     case Qt::Key_Z:
         y += -5;
@@ -77,14 +83,14 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
         break;
     case Qt::Key_D:
         x += 5;
-        correctionX = 20;
+       // correctionX = 22;
         qDebug()<<"droite";
         caseD = 2;
         break;
     case Qt::Key_S:
         y += 5;
         qDebug()<<"bas";
-        correctionY = 36;
+    //    correctionY = 36;
         caseD = 3;
         break;
        default : break;
@@ -92,15 +98,59 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
     int newX = personnage->getX()+x;
     int newY = personnage->getY()+y;
 
-    int posGrilleI = getGrilleIFromPosition(newX + correctionX);
-    int posGrilleJ = getGrilleJFromPosition(newY + correctionY);
+//    int posGrilleI = getGrilleIFromPosition(newX + correctionX-1);
+//    int posGrilleJ = getGrilleJFromPosition(newY + correctionY);
 
-    if(!personnage->isColliding(posGrilleI,posGrilleJ,grille)){
+//    int posGrilleI2 = getGrilleIFromPosition(newX + correctionX+20);
+//    int posGrilleJ2 = getGrilleJFromPosition(newY + correctionY+20);
+
+//    int posGrilleJ3 = getGrilleJFromPosition(newY + correctionY+34);
+    int nbPointX =1 + largeurP / tailleC;
+    if (largeurP % tailleC !=0)
+        nbPointX++;
+    int nbPointY =1 + hauteurP / tailleC;
+    if (hauteurP % tailleC !=0)
+        nbPointY++;
+
+    int posGrilleI;
+    int posGrilleJ;
+
+
+     int test = 1337;
+
+
+     for (int i = 0; i< nbPointX; i++){
+        if(i * tailleC > largeurP){
+            posGrilleI = getGrilleIFromPosition(newX + largeurP);
+            test = largeurP;
+        }
+        else{
+            posGrilleI = getGrilleIFromPosition(newX + i * tailleC);
+            test = i * tailleC;
+        }
+
+    for (int j = 0; j< nbPointY; j++){
+            if(j * tailleC > hauteurP)
+                posGrilleJ = getGrilleIFromPosition(newY + hauteurP);
+            else
+                posGrilleJ = getGrilleIFromPosition(newY + j * tailleC);
+
+             if(personnage->isColliding(posGrilleI,posGrilleJ,grille)){
+                colision  = true;
+            }
+
+        }
+
+    }
+
+
+    if(!colision){
         personnage->setX(newX);
         personnage->setY(newY);
         personnage->getPicture()->moveBy(x,y);
     }
-    else{
+    // en cas de collision,on rapproche le personnage du bloc pour qu'il y soit collé
+  /* else{
         switch (caseD){
             case 2 :
             //cas -> droite
@@ -146,7 +196,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
         }
 
     }
-
+*/
 
 
 }
