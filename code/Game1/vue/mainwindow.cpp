@@ -200,56 +200,9 @@ void MainWindow::tryJump(){
     int posI = getGrilleIFromPosition(personnage->getX());
     int posJ = getGrilleJFromPosition(personnage->getY() + 36);
 
-<<<<<<< HEAD
     if(personnage->isColliding(posI,posJ+1,grille)){
         qDebug()<<"jump!";
         toggleGravity();
-=======
-void MainWindow::bouger(int x, int y){
-     int hauteurP = 36, largeurP = 22, tailleC = 20;
-bool colision = false;
-int newX = personnage->getX()+x;
-int newY = personnage->getY()+y;
-
-    int nbPointX =1 + largeurP / tailleC;
-    if (largeurP % tailleC !=0)
-        nbPointX++;
-    int nbPointY =1 + hauteurP / tailleC;
-    if (hauteurP % tailleC !=0)
-        nbPointY++;
-
-    int posGrilleI;
-    int posGrilleJ;
-
-
-     for (int i = 0; i< nbPointX; i++){
-        if(i * tailleC > largeurP)
-            posGrilleI = getGrilleIFromPosition(newX + largeurP);
-        else
-            posGrilleI = getGrilleIFromPosition(newX + i * tailleC);
-
-
-    for (int j = 0; j< nbPointY; j++){
-            if(j * tailleC > hauteurP)
-                posGrilleJ = getGrilleJFromPosition(newY + hauteurP);
-            else
-                posGrilleJ = getGrilleJFromPosition(newY + j * tailleC);
-
-             if(personnage->isColising(posGrilleI,posGrilleJ,grille)){
-                colision  = true;
-            }
-
-        }
-
-    }
-
-
-
-    if(!colision){
-        personnage->setX(newX);
-        personnage->setY(newY);
-        personnage->getPicture()->moveBy(x,y);
->>>>>>> 8c353703037b8fb69ae82ebf57326b8d908b7e18
     }
 }
 

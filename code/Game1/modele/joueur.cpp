@@ -73,4 +73,3 @@ void Joueur::setMaxH(int h){
 void Joueur::setCurrentH(int h){
     currentHigh = h;
 }
-
