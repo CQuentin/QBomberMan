@@ -31,7 +31,6 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
 
 
-
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setFixedWidth(900);
@@ -59,39 +58,93 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
 
 void MainWindow::keyPressEvent(QKeyEvent* event) {
     qreal x = 0,y =0 ;
+    int caseD = 10;
+
+    //taille personnage : 36 * 22
+    // TODO : mettre dans attribut joueur, ou faire un gets size de l'image (attention si on prend l'image entière)
+
     int correctionX =0, correctionY = 0;
     switch(event->key()){
     case Qt::Key_Z:
-        //personnage->moveBy(0,-5);
         y += -5;
         qDebug()<<"haut";
+        caseD = 0;
         break;
     case Qt::Key_Q:
-       // personnage->moveBy(-5,0);
         x += -5;
         qDebug()<<"gauche";
+        caseD = 1;
         break;
     case Qt::Key_D:
-        //personnage->moveBy(5,0);
         x += 5;
-        correctionX = 22;
+        correctionX = 20;
         qDebug()<<"droite";
+        caseD = 2;
         break;
     case Qt::Key_S:
-       // personnage->moveBy(0,5);
         y += 5;
         qDebug()<<"bas";
         correctionY = 36;
+        caseD = 3;
         break;
        default : break;
     }
     int newX = personnage->getX()+x;
     int newY = personnage->getY()+y;
 
-    if(!personnage->isColising(getGrilleIFromPosition(newX + correctionX),getGrilleJFromPosition(newY + correctionY),grille)){
+    int posGrilleI = getGrilleIFromPosition(newX + correctionX);
+    int posGrilleJ = getGrilleJFromPosition(newY + correctionY);
+
+    if(!personnage->isColliding(posGrilleI,posGrilleJ,grille)){
         personnage->setX(newX);
         personnage->setY(newY);
         personnage->getPicture()->moveBy(x,y);
+    }
+    else{
+        switch (caseD){
+            case 2 :
+            //cas -> droite
+            x = getPositionXFromGrille( posGrilleI) - personnage->getX();
+            if ( x>0){
+                personnage->setX(personnage->getX()+x-20);
+                personnage->setY(newY);
+                personnage->getPicture()->moveBy(x-20,y);
+            }
+            break;
+
+            case 1 :
+            //cas -> gauche
+            x = personnage->getX() -getPositionXFromGrille( posGrilleI) ;
+            if ( x>0){
+                personnage->setX(personnage->getX()+x-20);
+                personnage->setY(newY);
+                personnage->getPicture()->moveBy(x-20,y);
+            }
+            break;
+
+            case 0 :
+            //cas -> haut
+            y = personnage->getY() -getPositionYFromGrille( posGrilleJ) ;
+            if ( y>0){
+                personnage->setX(newX);
+                personnage->setY(personnage->getY()+y-36);
+                personnage->getPicture()->moveBy(x,y-36);
+            }
+            break;
+
+            case 3 :
+            //cas -> bas
+            y = getPositionYFromGrille( posGrilleJ) - personnage->getY() ;
+            if ( y>0){
+                personnage->setX(newX);
+                personnage->setY(personnage->getY()+y-36);
+                personnage->getPicture()->moveBy(x,y-36);
+            }
+            break;
+
+        default : break;
+        }
+
     }
 
 
