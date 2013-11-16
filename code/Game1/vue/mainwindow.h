@@ -16,6 +16,7 @@
 #include<QBasicTimer>
 #include "../modele/brique.h"
 #include "../modele/joueur.h"
+#include "../contoleur/toucheclavier.h"
 
 class MainWindow : public QMainWindow
 {
@@ -30,6 +31,7 @@ class MainWindow : public QMainWindow
         int hauteur;
         QBasicTimer timer;
         int gravity;
+        ToucheClavier *controleur;
 
         // vector :  45 * 30 cases pour du 900*600. Une case = 20*20px
         // Brique : remplacer plus tard par élément
@@ -166,12 +168,20 @@ class MainWindow : public QMainWindow
 
         /*!
          * \brief fait bouger un personnage en prenant en compte les collisions
-         *  TODO : placer une partie dans Joueur
          * \param x Abscisse de l'image dans scene
          * \param Y Ordonnée de l'image dans scene
          * \author Quentin CHEYNET
          */
         void tryMove(int x, int y);
+
+        /*!
+         * \brief Test si un Joueur déplacé de x,y va entrer en collison avec une brique
+         * \param x Abscisse de l'image dans scene
+         * \param Y Ordonnée de l'image dans scene
+         * \return vrai si il y a une collision
+         * \author Quentin CHEYNET
+         */
+        bool collisionTest(int x, int y);
         /*!
          * \brief fait sauter un personnage en prenant en compte les collisions
          *  TODO : placer une partie dans Joueur

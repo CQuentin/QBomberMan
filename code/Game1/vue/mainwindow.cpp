@@ -5,8 +5,9 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 {
     largeur = 900;
     hauteur = 600;
-    gravity = 1;
+    gravity = 0;
     grille.resize(45);
+    controleur = new ToucheClavier();
 
     for(int i = 0; i<45; i++)
         grille[i].resize(30);
@@ -29,6 +30,14 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     for (int i =30; i< 37; i++)
         ajouterBrique(false,i,15);
 
+    int dec = 0;
+    for(int j = 23; j>=15; j-=2){
+        for (int i =6; i< 16; i++)
+            ajouterBrique(false,i+dec,j);
+        dec+= 4;
+        if(dec >=45)
+            dec = 44;
+    }
     /*  -------------- fin niveau -------------------- */
 
     // background = new QPixmap("IMG_8708_blue_Sky2.jpg");
@@ -62,58 +71,19 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
 }
 
 void MainWindow::keyReleaseEvent(QKeyEvent* event) {
-    switch(event->key()){
-    case Qt::Key_Q:
-    case Qt::Key_D:
-        personnage->setDJump(0);
-        break;
-    default: break;
-    }
 
+    if(!event->isAutoRepeat()){
+        controleur->setPressed(event->key(),false);
+    }
 }
 
 void MainWindow::keyPressEvent(QKeyEvent* event) {
-    qreal x = 0,y =0 ;
-    int caseD = 10;
 
-    //taille personnage : 36 * 22
-    // TODO : mettre dans attribut joueur, ou faire un gets size de l'image (attention si on prend l'image entière)
-
-    int correctionX = 0, correctionY = 0;
-    int hauteurP = 36, largeurP = 22;
-    switch(event->key()){
-    case Qt::Key_Z:
-        tryJump();
-        qDebug()<<"haut";
-        caseD = 0;
-        break;
-    case Qt::Key_Q:
-        x += -5;
-        qDebug()<<"gauche";
-        personnage->setDJump(-1);
-        caseD = 1;
-        break;
-    case Qt::Key_D:
-        x += 5;
-        correctionX = largeurP;
-        qDebug()<<"droite";
-        personnage->setDJump(1);
-        caseD = 2;
-        break;
-    case Qt::Key_S:
-        y += 5;
-        qDebug()<<"bas";
-        correctionY = hauteurP;
-        caseD = 3;
-        break;
-    default : break;
-    }
-    tryMove(x,y);
-
+    if(!event->isAutoRepeat())
+        controleur->setPressed(event->key(),true);
 }
 
-//TODO partie modèle à placer dans Joueur (garder partie graphique)
-void MainWindow::tryMove(int x, int y){
+bool MainWindow::collisionTest(int x, int y){
     int hauteurP = 36, largeurP = 22, tailleC = 20;
     bool colision = false;
     int newX = personnage->getX()+x;
@@ -149,88 +119,52 @@ void MainWindow::tryMove(int x, int y){
         }
     }
 
-    if(!colision){
+    return colision;
+}
+
+//TODO partie modèle à placer dans Joueur (garder partie graphique)
+void MainWindow::tryMove(int x, int y){
+    int newX = personnage->getX()+x;
+    int newY = personnage->getY()+y;
+
+    if(!collisionTest(x,y)){
         personnage->setX(newX);
         personnage->setY(newY);
         personnage->getPicture()->moveBy(x,y);
     }
-    // TODO
-    // en cas de collision,on rapproche le personnage du bloc pour qu'il y soit collé
-    /* else{
 
 
-        switch (caseD){
-            case 2 :
-            posGrilleI = getGrilleIFromPosition(newX+largeurP);
-            posGrilleJ = getGrilleIFromPosition(newY);
-            //cas -> droite
-            x = getPositionXFromGrille(posGrilleI) - personnage->getX();
-            //qDebug()<<"cXB = "<<getPositionXFromGrille( posGrilleI);
-            if ( x>0){
-                personnage->setX(personnage->getX()+x);
-                personnage->setY(newY);
-                personnage->getPicture()->moveBy(x,y);
-            }
-            break;
-
-            case 1 :
-            //cas -> gauche
-            x = personnage->getX() - (getPositionXFromGrille( posGrilleI) + tailleC) ;
-            if ( x>0){
-                personnage->setX(personnage->getX() - x);
-                personnage->setY(newY);
-                personnage->getPicture()->moveBy(-x,y);
-            }
-            break;
-
-            case 0 :
-            //cas -> haut
-            y = personnage->getY() - (getPositionYFromGrille( posGrilleJ) + tailleC) ;
-            if ( y>0){
-                personnage->setX(newX);
-                personnage->setY(personnage->getY() - y);
-                personnage->getPicture()->moveBy(x,-y);
-            }
-            break;
-
-            case 3 :
-            //cas -> bas
-            y = getPositionYFromGrille( posGrilleJ) - (personnage->getY() + hauteurP) ;
-            if ( y>0){
-                personnage->setX(newX);
-                personnage->setY(personnage->getY()+y);
-                personnage->getPicture()->moveBy(x,y);
-            }
-            break;
-
-        default : break;
-        }
-
-    }*/
 }
 
 void MainWindow::tryJump(){
-    int posI = getGrilleIFromPosition(personnage->getX());
-    int posJ = getGrilleJFromPosition(personnage->getY() + 36);
-
-    if(personnage->isColliding(posI,posJ+1,grille)){
-        qDebug()<<"jump!";
-        toggleGravity();
-    }
+    if(collisionTest(0,1))
+        gravity = -1;
 }
 
 void MainWindow::timerEvent ( QTimerEvent * event ){
     if (gravity<0){
-        int posI = getGrilleIFromPosition(personnage->getX());
-        int posJ = getGrilleJFromPosition(personnage->getY()+20);
         personnage->setCurrentH(personnage->getCurrentH()+1);
-
-        if(personnage->getCurrentH()>= personnage->getMaxH() || personnage->isColliding(posI,posJ-1,grille)){
-            toggleGravity();
+        if(personnage->getCurrentH()>= personnage->getMaxH() || collisionTest(0,-1)){
+            gravity = 1;
             personnage->setCurrentH(0);
         }
     }
-    tryMove(personnage->getDJump(),gravity);
+    else if(collisionTest(0,1))
+        gravity = 0;
+    else gravity = 1;
+
+    int x = 0,y = 0;
+    if(gravity == 0 && controleur->getStateKeys(0))
+        tryJump();
+    if(controleur->getStateKeys(1))
+        x +=- 1;
+    //    if(controleur->getStateKeys(2))
+    //        y += 1;
+    if(controleur->getStateKeys(3)){
+        x += 1;
+    }
+    tryMove(0,gravity);
+    tryMove(x,y);
 }
 
 QPoint MainWindow::getPositionFromGrille(int i, int j){
