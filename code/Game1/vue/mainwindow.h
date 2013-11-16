@@ -9,9 +9,11 @@
 #include <QGraphicsPixmapItem>
 #include <vector>
 #include <QWidget>
-    #include <QKeyEvent>
+#include <QKeyEvent>
+#include <QTimerEvent>
 #include <QDebug>
 #include <QVector>
+#include<QBasicTimer>
 #include "../modele/brique.h"
 #include "../modele/joueur.h"
 
@@ -26,6 +28,7 @@ class MainWindow : public QMainWindow
         Joueur * personnage;
         int largeur;
         int hauteur;
+        QBasicTimer timer;
 
         // vector :  45 * 30 cases pour du 900*600. Une case = 20*20px
         // Brique : remplacer plus tard par élément
@@ -48,6 +51,8 @@ class MainWindow : public QMainWindow
         * \author Quentin CHEYNET
         */
         void keyPressEvent(QKeyEvent* event);
+
+        void timerEvent ( QTimerEvent * event );
 
         /*!
          * \brief ajoute une brique dans la vue
@@ -145,6 +150,7 @@ class MainWindow : public QMainWindow
          */
         int getGrilleJFromPosition(int y);
 
+        void bouger(int x, int y);
 
          ~MainWindow();
     // public slots:
