@@ -6,10 +6,19 @@
 class Brique
 {
 public:
-    Brique();
     Brique(bool cassable,int x ,int y);
     void detruireBrique();
+    /*!
+     * \brief renvoie l'attribut picture
+     * \return picture
+     * \author Quentin CHEYNET
+     */
     QGraphicsPixmapItem *getPicture();
+    /*!
+     * \brief assignation d'un QGraphicsPixmapItem à l'attribut picture
+     * \param parent : QGraphicsPixmapItem *
+     * \author Quentin CHEYNET
+     */
     void setPicture(QGraphicsPixmapItem *);
 
 private :
