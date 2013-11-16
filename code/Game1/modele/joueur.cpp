@@ -8,6 +8,7 @@ Joueur::Joueur(int x ,int y){
     picture->setPos(x,y);
     maxHigh = 50;
     currentHigh = 0;
+    directionJump = 0;
 
 }
 
@@ -72,4 +73,12 @@ void Joueur::setMaxH(int h){
 
 void Joueur::setCurrentH(int h){
     currentHigh = h;
+}
+
+int Joueur::getDJump(){
+    return directionJump;
+}
+
+void Joueur::setDJump(int d){
+    directionJump = d;
 }

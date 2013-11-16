@@ -41,6 +41,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     view->setFixedWidth(900);
     view->setFixedHeight(600);
     view->show();
+
 }
 
 void MainWindow::ajouterPersonnage(int i, int j){
@@ -60,6 +61,16 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
     scene->addItem(grille[i][j]->getPicture());
 }
 
+void MainWindow::keyReleaseEvent(QKeyEvent* event) {
+    switch(event->key()){
+    case Qt::Key_Q:
+    case Qt::Key_D:
+        personnage->setDJump(0);
+        break;
+    default: break;
+    }
+
+}
 
 void MainWindow::keyPressEvent(QKeyEvent* event) {
     qreal x = 0,y =0 ;
@@ -79,16 +90,18 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
     case Qt::Key_Q:
         x += -5;
         qDebug()<<"gauche";
+        personnage->setDJump(-1);
         caseD = 1;
         break;
     case Qt::Key_D:
         x += 5;
         correctionX = largeurP;
         qDebug()<<"droite";
+        personnage->setDJump(1);
         caseD = 2;
         break;
     case Qt::Key_S:
-        y += 6;
+        y += 5;
         qDebug()<<"bas";
         correctionY = hauteurP;
         caseD = 3;
@@ -217,7 +230,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             personnage->setCurrentH(0);
         }
     }
-    tryMove(0,gravity);
+    tryMove(personnage->getDJump(),gravity);
 }
 
 QPoint MainWindow::getPositionFromGrille(int i, int j){
@@ -259,7 +272,7 @@ int MainWindow::getGravity(){
 MainWindow::~MainWindow()
 {
     for(int i=0; i<(int) grille.size(); i++)
-        for(int j=0; j<(int) grille.size(); j++)
+        for(int j=0; j<(int) grille[i].size(); j++)
             delete grille[i][j];
     delete personnage;
     delete view;

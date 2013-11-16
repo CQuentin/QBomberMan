@@ -47,11 +47,18 @@ class MainWindow : public QMainWindow
             explicit MainWindow(QWidget * parent = 0);
 
        /*!
-        * \brief détéction des évènement clavier
+        * \brief détéction des évènement clavier (touches enfoncées)
         * \param event
         * \author Quentin CHEYNET
         */
         void keyPressEvent(QKeyEvent* event);
+
+        /*!
+         * \brief détéction des évènement clavier (touches relachées)
+         * \param event
+         * \author Quentin CHEYNET
+         */
+        void keyReleaseEvent(QKeyEvent* event);
 
         /*!
          * \brief timerEvent pour faire tomber un personnage

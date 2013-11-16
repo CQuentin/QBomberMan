@@ -97,11 +97,27 @@ public:
      */
     void setCurrentH(int h);
 
+
+    /*!
+     * \brief renvoie la direction avant un saut
+     * \return directionJump
+     * \author Quentin CHEYNET
+     */
+    int getDJump();
+
+    /*!
+     * \brief assignation d'un entier d à directionJump
+     * \param d La direction vers laquelle le personnage va sauter ou tomber
+     * \author Quentin CHEYNET
+     */
+    void setDJump(int d);
+
 private :
     int posX;
     int posY;
     int maxHigh;
     int currentHigh;
+    int directionJump;
     QGraphicsPixmapItem *picture;
 
 
