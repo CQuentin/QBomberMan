@@ -16,7 +16,7 @@
 #include<QBasicTimer>
 #include "../modele/brique.h"
 #include "../modele/joueur.h"
-#include "../contoleur/toucheclavier.h"
+#include "../controleur/toucheclavier.h"
 
 class MainWindow : public QMainWindow
 {
@@ -63,8 +63,7 @@ class MainWindow : public QMainWindow
         void keyReleaseEvent(QKeyEvent* event);
 
         /*!
-         * \brief timerEvent pour faire tomber un personnage
-         *
+         * \brief timerEvent
          * \param event
          * \author Quentin CHEYNET
          */
