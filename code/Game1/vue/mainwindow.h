@@ -52,6 +52,12 @@ class MainWindow : public QMainWindow
         */
         void keyPressEvent(QKeyEvent* event);
 
+        /*!
+         * \brief timerEvent pour faire tomber un personnage
+         *
+         * \param event
+         * \author Quentin CHEYNET
+         */
         void timerEvent ( QTimerEvent * event );
 
         /*!
@@ -150,6 +156,13 @@ class MainWindow : public QMainWindow
          */
         int getGrilleJFromPosition(int y);
 
+        /*!
+         * \brief fait bouger un personnage en prenant en compte les collisions
+         *
+         * \param x Abscisse de l'image dans scene
+         * \param Y Ordonnée de l'image dans scene
+         * \author Quentin CHEYNET
+         */
         void bouger(int x, int y);
 
          ~MainWindow();
