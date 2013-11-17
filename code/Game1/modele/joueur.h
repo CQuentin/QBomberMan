@@ -7,14 +7,26 @@
 #include "brique.h"
 class Joueur
 {
+private :
+    int posX;
+    int posY;
+    int hauteur;
+    int largeur;
+    int maxHigh;
+    int currentHigh;
+    QGraphicsPixmapItem *picture;
+
+
 public:
     /*!
      * \brief Constructeur
      *
      * Constructeur de la classe Joueur
      *
-     * \param x,y La position du personnage
-     * \author Clément CARLES,Quentin CHEYNET
+     * \param x La position à l'abscisse du personnage
+     * \param y La position à l'ordonnée du personnage
+     * \author Clément CARLES
+     * \author Quentin CHEYNET
      */
     Joueur(int x ,int y);
     void newPosition (int x , int y);
@@ -97,14 +109,33 @@ public:
      */
     void setCurrentH(int h);
 
+    /*!
+     * \brief renvoie la hauteur du personnage
+     * \return hauteur
+     * \author Quentin CHEYNET
+     */
+    int getHauteur();
 
-private :
-    int posX;
-    int posY;
-    int maxHigh;
-    int currentHigh;
-    QGraphicsPixmapItem *picture;
+    /*!
+     * \brief assignation d'un entier h à hauteur
+     * \param h La hauteur du personnage
+     * \author Quentin CHEYNET
+     */
+    void setHauteur(int h);
 
+    /*!
+     * \brief renvoie la largeur du personnage
+     * \return largeur
+     * \author Quentin CHEYNET
+     */
+    int getLargeur();
+
+    /*!
+     * \brief assignation d'un entier l à largeur
+     * \param l La largeur du personnage
+     * \author Quentin CHEYNET
+     */
+    void setLargeur(int l);
 
 };
 #endif // JOUEUR_H

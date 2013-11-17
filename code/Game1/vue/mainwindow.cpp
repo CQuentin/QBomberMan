@@ -3,14 +3,18 @@
 /* Constructeur de la classe MainWindow */
 MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 {
+    baseGravity = 1;
     largeur = 900;
     hauteur = 600;
+    tailleC = 20;
+    largeurG = largeur/tailleC;
+    hauteurG = hauteur/tailleC;
     gravity = 0;
-    grille.resize(45);
+    grille.resize(largeurG);
     controleur = new ToucheClavier();
 
-    for(int i = 0; i<45; i++)
-        grille[i].resize(30);
+    for(int i = 0; i<largeurG; i++)
+        grille[i].resize(hauteurG);
 
     scene = new QGraphicsScene(0, 0, largeur, hauteur, this);
     view = new QGraphicsView(scene, this);
@@ -21,7 +25,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     ajouterPersonnage(5,3);
     ajouterBrique(false,5,5);
 
-    for (int i =0; i< 45; i++)
+    for (int i =0; i< largeurG; i++)
         ajouterBrique(false,i,29);
 
     for (int j =29; j>= 15; j--)
@@ -35,7 +39,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
         for (int i =6; i< 16; i++)
             ajouterBrique(false,i+dec,j);
         dec+= 4;
-        if(dec >=45)
+        if(dec >=largeurG)
             dec = 44;
     }
     /*  -------------- fin niveau -------------------- */
@@ -47,8 +51,8 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setFixedWidth(900);
-    view->setFixedHeight(600);
+    view->setFixedWidth(largeur);
+    view->setFixedHeight(hauteur);
     view->show();
 
 }
@@ -84,12 +88,12 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
 }
 
 bool MainWindow::collisionTest(int x, int y){
-    int hauteurP = 36, largeurP = 22, tailleC = 20;
+    int hauteurP = personnage->getHauteur(), largeurP = personnage->getLargeur();
     bool colision = false;
     int newX = personnage->getX()+x;
     int newY = personnage->getY()+y;
 
-    // nombre de points du personnage espacés de 20px
+    // nombre de points du personnage espacés de tailleCpx
     int nbPointX =1 + largeurP / tailleC;
     if (largeurP % tailleC !=0)
         nbPointX++;
@@ -100,7 +104,7 @@ bool MainWindow::collisionTest(int x, int y){
     int posGrilleI;
     int posGrilleJ;
 
-    // on regarde dans quelle partie de la grille se trouve chaque points espacés de 20px du personnage
+    // on regarde dans quelle partie de la grille se trouve chaque points espacés de tailleCpx du personnage
     for (int i = 0; i< nbPointX; i++){
         if(i * tailleC > largeurP)
             posGrilleI = getGrilleIFromPosition(newX + largeurP);
@@ -138,20 +142,20 @@ void MainWindow::tryMove(int x, int y){
 
 void MainWindow::tryJump(){
     if(collisionTest(0,1))
-        gravity = -1;
+        gravity = -baseGravity;
 }
 
 void MainWindow::timerEvent ( QTimerEvent * event ){
     if (gravity<0){
         personnage->setCurrentH(personnage->getCurrentH()+1);
         if(personnage->getCurrentH()>= personnage->getMaxH() || collisionTest(0,-1)){
-            gravity = 1;
+            gravity = baseGravity;
             personnage->setCurrentH(0);
         }
     }
     else if(collisionTest(0,1))
         gravity = 0;
-    else gravity = 1;
+    else gravity = baseGravity;
 
     int x = 0,y = 0;
     if(gravity == 0 && controleur->getStateKeys(0))
@@ -168,30 +172,30 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 }
 
 QPoint MainWindow::getPositionFromGrille(int i, int j){
-    // 20 car une case = 20p,
+    // tailleC car une case = tailleCp,
     // à modifier pour gérer les différentes tailles
-    return QPoint(i * 20 , j * 20 );
+    return QPoint(i * tailleC , j * tailleC );
 }
 
 int MainWindow::getPositionXFromGrille(int i){
-    // 20 car une case = 20p,
+    // tailleC car une case = tailleCp,
     // à modifier pour gérer les différentes tailles
-    return i * 20;
+    return i * tailleC;
 }
 
 int MainWindow::getPositionYFromGrille( int j){
-    // 20 car une case = 20p,
+    // tailleC car une case = tailleCp,
     // à modifier pour gérer les différentes tailles
 
-    return j*20;
+    return j*tailleC;
 }
 
 int MainWindow::getGrilleIFromPosition(int x){
-    return x/20;
+    return x/tailleC;
 }
 
 int MainWindow::getGrilleJFromPosition(int y){
-    return  y/20;
+    return  y/tailleC;
 }
 
 void MainWindow::toggleGravity(){

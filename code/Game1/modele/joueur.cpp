@@ -6,6 +6,8 @@ Joueur::Joueur(int x ,int y){
     setY(y);
     picture = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/personnage.png"));
     picture->setPos(x,y);
+    hauteur = 36;
+    largeur = 22;
     maxHigh = 50;
     currentHigh = 0;
 }
@@ -71,4 +73,20 @@ void Joueur::setMaxH(int h){
 
 void Joueur::setCurrentH(int h){
     currentHigh = h;
+}
+
+int Joueur::getHauteur(){
+    return hauteur;
+}
+
+void Joueur::setHauteur(int h){
+    hauteur = h;
+}
+
+int Joueur::getLargeur(){
+    return largeur;
+}
+
+void Joueur::setLargeur(int l){
+    largeur = l;
 }

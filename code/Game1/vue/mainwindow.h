@@ -29,8 +29,12 @@ class MainWindow : public QMainWindow
         Joueur * personnage;
         int largeur;
         int hauteur;
+        int largeurG;
+        int hauteurG;
+        int tailleC;
         QBasicTimer timer;
         int gravity;
+        int baseGravity;
         ToucheClavier *controleur;
 
         // vector :  45 * 30 cases pour du 900*600. Une case = 20*20px
@@ -183,7 +187,6 @@ class MainWindow : public QMainWindow
         bool collisionTest(int x, int y);
         /*!
          * \brief fait sauter un personnage en prenant en compte les collisions
-         *  TODO : placer une partie dans Joueur
          * \author Quentin CHEYNET
          */
         void tryJump();
