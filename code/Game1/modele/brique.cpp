@@ -6,10 +6,14 @@ Brique::Brique(bool cassable,int x ,int y){
     setY(y);
     setCassable(cassable);
 
+    QPixmap sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
+
     if(cassable)
-        picture = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/brique_cassable.png"));
+         sprite = sprite.copy(48,560,20,20);
     else
-        picture = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/brique_incassable.png"));
+         sprite = sprite.copy(18,560,20,20);
+
+    picture = new QGraphicsPixmapItem(sprite);
      picture->setPos(x,y);
 }
 
