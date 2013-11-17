@@ -27,7 +27,7 @@ private :
         DROIT = 3,
         ESPACE = 4
     };
-    bool stateKeys[5]; /*!< Tableau de l'état (préssé ou non) des touches*/
+    bool stateKeys[5]; /*!< Tableau de l'état (préssée ou non) des touches*/
 
 public:
     /*!
