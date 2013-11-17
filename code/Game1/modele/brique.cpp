@@ -40,5 +40,9 @@ QGraphicsPixmapItem* Brique::getPicture(){
 }
 
 void Brique::setCassable(bool cassable){
-    this->estCassable = cassable   ;
+    this->cassable = cassable;
+}
+
+bool Brique::estCassable(){
+    return cassable;
 }

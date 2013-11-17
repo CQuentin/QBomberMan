@@ -17,6 +17,7 @@ private:
     int hauteur;
     int largeur;
     int pauseSprite;
+    int power;
     QPixmap sprite;
     QPixmap currentImage;
     QGraphicsPixmapItem *picture;
@@ -103,6 +104,27 @@ public:
      * \author Quentin CHEYNET
      */
     void setLargeur(int l);
+
+    /*!
+     * \brief regarde si le timer de la bombe est à 0
+     * \return Vrai si timer = 0, faux sinon
+     * \author Quentin CHEYNET
+     */
+    bool isExploding();
+
+    /*!
+     * \brief renvoie la portée de la bombe
+     * \return power
+     * \author Quentin CHEYNET
+     */
+    int getPower();
+
+    /*!
+     * \brief assignation d'un entier p à powerr
+     * \param p la portée de la bombe
+     * \author Quentin CHEYNET
+     */
+    void setPower(int p);
 
 
     /*!

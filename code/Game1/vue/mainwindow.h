@@ -16,6 +16,7 @@
 #include<QBasicTimer>
 #include "../modele/brique.h"
 #include "../modele/joueur.h"
+#include "../modele/bombe.h"
 #include "../controleur/toucheclavier.h"
 
 class MainWindow : public QMainWindow
@@ -36,10 +37,8 @@ class MainWindow : public QMainWindow
         int gravity;
         int baseGravity;
         ToucheClavier *controleur;
-
-        // vector :  45 * 30 cases pour du 900*600. Une case = 20*20px
-        // Brique : remplacer plus tard par élément
-       QVector<QVector<Brique*> > grille;
+        QVector<QVector<Brique*> > grille;
+        QVector<Bombe*> bombes;
 
     public:
        /*!
@@ -107,6 +106,16 @@ class MainWindow : public QMainWindow
          * \author Quentin CHEYNET
          */
         void ajouterBombe(int x, int y);
+
+
+        /*!
+         * \brief ajoute une explosion dans la vue
+         * L'image d'une explosion est ajoutée
+         * \param i Colonne de la grille
+         * \param j Ligne de la grille
+         * \author Quentin CHEYNET
+         */
+        void ajouterExplosion(int i, int j, bool end);
 
         /*!
          * \brief renvoie la position en pixel d'un objet dans la scene
@@ -214,6 +223,15 @@ class MainWindow : public QMainWindow
          * \author Quentin CHEYNET
          */
         int getGravity();
+
+        /*!
+         * \brief génère l'explosion d'une bombe
+         * \param bombe La bombe qui explose
+         * \param dx Le sens horizontal de l'explosion
+         * \param dY Le sens horizontal de l'explosion
+         * \author Quentin CHEYNET
+         */
+        void explosion (Bombe *bombe, int dx, int dy);
 
          ~MainWindow();
     // public slots:

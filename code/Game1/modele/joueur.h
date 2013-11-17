@@ -225,5 +225,17 @@ public:
      * \author Quentin CHEYNET
      */
     bool tryDropBombe();
+
+    /*!
+     * \brief enleve un pv au joueur
+     * \author Quentin CHEYNET
+     */
+    void hit();
+
+    /*!
+     * \brief enleve un pv au joueur
+     * \author Quentin CHEYNET
+     */
+    bool isAlive();
 };
 #endif // JOUEUR_H

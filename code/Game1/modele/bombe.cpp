@@ -8,10 +8,10 @@ Bombe::Bombe(int x, int y)
     currentImage = sprite.copy(66,238,13,15);
     picture = new QGraphicsPixmapItem(currentImage);
     picture->setPos(x,y);
-    hauteur = 15;
-    largeur = 15;
+    hauteur = 20;
+    largeur = 20;
     pauseSprite = 15;
-
+    power = 4;
 }
 
 void Bombe::setX(int x)
@@ -58,4 +58,20 @@ void Bombe::setPicture(QGraphicsPixmapItem *picture){
 
 QGraphicsPixmapItem* Bombe::getPicture(){
     return picture;
+}
+
+bool Bombe::isExploding(){
+    return false;
+}
+
+int Bombe::getPower(){
+    return power;
+}
+
+void Bombe::setPower(int p){
+    power = p;
+}
+
+Bombe::~Bombe(){
+    delete this;
 }

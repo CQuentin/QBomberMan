@@ -21,8 +21,16 @@ public:
      */
     void setPicture(QGraphicsPixmapItem *);
 
+    /*!
+     * \brief regarde si la brique est cassable
+     * \return Vrai si la brique est cassable, faux sinon
+     * \author Quentin CHEYNET
+     */
+    bool estCassable();
+
+
 private :
-    bool estCassable;
+    bool cassable;
     int posX;
     int posY;
     void setX(int x);

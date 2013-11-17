@@ -291,6 +291,7 @@ void Joueur::immobile(){
             break;
         case DROPING :
             currentImage = sprite.copy(16,154,26,31);
+            state = STANDING;
             break;
         }
         if (orientG)
@@ -330,10 +331,17 @@ void Joueur::decrNbBombe(){
 bool Joueur::tryDropBombe(){
     if (nbBombes <= nbMaxBombes){
         nbBombes++;
-        qDebug()<<"aarg";
         state = DROPING;
         return true;
     }
     else
     return false;
+}
+
+void Joueur::hit(){
+//pv -- , si pv = 0 ...
+}
+bool Joueur::isAlive(){
+    // si pv > 0
+    return true;
 }

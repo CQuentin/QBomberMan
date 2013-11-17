@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     gravity = 0;
     grille.resize(largeurG);
     controleur = new ToucheClavier();
+    bombes.resize(0);
 
     for(int i = 0; i<largeurG; i++)
         grille[i].resize(hauteurG);
@@ -78,7 +79,22 @@ void MainWindow::ajouterBombe(int x, int y)
 {
     Bombe *bombe = new Bombe(x,y);
     bombe->setY(bombe->getY() - bombe->getHauteur()+1);
-   scene->addItem(bombe->getPicture());
+    bombes.append(bombe);
+    scene->addItem(bombe->getPicture());
+}
+
+void MainWindow::ajouterExplosion(int i, int j, bool end){
+    QPixmap sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
+
+    if(end)
+        sprite = sprite.copy(48,591,20,20);
+    else
+        sprite = sprite.copy(18,591,20,20);
+
+    QGraphicsPixmapItem *picture = new QGraphicsPixmapItem(sprite);
+    picture->setPos(getPositionXFromGrille(i),getPositionYFromGrille(j));
+    scene->addItem(picture);
+
 }
 
 void MainWindow::keyReleaseEvent(QKeyEvent* event) {
@@ -150,11 +166,13 @@ void MainWindow::tryMove(int x, int y){
 void MainWindow::tryJump(){
     if(collisionTest(0,1)){
         gravity = -baseGravity;
-//        personnage->setCurrentS(6);
+        //        personnage->setCurrentS(6);
     }
 }
 
 void MainWindow::timerEvent ( QTimerEvent * event ){
+
+    // ----------- partie personnage
     if (gravity<0){
         personnage->setCurrentH(personnage->getCurrentH()+1);
         if(personnage->getCurrentH()>= personnage->getMaxH() || collisionTest(0,-1)){
@@ -199,11 +217,25 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         personnage->courireD();
     }
 
-   if(x == 0 && gravity == 0 /*&& personnage->getCurrentS() != 3*/)
-       personnage->immobile();
+    if(x == 0 && gravity == 0 /*&& personnage->getCurrentS() != 3*/)
+        personnage->immobile();
 
     tryMove(0,gravity);
     tryMove(x,0);
+
+    // ----------- partie bombes
+    int tmpSize = bombes.size();
+    for(int i = 0; i<tmpSize; i++){
+        if(bombes[i]->isExploding()){
+            explosion(bombes[i],0,0);
+            explosion(bombes[i],0,1);
+            explosion(bombes[i],0,-1);
+            explosion(bombes[i],1,0);
+            explosion(bombes[i],-1,0);
+            scene->removeItem((bombes[i])->getPicture());
+            bombes.remove(i);
+        }
+    }
 }
 
 QPoint MainWindow::getPositionFromGrille(int i, int j){
@@ -239,6 +271,60 @@ void MainWindow::toggleGravity(){
 
 int MainWindow::getGravity(){
     return gravity;
+}
+
+void MainWindow::explosion(Bombe *bombe, int dx, int dy){
+
+    int pI = getGrilleIFromPosition(personnage->getX());
+    int pJ = getGrilleJFromPosition(personnage->getY());
+
+    int posGrilleI = getGrilleIFromPosition(bombe->getX());
+    int posGrilleJ = getGrilleJFromPosition(bombe->getY());
+    int range = bombe->getPower();
+    int i = posGrilleI, j= posGrilleJ;
+
+    if(dx == 0 && dy == 0){
+        if(pI == i && pJ == j  && personnage->isAlive() )
+            personnage->hit();
+        ajouterExplosion(i,i,false);
+    }
+    else{
+
+
+        bool end = false;
+
+        i = i +dx;
+        j = j +dy;
+
+
+
+        while((grille[i][j] == NULL || grille[i][j]->estCassable()) && range >0){
+            if (range -1 <= 0)
+                end = true;
+            if(grille[i][j] != NULL){
+                scene->removeItem(grille[i][j]->getPicture());
+                grille[i][j]->detruireBrique();
+                // = NULL ?
+            }
+            if(pI == i && pJ == j  && personnage->isAlive() )
+                personnage->hit();
+            ajouterExplosion(i,i,end);
+            i = i + dx;
+            j = j + dy;
+
+            if (j < 0)
+                j = 0;
+            if (i < 0)
+                i = 0;
+            if (j > hauteurG)
+                j = hauteurG;
+            if (i > largeurG)
+                i = largeurG;
+
+            range --;
+        }
+    }
+
 }
 
 /* Destructeur de la classe MainWindow */
