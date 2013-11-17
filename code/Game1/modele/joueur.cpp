@@ -177,11 +177,12 @@ void Joueur::immobile(){
             currentImage = sprite.copy(200,73,32,41);
             break;
         case LANDING :
-            currentImage = sprite.copy(238,85,27,31);
+            currentImage = sprite.copy(238,81,27,35);
             state = GETTING_UP;
             break;
         case GETTING_UP :
-            currentImage = sprite.copy(272,83,20,33);
+
+            currentImage = sprite.copy(272,79,20,37);
             state = STANDING;
             break;
         case JUMPING :
