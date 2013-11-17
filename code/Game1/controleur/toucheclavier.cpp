@@ -3,12 +3,9 @@
 ToucheClavier::ToucheClavier()
 {
 
-    stateKeys[0] = false;
-
-    stateKeys[1] = false;
-
-    stateKeys[2] = false;
-    stateKeys[3] = false;
+    for (int i = 0; i<5; i++){
+        stateKeys[i] = false;
+    }
 }
 
 
@@ -26,6 +23,9 @@ void ToucheClavier::setPressed(int key, bool state){
             break;
         case Qt::Key_D:
             stateKeys[3] = state;
+            break;
+        case Qt::Key_Space:
+            stateKeys[4] = state;
             break;
         default : break;
         }
