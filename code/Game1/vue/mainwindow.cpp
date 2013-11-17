@@ -83,13 +83,22 @@ void MainWindow::ajouterBombe(int x, int y)
     scene->addItem(bombe->getPicture());
 }
 
-void MainWindow::ajouterExplosion(int i, int j, bool end){
+void MainWindow::ajouterExplosion(int i, int j, int dx, int dy,bool end){
     QPixmap sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
+    QTransform transform;
 
     if(end)
         sprite = sprite.copy(48,591,20,20);
     else
         sprite = sprite.copy(18,591,20,20);
+
+
+    if (dx == -1)
+        sprite = sprite.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
+    else if (dy != 0){
+        sprite = sprite.transformed(transform.rotate( dy *90 ), Qt::FastTransformation);
+    }
+
 
     QGraphicsPixmapItem *picture = new QGraphicsPixmapItem(sprite);
     picture->setPos(getPositionXFromGrille(i),getPositionYFromGrille(j));
@@ -287,7 +296,7 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
     if(dx == 0 && dy == 0){
         if(pI == i && pJ == j  && personnage->isAlive() )
             personnage->hit();
-        ajouterExplosion(i,j,false);
+        ajouterExplosion(i,j,dx,dy,false);
     }
     else{
 
@@ -309,7 +318,7 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
             }
             if(pI == i && pJ == j  && personnage->isAlive() )
                 personnage->hit();
-            ajouterExplosion(i,j,end);
+            ajouterExplosion(i,j,dx,dy,end);
             i = i + dx;
             j = j + dy;
 
