@@ -16,6 +16,8 @@ Joueur::Joueur(int x ,int y){
     pauseSprite = 15;
     state = STANDING;
     orientG = false;
+    nbMaxBombes = 5;
+    nbBombes = 0;
 }
 
 void Joueur::detruireJoueur(){
@@ -287,8 +289,9 @@ void Joueur::immobile(){
         case JUMPING :
             currentImage = sprite.copy(75,79,22,35);
             break;
-
-
+        case DROPING :
+            currentImage = sprite.copy(16,154,26,31);
+            break;
         }
         if (orientG)
             currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
@@ -306,4 +309,31 @@ void Joueur::setCurrentS(int s){
 
 int Joueur::getCurrentS(){
     return state;
+}
+
+void Joueur::setMaxBombes(int n){
+    nbMaxBombes = n;
+}
+
+int Joueur::getMaxBombes(){
+    return nbMaxBombes;
+}
+
+void Joueur::incrNbBombe(){
+    nbBombes++;
+}
+
+void Joueur::decrNbBombe(){
+    nbBombes--;
+}
+
+bool Joueur::tryDropBombe(){
+    if (nbBombes <= nbMaxBombes){
+        nbBombes++;
+        qDebug()<<"aarg";
+        state = DROPING;
+        return true;
+    }
+    else
+    return false;
 }

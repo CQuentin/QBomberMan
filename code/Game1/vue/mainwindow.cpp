@@ -74,6 +74,13 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
     scene->addItem(grille[i][j]->getPicture());
 }
 
+void MainWindow::ajouterBombe(int x, int y)
+{
+    Bombe *bombe = new Bombe(x,y);
+    bombe->setY(bombe->getY() - bombe->getHauteur()+1);
+   scene->addItem(bombe->getPicture());
+}
+
 void MainWindow::keyReleaseEvent(QKeyEvent* event) {
 
     if(!event->isAutoRepeat()){
@@ -139,7 +146,7 @@ void MainWindow::tryMove(int x, int y){
 
 
 }
-
+//TODO partie modèle à placer dans Joueur (garder partie graphique)
 void MainWindow::tryJump(){
     if(collisionTest(0,1)){
         gravity = -baseGravity;
@@ -175,8 +182,14 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
     if(gravity == 0 && controleur->getStateKeys(0))
         tryJump();
 
-    //    if(controleur->getStateKeys(2))
-    //        y += 1;
+    if(controleur->getStateKeys(2)){
+        if (personnage->tryDropBombe()){
+            // ajouter un truc du style personnage->getBonusBombe()
+            ajouterBombe(personnage->getX(),personnage->getY()+ personnage->getHauteur());
+            controleur->setPressed(Qt::Key_S,false);
+        }
+    }
+
     if(controleur->getStateKeys(1)){
         x +=- 1;
         personnage->courireG();

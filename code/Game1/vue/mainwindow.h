@@ -77,7 +77,7 @@ class MainWindow : public QMainWindow
          * \brief ajoute une brique dans la vue
          *
          * Une instance de Brique est créée. Elle est ajoutée dans
-         * l'attribut grille, puis elle est affiché dans la scène
+         * l'attribut grille, puis elle est affichée dans la scène
          *
          * \param cassable Décide si la nouvelle brique est cassable ou non
          * \param i Colonne de la grille
@@ -89,13 +89,24 @@ class MainWindow : public QMainWindow
         /*!
          * \brief ajoute un personnage dans la vue
          *
-         * Une instance de Joueur est créée, puis elle est affiché dans la scène
+         * Une instance de Joueur est créée, puis elle est affichée dans la scène
          *
          * \param i Colonne de la grille
          * \param j Ligne de la grille
          * \author Quentin CHEYNET
          */
         void ajouterPersonnage(int i, int j);
+
+        /*!
+         * \brief ajoute une bombe dans la vue
+         *
+         * Une instance de Bombe est créée, puis elle est affichée dans la scène
+         *
+         * \param i Colonne de la grille
+         * \param j Ligne de la grille
+         * \author Quentin CHEYNET
+         */
+        void ajouterBombe(int x, int y);
 
         /*!
          * \brief renvoie la position en pixel d'un objet dans la scene

@@ -7,6 +7,7 @@
 #include <QRect>
 #include <QTransform>
 #include "brique.h"
+#include "bombe.h"
 
 class Joueur
 {
@@ -20,7 +21,8 @@ private :
         FALLING = 3,
         LANDING = 4,
         GETTING_UP = 5,
-        JUMPING = 6
+        JUMPING = 6,
+        DROPING = 7
     };
 
     int posX;
@@ -36,7 +38,8 @@ private :
     QPixmap sprite;
     QPixmap currentImage;
     QGraphicsPixmapItem *picture;
-
+    int nbMaxBombes;
+    int nbBombes;
 
 public:
     /*!
@@ -189,5 +192,38 @@ public:
      * \author Quentin CHEYNET
      */
     int getCurrentS();
+
+    /*!
+     * \brief assignation d'un entier n à nbMaxBombes
+     * \param n Le nombre maximum de bombes déposées
+     * \author Quentin CHEYNET
+     */
+    void setMaxBombes(int n);
+
+    /*!
+     * \brief renvoie le nombre maximum de bombes déposées
+     * \return nbMaxBombes
+     * \author Quentin CHEYNET
+     */
+    int getMaxBombes();
+
+    /*!
+     * \brief incrémente nbBombes
+     * \author Quentin CHEYNET
+     */
+    void incrNbBombe();
+
+    /*!
+     * \brief décremente nbBombes
+     * \author Quentin CHEYNET
+     */
+    void decrNbBombe();
+
+    /*!
+     * \brief pose une bombe si c'est possible
+     * \return Vrai si le joueur peut poser une bombe, faux sinon
+     * \author Quentin CHEYNET
+     */
+    bool tryDropBombe();
 };
 #endif // JOUEUR_H
