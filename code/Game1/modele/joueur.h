@@ -5,6 +5,7 @@
 #include <QPixmap>
 #include <QDebug>
 #include "brique.h"
+
 class Joueur
 {
 private :

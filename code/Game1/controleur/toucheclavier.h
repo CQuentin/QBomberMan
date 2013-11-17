@@ -1,7 +1,20 @@
 #ifndef TOUCHECLAVIER_H
 #define TOUCHECLAVIER_H
+
+/*!
+ * \file toucheclavier.h
+ * \brief Gestion des touches du clavier
+ * \author Quentin CHEYNET
+ */
+
 #include <QKeyEvent>
 #include <QDebug>
+
+
+/*! \class ToucheClavier
+ * \brief classe gérant les touches du clavier
+ * \author Quentin CHEYNET
+ */
 class ToucheClavier
 {
 
@@ -14,7 +27,7 @@ private :
         DROIT = 3,
         ESPACE = 4
     };
-    bool stateKeys[5];
+    bool stateKeys[5]; /*!< Tableau de l'état (préssé ou non) des touches*/
 
 public:
     /*!
@@ -22,6 +35,7 @@ public:
      * \author Quentin CHEYNET
      */
     ToucheClavier();
+
     /*!
      * \brief Met l'état d'une touche à vrai ou faux
      * \param key La touche concernée
@@ -29,6 +43,7 @@ public:
      * \author Quentin CHEYNET
      */
     void setPressed(int key, bool state);
+
     /*!
      * \brief Renvoie l'état d'une touche (pressée ou non)
      * \param i La touche dans le tableau des touches
