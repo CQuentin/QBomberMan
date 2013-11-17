@@ -234,6 +234,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             explosion(bombes[i],-1,0);
             scene->removeItem((bombes[i])->getPicture());
             bombes.remove(i);
+            tmpSize--;
         }
     }
 }
@@ -286,7 +287,7 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
     if(dx == 0 && dy == 0){
         if(pI == i && pJ == j  && personnage->isAlive() )
             personnage->hit();
-        ajouterExplosion(i,i,false);
+        ajouterExplosion(i,j,false);
     }
     else{
 
@@ -308,7 +309,7 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
             }
             if(pI == i && pJ == j  && personnage->isAlive() )
                 personnage->hit();
-            ajouterExplosion(i,i,end);
+            ajouterExplosion(i,j,end);
             i = i + dx;
             j = j + dy;
 
