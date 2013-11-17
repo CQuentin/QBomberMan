@@ -14,6 +14,7 @@ Joueur::Joueur(int x ,int y){
     currentHigh = 0;
     step = 0;
     pauseSprite = 15;
+    state = STANDING;
 }
 
 void Joueur::detruireJoueur(){
@@ -96,6 +97,10 @@ void Joueur::setLargeur(int l){
 }
 
 void Joueur::courireD(){
+    if (state == STANDING)
+        step = 0;
+
+    state = RUNNING_D;
     if(pauseSprite >= 15){
         switch(step){
         case 0:
@@ -152,5 +157,40 @@ void Joueur::courireD(){
     else pauseSprite ++;
 
 
+
+}
+
+void Joueur::immobile(){
+    if(pauseSprite >= 30){
+        switch(state){
+        case STANDING :
+            currentImage = sprite.copy(11,505,22,36);
+            break;
+
+        case RUNNING_D :
+            currentImage = sprite.copy(294,28,25,34);
+            state = STANDING;
+            break;
+        case RUNNING_G : //TODO pic
+            state = STANDING;
+            break;
+            //    case FALLING :
+            //        currentImage = sprite.copy(200,73,32,41);
+            //        state
+        case LANDING :
+            currentImage = sprite.copy(238,85,27,31);
+            state = GETTING_UP;
+            break;
+        case GETTING_UP :
+            currentImage = sprite.copy(272,83,20,33);
+            state = STANDING;
+            break;
+        }
+
+        pauseSprite = 0;
+        picture->setPixmap(currentImage);
+    }
+    else
+        pauseSprite++;
 
 }

@@ -10,11 +10,24 @@
 class Joueur
 {
 private :
+
+    enum states
+    {
+        STANDING =0,
+        RUNNING_D =1,
+        RUNNING_G = 2,
+        FALLING = 3,
+        LANDING = 4,
+        GETTING_UP = 5,
+        JUMPING = 6
+    };
+
     int posX;
     int posY;
     int hauteur;
     int largeur;
     int maxHigh;
+    int state;
     int currentHigh;
     int step;
     int pauseSprite;
@@ -143,6 +156,16 @@ public:
      */
     void setLargeur(int l);
 
+    /*!
+     * \brief change picture pour faire courir le personnage vers la droite
+     * \author Quentin CHEYNET
+     */
     void courireD();
+
+    /*!
+     * \brief change picture en cas d'immobilité, en fonction de state
+     * \author Quentin CHEYNET
+     */
+    void immobile();
 };
 #endif // JOUEUR_H

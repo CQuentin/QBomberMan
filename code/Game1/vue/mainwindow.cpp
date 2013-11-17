@@ -157,7 +157,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         gravity = 0;
     else gravity = baseGravity;
 
-    int x = 0,y = 0;
+    int x = 0;
     if(gravity == 0 && controleur->getStateKeys(0))
         tryJump();
 
@@ -171,8 +171,11 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         personnage->courireD();
     }
 
+   if(x == 0 && gravity == 0)
+       personnage->immobile();
+
     tryMove(0,gravity);
-    tryMove(x,y);
+    tryMove(x,0);
 }
 
 QPoint MainWindow::getPositionFromGrille(int i, int j){
