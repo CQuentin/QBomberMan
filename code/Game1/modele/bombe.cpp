@@ -1,6 +1,6 @@
 #include "bombe.h"
 
-Bombe::Bombe(int x, int y)
+Bombe::Bombe(QObject *parent = 0, int x = 0, int y = 0) : QObject(parent)
 {
     posX = x;
     posY = y;
@@ -12,6 +12,9 @@ Bombe::Bombe(int x, int y)
     largeur = 20;
     pauseSprite = 15;
     power = 4;
+    countDown = 3100;
+    timer.start(1000,this);
+    exploding = false;
 }
 
 void Bombe::setX(int x)
@@ -61,7 +64,7 @@ QGraphicsPixmapItem* Bombe::getPicture(){
 }
 
 bool Bombe::isExploding(){
-    return false;
+    return exploding;
 }
 
 int Bombe::getPower(){
@@ -70,6 +73,25 @@ int Bombe::getPower(){
 
 void Bombe::setPower(int p){
     power = p;
+}
+
+void Bombe::timerEvent ( QTimerEvent * event ){
+
+    if (countDown > 100)
+        countDown -=1000;
+    if (countDown == 100){
+        timer.start(100,this);
+        countDown -= 20;
+        //image
+    }
+    if (countDown <100){
+        countDown -=20;
+        //image
+    }
+    if (countDown < 0){
+        timer.stop();
+        exploding = true;
+    }
 }
 
 Bombe::~Bombe(){

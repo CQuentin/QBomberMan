@@ -6,10 +6,11 @@
 #include <QDebug>
 #include <QRect>
 #include <QTransform>
+#include <QBasicTimer>
 #include "brique.h"
 
 
-class Bombe
+class Bombe: public QObject
 {
 private:
     int posX;
@@ -18,6 +19,9 @@ private:
     int largeur;
     int pauseSprite;
     int power;
+    int countDown;
+    bool exploding;
+    QBasicTimer timer;
     QPixmap sprite;
     QPixmap currentImage;
     QGraphicsPixmapItem *picture;
@@ -33,7 +37,7 @@ public:
      * \param y La position à l'ordonnée de la bombe
      * \author Quentin CHEYNET
      */
-    Bombe(int x, int y);
+    Bombe(QObject *parent,int x, int y);
 
     /*!
      * \brief renvoie la position x de la bombe
@@ -120,12 +124,18 @@ public:
     int getPower();
 
     /*!
-     * \brief assignation d'un entier p à powerr
+     * \brief assignation d'un entier p à power
      * \param p la portée de la bombe
      * \author Quentin CHEYNET
      */
     void setPower(int p);
 
+    /*!
+     * \brief timer de la bombe
+     * \param event
+     * \author Quentin CHEYNET
+     */
+    void timerEvent ( QTimerEvent * event );
 
     /*!
      * \brief Destructeur

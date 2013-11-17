@@ -77,7 +77,7 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
 
 void MainWindow::ajouterBombe(int x, int y)
 {
-    Bombe *bombe = new Bombe(x,y);
+    Bombe *bombe = new Bombe(0,x,y);
     bombe->setY(bombe->getY() - bombe->getHauteur()+1);
     bombes.append(bombe);
     scene->addItem(bombe->getPicture());
