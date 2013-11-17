@@ -167,5 +167,19 @@ public:
      * \author Quentin CHEYNET
      */
     void immobile();
+
+    /*!
+     * \brief assignation d'un entier s à state
+     * \param s L'état du personnage
+     * \author Quentin CHEYNET
+     */
+    void setCurrentS(int s);
+
+    /*!
+     * \brief renvoie l'état du personnage
+     * \return state
+     * \author Quentin CHEYNET
+     */
+    int getCurrentS();
 };
 #endif // JOUEUR_H

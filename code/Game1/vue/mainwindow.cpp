@@ -153,9 +153,16 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             personnage->setCurrentH(0);
         }
     }
-    else if(collisionTest(0,1))
+    else if(collisionTest(0,1)){
+        if(gravity == 1)
+            personnage->setCurrentS(4); //LANDING
         gravity = 0;
-    else gravity = baseGravity;
+    }
+    else {
+        gravity = baseGravity;
+        personnage->setCurrentS(3); // FALLING
+        personnage->immobile();
+    }
 
     int x = 0;
     if(gravity == 0 && controleur->getStateKeys(0))
@@ -171,7 +178,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         personnage->courireD();
     }
 
-   if(x == 0 && gravity == 0)
+   if(x == 0 && gravity == 0 /*&& personnage->getCurrentS() != 3*/)
        personnage->immobile();
 
     tryMove(0,gravity);
