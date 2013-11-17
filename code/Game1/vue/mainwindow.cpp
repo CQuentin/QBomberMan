@@ -179,6 +179,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
     //        y += 1;
     if(controleur->getStateKeys(1)){
         x +=- 1;
+        personnage->courireG();
     }
     else if(controleur->getStateKeys(3)){
         x += 1;

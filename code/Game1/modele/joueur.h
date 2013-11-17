@@ -5,6 +5,7 @@
 #include <QPixmap>
 #include <QDebug>
 #include <QRect>
+#include <QTransform>
 #include "brique.h"
 
 class Joueur
@@ -31,6 +32,7 @@ private :
     int currentHigh;
     int step;
     int pauseSprite;
+    bool orientG;
     QPixmap sprite;
     QPixmap currentImage;
     QGraphicsPixmapItem *picture;
@@ -161,6 +163,12 @@ public:
      * \author Quentin CHEYNET
      */
     void courireD();
+
+    /*!
+     * \brief change picture pour faire courir le personnage vers la gauche
+     * \author Quentin CHEYNET
+     */
+    void courireG();
 
     /*!
      * \brief change picture en cas d'immobilité, en fonction de state
