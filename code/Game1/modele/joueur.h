@@ -4,6 +4,7 @@
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 #include <QDebug>
+#include <QRect>
 #include "brique.h"
 
 class Joueur
@@ -15,6 +16,10 @@ private :
     int largeur;
     int maxHigh;
     int currentHigh;
+    int step;
+    int pauseSprite;
+    QPixmap sprite;
+    QPixmap currentImage;
     QGraphicsPixmapItem *picture;
 
 
@@ -138,5 +143,6 @@ public:
      */
     void setLargeur(int l);
 
+    void courireD();
 };
 #endif // JOUEUR_H

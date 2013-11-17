@@ -160,13 +160,17 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
     int x = 0,y = 0;
     if(gravity == 0 && controleur->getStateKeys(0))
         tryJump();
-    if(controleur->getStateKeys(1))
-        x +=- 1;
+
     //    if(controleur->getStateKeys(2))
     //        y += 1;
-    if(controleur->getStateKeys(3)){
-        x += 1;
+    if(controleur->getStateKeys(1)){
+        x +=- 1;
     }
+    else if(controleur->getStateKeys(3)){
+        x += 1;
+        personnage->courireD();
+    }
+
     tryMove(0,gravity);
     tryMove(x,y);
 }

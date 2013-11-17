@@ -4,12 +4,16 @@
 Joueur::Joueur(int x ,int y){
     setX(x);
     setY(y);
-    picture = new QGraphicsPixmapItem(QPixmap("../Game1/ressource/personnage.png"));
+    sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
+    currentImage = sprite.copy(11,505,22,36);
+    picture = new QGraphicsPixmapItem(currentImage);
     picture->setPos(x,y);
-    hauteur = 36;
-    largeur = 22;
+    hauteur = 35;
+    largeur = 20;
     maxHigh = 50;
     currentHigh = 0;
+    step = 0;
+    pauseSprite = 15;
 }
 
 void Joueur::detruireJoueur(){
@@ -89,4 +93,64 @@ int Joueur::getLargeur(){
 
 void Joueur::setLargeur(int l){
     largeur = l;
+}
+
+void Joueur::courireD(){
+    if(pauseSprite >= 15){
+        switch(step){
+        case 0:
+            currentImage = sprite.copy(13,28,32,34);
+            step = 1;
+            break;
+        case 1:
+            currentImage = sprite.copy(57,28,20,34);
+            step = 2;
+            break;
+        case 2:
+            currentImage = sprite.copy(83,29,27,33);
+            step = 3;
+            break;
+        case 3:
+            currentImage = sprite.copy(116,28,20,34);
+            step = 4;
+            break;
+        case 4:
+            currentImage = sprite.copy(141,27,20,35);
+            step = 5;
+            break;
+        case 5:
+            currentImage = sprite.copy(167,28,20,34);
+            step = 6;
+            break;
+        case 6:
+            currentImage = sprite.copy(193,29,27,33);
+            step = 7;
+            break;
+        case 7:
+            currentImage = sprite.copy(226,28,20,34);
+            step = 8;
+            break;
+        case 8:
+            currentImage = sprite.copy(252,27,20,35);
+            step = 1;
+            break;
+        }
+        pauseSprite = 0;
+
+        picture->setPixmap(currentImage);
+
+        //dans les sprite 2 et 6, le point le plus à gauche n'est plus la tête
+        //adoucit le mouvement (différence de 4px -> diff de 2px puis 2px)
+        // ATTENTION : pendant un court moment, le joueur voit son personnage à 2 px de là
+        // où il est rééllement
+        if(step == 3 || step == 7)
+            picture->moveBy(-2,0);
+        else if(step == 4 || step == 8)
+            picture->moveBy(2,0);
+
+    }
+    else pauseSprite ++;
+
+
+
 }
