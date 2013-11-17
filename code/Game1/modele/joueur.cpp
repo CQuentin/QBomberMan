@@ -97,7 +97,7 @@ void Joueur::setLargeur(int l){
 }
 
 void Joueur::courireD(){
-    if (state != FALLING){
+    if (state != FALLING && state != JUMPING){
         if (state == STANDING)
             step = 0;
 
@@ -142,7 +142,6 @@ void Joueur::courireD(){
                 break;
             }
             pauseSprite = 0;
-
             picture->setPixmap(currentImage);
 
             //dans les sprite 2 et 6, le point le plus à gauche n'est plus la tête
@@ -167,7 +166,6 @@ void Joueur::immobile(){
         case STANDING :
             currentImage = sprite.copy(11,505,22,36);
             break;
-
         case RUNNING_D :
             currentImage = sprite.copy(294,28,25,34);
             state = STANDING;
@@ -186,6 +184,11 @@ void Joueur::immobile(){
             currentImage = sprite.copy(272,83,20,33);
             state = STANDING;
             break;
+        case JUMPING :
+            currentImage = sprite.copy(75,79,22,35);
+            break;
+
+
         }
 
         pauseSprite = 0;

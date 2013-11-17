@@ -141,8 +141,10 @@ void MainWindow::tryMove(int x, int y){
 }
 
 void MainWindow::tryJump(){
-    if(collisionTest(0,1))
+    if(collisionTest(0,1)){
         gravity = -baseGravity;
+//        personnage->setCurrentS(6);
+    }
 }
 
 void MainWindow::timerEvent ( QTimerEvent * event ){
@@ -152,6 +154,11 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             gravity = baseGravity;
             personnage->setCurrentH(0);
         }
+        else{
+            personnage->setCurrentS(6);
+            personnage->immobile();
+        }
+
     }
     else if(collisionTest(0,1)){
         if(gravity == 1)
