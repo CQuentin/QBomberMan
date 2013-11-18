@@ -26,14 +26,20 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     ajouterPersonnage(5,3);
     ajouterBrique(false,5,5);
 
-    for (int i =0; i< largeurG; i++)
-        ajouterBrique(false,i,29);
 
     for (int j =29; j>= 15; j--)
-        ajouterBrique(false,30,j);
+        ajouterBrique(true,30,j);
+
+    for (int i =30; i< 37; i++)
+        ajouterBrique(true,i,14);
 
     for (int i =30; i< 37; i++)
         ajouterBrique(false,i,15);
+
+    for (int i = 0; i< 2; i++)
+        ajouterBrique(false,i,27);
+    for (int i = 5; i< 10; i++)
+        ajouterBrique(false,i,25);
 
     int dec = 0;
     for(int j = 23; j>=15; j-=2){
@@ -42,6 +48,18 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
         dec+= 4;
         if(dec >=largeurG)
             dec = 44;
+
+
+        // -------- 4 murs du contour
+        for (int i =0; i< largeurG; i++)
+            ajouterBrique(false,i,29);
+        for (int i =0; i< largeurG; i++)
+            ajouterBrique(false,i,0);
+        for (int j =0; j< hauteurG; j++)
+            ajouterBrique(false,0,j);
+        for (int j =0; j< hauteurG; j++)
+            ajouterBrique(false,44,j);
+        // -------- fin 4 murs du contour
     }
     /*  -------------- fin niveau -------------------- */
 
@@ -319,7 +337,7 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
                 end = true;
             if(grille[i][j] != NULL){
                 scene->removeItem(grille[i][j]->getPicture());
-                grille[i][j]->detruireBrique();
+                grille[i][j] = NULL;
                 // = NULL ?
             }
             if(pI == i && pJ == j  && personnage->isAlive() )
