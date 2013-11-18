@@ -270,7 +270,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             scene->removeItem((bombes[i])->getPicture());
             bombes.remove(i);
             tmpSizeB--;
-
+            personnage->decrNbBombe();
         }
     }
 
