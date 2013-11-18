@@ -82,23 +82,45 @@ void Bombe::timerEvent ( QTimerEvent * event ){
 
     if (countDown > 100)
         countDown -=1000;
-    else if (countDown == 100){
-        timer.start(100,this);
-        countDown -= 20;
-        //image
+    else{
+        switch (countDown) {
+            case 100 :
+            timer.start(100,this);
+            countDown -= 20;
+            currentImage = sprite.copy(49,239,14,15);
+            break;
+            case 80 :
+            countDown -=20;
+            currentImage = sprite.copy(30,239,16,16);
+            break;
+            case 60 :
+            countDown -= 20;
+            currentImage = sprite.copy(80,213,16,16);
+            break;
+            case 40 :
+            countDown -= 20;
+            currentImage = sprite.copy(57,213,15,16);
+            break;
+            case 20 :
+            countDown -= 20;
+            currentImage = sprite.copy(37,212,12,18);
+            break;
+            case 0 :
+            countDown -= 20;
+            currentImage = sprite.copy(24,212,4,18);
+            break;
+            }
     }
-    else if (countDown <100){
-        countDown -=20;
-        //image
-    }
+
     if (countDown < 0 && !exploding){
-        timer.start(300,this);
+        currentImage = sprite.copy(13,209,1,24);
         exploding = true;
     }
     else if (exploding){
         exploded = true;
         timer.stop();
     }
+    picture->setPixmap(currentImage);
 }
 
 void Bombe::addExplosions(QGraphicsPixmapItem *pExplosion){
