@@ -102,7 +102,7 @@ void MainWindow::ajouterBombe(int x, int y)
     scene->addItem(bombe->getPicture());
 }
 
-void MainWindow::ajouterExplosion(Bombe *bombe,int i, int j, int dx, int dy,bool end){
+void MainWindow::ajouterExplosion(Bombe *bombe,int x, int y, int dx, int dy,bool end){
     QPixmap sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
     QTransform transform;
 
@@ -121,7 +121,7 @@ void MainWindow::ajouterExplosion(Bombe *bombe,int i, int j, int dx, int dy,bool
 
     QGraphicsPixmapItem *picture = new QGraphicsPixmapItem(sprite);
     bombe->addExplosions(picture);
-    picture->setPos(getPositionXFromGrille(i),getPositionYFromGrille(j));
+    picture->setPos(x,y);
     scene->addItem(picture);
 
 }
@@ -145,7 +145,7 @@ bool MainWindow::collisionTest(int x, int y){
     int newX = personnage->getX()+x;
     int newY = personnage->getY()+y;
 
-    // nombre de points du personnage espacés de tailleCpx
+    // nombre de points du personnage espacés de tailleC px
     int nbPointX =1 + largeurP / tailleC;
     if (largeurP % tailleC !=0)
         nbPointX++;
@@ -317,35 +317,56 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
     int pI = getGrilleIFromPosition(personnage->getX());
     int pJ = getGrilleJFromPosition(personnage->getY());
 
-    int posGrilleI = getGrilleIFromPosition(bombe->getX());
-    int posGrilleJ = getGrilleJFromPosition(bombe->getY());
+    int x = bombe->getX();
+    int y = bombe->getY();
+
+    // point en haut à gauche
+    int posGrilleI = getGrilleIFromPosition(x);
+    int posGrilleJ = getGrilleJFromPosition(y);
+
+    // point en bas à droite
+    int posGrilleI2 = getGrilleIFromPosition(x+tailleC -1);
+    int posGrilleJ2 = getGrilleJFromPosition(y+ tailleC -1);
+
     int range = bombe->getPower();
     int i = posGrilleI, j= posGrilleJ;
+    int i2 = posGrilleI2, j2 = posGrilleJ2;
 
     if(dx == 0 && dy == 0){
-        if(pI == i && pJ == j  && personnage->isAlive() )
+        if(((pI == i && pJ == j) || (pI == i2 && pJ == j2))  && personnage->isAlive() )
             personnage->hit();
-        ajouterExplosion(bombe,i,j,dx,dy,false);
+        ajouterExplosion(bombe,x,y,dx,dy,false);
     }
     else{
         bool end = false;
 
         i = i +dx;
         j = j +dy;
-
-        while((grille[i][j] == NULL || grille[i][j]->estCassable()) && range >0){
+        i2 = i2 +dx;
+        j2 = j2 +dy;
+        x += dx * tailleC; // 20 = taille explosion
+        y += dy * tailleC;
+        while(((grille[i][j] == NULL || grille[i][j]->estCassable()) && ((grille[i2][j2] == NULL || grille[i2][j2]->estCassable())))&& range >0){
             if (range -1 <= 0)
                 end = true;
-            if(grille[i][j] != NULL){
+            if(grille[i][j] != NULL && grille[i][j]->estCassable()){
                 scene->removeItem(grille[i][j]->getPicture());
                 grille[i][j] = NULL;
-                // = NULL ?
             }
-            if(pI == i && pJ == j  && personnage->isAlive() )
+            if(grille[i2][j2] != NULL && grille[i2][j2]->estCassable()){
+                scene->removeItem(grille[i2][j2]->getPicture());
+                grille[i2][j2] = NULL;
+            }
+            if(((pI == i && pJ == j) || (pI == i2 && pJ == j2))  && personnage->isAlive() )
                 personnage->hit();
-            ajouterExplosion(bombe,i,j,dx,dy,end);
-            i = i + dx;
-            j = j + dy;
+            ajouterExplosion(bombe,x,y,dx,dy,end);
+
+            i = i +dx;
+            j = j +dy;
+            i2 = i2 +dx;
+            j2 = j2 +dy;
+            x += dx * tailleC; // 20 = taille explosion
+            y += dy * tailleC;
 
             if (j < 0)
                 j = 0;
@@ -355,6 +376,14 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
                 j = hauteurG;
             if (i > largeurG)
                 i = largeurG;
+            if (j2 < 0)
+                j2 = 0;
+            if (i2 < 0)
+                i2 = 0;
+            if (j2 > hauteurG)
+                j2 = hauteurG;
+            if (i2 > largeurG)
+                i2 = largeurG;
 
             range --;
         }
