@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grille.resize(largeurG);
     controleur = new ToucheClavier();
     bombes.resize(0);
+    grabKeyboard();
 
     for(int i = 0; i<largeurG; i++)
         grille[i].resize(hauteurG);
@@ -232,7 +233,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         if (personnage->tryDropBombe()){
             // ajouter un truc du style personnage->getBonusBombe()
             ajouterBombe(personnage->getX(),personnage->getY()+ personnage->getHauteur());
-            controleur->setPressed(Qt::Key_S,false);
+            controleur->setPressed(Qt::Key_Down,false);
         }
     }
 

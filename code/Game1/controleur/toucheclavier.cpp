@@ -12,16 +12,16 @@ ToucheClavier::ToucheClavier()
 void ToucheClavier::setPressed(int key, bool state){
 
         switch(key){
-        case Qt::Key_Z:
+        case Qt::Key_Up:
             stateKeys[0] = state;
             break;
-        case Qt::Key_Q:
+        case Qt::Key_Left:
             stateKeys[1] = state;
             break;
-        case Qt::Key_S:
+        case Qt::Key_Down:
             stateKeys[2] = state;
             break;
-        case Qt::Key_D:
+        case Qt::Key_Right:
             stateKeys[3] = state;
             break;
         case Qt::Key_Space:
