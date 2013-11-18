@@ -16,7 +16,7 @@ Joueur::Joueur(int x ,int y){
     pauseSprite = 15;
     state = STANDING;
     orientG = false;
-    nbMaxBombes = 1; // 0 -> 1 bombe max
+    nbMaxBombes = 2;
     nbBombes = 0;
 }
 
@@ -329,7 +329,7 @@ void Joueur::decrNbBombe(){
 }
 
 bool Joueur::tryDropBombe(){
-    if (nbBombes <= nbMaxBombes){
+    if (nbBombes < nbMaxBombes){
         nbBombes++;
         state = DROPING;
         return true;
