@@ -1,0 +1,10 @@
+<map id="Game1/modele/bombe.h" name="Game1/modele/bombe.h">
+<area shape="rect" id="node3" href="$joueur_8h.html" title="Game1/modele/joueur.h" alt="" coords="393,83,553,112"/>
+<area shape="rect" id="node5" href="$mainwindow_8h.html" title="Game1/vue/mainwindow.h" alt="" coords="268,160,444,189"/>
+<area shape="rect" id="node18" href="$bombe_8cpp.html" title="Game1/modele/bombe.cpp" alt="" coords="577,83,756,112"/>
+<area shape="rect" id="node15" href="$joueur_8cpp.html" title="Game1/modele/joueur.cpp" alt="" coords="468,160,641,189"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title="Game1/main.cpp" alt="" coords="5,237,125,267"/>
+<area shape="rect" id="node9" href="$moc__mainwindow_8cpp.html" title="Game1/moc_mainwindow.cpp" alt="" coords="149,237,347,267"/>
+<area shape="rect" id="node11" href="$mainwindow_8cpp.html" title="Game1/vue/mainwindow.cpp" alt="" coords="371,237,560,267"/>
+<area shape="rect" id="node13" href="$vue_2moc__mainwindow_8cpp.html" title="Game1/vue/moc_mainwindow.cpp" alt="" coords="584,237,805,267"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Game1/vue/mainwindow.h" name="Game1/vue/mainwindow.h">
+<area shape="rect" id="node29" href="$brique_8h.html" title="../modele/brique.h" alt="" coords="639,237,764,267"/>
+<area shape="rect" id="node35" href="$joueur_8h.html" title="../modele/joueur.h" alt="" coords="843,83,968,112"/>
+<area shape="rect" id="node46" href="$bombe_8h.html" title="bombe.h" alt="" coords="993,160,1065,189"/>
+<area shape="rect" id="node58" href="$toucheclavier_8h.html" title="Gestion des touches du clavier." alt="" coords="1292,83,1473,112"/>
+</map>

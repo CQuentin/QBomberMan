@@ -128,7 +128,7 @@ public:
     void setMaxH(int h);
 
     /*!
-     * \brief assignation d'un entier h à currantH
+     * \brief assignation d'un entier h à currentHigh
      * \param h La hauteur courrante après un saut
      * \author Quentin CHEYNET
      */
@@ -234,7 +234,7 @@ public:
     void hit();
 
     /*!
-     * \brief enleve un pv au joueur
+     * \brief regarde si le joueur est en vie
      * \return Vrai si le joueur est en vie
      * \author Quentin CHEYNET
      */
