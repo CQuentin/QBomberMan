@@ -234,8 +234,15 @@ public:
 
     /*!
      * \brief enleve un pv au joueur
+     * \return Vrai si le joueur est en vie
      * \author Quentin CHEYNET
      */
     bool isAlive();
+
+    /*!
+     * \brief Fait exploser toutes les bombes du joueur
+     * \author Quentin CHEYNET
+     */
+    void trigger();
 };
 #endif // JOUEUR_H

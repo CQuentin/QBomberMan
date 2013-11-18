@@ -84,32 +84,32 @@ void Bombe::timerEvent ( QTimerEvent * event ){
         countDown -=1000;
     else{
         switch (countDown) {
-            case 100 :
+        case 100 :
             timer.start(100,this);
             countDown -= 20;
             currentImage = sprite.copy(49,239,14,15);
             break;
-            case 80 :
+        case 80 :
             countDown -=20;
             currentImage = sprite.copy(30,239,16,16);
             break;
-            case 60 :
+        case 60 :
             countDown -= 20;
             currentImage = sprite.copy(80,213,16,16);
             break;
-            case 40 :
+        case 40 :
             countDown -= 20;
             currentImage = sprite.copy(57,213,15,16);
             break;
-            case 20 :
+        case 20 :
             countDown -= 20;
             currentImage = sprite.copy(37,212,12,18);
             break;
-            case 0 :
+        case 0 :
             countDown -= 20;
             currentImage = sprite.copy(24,212,4,18);
             break;
-            }
+        }
     }
 
     if (countDown < 0 && !exploding){
@@ -129,6 +129,15 @@ void Bombe::addExplosions(QGraphicsPixmapItem *pExplosion){
 
 QVector<QGraphicsPixmapItem*> Bombe::getExplosions(){
     return explosions;
+}
+
+void Bombe::trigger(){
+
+    if (countDown > 100){
+        countDown = 100;
+        timer.start(100,this);
+    }
+
 }
 
 Bombe::~Bombe(){

@@ -162,6 +162,11 @@ public:
     QVector<QGraphicsPixmapItem*> getExplosions();
 
     /*!
+     * \brief fait exploser une bombe
+     * \author Quentin CHEYNET
+     */
+    void trigger();
+    /*!
      * \brief Destructeur
      * Destructeur de la classe Bombe
      * \author Quentin CHEYNET

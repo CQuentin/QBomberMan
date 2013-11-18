@@ -156,7 +156,7 @@ bool MainWindow::collisionTest(int x, int y){
     int posGrilleI;
     int posGrilleJ;
 
-    // on regarde dans quelle partie de la grille se trouve chaque points espacés de tailleCpx du personnage
+    // on regarde dans quelle partie de la grille se trouve chaque points espacés de taille Cpx du personnage
     for (int i = 0; i< nbPointX; i++){
         if(i * tailleC > largeurP)
             posGrilleI = getGrilleIFromPosition(newX + largeurP);
@@ -231,8 +231,8 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
     if(controleur->getStateKeys(2)){
         if (personnage->tryDropBombe()){
-            // ajouter un truc du style personnage->getBonusBombe()
-            ajouterBombe(personnage->getX(),personnage->getY()+ personnage->getHauteur());
+            // ajouter un truc du style personnage->hasBonusBombe()
+            ajouterBombe(personnage->getX()+personnage->getLargeur()/2,personnage->getY()+ personnage->getHauteur());
             controleur->setPressed(Qt::Key_Down,false);
         }
     }
@@ -249,8 +249,15 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
     if(x == 0 && gravity == 0 /*&& personnage->getCurrentS() != 3*/)
         personnage->immobile();
 
+    // TODO ? asscocier les bombes au joueur, soit avec le trigger du Joueur, soir en ayant bombes[NumJ][bombes]
+    if(/*personnage->hasBonusTrigger == trigger &&*/controleur->getStateKeys(4)){
+        triggerAll();
+        controleur->setPressed(Qt::Key_Space,false);
+    }
+
     tryMove(0,gravity);
     tryMove(x,0);
+
 
     // ----------- partie bombes
     int tmpSizeB = bombes.size();
@@ -312,6 +319,12 @@ int MainWindow::getGravity(){
     return gravity;
 }
 
+// TODO si liste de joueur, mettre ID Joueur en paramètre
+void MainWindow::triggerAll(){
+    for (int i = 0; i < bombes.size(); i++)
+        bombes[i]->trigger();
+}
+
 void MainWindow::explosion(Bombe *bombe, int dx, int dy){
 
     int pI = getGrilleIFromPosition(personnage->getX());
@@ -368,6 +381,7 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
             x += dx * tailleC; // 20 = taille explosion
             y += dy * tailleC;
 
+            // garde fou, tout les test sont faux normalement
             if (j < 0)
                 j = 0;
             if (i < 0)

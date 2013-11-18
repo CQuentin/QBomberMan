@@ -345,3 +345,9 @@ bool Joueur::isAlive(){
     // si pv > 0
     return true;
 }
+
+void Joueur::trigger(){
+//    TODO ?: avoir un vector de bombes, et les faire toutes exploser
+    // retirer le trigger de mainwindwow
+    nbBombes = 0;
+}

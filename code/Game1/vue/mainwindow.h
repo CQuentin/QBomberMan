@@ -237,6 +237,12 @@ class MainWindow : public QMainWindow
          */
         void explosion (Bombe *bombe, int dx, int dy);
 
+        /*!
+         * \brief fait exploser toutes les bombes
+         * \author Quentin CHEYNET
+         */
+        void triggerAll();
+
          ~MainWindow();
     // public slots:
 };
