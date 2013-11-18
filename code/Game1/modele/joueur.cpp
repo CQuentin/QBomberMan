@@ -331,7 +331,8 @@ void Joueur::decrNbBombe(){
 bool Joueur::tryDropBombe(){
     if (nbBombes < nbMaxBombes){
         nbBombes++;
-        state = DROPING;
+        if (state == STANDING)
+            state = DROPING;
         return true;
     }
     else
