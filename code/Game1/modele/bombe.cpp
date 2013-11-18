@@ -66,6 +66,9 @@ QGraphicsPixmapItem* Bombe::getPicture(){
 bool Bombe::isExploding(){
     return exploding;
 }
+bool Bombe::hasExploded(){
+    return exploded;
+}
 
 int Bombe::getPower(){
     return power;
@@ -79,19 +82,31 @@ void Bombe::timerEvent ( QTimerEvent * event ){
 
     if (countDown > 100)
         countDown -=1000;
-    if (countDown == 100){
+    else if (countDown == 100){
         timer.start(100,this);
         countDown -= 20;
         //image
     }
-    if (countDown <100){
+    else if (countDown <100){
         countDown -=20;
         //image
     }
-    if (countDown < 0){
-        timer.stop();
+    if (countDown < 0 && !exploding){
+        timer.start(300,this);
         exploding = true;
     }
+    else if (exploding){
+        exploded = true;
+        timer.stop();
+    }
+}
+
+void Bombe::addExplosions(QGraphicsPixmapItem *pExplosion){
+    explosions.append(pExplosion);
+}
+
+QVector<QGraphicsPixmapItem*> Bombe::getExplosions(){
+    return explosions;
 }
 
 Bombe::~Bombe(){

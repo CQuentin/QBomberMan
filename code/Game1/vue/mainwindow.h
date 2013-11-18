@@ -111,6 +111,7 @@ class MainWindow : public QMainWindow
         /*!
          * \brief ajoute une explosion dans la vue
          * L'image d'une explosion est ajoutée
+         * \param bombe La bombe à laquelle appatiennent les explosions
          * \param i Colonne de la grille
          * \param j Ligne de la grille
          * \param dx direction horizontal de l'explosion
@@ -118,7 +119,7 @@ class MainWindow : public QMainWindow
          * \param end Si l'image doit être la fin de l'explosion
          * \author Quentin CHEYNET
          */
-        void ajouterExplosion(int i, int j, int dx, int dy, bool end);
+        void ajouterExplosion(Bombe *bombe, int i, int j, int dx, int dy, bool end);
 
         /*!
          * \brief renvoie la position en pixel d'un objet dans la scene

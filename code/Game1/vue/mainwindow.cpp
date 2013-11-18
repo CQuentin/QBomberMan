@@ -83,7 +83,7 @@ void MainWindow::ajouterBombe(int x, int y)
     scene->addItem(bombe->getPicture());
 }
 
-void MainWindow::ajouterExplosion(int i, int j, int dx, int dy,bool end){
+void MainWindow::ajouterExplosion(Bombe *bombe,int i, int j, int dx, int dy,bool end){
     QPixmap sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
     QTransform transform;
 
@@ -101,6 +101,7 @@ void MainWindow::ajouterExplosion(int i, int j, int dx, int dy,bool end){
 
 
     QGraphicsPixmapItem *picture = new QGraphicsPixmapItem(sprite);
+    bombe->addExplosions(picture);
     picture->setPos(getPositionXFromGrille(i),getPositionYFromGrille(j));
     scene->addItem(picture);
 
@@ -233,19 +234,28 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
     tryMove(x,0);
 
     // ----------- partie bombes
-    int tmpSize = bombes.size();
-    for(int i = 0; i<tmpSize; i++){
+    int tmpSizeB = bombes.size();
+    for(int i = 0; i<tmpSizeB; i++){
         if(bombes[i]->isExploding()){
             explosion(bombes[i],0,0);
             explosion(bombes[i],0,1);
             explosion(bombes[i],0,-1);
             explosion(bombes[i],1,0);
             explosion(bombes[i],-1,0);
+
+
+        }
+        if(bombes[i]->hasExploded()){
+            int tmpSizeE = bombes[i]->getExplosions().size();
+            for(int j = 0; j< tmpSizeE; j++)
+                scene->removeItem(bombes[i]->getExplosions().at(j));
             scene->removeItem((bombes[i])->getPicture());
             bombes.remove(i);
-            tmpSize--;
+            tmpSizeB--;
+
         }
     }
+
 }
 
 QPoint MainWindow::getPositionFromGrille(int i, int j){
@@ -296,17 +306,13 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
     if(dx == 0 && dy == 0){
         if(pI == i && pJ == j  && personnage->isAlive() )
             personnage->hit();
-        ajouterExplosion(i,j,dx,dy,false);
+        ajouterExplosion(bombe,i,j,dx,dy,false);
     }
     else{
-
-
         bool end = false;
 
         i = i +dx;
         j = j +dy;
-
-
 
         while((grille[i][j] == NULL || grille[i][j]->estCassable()) && range >0){
             if (range -1 <= 0)
@@ -318,7 +324,7 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
             }
             if(pI == i && pJ == j  && personnage->isAlive() )
                 personnage->hit();
-            ajouterExplosion(i,j,dx,dy,end);
+            ajouterExplosion(bombe,i,j,dx,dy,end);
             i = i + dx;
             j = j + dy;
 
@@ -334,7 +340,6 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
             range --;
         }
     }
-
 }
 
 /* Destructeur de la classe MainWindow */

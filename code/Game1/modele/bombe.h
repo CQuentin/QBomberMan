@@ -7,6 +7,7 @@
 #include <QRect>
 #include <QTransform>
 #include <QBasicTimer>
+#include <QVector>
 #include "brique.h"
 
 
@@ -21,6 +22,8 @@ private:
     int power;
     int countDown;
     bool exploding;
+    bool exploded;
+    QVector <QGraphicsPixmapItem*> explosions;
     QBasicTimer timer;
     QPixmap sprite;
     QPixmap currentImage;
@@ -110,11 +113,18 @@ public:
     void setLargeur(int l);
 
     /*!
-     * \brief regarde si le timer de la bombe est à 0
-     * \return Vrai si timer = 0, faux sinon
+     * \brief regarde si la bombe est en train d'exploser (timer = 0)
+     * \return Vrai si exploding == true, faux sinon
      * \author Quentin CHEYNET
      */
     bool isExploding();
+
+    /*!
+     * \brief regarde la bombe a explosé
+     * \return Vrai si exploded == 0, faux sinon
+     * \author Quentin CHEYNET
+     */
+    bool hasExploded();
 
     /*!
      * \brief renvoie la portée de la bombe
@@ -136,6 +146,20 @@ public:
      * \author Quentin CHEYNET
      */
     void timerEvent ( QTimerEvent * event );
+
+    /*!
+     * \brief ajoute une explosion au QVector explosions
+     * \param pExplosions;
+     * \author Quentin CHEYNET
+     */
+    void addExplosions(QGraphicsPixmapItem * pExplosion);
+
+    /*!
+     * \brief renvoie le QVector explosions
+     * \return explosions;
+     * \author Quentin CHEYNET
+     */
+    QVector<QGraphicsPixmapItem*> getExplosions();
 
     /*!
      * \brief Destructeur
