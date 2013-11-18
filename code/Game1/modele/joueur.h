@@ -40,6 +40,7 @@ private :
     QGraphicsPixmapItem *picture;
     int nbMaxBombes;
     int nbBombes;
+    int hp;
 
 public:
     /*!
@@ -241,6 +242,7 @@ public:
 
     /*!
      * \brief Fait exploser toutes les bombes du joueur
+     * innutilisé pour le moment
      * \author Quentin CHEYNET
      */
     void trigger();

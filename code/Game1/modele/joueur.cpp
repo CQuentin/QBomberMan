@@ -18,6 +18,7 @@ Joueur::Joueur(int x ,int y){
     orientG = false;
     nbMaxBombes = 2;
     nbBombes = 0;
+    hp = 1;
 }
 
 void Joueur::detruireJoueur(){
@@ -340,11 +341,11 @@ bool Joueur::tryDropBombe(){
 }
 
 void Joueur::hit(){
-//pv -- , si pv = 0 ...
+   hp --;
 }
 bool Joueur::isAlive(){
-    // si pv > 0
-    return true;
+
+    return (hp > 0);
 }
 
 void Joueur::trigger(){
