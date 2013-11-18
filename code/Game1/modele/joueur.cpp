@@ -16,7 +16,7 @@ Joueur::Joueur(int x ,int y){
     pauseSprite = 15;
     state = STANDING;
     orientG = false;
-    nbMaxBombes = 5;
+    nbMaxBombes = 1; // 0 -> 1 bombe max
     nbBombes = 0;
 }
 
