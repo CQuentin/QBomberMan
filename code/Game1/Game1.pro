@@ -14,7 +14,11 @@ INCLUDEPATH += . vue
 # Input
 HEADERS += vue/mainwindow.h \
     modele/brique.h \
-    modele/joueur.h
+    modele/joueur.h \
+    controleur/toucheclavier.h \
+    modele/bombe.h
 SOURCES += main.cpp vue/mainwindow.cpp \
     modele/brique.cpp \
-    modele/joueur.cpp
+    modele/joueur.cpp \
+    controleur/toucheclavier.cpp \
+    modele/bombe.cpp
