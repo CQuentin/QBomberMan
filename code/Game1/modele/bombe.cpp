@@ -15,6 +15,7 @@ Bombe::Bombe(QObject *parent = 0, int x = 0, int y = 0) : QObject(parent)
     countDown = 3100;
     timer.start(1000,this);
     exploding = false;
+    exploded = false;
 }
 
 void Bombe::setX(int x)
