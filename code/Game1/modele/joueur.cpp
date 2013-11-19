@@ -270,7 +270,7 @@ void Joueur::immobile(){
             state = STANDING;
            // orientG = false;
             break;
-        case RUNNING_G : //TODO pic
+        case RUNNING_G :
             currentImage = sprite.copy(294,28,25,34);
             state = STANDING;
           //  orientG = true;
@@ -351,5 +351,6 @@ bool Joueur::isAlive(){
 void Joueur::trigger(){
 //    TODO ?: avoir un vector de bombes, et les faire toutes exploser
     // retirer le trigger de mainwindwow
-    nbBombes = 0;
+
+    //nbBombes = 0;
 }

@@ -250,9 +250,8 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         personnage->immobile();
 
     // TODO ? asscocier les bombes au joueur, soit avec le trigger du Joueur, soir en ayant bombes[NumJ][bombes]
-    if(/*personnage->hasBonusTrigger == trigger &&*/controleur->getStateKeys(4)){
+    if(/*personnage->hasBonusTrigger() &&*/controleur->getStateKeys(4)){
         triggerAll();
-        controleur->setPressed(Qt::Key_Space,false);
     }
 
     tryMove(0,gravity);
