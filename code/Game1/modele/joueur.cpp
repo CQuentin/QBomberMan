@@ -124,43 +124,44 @@ void Joueur::courireD(){
         if(pauseSprite >= 15){
             switch(step){
             case 0:
-                currentImage = sprite.copy(13,28,32,34);
+                setCoordSprite(13,28,32,34);
                 step = 1;
                 break;
             case 1:
-                currentImage = sprite.copy(57,28,20,34);
+                setCoordSprite(57,28,20,34);
                 step = 2;
                 break;
             case 2:
-                currentImage = sprite.copy(83,29,27,33);
+                setCoordSprite(83,29,27,33);
                 step = 3;
                 break;
             case 3:
-                currentImage = sprite.copy(116,28,20,34);
+                setCoordSprite(116,28,20,34);
                 step = 4;
                 break;
             case 4:
-                currentImage = sprite.copy(141,27,20,35);
+                setCoordSprite(141,27,20,35);
                 step = 5;
                 break;
             case 5:
-                currentImage = sprite.copy(167,28,20,34);
+                setCoordSprite(167,28,20,34);
                 step = 6;
                 break;
             case 6:
-                currentImage = sprite.copy(193,29,27,33);
+                setCoordSprite(193,29,27,33);
                 step = 7;
                 break;
             case 7:
-                currentImage = sprite.copy(226,28,20,34);
+                setCoordSprite(226,28,20,34);
                 step = 8;
                 break;
             case 8:
-                currentImage = sprite.copy(252,27,20,35);
+                setCoordSprite(252,27,20,35);
                 step = 1;
                 break;
             }
             pauseSprite = 0;
+            currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
             picture->setPixmap(currentImage);
 
             //dans les sprite 2 et 6, le point le plus à gauche n'est plus la tête
@@ -198,42 +199,43 @@ void Joueur::courireG(){
         if(pauseSprite >= 15){
             switch(step){
             case 0:
-                currentImage = sprite.copy(13,28,32,34);
+                setCoordSprite(13,28,32,34);
                 step = 1;
                 break;
             case 1:
-                currentImage = sprite.copy(57,28,20,34);
+                setCoordSprite(57,28,20,34);
                 step = 2;
                 break;
             case 2:
-                currentImage = sprite.copy(83,29,27,33);
+                setCoordSprite(83,29,27,33);
                 step = 3;
                 break;
             case 3:
-                currentImage = sprite.copy(116,28,20,34);
+                setCoordSprite(116,28,20,34);
                 step = 4;
                 break;
             case 4:
-                currentImage = sprite.copy(141,27,20,35);
+                setCoordSprite(141,27,20,35);
                 step = 5;
                 break;
             case 5:
-                currentImage = sprite.copy(167,28,20,34);
+                setCoordSprite(167,28,20,34);
                 step = 6;
                 break;
             case 6:
-                currentImage = sprite.copy(193,29,27,33);
+                setCoordSprite(193,29,27,33);
                 step = 7;
                 break;
             case 7:
-                currentImage = sprite.copy(226,28,20,34);
+                setCoordSprite(226,28,20,34);
                 step = 8;
                 break;
             case 8:
-                currentImage = sprite.copy(252,27,20,35);
+                setCoordSprite(252,27,20,35);
                 step = 1;
                 break;
             }
+            currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
             currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
             pauseSprite = 0;
             picture->setPixmap(currentImage);
@@ -273,38 +275,39 @@ void Joueur::immobile(){
     if(pauseSprite >= 45){
         switch(state){
         case STANDING :
-            currentImage = sprite.copy(11,505,22,36);
+            setCoordSprite(11,505,22,36);
             break;
         case RUNNING_D :
-            currentImage = sprite.copy(294,28,25,34);
+            setCoordSprite(294,28,25,34);
             state = STANDING;
            // orientG = false;
             break;
         case RUNNING_G :
-            currentImage = sprite.copy(294,28,25,34);
+            setCoordSprite(294,28,25,34);
             state = STANDING;
           //  orientG = true;
             break;
         case FALLING :
-            currentImage = sprite.copy(200,73,32,41);
+            setCoordSprite(200,73,32,41);
             break;
         // LANDING et GETTING_UP : diminution de y, augmentation de H (pour baisser l'image, car personnage accroupi)
         case LANDING :
-            currentImage = sprite.copy(238,81,27,35);
+            setCoordSprite(238,81,27,35);
             state = GETTING_UP;
             break;
         case GETTING_UP :
-            currentImage = sprite.copy(272,79,20,37);
+            setCoordSprite(272,79,20,37);
             state = STANDING;
             break;
         case JUMPING :
-            currentImage = sprite.copy(75,79,22,35);
+            setCoordSprite(75,79,22,35);
             break;
         case DROPING :
-            currentImage = sprite.copy(16,154,26,31);
+            setCoordSprite(16,154,26,31);
             state = STANDING;
             break;
         }
+        currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
         if (orientG)
             currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
         pauseSprite = 0;
@@ -371,4 +374,21 @@ void Joueur::setId(int id){
 
 int Joueur::getId(){
     return id;
+}
+
+void Joueur::setCoordSprite(int x, int y, int l, int h){
+    xSprite = x;
+    ySprite = y;
+    lSprite = l;
+    hSprite = h;
+}
+
+QVector<int> Joueur::getCoordSprite(){
+    QVector<int> retour;
+    retour.append(xSprite);
+    retour.append(ySprite);
+    retour.append(lSprite);
+    retour.append(hSprite);
+
+    return retour;
 }

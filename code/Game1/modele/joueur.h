@@ -267,5 +267,22 @@ public:
      * \author Quentin CHEYNET
      */
     int getId();
+
+    /*!
+     * \brief assignation des nouvelles coordonées du sprite
+     * \param x Position x du sprite
+     * \param y Position y du sprite
+     * \param l Largeur du sprite
+     * \param h Hauteur du sprite
+     * \author Quentin CHEYNET
+     */
+    void setCoordSprite(int x, int y, int l, int h);
+
+    /*!
+     * \brief renvoie les coordonées du sprite
+     * \return un QVector contenant xSprite, ySprite, lSprite, hSprite
+     * \author Quentin CHEYNET
+     */
+    QVector<int> getCoordSprite();
 };
 #endif // JOUEUR_H
