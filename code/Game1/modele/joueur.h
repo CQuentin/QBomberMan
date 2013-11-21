@@ -285,5 +285,33 @@ public:
      * \author Quentin CHEYNET
      */
     QVector<int> getCoordSprite();
+
+    /*!
+     * \brief ajoute une bombe au QVector bombes du Joueur
+     * \param b La bombe ajouté
+     * \author Quentin CHEYNET
+     */
+    void addBombe(Bombe *b);
+
+    /*!
+     * \brief supprime une bombe
+     * \param i L'indice de la bombe supprimée
+     * \author Quentin CHEYNET
+     */
+    void removeBombe(int i);
+
+    /*!
+     * \brief renvoie la vector de bombe
+     * \return bombes Le QVector de bombes lachées par le joueur
+     * \author Quentin CHEYNET
+     */
+    QVector<Bombe*> getVectorBombes();
+
+    /*!
+     * \brief renvoie la dernière bombe posée par le joueur, si elle existe
+     * \return la dernière bombe posée par le joueur, si elle existe, NULL sinon
+     * \author Quentin CHEYNET
+     */
+    Bombe *getLastBombe();
 };
 #endif // JOUEUR_H

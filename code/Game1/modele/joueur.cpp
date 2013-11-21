@@ -22,7 +22,7 @@ Joueur::Joueur(int id, int x , int y){
     hp = 1;
     bombes.resize(0);
 
-    if(id <2) // 1 : le nombre de couleurs différentes existantes
+    if(id <1) // 1 : le nombre de couleurs différentes existantes
       sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
     else
         sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
@@ -394,3 +394,21 @@ QVector<int> Joueur::getCoordSprite(){
     return retour;
 }
 
+void Joueur::addBombe(Bombe *b){
+    bombes.append(b);
+}
+
+void Joueur::removeBombe(int i){
+    bombes.remove(i);
+}
+
+QVector<Bombe*> Joueur::getVectorBombes(){
+    return bombes;
+}
+
+Bombe* Joueur::getLastBombe(){
+    int i = bombes.size();
+    if(i > 0)
+        return bombes.at(i-1);
+    else return NULL;
+}

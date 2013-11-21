@@ -27,8 +27,8 @@ class MainWindow : public QMainWindow
         QGraphicsScene * scene;
         QGraphicsView * view;
         QPixmap * background;
-        Joueur * personnage;
-        QVector <Joueur*> autreJoueurs;
+        //Joueur * personnage;
+        QVector <Joueur*> personnages;
         int largeur;
         int hauteur;
         int largeurG;
@@ -39,7 +39,8 @@ class MainWindow : public QMainWindow
         int baseGravity;
         ToucheClavier *controleur;
         QVector<QVector<Brique*> > grille;
-        QVector<Bombe*> bombes;
+       // QVector<Bombe*> bombes;
+        int id;
 
     public:
        /*!
@@ -101,12 +102,12 @@ class MainWindow : public QMainWindow
          * \brief ajoute une bombe dans la vue
          *
          * Une instance de Bombe est créée, puis elle est affichée dans la scène
-         *
+         * \param bmId Identifiant du joueur qui a posé la bombe
          * \param i Colonne de la grille
          * \param j Ligne de la grille
          * \author Quentin CHEYNET
          */
-        void ajouterBombe(int x, int y);
+        void ajouterBombe(int bmId, int x, int y);
 
 
         /*!
@@ -231,12 +232,13 @@ class MainWindow : public QMainWindow
 
         /*!
          * \brief génère l'explosion d'une bombe
+         * \param idJ L'identifiant du joueur qui pose la bombe
          * \param bombe La bombe qui explose
          * \param dx Le sens horizontal de l'explosion
          * \param dY Le sens horizontal de l'explosion
          * \author Quentin CHEYNET
          */
-        void explosion (Bombe *bombe, int dx, int dy);
+        void explosion (int idJ,Bombe *bombe, int dx, int dy);
 
         /*!
          * \brief fait exploser toutes les bombes

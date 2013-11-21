@@ -3,6 +3,7 @@
 /* Constructeur de la classe MainWindow */
 MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 {
+    id = 0;             // changer par le serveur
     baseGravity = 1;
     largeur = 900;
     hauteur = 600;
@@ -12,8 +13,10 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     gravity = 0;
     grille.resize(largeurG);
     controleur = new ToucheClavier();
-    bombes.resize(0);
-    autreJoueurs.resize(0);
+    personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
+
+
+
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++)
@@ -25,7 +28,8 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     /*  -------------- début niveau -------------------- */
 
     //TODO : gérer avec des classes niveau
-    ajouterPersonnage(1,5,3);
+    // for nb joueur...
+    ajouterPersonnage(id,5,3);
     ajouterBrique(false,5,5);
 
 
@@ -81,8 +85,8 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 void MainWindow::ajouterPersonnage(int id,int i, int j){
     int posX = getPositionXFromGrille(i);
     int posY = getPositionYFromGrille(j);
-    personnage = new Joueur(id,posX,posY);
-    scene->addItem(personnage->getPicture());
+    personnages.append(new Joueur(id,posX,posY));
+    scene->addItem(personnages[id]->getPicture());
 }
 
 void MainWindow::ajouterBrique(bool cassable, int i, int j)
@@ -95,11 +99,13 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
     scene->addItem(grille[i][j]->getPicture());
 }
 
-void MainWindow::ajouterBombe(int x, int y)
+//mettre id joueur
+void MainWindow::ajouterBombe(int bmId,int x, int y)
 {
-    Bombe *bombe = new Bombe(0,x,y,personnage->getId());
+    Bombe *bombe = new Bombe(0,x,y,bmId);
     bombe->setY(bombe->getY() - bombe->getHauteur()+1);
-    bombes.append(bombe);
+    //bombes.append(bombe);
+    personnages[bmId]->addBombe(bombe);
     scene->addItem(bombe->getPicture());
 }
 
@@ -141,12 +147,12 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
 }
 
 bool MainWindow::collisionTest(int x, int y){
-    int hauteurP = personnage->getHauteur(), largeurP = personnage->getLargeur();
+    int hauteurP = personnages[id]->getHauteur(), largeurP = personnages[id]->getLargeur();
     bool colision = false;
-    int newX = personnage->getX()+x;
-    int newY = personnage->getY()+y;
+    int newX = personnages[id]->getX()+x;
+    int newY = personnages[id]->getY()+y;
 
-    // nombre de points du personnage espacés de tailleC px
+    // nombre de points du personnages[id] espacés de tailleC px
     int nbPointX =1 + largeurP / tailleC;
     if (largeurP % tailleC !=0)
         nbPointX++;
@@ -157,7 +163,7 @@ bool MainWindow::collisionTest(int x, int y){
     int posGrilleI;
     int posGrilleJ;
 
-    // on regarde dans quelle partie de la grille se trouve chaque points espacés de taille Cpx du personnage
+    // on regarde dans quelle partie de la grille se trouve chaque points espacés de taille Cpx du personnages[id]
     for (int i = 0; i< nbPointX; i++){
         if(i * tailleC > largeurP)
             posGrilleI = getGrilleIFromPosition(newX + largeurP);
@@ -170,7 +176,7 @@ bool MainWindow::collisionTest(int x, int y){
             else
                 posGrilleJ = getGrilleJFromPosition(newY + j * tailleC);
 
-            if(personnage->isColliding(posGrilleI,posGrilleJ,grille)){
+            if(personnages[id]->isColliding(posGrilleI,posGrilleJ,grille)){
                 colision  = true;
             }
         }
@@ -181,13 +187,13 @@ bool MainWindow::collisionTest(int x, int y){
 
 //TODO partie modèle à placer dans Joueur (garder partie graphique)
 void MainWindow::tryMove(int x, int y){
-    int newX = personnage->getX()+x;
-    int newY = personnage->getY()+y;
+    int newX = personnages[id]->getX()+x;
+    int newY = personnages[id]->getY()+y;
 
     if(!collisionTest(x,y)){
-        personnage->setX(newX);
-        personnage->setY(newY);
-        personnage->getPicture()->moveBy(x,y);
+        personnages[id]->setX(newX);
+        personnages[id]->setY(newY);
+        personnages[id]->getPicture()->moveBy(x,y);
     }
 
 
@@ -196,36 +202,36 @@ void MainWindow::tryMove(int x, int y){
 void MainWindow::tryJump(){
     if(collisionTest(0,1)){
         gravity = -baseGravity;
-        //        personnage->setCurrentS(6);
+        //        personnages[id]->setCurrentS(6);
     }
 }
 
 void MainWindow::timerEvent ( QTimerEvent * event ){
-    //partie autre personnages
+    //partie autre personnages[id]
     //TODO : réception serveur, boucle sur chaque joueur (si en vie),et MAJ position et image
 
-    // ----------- partie personnage
+    // ----------- partie personnages[id]
     if (gravity<0){
-        personnage->setCurrentH(personnage->getCurrentH()+1);
-        if(personnage->getCurrentH()>= personnage->getMaxH() || collisionTest(0,-1)){
+        personnages[id]->setCurrentH(personnages[id]->getCurrentH()+1);
+        if(personnages[id]->getCurrentH()>= personnages[id]->getMaxH() || collisionTest(0,-1)){
             gravity = baseGravity;
-            personnage->setCurrentH(0);
+            personnages[id]->setCurrentH(0);
         }
         else{
-            personnage->setCurrentS(6);
-            personnage->immobile();
+            personnages[id]->setCurrentS(6);
+            personnages[id]->immobile();
         }
 
     }
     else if(collisionTest(0,1)){
         if(gravity == 1)
-            personnage->setCurrentS(4); //LANDING
+            personnages[id]->setCurrentS(4); //LANDING
         gravity = 0;
     }
     else {
         gravity = baseGravity;
-        personnage->setCurrentS(3); // FALLING
-        personnage->immobile();
+        personnages[id]->setCurrentS(3); // FALLING
+        personnages[id]->immobile();
     }
 
     int x = 0;
@@ -233,29 +239,29 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         tryJump();
 
     if(controleur->getStateKeys(2)){
-        if (personnage->tryDropBombe()){
-            // ajouter un truc du style personnage->hasBonusBombe()
-            ajouterBombe(personnage->getX()+personnage->getLargeur()/2,personnage->getY()+ personnage->getHauteur());
+        if (personnages[id]->tryDropBombe()){
+            // ajouter un truc du style personnages[id]->hasBonusBombe()
+            ajouterBombe(personnages[id]->getId(),personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur());
             controleur->setPressed(Qt::Key_Down,false);
         }
     }
 
     if(controleur->getStateKeys(1)){
         x +=- 1;
-        personnage->courireG();
+        personnages[id]->courireG();
     }
     else if(controleur->getStateKeys(3)){
         x += 1;
-        personnage->courireD();
+        personnages[id]->courireD();
     }
 
-    if(x == 0 && gravity == 0 /*&& personnage->getCurrentS() != 3*/)
-        personnage->immobile();
+    if(x == 0 && gravity == 0 /*&& personnages[id]->getCurrentS() != 3*/)
+        personnages[id]->immobile();
 
     // TODO ? asscocier les bombes au joueur, soit avec le trigger du Joueur, soir en ayant bombes[NumJ][bombes]
     // faire quand reçoit trigger du serveur (ou d'un client si serveur)
-    if(/*personnage->hasBonusTrigger() &&*/controleur->getStateKeys(4)){
-        triggerLastBombe(personnage->getId());
+    if(/*personnages[id]->hasBonusTrigger() &&*/controleur->getStateKeys(4)){
+        triggerLastBombe(personnages[id]->getId());
     }
 
     tryMove(0,gravity);
@@ -263,30 +269,27 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
 
     // ----------- partie bombes
-    int tmpSizeB = bombes.size();
-    for(int i = 0; i<tmpSizeB; i++){
-        if(bombes[i]->isExploding()){
-            explosion(bombes[i],0,0);
-            explosion(bombes[i],0,1);
-            explosion(bombes[i],0,-1);
-            explosion(bombes[i],1,0);
-            explosion(bombes[i],-1,0);
-
-
-        }
-        if(bombes[i]->hasExploded()){
-            int tmpSizeE = bombes[i]->getExplosions().size();
-            for(int j = 0; j< tmpSizeE; j++)
-                scene->removeItem(bombes[i]->getExplosions().at(j));
-            scene->removeItem((bombes[i])->getPicture());
-            if(bombes[i]->getBManId() == personnage->getId())
-                personnage->decrNbBombe();
-            bombes.remove(i);
-            tmpSizeB--;
-
+   // int tmpSizeB = bombes.size();
+    for (int idJ = 0; idJ < personnages.size(); idJ++ ){
+        for(int i = 0; i<personnages[idJ]->getVectorBombes().size(); i++){
+            if(personnages[idJ]->getVectorBombes()[i]->isExploding()){
+                explosion(idJ,personnages[idJ]->getVectorBombes()[i],0,0);
+                explosion(idJ,personnages[idJ]->getVectorBombes()[i],0,1);
+                explosion(idJ,personnages[idJ]->getVectorBombes()[i],0,-1);
+                explosion(idJ,personnages[idJ]->getVectorBombes()[i],1,0);
+                explosion(idJ,personnages[idJ]->getVectorBombes()[i],-1,0);
+            }
+            if(personnages[idJ]->getVectorBombes()[i]->hasExploded()){
+                for(int j = 0; j< personnages[idJ]->getVectorBombes()[i]->getExplosions().size(); j++)
+                    scene->removeItem(personnages[idJ]->getVectorBombes()[i]->getExplosions().at(j));
+                scene->removeItem((personnages[idJ]->getVectorBombes()[i])->getPicture());
+                if(personnages[idJ]->getVectorBombes()[i]->getBManId() == personnages[idJ]->getId()){
+                    personnages[idJ]->decrNbBombe();
+                    personnages[idJ]->removeBombe(i);
+                }
+            }
         }
     }
-
 }
 
 QPoint MainWindow::getPositionFromGrille(int i, int j){
@@ -326,17 +329,19 @@ int MainWindow::getGravity(){
 
 // TODO si liste de joueur, mettre ID Joueur en paramètre
 void MainWindow::triggerLastBombe(int bmId){
-    int i = bombes.size()-1;
-    while(i >= 0 && bombes[i]->getBManId() != bmId )
-        i--;
-    if (i>=0)
-        bombes[i]->trigger();
+//    int i = bombes.size()-1;
+//    while(i >= 0 && bombes[i]->getBManId() != bmId )
+//        i--;
+//    if (i>=0)
+//        bombes[i]->trigger();
+   if (personnages[bmId]->getLastBombe() != NULL)
+       personnages[bmId]->getLastBombe()->trigger();
 }
 
-void MainWindow::explosion(Bombe *bombe, int dx, int dy){
+void MainWindow::explosion(int idJ,Bombe *bombe, int dx, int dy){
 
-    int pI = getGrilleIFromPosition(personnage->getX());
-    int pJ = getGrilleJFromPosition(personnage->getY());
+    int pI = getGrilleIFromPosition(personnages[idJ]->getX());
+    int pJ = getGrilleJFromPosition(personnages[idJ]->getY());
 
     int x = bombe->getX();
     int y = bombe->getY();
@@ -354,8 +359,8 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
     int i2 = posGrilleI2, j2 = posGrilleJ2;
 
     if(dx == 0 && dy == 0){
-        if(((pI == i && pJ == j) || (pI == i2 && pJ == j2))  && personnage->isAlive() )
-            personnage->hit();
+        if(((pI == i && pJ == j) || (pI == i2 && pJ == j2))  && personnages[id]->isAlive() )
+            personnages[id]->hit();
         ajouterExplosion(bombe,x,y,dx,dy,false);
     }
     else{
@@ -378,8 +383,8 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
                 scene->removeItem(grille[i2][j2]->getPicture());
                 grille[i2][j2] = NULL;
             }
-            if(((pI == i && pJ == j) || (pI == i2 && pJ == j2))  && personnage->isAlive() )
-                personnage->hit();
+            if(((pI == i && pJ == j) || (pI == i2 && pJ == j2))  && personnages[id]->isAlive() )
+                personnages[id]->hit();
             ajouterExplosion(bombe,x,y,dx,dy,end);
 
             i = i +dx;
@@ -418,7 +423,8 @@ MainWindow::~MainWindow()
     for(int i=0; i<(int) grille.size(); i++)
         for(int j=0; j<(int) grille[i].size(); j++)
             delete grille[i][j];
-    delete personnage;
+    for(int i = 0; i < personnages.size(); i++)
+     delete personnages[i];
     delete view;
     delete scene;
     // delete background;
