@@ -1,6 +1,6 @@
 #include "bombe.h"
 
-Bombe::Bombe(QObject *parent = 0, int x = 0, int y = 0) : QObject(parent)
+Bombe::Bombe(QObject *parent = 0, int x = 0, int y = 0, int bmId = 1) : QObject(parent)
 {
     posX = x;
     posY = y;
@@ -16,6 +16,7 @@ Bombe::Bombe(QObject *parent = 0, int x = 0, int y = 0) : QObject(parent)
     timer.start(1000,this);
     exploding = false;
     exploded = false;
+    bomberManId = bmId;
 }
 
 void Bombe::setX(int x)
@@ -134,11 +135,13 @@ QVector<QGraphicsPixmapItem*> Bombe::getExplosions(){
 
 void Bombe::trigger(){
 
-    if (countDown > 100){
-        countDown = 100;
-        timer.start(100,this);
-    }
+    timer.start(100,this);
+countDown = -1;
 
+}
+
+int Bombe::getBManId(){
+    return bomberManId;
 }
 
 Bombe::~Bombe(){

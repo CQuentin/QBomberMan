@@ -45,6 +45,7 @@ private :
     int nbMaxBombes;
     int nbBombes;
     int hp;
+    QVector<Bombe*> bombes;
 
 
 public:

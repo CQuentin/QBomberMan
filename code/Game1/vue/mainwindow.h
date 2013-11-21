@@ -89,12 +89,12 @@ class MainWindow : public QMainWindow
          * \brief ajoute un personnage dans la vue
          *
          * Une instance de Joueur est créée, puis elle est affichée dans la scène
-         *
+         * \param id Identifiant du joueur
          * \param i Colonne de la grille
          * \param j Ligne de la grille
          * \author Quentin CHEYNET
          */
-        void ajouterPersonnage(int i, int j);
+        void ajouterPersonnage(int id, int i, int j);
 
         /*!
          * \brief ajoute une bombe dans la vue
@@ -241,7 +241,7 @@ class MainWindow : public QMainWindow
          * \brief fait exploser toutes les bombes
          * \author Quentin CHEYNET
          */
-        void triggerAll();
+        void triggerLastBombe();
 
          ~MainWindow();
     // public slots:

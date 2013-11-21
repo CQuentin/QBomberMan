@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     /*  -------------- début niveau -------------------- */
 
     //TODO : gérer avec des classes niveau
-    ajouterPersonnage(5,3);
+    ajouterPersonnage(1,5,3);
     ajouterBrique(false,5,5);
 
 
@@ -77,10 +77,10 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
 }
 
-void MainWindow::ajouterPersonnage(int i, int j){
+void MainWindow::ajouterPersonnage(int id,int i, int j){
     int posX = getPositionXFromGrille(i);
     int posY = getPositionYFromGrille(j);
-    personnage = new Joueur(posX,posY);
+    personnage = new Joueur(id,posX,posY);
     scene->addItem(personnage->getPicture());
 }
 
@@ -96,7 +96,7 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
 
 void MainWindow::ajouterBombe(int x, int y)
 {
-    Bombe *bombe = new Bombe(0,x,y);
+    Bombe *bombe = new Bombe(0,x,y,personnage->getId());
     bombe->setY(bombe->getY() - bombe->getHauteur()+1);
     bombes.append(bombe);
     scene->addItem(bombe->getPicture());
@@ -251,7 +251,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
     // TODO ? asscocier les bombes au joueur, soit avec le trigger du Joueur, soir en ayant bombes[NumJ][bombes]
     if(/*personnage->hasBonusTrigger() &&*/controleur->getStateKeys(4)){
-        triggerAll();
+        triggerLastBombe();
     }
 
     tryMove(0,gravity);
@@ -319,8 +319,11 @@ int MainWindow::getGravity(){
 }
 
 // TODO si liste de joueur, mettre ID Joueur en paramètre
-void MainWindow::triggerAll(){
-    for (int i = 0; i < bombes.size(); i++)
+void MainWindow::triggerLastBombe(){
+    int i = bombes.size()-1;
+    while(i >= 0 && bombes[i]->getBManId() != personnage->getId() )
+        i--;
+    if (i>=0)
         bombes[i]->trigger();
 }
 

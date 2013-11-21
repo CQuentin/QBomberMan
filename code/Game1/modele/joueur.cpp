@@ -20,6 +20,7 @@ Joueur::Joueur(int id, int x , int y){
     nbMaxBombes = 2;
     nbBombes = 0;
     hp = 1;
+    bombes.resize(0);
 
     if(id <2) // 1 : le nombre de couleurs différentes existantes
       sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
@@ -392,3 +393,4 @@ QVector<int> Joueur::getCoordSprite(){
 
     return retour;
 }
+

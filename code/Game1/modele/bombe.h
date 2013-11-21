@@ -28,6 +28,7 @@ private:
     QPixmap sprite;
     QPixmap currentImage;
     QGraphicsPixmapItem *picture;
+    int bomberManId;
 
 
 public:
@@ -35,12 +36,13 @@ public:
      * \brief Constructeur
      *
      * Constructeur de la classe Bombe
-     *
+     * \param parent : QObject parent
      * \param x La position à l'abscisse de la bombe
      * \param y La position à l'ordonnée de la bombe
+     * \param bmId Identifiant du Joueur ayant posé la bombe
      * \author Quentin CHEYNET
      */
-    Bombe(QObject *parent,int x, int y);
+    Bombe(QObject *parent, int x, int y, int bmId);
 
     /*!
      * \brief renvoie la position x de la bombe
@@ -149,14 +151,14 @@ public:
 
     /*!
      * \brief ajoute une explosion au QVector explosions
-     * \param pExplosions;
+     * \param pExplosions
      * \author Quentin CHEYNET
      */
     void addExplosions(QGraphicsPixmapItem * pExplosion);
 
     /*!
      * \brief renvoie le QVector explosions
-     * \return explosions;
+     * \return explosions
      * \author Quentin CHEYNET
      */
     QVector<QGraphicsPixmapItem*> getExplosions();
@@ -166,6 +168,14 @@ public:
      * \author Quentin CHEYNET
      */
     void trigger();
+
+    /*!
+     * \brief renvoie l'identifiant du poseur de la bombe
+     * \return bomberManId
+     * \author Quentin CHEYNET
+     */
+    int getBManId();
+
     /*!
      * \brief Destructeur
      * Destructeur de la classe Bombe
