@@ -1,13 +1,14 @@
 #include "joueur.h"
 
 
-Joueur::Joueur(int x ,int y){
+Joueur::Joueur(int id, int x , int y){
     setX(x);
     setY(y);
-    sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
-    currentImage = sprite.copy(11,505,22,36);
-    picture = new QGraphicsPixmapItem(currentImage);
-    picture->setPos(x,y);
+    this->id = id;
+    xSprite = 11;
+    ySprite = 505;
+    lSprite = 22;
+    hSprite = 36;
     hauteur = 35;
     largeur = 20;
     maxHigh = 50;
@@ -19,6 +20,15 @@ Joueur::Joueur(int x ,int y){
     nbMaxBombes = 2;
     nbBombes = 0;
     hp = 1;
+
+    if(id <2) // 1 : le nombre de couleurs différentes existantes
+      sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
+    else
+        sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
+
+    currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
+    picture = new QGraphicsPixmapItem(currentImage);
+    picture->setPos(x,y);
 }
 
 void Joueur::detruireJoueur(){
@@ -353,4 +363,12 @@ void Joueur::trigger(){
     // retirer le trigger de mainwindwow
 
     //nbBombes = 0;
+}
+
+void Joueur::setId(int id){
+    this->id = id;
+}
+
+int Joueur::getId(){
+    return id;
 }

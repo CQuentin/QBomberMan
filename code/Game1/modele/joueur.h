@@ -24,7 +24,7 @@ private :
         JUMPING = 6,
         DROPING = 7
     };
-
+    int id;
     int posX;
     int posY;
     int hauteur;
@@ -38,9 +38,14 @@ private :
     QPixmap sprite;
     QPixmap currentImage;
     QGraphicsPixmapItem *picture;
+    int xSprite;
+    int ySprite;
+    int hSprite;
+    int lSprite;
     int nbMaxBombes;
     int nbBombes;
     int hp;
+
 
 public:
     /*!
@@ -53,9 +58,10 @@ public:
      * \author Clément CARLES
      * \author Quentin CHEYNET
      */
-    Joueur(int x ,int y);
+    Joueur(int id,int x ,int y);
     void newPosition (int x , int y);
     void detruireJoueur();
+
     /*!
      * \brief renvoie l'attribut picture
      * \return picture
@@ -246,5 +252,20 @@ public:
      * \author Quentin CHEYNET
      */
     void trigger();
+
+
+    /*!
+     * \brief assignation d'un entier id à id
+     * \param id L'identifiant du joueur
+     * \author Quentin CHEYNET
+     */
+    void setId(int id);
+
+    /*!
+     * \brief renvoie l' identifiant du joueur
+     * \return id
+     * \author Quentin CHEYNET
+     */
+    int getId();
 };
 #endif // JOUEUR_H
