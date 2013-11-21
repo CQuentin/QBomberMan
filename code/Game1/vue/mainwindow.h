@@ -28,6 +28,7 @@ class MainWindow : public QMainWindow
         QGraphicsView * view;
         QPixmap * background;
         Joueur * personnage;
+        QVector <Joueur*> autreJoueurs;
         int largeur;
         int hauteur;
         int largeurG;
@@ -239,9 +240,10 @@ class MainWindow : public QMainWindow
 
         /*!
          * \brief fait exploser toutes les bombes
+         * \param bmId L'identifiant du joueur qui a appuyé sur espace
          * \author Quentin CHEYNET
          */
-        void triggerLastBombe();
+        void triggerLastBombe(int bmId);
 
          ~MainWindow();
     // public slots:

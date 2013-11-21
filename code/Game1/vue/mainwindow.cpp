@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grille.resize(largeurG);
     controleur = new ToucheClavier();
     bombes.resize(0);
+    autreJoueurs.resize(0);
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++)
@@ -200,6 +201,8 @@ void MainWindow::tryJump(){
 }
 
 void MainWindow::timerEvent ( QTimerEvent * event ){
+    //partie autre personnages
+    //TODO : réception serveur, boucle sur chaque joueur (si en vie),et MAJ position et image
 
     // ----------- partie personnage
     if (gravity<0){
@@ -250,8 +253,9 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         personnage->immobile();
 
     // TODO ? asscocier les bombes au joueur, soit avec le trigger du Joueur, soir en ayant bombes[NumJ][bombes]
+    // faire quand reçoit trigger du serveur (ou d'un client si serveur)
     if(/*personnage->hasBonusTrigger() &&*/controleur->getStateKeys(4)){
-        triggerLastBombe();
+        triggerLastBombe(personnage->getId());
     }
 
     tryMove(0,gravity);
@@ -275,9 +279,11 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             for(int j = 0; j< tmpSizeE; j++)
                 scene->removeItem(bombes[i]->getExplosions().at(j));
             scene->removeItem((bombes[i])->getPicture());
+            if(bombes[i]->getBManId() == personnage->getId())
+                personnage->decrNbBombe();
             bombes.remove(i);
             tmpSizeB--;
-            personnage->decrNbBombe();
+
         }
     }
 
@@ -319,9 +325,9 @@ int MainWindow::getGravity(){
 }
 
 // TODO si liste de joueur, mettre ID Joueur en paramètre
-void MainWindow::triggerLastBombe(){
+void MainWindow::triggerLastBombe(int bmId){
     int i = bombes.size()-1;
-    while(i >= 0 && bombes[i]->getBManId() != personnage->getId() )
+    while(i >= 0 && bombes[i]->getBManId() != bmId )
         i--;
     if (i>=0)
         bombes[i]->trigger();
