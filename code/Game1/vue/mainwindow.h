@@ -18,6 +18,7 @@
 #include "../modele/joueur.h"
 #include "../modele/bombe.h"
 #include "../controleur/toucheclavier.h"
+#include <QTcpSocket>
 
 class MainWindow : public QMainWindow
 {
@@ -41,6 +42,11 @@ class MainWindow : public QMainWindow
         QVector<QVector<Brique*> > grille;
        // QVector<Bombe*> bombes;
         int id;
+        QTcpSocket *socket;
+
+    private slots:
+        void readyRead();
+        void connected();
 
     public:
        /*!
@@ -248,6 +254,6 @@ class MainWindow : public QMainWindow
         void triggerLastBombe(int bmId);
 
          ~MainWindow();
-    // public slots:
+
 };
 #endif

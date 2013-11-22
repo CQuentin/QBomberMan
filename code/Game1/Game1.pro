@@ -3,6 +3,7 @@
 ######################################################################
 
 QT       += core gui
+QT      += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,9 +17,19 @@ HEADERS += vue/mainwindow.h \
     modele/brique.h \
     modele/joueur.h \
     controleur/toucheclavier.h \
-    modele/bombe.h
+    modele/bombe.h \
+    vue/fenetreserveur.h \
+    vue/qbomberman.h \
+    modele/reseau/serveur.h
+
 SOURCES += main.cpp vue/mainwindow.cpp \
     modele/brique.cpp \
     modele/joueur.cpp \
     controleur/toucheclavier.cpp \
-    modele/bombe.cpp
+    modele/bombe.cpp \
+    vue/fenetreserveur.cpp \
+    vue/qbomberman.cpp \
+    modele/reseau/serveur.cpp
+
+FORMS    += vue/qbomberman.ui \
+            vue/FenetreServeur.ui
