@@ -1,0 +1,69 @@
+#include <QtWidgets>
+#include "client.h"
+
+
+Client::Client(QObject *parent) : QTcpSocket(parent)
+{
+    //Creer la scene
+    scene = new MainWindow() ;
+
+
+    connect(this, SIGNAL(readyRead()), this, SLOT(readyRead()));
+    connect(this, SIGNAL(connected()), this, SLOT(connected()));
+}
+
+/**
+ * Destructeur par défaut
+ * @brief Serveur::~Serveur
+ */
+Client::~Client()
+{
+
+}
+
+/**
+  Le client arrive sur le serveur et lui dit faut me rajouter à la liste
+ * @brief Client::connected
+ */
+void Client::connected()
+{
+     this->write(QString("/me:\n").toUtf8());
+}
+
+void Client::readyRead()
+{
+
+    while(this->canReadLine())
+    {
+
+        QString line = QString::fromUtf8(this->readLine()).trimmed();
+
+        // TODO: REGEX a créer pour l
+        QRegExp messageRegex("^([^:]+):(.*)$");
+        QRegExp usersRegex("^/users:(.*)$");
+
+        // Is this a users message:
+        if(usersRegex.indexIn(line) != -1)
+        {
+            // If so, update our users list on the right:
+            QStringList users = usersRegex.cap(1).split(",");
+            //userListWidget->clear();
+            foreach(QString user, users){
+                user.remove(0, 1);
+                scene->ajouterPersonnage();
+                // TODO ajouter a la scene tous les joueurs
+                // et mettre une condition pour vérifier qu'il n'est pas déjà présent
+                            //new QListWidgetItem(user, userListWidget);
+            }
+        }
+        // Is this a normal chat message:
+        else if(messageRegex.indexIn(line) != -1)
+        {
+            // If so, append this message to our chat box:
+            QString user = messageRegex.cap(1);
+            QString message = messageRegex.cap(2);
+
+       //     roomTextEdit->append(user + " : " + message);
+        }
+    }
+}
