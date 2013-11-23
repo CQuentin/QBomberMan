@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     controleur = new ToucheClavier();
     personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
 
-
+    qDebug()<<"yolo";
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++)
@@ -108,7 +108,7 @@ void MainWindow::readyRead(){
         if(idRegex.indexIn(line) != -1){
             QStringList mots = idRegex.cap(1).split(" ");
             id = mots[0].toInt();
-            ajouterPersonnage(id,3,5);
+            ajouterPersonnage(id,2,3);
            // qDebug() << "id = " << id;
             // qDebug()<<" taille = "<<personnages.size();
         }
@@ -146,6 +146,7 @@ void MainWindow::readyRead(){
             // bombe[3] power des qui aura les bonus
           ajouterBombe(bombe[0].toInt(),bombe[1].toInt(),bombe[2].toInt());
 
+
         }
         //Deplacement
         else if(deplacementRegex.indexIn(line) != -1){
@@ -169,7 +170,7 @@ void MainWindow::readyRead(){
             personnages[depl[0].toInt()]->getPicture()->moveBy(dx,dy);
             personnages[depl[0].toInt()]->newPosition(depl[1].toInt(),depl[2].toInt());
             personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
-            personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());  /* ! */
+           //personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());  /* ! */
             personnages[depl[0].toInt()]->refreshPicture();
         }
 
@@ -314,9 +315,9 @@ void MainWindow::tryMove(int x, int y){
         // depl[6].toInt() pos hauteur du sprite
         // depl[7]  bool orientation gauche
         // depl[8] bool est en vie
-        qDebug() << id;
+       // qDebug() << id;
         QVector<int> qv = personnages[id]->getCoordSprite();
-        socket->write(QString("/p %1 %2 %3 %4 %5 %6 %7 %8 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).toUtf8());
+        socket->write(QString("/p %1 %2 %3 %4 %5 %6 %7 %8 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])/*.arg(personnages[id]->isOrientG())*/.toUtf8());
     }
 
 
@@ -331,8 +332,6 @@ void MainWindow::tryJump(){
 
 void MainWindow::timerEvent ( QTimerEvent * event ){    
     if (personnages.size() >0){
-        //partie autre personnages[id]
-        //TODO : réception serveur, boucle sur chaque joueur (si en vie),et MAJ position et image
 
         // ----------- partie personnages[id]
         if (gravity<0){
@@ -365,7 +364,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         if(controleur->getStateKeys(2)){
             if (personnages[id]->tryDropBombe()){
                 // ajouter un truc du style personnages[id]->hasBonusBombe()
-                ajouterBombe(personnages[id]->getId(),personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur());
+                ajouterBombe(id,personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur());
                 controleur->setPressed(Qt::Key_Down,false);
             }
         }
@@ -382,8 +381,6 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         if(x == 0 && gravity == 0 /*&& personnages[id]->getCurrentS() != 3*/)
             personnages[id]->immobile();
 
-        // TODO ? asscocier les bombes au joueur, soit avec le trigger du Joueur, soir en ayant bombes[NumJ][bombes]
-        // faire quand reçoit trigger du serveur (ou d'un client si serveur)
         if(/*personnages[id]->hasBonusTrigger() &&*/controleur->getStateKeys(4)){
             triggerLastBombe(id);
         }
@@ -453,7 +450,7 @@ int MainWindow::getGravity(){
     return gravity;
 }
 
-// TODO si liste de joueur, mettre ID Joueur en paramètre
+
 void MainWindow::triggerLastBombe(int bmId){
 //    int i = bombes.size()-1;
 //    while(i >= 0 && bombes[i]->getBManId() != bmId )
