@@ -553,7 +553,7 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
 
 
 bool MainWindow::hitTest(int bI, int bJ, int bI2, int bJ2){
-    int hauteurP = personnages[id]->getHauteur(), largeurP = personnages[id]->getLargeur()-1;
+    int hauteurP = personnages[id]->getHauteur(), largeurP = personnages[id]->getLargeur()/*-1*/;
     bool hit = false;
 
 
