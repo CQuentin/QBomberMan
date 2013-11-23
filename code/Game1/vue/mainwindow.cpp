@@ -21,8 +21,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grille.resize(largeurG);
     controleur = new ToucheClavier();
     personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
-
-    qDebug()<<"yolo";
+id = 0;
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++)
@@ -35,7 +34,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
     //TODO : gérer avec des classes niveau
     // for nb joueur...
-  // ajouterPersonnage(id,5,3);
+   ajouterPersonnage(id,5,3);
     ajouterBrique(false,5,5);
 
 
@@ -91,8 +90,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
 
 void MainWindow::readyRead(){
-
-    while(socket->canReadLine())
+    while(socket->canReadLine() && 1 == 2)
     {
 
         QString line = QString::fromUtf8(socket->readLine()).trimmed();
@@ -317,7 +315,7 @@ void MainWindow::tryMove(int x, int y){
         // depl[8] bool est en vie
        // qDebug() << id;
         QVector<int> qv = personnages[id]->getCoordSprite();
-        socket->write(QString("/p %1 %2 %3 %4 %5 %6 %7 %8 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])/*.arg(personnages[id]->isOrientG())*/.toUtf8());
+        socket->write(QString("/p %1 %2 %3 %4 %5 %6 %7 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])/*.arg(personnages[id]->isOrientG())*/.toUtf8());
     }
 
 
@@ -330,7 +328,7 @@ void MainWindow::tryJump(){
     }
 }
 
-void MainWindow::timerEvent ( QTimerEvent * event ){    
+void MainWindow::timerEvent ( QTimerEvent * event ){
     if (personnages.size() >0){
 
         // ----------- partie personnages[id]
@@ -464,7 +462,7 @@ void MainWindow::triggerLastBombe(int bmId){
 }
 
 void MainWindow::explosion(int idJ,Bombe *bombe, int dx, int dy){
-
+    bool hit = false;
     int pI = getGrilleIFromPosition(personnages[idJ]->getX());
     int pJ = getGrilleJFromPosition(personnages[idJ]->getY());
 
@@ -484,8 +482,8 @@ void MainWindow::explosion(int idJ,Bombe *bombe, int dx, int dy){
     int i2 = posGrilleI2, j2 = posGrilleJ2;
 
     if(dx == 0 && dy == 0){
-        if(((pI == i && pJ == j) || (pI == i2 && pJ == j2))  && personnages[id]->isAlive() )
-            personnages[id]->hit();
+        if(hitTest(i,j,i2,j2))
+            hit = true;
         ajouterExplosion(bombe,x,y,dx,dy,false);
     }
     else{
@@ -508,8 +506,8 @@ void MainWindow::explosion(int idJ,Bombe *bombe, int dx, int dy){
                 scene->removeItem(grille[i2][j2]->getPicture());
                 grille[i2][j2] = NULL;
             }
-            if(((pI == i && pJ == j) || (pI == i2 && pJ == j2))  && personnages[id]->isAlive() )
-                personnages[id]->hit();
+            if(hitTest(i,j,i2,j2))
+                hit = true;
             ajouterExplosion(bombe,x,y,dx,dy,end);
 
             i = i +dx;
@@ -540,7 +538,52 @@ void MainWindow::explosion(int idJ,Bombe *bombe, int dx, int dy){
             range --;
         }
     }
+
+    if(hit)
+        personnages[id]->hit();
+
 }
+
+
+
+bool MainWindow::hitTest(int bI, int bJ, int bI2, int bJ2){
+    int hauteurP = personnages[id]->getHauteur(), largeurP = personnages[id]->getLargeur();
+    bool hit = false;
+
+
+    // nombre de points du personnages[id] espacés de tailleC px
+    int nbPointX =1 + largeurP / tailleC;
+    if (largeurP % tailleC !=0)
+        nbPointX++;
+    int nbPointY =1 + hauteurP / tailleC;
+    if (hauteurP % tailleC !=0)
+        nbPointY++;
+
+    int posGrilleI;
+    int posGrilleJ;
+
+    // on regarde dans quelle partie de la grille se trouve chaque points espacés de taille Cpx du personnages[id]
+    for (int i = 0; i< nbPointX; i++){
+        if(i * tailleC > largeurP)
+            posGrilleI = getGrilleIFromPosition(personnages[id]->getX() + largeurP);
+        else
+            posGrilleI = getGrilleIFromPosition(personnages[id]->getX() + i * tailleC);
+
+        for (int j = 0; j< nbPointY; j++){
+            if(j * tailleC > hauteurP)
+                posGrilleJ = getGrilleJFromPosition(personnages[id]->getY() + hauteurP);
+            else
+                posGrilleJ = getGrilleJFromPosition(personnages[id]->getY() + j * tailleC);
+
+            if((posGrilleI == bI && posGrilleJ == bJ) ||(posGrilleI == bI2 && posGrilleJ == bJ2)){
+                hit  = true;
+            }
+        }
+    }
+
+    return hit;
+}
+
 
 /* Destructeur de la classe MainWindow */
 MainWindow::~MainWindow()

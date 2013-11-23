@@ -253,6 +253,17 @@ class MainWindow : public QMainWindow
          */
         void triggerLastBombe(int bmId);
 
+
+        /*!
+         * \brief regarde si une explosion touche un joueur
+         * \param bI position I dans la grille de l'explosion, en partant du point haut gauche de la bombe
+         * \param bJ position J dans la grille de l'explosion, en partant du point haut gauche de la bombe
+         * \param bI2 position I dans la grille de l'explosion, en partant du point bas droite de la bombe
+         * \param bJ2 position J dans la grille de l'explosion, en partant du point haut droite de la bombe
+         * \author Quentin CHEYNET
+         */
+        bool hitTest(int bI, int bJ, int bI2, int bJ2);
+
          ~MainWindow();
 
 };
