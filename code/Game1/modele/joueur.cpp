@@ -19,8 +19,9 @@ Joueur::Joueur(int id, int x , int y){
     orientG = false;
     nbMaxBombes = 2;
     nbBombes = 0;
-    hp = 1;
+    hp = 3;
     bombes.resize(0);
+    immortality = false;
 
     if(id <1) // 1 : le nombre de couleurs différentes existantes
       sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
@@ -361,6 +362,10 @@ void Joueur::hit(){
        state = DYING;
        pauseSprite = 45;
    }
+   else{
+        immortality = true;
+   }
+
 }
 
 

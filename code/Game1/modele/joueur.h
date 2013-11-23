@@ -48,6 +48,7 @@ private :
     int nbBombes;
     int hp;
     QVector<Bombe*> bombes;
+    bool immortality;
 
 
 public:
@@ -344,5 +345,11 @@ public:
      * \author Quentin CHEYNET
      */
     void die();
+
+    /*!
+     * \brief gère l'imortalité (sprite, bool immortality)
+     * \author Quentin CHEYNET
+     */
+    void immortal();
 };
 #endif // JOUEUR_H

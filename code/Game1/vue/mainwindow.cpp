@@ -480,8 +480,8 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
     int posGrilleJ = getGrilleJFromPosition(y);
 
     // point en bas à droite
-    int posGrilleI2 = getGrilleIFromPosition(x+tailleC -1);
-    int posGrilleJ2 = getGrilleJFromPosition(y+ tailleC -1);
+    int posGrilleI2 = getGrilleIFromPosition(x+bombe->getLargeur());
+    int posGrilleJ2 = getGrilleJFromPosition(y+bombe->getHauteur());
 
     int range = bombe->getPower();
     int i = posGrilleI, j= posGrilleJ;
@@ -553,7 +553,7 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
 
 
 bool MainWindow::hitTest(int bI, int bJ, int bI2, int bJ2){
-    int hauteurP = personnages[id]->getHauteur(), largeurP = personnages[id]->getLargeur();
+    int hauteurP = personnages[id]->getHauteur(), largeurP = personnages[id]->getLargeur()-1;
     bool hit = false;
 
 
