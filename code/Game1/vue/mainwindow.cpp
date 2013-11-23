@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grille.resize(largeurG);
     controleur = new ToucheClavier();
     personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
-id = 0;
+//id = 0;
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++)
@@ -34,7 +34,7 @@ id = 0;
 
     //TODO : gérer avec des classes niveau
     // for nb joueur...
-   ajouterPersonnage(id,5,3);
+   //ajouterPersonnage(id,5,3);
     ajouterBrique(false,5,5);
 
 
@@ -90,7 +90,7 @@ id = 0;
 
 
 void MainWindow::readyRead(){
-    while(socket->canReadLine() && 1 == 2)
+    while(socket->canReadLine())
     {
 
         QString line = QString::fromUtf8(socket->readLine()).trimmed();
@@ -142,7 +142,8 @@ void MainWindow::readyRead(){
             // bombe[1] pos X
             // bombe[2] pos Y
             // bombe[3] power des qui aura les bonus
-          ajouterBombe(bombe[0].toInt(),bombe[1].toInt(),bombe[2].toInt());
+            if (bombe[0].toInt()!= id)
+                ajouterBombe(bombe[0].toInt(),bombe[1].toInt(),bombe[2].toInt());
 
 
         }
@@ -392,6 +393,8 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
             tryMove(0,gravity);
             tryMove(x,0);
+
+            personnages[id]->checkImmortality();
         }
 
 
