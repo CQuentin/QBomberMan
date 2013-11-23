@@ -238,13 +238,12 @@ class MainWindow : public QMainWindow
 
         /*!
          * \brief génère l'explosion d'une bombe
-         * \param idJ L'identifiant du joueur qui pose la bombe
          * \param bombe La bombe qui explose
          * \param dx Le sens horizontal de l'explosion
          * \param dY Le sens horizontal de l'explosion
          * \author Quentin CHEYNET
          */
-        void explosion (int idJ,Bombe *bombe, int dx, int dy);
+        void explosion (Bombe *bombe, int dx, int dy);
 
         /*!
          * \brief fait exploser toutes les bombes

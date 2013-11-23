@@ -22,7 +22,9 @@ private :
         LANDING = 4,
         GETTING_UP = 5,
         JUMPING = 6,
-        DROPING = 7
+        DROPING = 7,
+        DYING = 8,
+        DEAD = 9
     };
     int id;
     int posX;
@@ -336,5 +338,11 @@ public:
      * \author Quentin CHEYNET
      */
     void refreshPicture();
+
+    /*!
+     * \brief active l'animation de la mort, puis met state à DEAD
+     * \author Quentin CHEYNET
+     */
+    void die();
 };
 #endif // JOUEUR_H

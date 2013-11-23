@@ -330,62 +330,68 @@ void MainWindow::tryJump(){
 
 void MainWindow::timerEvent ( QTimerEvent * event ){
     if (personnages.size() >0){
+        if(personnages[id]->getCurrentS() == 8){
+            personnages[id]->die();
+            if(personnages[id]->getCurrentS() == 9)
+                scene->removeItem(personnages[id]->getPicture());
+        }
+        else if(personnages[id]->getCurrentS() != 9){
 
-        // ----------- partie personnages[id]
-        if (gravity<0){
-            personnages[id]->setCurrentH(personnages[id]->getCurrentH()+1);
-            if(personnages[id]->getCurrentH()>= personnages[id]->getMaxH() || collisionTest(0,-1)){
-                gravity = baseGravity;
-                personnages[id]->setCurrentH(0);
+            // ----------- partie personnages[id]
+            if (gravity<0){
+                personnages[id]->setCurrentH(personnages[id]->getCurrentH()+1);
+                if(personnages[id]->getCurrentH()>= personnages[id]->getMaxH() || collisionTest(0,-1)){
+                    gravity = baseGravity;
+                    personnages[id]->setCurrentH(0);
+                }
+                else{
+                    personnages[id]->setCurrentS(6);
+                    personnages[id]->immobile();
+                }
+
             }
-            else{
-                personnages[id]->setCurrentS(6);
+            else if(collisionTest(0,1)){
+                if(gravity == 1)
+                    personnages[id]->setCurrentS(4); //LANDING
+                gravity = 0;
+            }
+            else {
+                gravity = baseGravity;
+                personnages[id]->setCurrentS(3); // FALLING
                 personnages[id]->immobile();
             }
 
-        }
-        else if(collisionTest(0,1)){
-            if(gravity == 1)
-                personnages[id]->setCurrentS(4); //LANDING
-            gravity = 0;
-        }
-        else {
-            gravity = baseGravity;
-            personnages[id]->setCurrentS(3); // FALLING
-            personnages[id]->immobile();
-        }
+            int x = 0;
+            if(gravity == 0 && controleur->getStateKeys(0))
+                tryJump();
 
-        int x = 0;
-        if(gravity == 0 && controleur->getStateKeys(0))
-            tryJump();
-
-        if(controleur->getStateKeys(2)){
-            if (personnages[id]->tryDropBombe()){
-                // ajouter un truc du style personnages[id]->hasBonusBombe()
-                ajouterBombe(id,personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur());
-                controleur->setPressed(Qt::Key_Down,false);
+            if(controleur->getStateKeys(2)){
+                if (personnages[id]->tryDropBombe()){
+                    // ajouter un truc du style personnages[id]->hasBonusBombe()
+                    ajouterBombe(id,personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur());
+                    controleur->setPressed(Qt::Key_Down,false);
+                }
             }
+
+            if(controleur->getStateKeys(1)){
+                x +=- 1;
+                personnages[id]->courireG();
+            }
+            else if(controleur->getStateKeys(3)){
+                x += 1;
+                personnages[id]->courireD();
+            }
+
+            if(x == 0 && gravity == 0 /*&& personnages[id]->getCurrentS() != 3*/)
+                personnages[id]->immobile();
+
+            if(/*personnages[id]->hasBonusTrigger() &&*/controleur->getStateKeys(4)){
+                triggerLastBombe(id);
+            }
+
+            tryMove(0,gravity);
+            tryMove(x,0);
         }
-
-        if(controleur->getStateKeys(1)){
-            x +=- 1;
-            personnages[id]->courireG();
-        }
-        else if(controleur->getStateKeys(3)){
-            x += 1;
-            personnages[id]->courireD();
-        }
-
-        if(x == 0 && gravity == 0 /*&& personnages[id]->getCurrentS() != 3*/)
-            personnages[id]->immobile();
-
-        if(/*personnages[id]->hasBonusTrigger() &&*/controleur->getStateKeys(4)){
-            triggerLastBombe(id);
-        }
-
-        tryMove(0,gravity);
-        tryMove(x,0);
-
 
 
         // ----------- partie bombes
@@ -393,11 +399,11 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         for (int idJ = 0; idJ < personnages.size(); idJ++ ){
             for(int i = 0; i<personnages[idJ]->getVectorBombes().size(); i++){
                 if(personnages[idJ]->getVectorBombes()[i]->isExploding()){
-                    explosion(idJ,personnages[idJ]->getVectorBombes()[i],0,0);
-                    explosion(idJ,personnages[idJ]->getVectorBombes()[i],0,1);
-                    explosion(idJ,personnages[idJ]->getVectorBombes()[i],0,-1);
-                    explosion(idJ,personnages[idJ]->getVectorBombes()[i],1,0);
-                    explosion(idJ,personnages[idJ]->getVectorBombes()[i],-1,0);
+                    explosion(personnages[idJ]->getVectorBombes()[i],0,0);
+                    explosion(personnages[idJ]->getVectorBombes()[i],0,1);
+                    explosion(personnages[idJ]->getVectorBombes()[i],0,-1);
+                    explosion(personnages[idJ]->getVectorBombes()[i],1,0);
+                    explosion(personnages[idJ]->getVectorBombes()[i],-1,0);
                 }
                 if(personnages[idJ]->getVectorBombes()[i]->hasExploded()){
                     for(int j = 0; j< personnages[idJ]->getVectorBombes()[i]->getExplosions().size(); j++)
@@ -410,6 +416,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 }
             }
         }
+
     }
 }
 
@@ -461,10 +468,8 @@ void MainWindow::triggerLastBombe(int bmId){
    }
 }
 
-void MainWindow::explosion(int idJ,Bombe *bombe, int dx, int dy){
+void MainWindow::explosion(Bombe *bombe, int dx, int dy){
     bool hit = false;
-    int pI = getGrilleIFromPosition(personnages[idJ]->getX());
-    int pJ = getGrilleJFromPosition(personnages[idJ]->getY());
 
     int x = bombe->getX();
     int y = bombe->getY();
@@ -482,7 +487,7 @@ void MainWindow::explosion(int idJ,Bombe *bombe, int dx, int dy){
     int i2 = posGrilleI2, j2 = posGrilleJ2;
 
     if(dx == 0 && dy == 0){
-        if(hitTest(i,j,i2,j2))
+        if(personnages[id]->isAlive() && hitTest(i,j,i2,j2))
             hit = true;
         ajouterExplosion(bombe,x,y,dx,dy,false);
     }
@@ -506,7 +511,7 @@ void MainWindow::explosion(int idJ,Bombe *bombe, int dx, int dy){
                 scene->removeItem(grille[i2][j2]->getPicture());
                 grille[i2][j2] = NULL;
             }
-            if(hitTest(i,j,i2,j2))
+            if(personnages[id]->isAlive() && hitTest(i,j,i2,j2))
                 hit = true;
             ajouterExplosion(bombe,x,y,dx,dy,end);
 

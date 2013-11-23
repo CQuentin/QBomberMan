@@ -356,9 +356,61 @@ bool Joueur::tryDropBombe(){
 
 void Joueur::hit(){
    hp --;
-   if(hp < 0)
-       hp = 0;
+   if(hp <= 0){
+       step = 0;
+       state = DYING;
+       pauseSprite = 45;
+   }
 }
+
+
+void Joueur::die(){
+    if(pauseSprite >= 20){
+        switch (step){
+        case 0:
+            setCoordSprite(261,435,31,33);
+            step++;
+            break;
+        case 1:
+            setCoordSprite(1,435,31,33);
+            step++;
+            break;
+        case 2:
+            setCoordSprite(39,435,31,33);
+            step++;
+            break;
+        case 3:
+            setCoordSprite(75,435,31,33);
+            step++;
+            break;
+        case 4:
+            setCoordSprite(110,435,31,33);
+            step++;
+            break;
+        case 5:
+            setCoordSprite(146,435,31,33);
+            step++;
+            break;
+        case 6:
+            setCoordSprite(182,435,31,33);
+            step++;
+            break;
+        case 7:
+            setCoordSprite(218,435,33,32);
+            step++;
+            break;
+        case 8:
+            state = DEAD;
+            break;
+
+        }
+        currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
+        pauseSprite = 0;
+        picture->setPixmap(currentImage);
+    }
+    else pauseSprite++;
+}
+
 bool Joueur::isAlive(){
 
     return (hp > 0);
