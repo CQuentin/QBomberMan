@@ -356,6 +356,8 @@ bool Joueur::tryDropBombe(){
 
 void Joueur::hit(){
    hp --;
+   if(hp < 0)
+       hp = 0;
 }
 bool Joueur::isAlive(){
 
@@ -411,4 +413,21 @@ Bombe* Joueur::getLastBombe(){
     if(i > 0)
         return bombes.at(i-1);
     else return NULL;
+}
+
+bool Joueur::isOrientG(){
+    return orientG;
+}
+
+
+void Joueur::setOrientG(bool o){
+    orientG = o;
+}
+
+void Joueur::refreshPicture(){
+    QTransform transform;
+    currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
+    if (orientG)
+        currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
+    picture->setPixmap(currentImage);
 }

@@ -313,5 +313,28 @@ public:
      * \author Quentin CHEYNET
      */
     Bombe *getLastBombe();
+
+    /*!
+     * \brief renvoie si le personnage est orienté vers la gauche o non
+     * \return Vrai si orientG = true, faux sinon
+     * \author Quentin CHEYNET
+     */
+    bool isOrientG();
+
+    /*!
+     * \brief assignation d'un bool à orientG
+     * \param o Le bool qui décide si orientG = true ou false
+     * \author Quentin CHEYNET
+     */
+    void setOrientG(bool o);
+
+    /*!
+     * \brief change l'image du personnage
+     *
+     * utilisé uniquement pour les autres personnages
+     *
+     * \author Quentin CHEYNET
+     */
+    void refreshPicture();
 };
 #endif // JOUEUR_H

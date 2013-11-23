@@ -162,15 +162,15 @@ void MainWindow::readyRead(){
 
             int oldPosX = personnages[depl[0].toInt()]->getX();
             int oldPosY =personnages[depl[0].toInt()]->getY();
-
             int dx = oldPosX + depl[1].toInt();
             int dy = oldPosY + depl[2].toInt();
 
-            //TODO getOrientG
+            //TODO vérifier si depl[7].toInt() peut passer pour un bool
             personnages[depl[0].toInt()]->getPicture()->moveBy(dx,dy);
             personnages[depl[0].toInt()]->newPosition(depl[1].toInt(),depl[2].toInt());
-
             personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
+            personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());  /* ! */
+            personnages[depl[0].toInt()]->refreshPicture();
         }
 
         else if (declenchementRegex.indexIn(line) != -1){
@@ -304,7 +304,6 @@ void MainWindow::tryMove(int x, int y){
         personnages[id]->setX(newX);
         personnages[id]->setY(newY);
         personnages[id]->getPicture()->moveBy(x,y);
-        QVector<int> qv = personnages[id]->getCoordSprite();
         //TODO getOrientG
         // depl[0].toInt() id joueur
         // depl[1].toInt() pos X
@@ -316,7 +315,8 @@ void MainWindow::tryMove(int x, int y){
         // depl[7]  bool orientation gauche
         // depl[8] bool est en vie
         qDebug() << id;
-        socket->write(QString("/p %1 %2 %3 %4 %5 %6 %7 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).toUtf8());
+        QVector<int> qv = personnages[id]->getCoordSprite();
+        socket->write(QString("/p %1 %2 %3 %4 %5 %6 %7 %8 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).toUtf8());
     }
 
 
