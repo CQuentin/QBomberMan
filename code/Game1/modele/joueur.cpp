@@ -10,7 +10,7 @@ Joueur::Joueur(int id, int x , int y){
     lSprite = 22;
     hSprite = 36;
     hauteur = 35;
-    largeur = 20;
+    largeur = 19;
     maxHigh = 50;
     currentHigh = 0;
     step = 0;
@@ -22,6 +22,7 @@ Joueur::Joueur(int id, int x , int y){
     hp = 3;
     bombes.resize(0);
     immortality = false;
+    immortalityCD = 1500;
 
     if(id <1) // 1 : le nombre de couleurs différentes existantes
       sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
@@ -116,11 +117,8 @@ void Joueur::courireD(){
 
     if (state != FALLING && state != JUMPING){
         orientG = false;
-        if (state != RUNNING_D){
-//            if(step == 4 || step == 8)
-//                    picture->moveBy(-2,0);
+        if (state != RUNNING_D)
             step = 0;
-        }
 
         state = RUNNING_D;
         if(pauseSprite >= 15){
@@ -164,21 +162,30 @@ void Joueur::courireD(){
             }
             pauseSprite = 0;
             currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
-            picture->setPixmap(currentImage);
 
-            //dans les sprite 2 et 6, le point le plus à gauche n'est plus la tête
-            //adoucit le mouvement (différence de 4px -> diff de 2px puis 2px)
-            // ATTENTION : pendant un court moment, le joueur voit son personnage à 2 px de là
-            // où il est rééllement
-//            if(step == 3 || step == 7)
-//                picture->moveBy(-2,0);
-//            else if(step == 4 || step == 8)
-//                picture->moveBy(2,0);
+            if(immortality){
+                QPainter p;
+                p.begin(&currentImage);
+                p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
+                p.fillRect(currentImage.rect(), QColor(0, 0, 0,100));
+                p.end();
+            }
+
+            picture->setPixmap(currentImage);
 
         }
         else pauseSprite ++;
     }
     else if (orientG){
+
+        if(immortality){
+            QPainter p;
+            p.begin(&currentImage);
+            p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
+            p.fillRect(currentImage.rect(), QColor(0, 0, 0,100));
+            p.end();
+        }
+
          picture->setPixmap(currentImage);
          orientG = false;
     }
@@ -240,28 +247,34 @@ void Joueur::courireG(){
             currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
             currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
             pauseSprite = 0;
+
+            if(immortality){
+                QPainter p;
+                p.begin(&currentImage);
+                p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
+                p.fillRect(currentImage.rect(), QColor(0, 0, 0,100));
+                p.end();
+            }
+
+
             picture->setPixmap(currentImage);
-
-            //dans les sprite 2 et 6, le point le plus à gauche n'est plus la tête
-            //adoucit le mouvement (différence de 4px -> diff de 2px puis 2px)
-            // ATTENTION : pendant un court moment, le joueur voit son personnage à 2 px de là
-            // où il est rééllement
-//            if(step == 3 || step == 7)
-//                picture->moveBy(2,0);
-//            else if(step == 4 || step == 8)
-//                picture->moveBy(-2,0);
-
         }
         else pauseSprite ++;
     }
     else if (!orientG){
         currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
+
+        if(immortality){
+            QPainter p;
+            p.begin(&currentImage);
+            p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
+            p.fillRect(currentImage.rect(), QColor(0, 0, 0,100));
+            p.end();
+        }
+
         picture->setPixmap(currentImage);
         orientG = true;
     }
-
-
-
 }
 
 void Joueur::immobile(){
@@ -309,10 +322,22 @@ void Joueur::immobile(){
             state = STANDING;
             break;
         }
+
+
+
         currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
         if (orientG)
             currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
         pauseSprite = 0;
+
+        if (immortality){
+            QPainter p;
+            p.begin(&currentImage);
+            p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
+            p.fillRect(currentImage.rect(), QColor(0, 0, 0,100));
+            p.end();
+        }
+
         picture->setPixmap(currentImage);
     }
     else
@@ -356,18 +381,34 @@ bool Joueur::tryDropBombe(){
 }
 
 void Joueur::hit(){
-   hp --;
-   if(hp <= 0){
-       step = 0;
-       state = DYING;
-       pauseSprite = 45;
-   }
-   else{
-        immortality = true;
-   }
+    if (!immortality){
+        hp --;
+        if(hp <= 0){
+            step = 0;
+            state = DYING;
+            pauseSprite = 45;
+        }
+        else{
+            immortality = true;
+        }
+    }
 
 }
 
+void Joueur::checkImmortality(){
+    if (immortality){
+
+
+
+        if (immortalityCD == 0){
+            immortality = false;
+            immortalityCD = 1500;
+        }else
+            immortalityCD -= 5;
+
+    }
+
+}
 
 void Joueur::die(){
     if(pauseSprite >= 20){
@@ -486,5 +527,14 @@ void Joueur::refreshPicture(){
     currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
     if (orientG)
         currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
+
+    if(immortality){
+        QPainter p;
+        p.begin(&currentImage);
+        p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
+        p.fillRect(currentImage.rect(), QColor(0, 0, 0,100));
+        p.end();
+    }
+
     picture->setPixmap(currentImage);
 }

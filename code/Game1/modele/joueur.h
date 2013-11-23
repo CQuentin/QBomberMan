@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QRect>
 #include <QTransform>
+#include <QPainter>
 #include "brique.h"
 #include "bombe.h"
 
@@ -49,6 +50,7 @@ private :
     int hp;
     QVector<Bombe*> bombes;
     bool immortality;
+    int immortalityCD;
 
 
 public:
@@ -350,6 +352,6 @@ public:
      * \brief gère l'imortalité (sprite, bool immortality)
      * \author Quentin CHEYNET
      */
-    void immortal();
+    void checkImmortality();
 };
 #endif // JOUEUR_H

@@ -338,6 +338,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 scene->removeItem(personnages[id]->getPicture());
         }
         else if(personnages[id]->getCurrentS() != 9){
+            personnages[id]->checkImmortality();
 
             // ----------- partie personnages[id]
             if (gravity<0){
@@ -394,7 +395,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             tryMove(0,gravity);
             tryMove(x,0);
 
-            personnages[id]->checkImmortality();
+
         }
 
 
