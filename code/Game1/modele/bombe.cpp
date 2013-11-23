@@ -8,8 +8,8 @@ Bombe::Bombe(QObject *parent = 0, int x = 0, int y = 0, int bmId = 1) : QObject(
     currentImage = sprite.copy(66,238,13,15);
     picture = new QGraphicsPixmapItem(currentImage);
     picture->setPos(x,y);
-    hauteur = 13;
-    largeur = 15;
+    hauteur = 15;
+    largeur = 16;
     pauseSprite = 15;
     power = 4;
     countDown = 3100;
