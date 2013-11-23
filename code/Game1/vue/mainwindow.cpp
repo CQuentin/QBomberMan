@@ -210,7 +210,8 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
 void MainWindow::ajouterBombe(int bmId,int x, int y)
 {
     Bombe *bombe = new Bombe(0,x,y,bmId);
-    bombe->setY(bombe->getY() - bombe->getHauteur()+1);
+    bombe->setY(bombe->getY() - bombe->getHauteur()/2);
+    bombe->setX(bombe->getX() - bombe->getLargeur()/4);
     //bombes.append(bombe);
     personnages[bmId]->addBombe(bombe);
     scene->addItem(bombe->getPicture());
@@ -368,7 +369,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             if(controleur->getStateKeys(2)){
                 if (personnages[id]->tryDropBombe()){
                     // ajouter un truc du style personnages[id]->hasBonusBombe()
-                    ajouterBombe(id,personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur());
+                    ajouterBombe(id,personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur()/2);
                     controleur->setPressed(Qt::Key_Down,false);
                 }
             }
