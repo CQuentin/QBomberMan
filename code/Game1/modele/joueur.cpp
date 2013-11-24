@@ -576,8 +576,6 @@ void Joueur::receiveBonus(int t){
         bonusTrigger = true;
         break;
     }
-    if(tired>-1)
-        tired = -1;
 
 }
 
