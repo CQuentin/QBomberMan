@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grilleBonus.resize(largeurG);
     controleur = new ToucheClavier();
     personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
-  // id = 0;
+   //id = 0;
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++){
@@ -37,8 +37,21 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
     //TODO : gérer avec des classes niveau
     // for nb joueur...
- //  ajouterPersonnage(id,5,3);
+  // ajouterPersonnage(id,5,3);
     ajouterBrique(false,5,5);
+
+
+    // -------- 4 murs du contour
+    for (int i =0; i< largeurG; i++)
+        ajouterBrique(false,i,29);
+    for (int i =0; i< largeurG; i++)
+        ajouterBrique(false,i,0);
+    for (int j =0; j< hauteurG; j++)
+        ajouterBrique(false,0,j);
+    for (int j =0; j< hauteurG; j++)
+        ajouterBrique(false,44,j);
+    // -------- fin 4 murs du contour
+
 
     for (int k = 1; k<30; k+=5)
         for(int i = 0; i < largeurG; i++)
@@ -72,16 +85,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
             dec = 44;
 
 
-        // -------- 4 murs du contour
-        for (int i =0; i< largeurG; i++)
-            ajouterBrique(false,i,29);
-        for (int i =0; i< largeurG; i++)
-            ajouterBrique(false,i,0);
-        for (int j =0; j< hauteurG; j++)
-            ajouterBrique(false,0,j);
-        for (int j =0; j< hauteurG; j++)
-            ajouterBrique(false,44,j);
-        // -------- fin 4 murs du contour
+
     }
     /*  -------------- fin niveau -------------------- */
 
@@ -215,12 +219,14 @@ void MainWindow::ajouterPersonnage(int id,int i, int j){
 
 void MainWindow::ajouterBrique(bool cassable, int i, int j)
 {
-    int posX = getPositionXFromGrille(i);
-    int posY = getPositionYFromGrille(j);
+    if(grille[i][j] == NULL){
+        int posX = getPositionXFromGrille(i);
+        int posY = getPositionYFromGrille(j);
 
-    grille[i][j] = new Brique(cassable,posX,posY);
+        grille[i][j] = new Brique(cassable,posX,posY);
 
-    scene->addItem(grille[i][j]->getPicture());
+        scene->addItem(grille[i][j]->getPicture());
+    }
 }
 
 //mettre id joueur
