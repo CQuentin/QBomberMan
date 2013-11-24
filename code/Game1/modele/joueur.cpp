@@ -539,8 +539,6 @@ void Joueur::refreshPicture(){
         p.fillRect(currentImage.rect(), QColor(0, 0, 0,100));
         p.end();
     }
-    picture->setPos(posX,posY);
-
     picture->setPixmap(currentImage);
 }
 
