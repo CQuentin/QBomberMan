@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grilleBonus.resize(largeurG);
     controleur = new ToucheClavier();
     personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
-   //id = 0;
+  //id = 0;
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++){
@@ -402,7 +402,6 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
             if(controleur->getStateKeys(2)){
                 if (personnages[id]->tryDropBombe()){
-                    // ajouter un truc du style personnages[id]->hasBonusBombe()
                     ajouterBombe(id,personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur()/2);
                     controleur->setPressed(Qt::Key_Down,false);
                 }
@@ -420,7 +419,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             if(x == 0 && gravity == 0 /*&& personnages[id]->getCurrentS() != 3*/)
                 personnages[id]->immobile();
 
-            if(/*personnages[id]->hasBonusTrigger() &&*/controleur->getStateKeys(4)){
+            if(controleur->getStateKeys(4) && personnages[id]->hasBonusTrigger()){
                 triggerLastBombe(id);
             }
 
@@ -671,15 +670,12 @@ void MainWindow::checkBonus(){
                 posGrilleJ = getGrilleJFromPosition(y + j * tailleC);
 
             if(grilleBonus[posGrilleI][posGrilleJ] != NULL){
-                qDebug()<<"yahoo";
-               // personnages[id]->receiveBonus(grilleBonus[i][j]);
+                personnages[id]->receiveBonus(grilleBonus[posGrilleI][posGrilleJ]->getBonusType());
                 scene->removeItem(grilleBonus[posGrilleI][posGrilleJ]->getPicture());
                 grilleBonus[posGrilleI][posGrilleJ] = NULL;
             }
-
         }
     }
-
 }
 
 /* Destructeur de la classe MainWindow */
