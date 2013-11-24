@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grilleBonus.resize(largeurG);
     controleur = new ToucheClavier();
     personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
-   // id = 0;
+   id = 0;
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++){
@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
     //TODO : gérer avec des classes niveau
     // for nb joueur...
-   //ajouterPersonnage(id,5,3);
+   ajouterPersonnage(id,5,3);
     ajouterBrique(false,5,5);
 
 
@@ -412,6 +412,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
             tryMove(0,gravity);
             tryMove(x,0);
+            checkBonus();
 
 
         }
@@ -621,6 +622,48 @@ void MainWindow::detruireBrique(int i, int j){
     if(id == 0){
         if(qrand()%4 +1 == 1) // une chance sur 4
             ajouterBonus(i,j);
+    }
+
+}
+
+void MainWindow::checkBonus(){
+    int hauteurP = personnages[id]->getHauteur(), largeurP = personnages[id]->getLargeur();
+
+    int x = personnages[id]->getX();
+    int y = personnages[id]->getY();
+
+    // nombre de points du personnages[id] espacés de tailleC px
+    int nbPointX =1 + largeurP / tailleC;
+    if (largeurP % tailleC !=0)
+        nbPointX++;
+    int nbPointY =1 + hauteurP / tailleC;
+    if (hauteurP % tailleC !=0)
+        nbPointY++;
+
+    int posGrilleI;
+    int posGrilleJ;
+
+    // on regarde dans quelle partie de la grille se trouve chaque points espacés de taille Cpx du personnages[id]
+    for (int i = 0; i< nbPointX; i++){
+        if(i * tailleC > largeurP)
+            posGrilleI = getGrilleIFromPosition(x + largeurP);
+        else
+            posGrilleI = getGrilleIFromPosition(x + i * tailleC);
+
+        for (int j = 0; j< nbPointY; j++){
+            if(j * tailleC > hauteurP)
+                posGrilleJ = getGrilleJFromPosition(y + hauteurP);
+            else
+                posGrilleJ = getGrilleJFromPosition(y + j * tailleC);
+
+            if(grilleBonus[posGrilleI][posGrilleJ] != NULL){
+                qDebug()<<"yahoo";
+               // personnages[id]->receiveBonus(grilleBonus[i][j]);
+                scene->removeItem(grilleBonus[posGrilleI][posGrilleJ]->getPicture());
+                grilleBonus[posGrilleI][posGrilleJ] = NULL;
+            }
+
+        }
     }
 
 }

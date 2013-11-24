@@ -282,6 +282,12 @@ class MainWindow : public QMainWindow
          */
         void ajouterBonus(int i, int j);
 
+        /*!
+         * \brief vérifie si le joueur se trouve sur un bonus, et gère son obtntion si c'est le cas
+         * \author Quentin CHEYNET
+         */
+        void checkBonus();
+
          ~MainWindow();
 
 };
