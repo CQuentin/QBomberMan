@@ -110,6 +110,7 @@ void MainWindow::readyRead(){
             QStringList mots = idRegex.cap(1).split(" ");
             id = mots[0].toInt();
             qDebug() << "id reçu :" << id;
+            qDebug() << "ajout de : "<< id;
             ajouterPersonnage(id,2,3);
 
             // qDebug()<<" taille = "<<personnages.size();
@@ -123,18 +124,21 @@ void MainWindow::readyRead(){
 
             foreach(QString user, users){
                 QStringList J = user.split(" ");
+                bool present = false;
                 /*
                  *Exemple de code quand ça fonctionnera !
                  *J[0] id joueur
                  *J[1] pos x
                  *J[2] pos y
                  */
-
 //                personnages.resize(users.length());
                 foreach(Joueur *j ,personnages){
-                    if(j->getId() != J[0].toInt()){
-                        ajouterPersonnage(J[0].toInt(),5,3);
-                    }
+                    if(j->getId() == J[0].toInt())
+                        present = true;
+                }
+                if(!present){
+                    qDebug() << "OKIDOKI ajout de :" << J[0].toInt();
+                    ajouterPersonnage(J[0].toInt(),5,3);
                 }
             }
 
