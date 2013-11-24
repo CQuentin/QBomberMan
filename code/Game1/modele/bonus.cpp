@@ -4,6 +4,7 @@ Bonus::Bonus(int x, int y){
     posX = x;
     posY = y;
 
+
     type = qrand()%6;
 
     QPixmap sprite = QPixmap("../Game1/ressource/sprites_bonus.png");

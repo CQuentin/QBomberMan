@@ -3,6 +3,7 @@
 
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
+#include <QTime>
 class Bonus
 {
 
