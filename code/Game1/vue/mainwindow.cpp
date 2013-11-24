@@ -182,8 +182,8 @@ void MainWindow::readyRead(){
 
             int oldPosX = personnages[depl[0].toInt()]->getX();
             int oldPosY =personnages[depl[0].toInt()]->getY();
-            int dx = oldPosX + depl[1].toInt();
-            int dy = oldPosY + depl[2].toInt();
+            int dx = depl[1].toInt() - oldPosX;
+            int dy = depl[2].toInt() - oldPosY;
 
             //TODO vérifier si depl[7].toInt() peut passer pour un bool
             personnages[depl[0].toInt()]->getPicture()->moveBy(dx,dy);
