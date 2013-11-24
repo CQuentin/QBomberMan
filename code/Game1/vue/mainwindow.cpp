@@ -40,6 +40,14 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
  //  ajouterPersonnage(id,5,3);
     ajouterBrique(false,5,5);
 
+    for (int k = 1; k<30; k+=5)
+        for(int i = 0; i < largeurG; i++)
+           ajouterBrique(true,i,k);
+
+    for (int k = 1; k<45; k+=5)
+            for(int j = 0; j < hauteurG; j++)
+             ajouterBrique(true,k,j);
+
 
     for (int j =29; j>= 15; j--)
         ajouterBrique(true,30,j);
