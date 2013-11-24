@@ -4,7 +4,7 @@
 Brique::Brique(bool cassable,int x ,int y){
     setX(x);
     setY(y);
-    setCassable(cassable);
+    this->cassable = cassable;
 
     QPixmap sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
 
@@ -34,10 +34,6 @@ void Brique::setPicture(QGraphicsPixmapItem *picture){
 
 QGraphicsPixmapItem* Brique::getPicture(){
     return picture;
-}
-
-void Brique::setCassable(bool cassable){
-    this->cassable = cassable;
 }
 
 bool Brique::estCassable(){

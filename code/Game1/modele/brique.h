@@ -12,12 +12,21 @@ private :
     int posY;
     void setX(int x);
     void setY(int y);
-    void setCassable(bool cassable);
     QGraphicsPixmapItem *picture;
 
 
 public:
-    Brique(bool cassable,int x ,int y);
+    /*!
+     * \brief Constructeur
+     *
+     * Constructeur de la classe Brique
+     * \param cassable Vrai si la brique est cassable, faux sinon
+     * \param x La position à l'abscisse
+     * \param y La position à l'ordonnée
+     * \author Quentin CHEYNET
+     */
+    Brique(bool cassable, int x , int y);
+
     /*!
      * \brief renvoie l'attribut picture
      * \return picture
