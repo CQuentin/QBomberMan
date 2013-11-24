@@ -187,10 +187,10 @@ void MainWindow::readyRead(){
 
             //TODO vérifier si depl[7].toInt() peut passer pour un bool
             personnages[depl[0].toInt()]->getPicture()->moveBy(dx,dy);
-            personnages[depl[0].toInt()]->newPosition(depl[1].toInt(),depl[2].toInt());
-            personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
-           //personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());  /* ! */
-            personnages[depl[0].toInt()]->refreshPicture();
+                        personnages[depl[0].toInt()]->newPosition(depl[1].toInt(),depl[2].toInt());
+                        personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
+                        personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());
+                        personnages[depl[0].toInt()]->refreshPicture();
         }
 
         else if (declenchementRegex.indexIn(line) != -1){
@@ -338,18 +338,18 @@ void MainWindow::tryMove(int x, int y){
         personnages[id]->setY(newY);
         personnages[id]->getPicture()->moveBy(x,y);
         //TODO getOrientG
-        // depl[0].toInt() id joueur
-        // depl[1].toInt() pos X
-        // depl[2].toInt() pos Y
-        // depl[3].toInt() pos X dans sprite
-        // depl[4].toInt() pos Y dans sprite
-        // depl[5].toInt() pos largeur du sprite
-        // depl[6].toInt() pos hauteur du sprite
-        // depl[7]  bool orientation gauche
-        // depl[8] bool est en vie
-       // qDebug() << id;
-        QVector<int> qv = personnages[id]->getCoordSprite();
-        socket->write(QString("/p %1 %2 %3 %4 %5 %6 %7 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])/*.arg(personnages[id]->isOrientG())*/.toUtf8());
+               // depl[0].toInt() id joueur
+               // depl[1].toInt() pos X
+               // depl[2].toInt() pos Y
+               // depl[3].toInt() pos X dans sprite
+               // depl[4].toInt() pos Y dans sprite
+               // depl[5].toInt() pos largeur du sprite
+               // depl[6].toInt() pos hauteur du sprite
+               // depl[7]  bool orientation gauche
+               // depl[8] bool est en vie
+              // qDebug() << id;
+               QVector<int> qv = personnages[id]->getCoordSprite();
+              // socket->write(QString("/p: %1 %2 %3 %4 %5 %6 %7 %8 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).toUtf8());
     }
 
 
@@ -501,7 +501,7 @@ void MainWindow::triggerLastBombe(int bmId){
 //        bombes[i]->trigger();
    if (personnages[bmId]->getLastBombe() != NULL){
        personnages[bmId]->getLastBombe()->trigger();
-       socket->write(QString("/t %1\n").arg(bmId).toUtf8());
+       socket->write(QString("/t: %1 $\n").arg(bmId).toUtf8());
    }
 }
 
