@@ -19,13 +19,16 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     hauteurG = hauteur/tailleC;
     gravity = 0;
     grille.resize(largeurG);
+    grilleBonus.resize(largeurG);
     controleur = new ToucheClavier();
     personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
-//id = 0;
+    //id = 0;
     grabKeyboard();
 
-    for(int i = 0; i<largeurG; i++)
+    for(int i = 0; i<largeurG; i++){
         grille[i].resize(hauteurG);
+        grilleBonus[i].resize(hauteurG);
+    }
 
     scene = new QGraphicsScene(0, 0, largeur, hauteur, this);
     view = new QGraphicsView(scene, this);
@@ -34,7 +37,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
     //TODO : gérer avec des classes niveau
     // for nb joueur...
-   //ajouterPersonnage(id,5,3);
+  // ajouterPersonnage(id,5,3);
     ajouterBrique(false,5,5);
 
 
@@ -242,6 +245,14 @@ void MainWindow::ajouterExplosion(Bombe *bombe,int x, int y, int dx, int dy,bool
     bombe->addExplosions(picture);
     picture->setPos(x,y);
     scene->addItem(picture);
+
+}
+
+void MainWindow::ajouterBonus(int i, int j){
+    grilleBonus[i][j] = new Bonus(i,j);
+    scene->addItem(grilleBonus[i][j]->getPicture());
+    int t = grilleBonus[i][j]->getBonusType();
+    //TODO write bonus (i,j,t)
 
 }
 
@@ -506,20 +517,23 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
         j2 = j2 +dy;
         x += dx * tailleC; // 20 = taille explosion
         y += dy * tailleC;
-        while(((grille[i][j] == NULL || grille[i][j]->estCassable()) && ((grille[i2][j2] == NULL || grille[i2][j2]->estCassable())))&& range >0){
+        while(((grille[i][j] == NULL || grille[i][j]->estCassable()) && ((grille[i2][j2] == NULL || grille[i2][j2]->estCassable() || j2 == hauteurG || i2 == largeurG || j2 == 0 || i2 == 0) ))&& range >0){
             if (range -1 <= 0)
                 end = true;
             if(grille[i][j] != NULL && grille[i][j]->estCassable()){
-                scene->removeItem(grille[i][j]->getPicture());
-                grille[i][j] = NULL;
+//                scene->removeItem(grille[i][j]->getPicture());
+//                grille[i][j] = NULL;
+                detruireBrique(i,j);
             }
             if(grille[i2][j2] != NULL && grille[i2][j2]->estCassable()){
-                scene->removeItem(grille[i2][j2]->getPicture());
-                grille[i2][j2] = NULL;
+//               scene->removeItem(grille[i2][j2]->getPicture());
+//               grille[i2][j2] = NULL;
+              detruireBrique(i2,j2);
             }
             if(personnages[id]->isAlive() && hitTest(i,j,i2,j2))
                 hit = true;
-            ajouterExplosion(bombe,x,y,dx,dy,end);
+
+               ajouterExplosion(bombe,x,y,dx,dy,end);
 
             i = i +dx;
             j = j +dy;
@@ -595,6 +609,15 @@ bool MainWindow::hitTest(int bI, int bJ, int bI2, int bJ2){
     return hit;
 }
 
+void MainWindow::detruireBrique(int i, int j){
+    scene->removeItem(grille[i][j]->getPicture());
+    grille[i][j] = NULL;
+//    if(id == 0){
+//        if(qrand()%4 +1 == 1) // une chance sur 4
+//            //ajouterBonus(i,j);
+//    }
+
+}
 
 /* Destructeur de la classe MainWindow */
 MainWindow::~MainWindow()

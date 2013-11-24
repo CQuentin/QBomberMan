@@ -18,6 +18,7 @@ HEADERS += vue/mainwindow.h \
     modele/joueur.h \
     controleur/toucheclavier.h \
     modele/bombe.h \
+    modele/bonus.h \
     vue/fenetreserveur.h \
     vue/qbomberman.h \
     modele/reseau/serveur.h
@@ -27,6 +28,7 @@ SOURCES += main.cpp vue/mainwindow.cpp \
     modele/joueur.cpp \
     controleur/toucheclavier.cpp \
     modele/bombe.cpp \
+    modele/bonus.cpp \
     vue/fenetreserveur.cpp \
     vue/qbomberman.cpp \
     modele/reseau/serveur.cpp

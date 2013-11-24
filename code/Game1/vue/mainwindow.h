@@ -15,6 +15,7 @@
 #include <QVector>
 #include<QBasicTimer>
 #include "../modele/brique.h"
+#include "../modele/bonus.h"
 #include "../modele/joueur.h"
 #include "../modele/bombe.h"
 #include "../controleur/toucheclavier.h"
@@ -40,6 +41,7 @@ class MainWindow : public QMainWindow
         int baseGravity;
         ToucheClavier *controleur;
         QVector<QVector<Brique*> > grille;
+        QVector<QVector<Bonus*> > grilleBonus;
        // QVector<Bombe*> bombes;
         int id;
         QTcpSocket *socket;
@@ -262,6 +264,23 @@ class MainWindow : public QMainWindow
          * \author Quentin CHEYNET
          */
         bool hitTest(int bI, int bJ, int bI2, int bJ2);
+
+        /*!
+         * \brief détruit une brique, et décide si un bonus doit apparaître
+         * \param i Ligne de la grille
+         * \param j Colonne de la grille
+         * \author Quentin CHEYNET
+         */
+        void detruireBrique(int i, int j);
+
+
+        /*!
+         * \brief ajoute un bonus dans la scene
+         * \param i Ligne de la grilleBonus
+         * \param j Colonne de la grilleBonus
+         * \author Quentin CHEYNET
+         */
+        void ajouterBonus(int i, int j);
 
          ~MainWindow();
 
