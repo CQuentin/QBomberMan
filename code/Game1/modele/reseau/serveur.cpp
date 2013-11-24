@@ -51,6 +51,7 @@ void Serveur::readyRead()
         {
              if(deplacementRegex.indexIn(ligne) != -1 || bombeRegex.indexIn(ligne) != -1 || declenchementRegex.indexIn(ligne) != -1){
                 QString message = ligne;
+                qDebug() << "Read line:" << ligne;
                 foreach(QTcpSocket *otherClient, m_clients)
                     otherClient->write(QString(message + "\n").toUtf8());
              }
