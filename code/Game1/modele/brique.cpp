@@ -17,9 +17,6 @@ Brique::Brique(bool cassable,int x ,int y){
      picture->setPos(x,y);
 }
 
-void Brique::detruireBrique(){
-    delete this;
-}
 
 void Brique::setX(int x)
 {
@@ -45,4 +42,8 @@ void Brique::setCassable(bool cassable){
 
 bool Brique::estCassable(){
     return cassable;
+}
+
+Brique::~Brique(){
+    delete this;
 }

@@ -51,6 +51,13 @@ public:
      * \author Quentin CHEYNET
      */
     bool getStateKeys(int i);
+
+    /*!
+     * \brief Destructeur
+     * Destructeur de la classe ToucheClavier
+     * \author Quentin CHEYNET
+     */
+    ~ToucheClavier();
 };
 
 #endif // TOUCHECLAVIER_H

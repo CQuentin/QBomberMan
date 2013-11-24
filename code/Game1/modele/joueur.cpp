@@ -538,3 +538,7 @@ void Joueur::refreshPicture(){
 
     picture->setPixmap(currentImage);
 }
+
+Joueur::~Joueur(){
+    delete this;
+}

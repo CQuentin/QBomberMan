@@ -353,5 +353,12 @@ public:
      * \author Quentin CHEYNET
      */
     void checkImmortality();
+
+    /*!
+     * \brief Destructeur
+     * Destructeur de la classe Joueur
+     * \author Quentin CHEYNET
+     */
+    ~Joueur();
 };
 #endif // JOUEUR_H

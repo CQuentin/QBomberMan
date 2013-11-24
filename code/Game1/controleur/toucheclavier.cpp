@@ -34,3 +34,7 @@ void ToucheClavier::setPressed(int key, bool state){
 bool ToucheClavier::getStateKeys(int i){
     return stateKeys[i];
 }
+
+ToucheClavier::~ToucheClavier(){
+    delete this;
+}

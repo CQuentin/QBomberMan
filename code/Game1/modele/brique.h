@@ -5,9 +5,19 @@
 #include <QPixmap>
 class Brique
 {
+
+private :
+    bool cassable;
+    int posX;
+    int posY;
+    void setX(int x);
+    void setY(int y);
+    void setCassable(bool cassable);
+    QGraphicsPixmapItem *picture;
+
+
 public:
     Brique(bool cassable,int x ,int y);
-    void detruireBrique();
     /*!
      * \brief renvoie l'attribut picture
      * \return picture
@@ -28,14 +38,12 @@ public:
      */
     bool estCassable();
 
+    /*!
+     * \brief Destructeur
+     * Destructeur de la classe Brique
+     * \author Quentin CHEYNET
+     */
+    ~Brique();
 
-private :
-    bool cassable;
-    int posX;
-    int posY;
-    void setX(int x);
-    void setY(int y);
-    void setCassable(bool cassable);
-    QGraphicsPixmapItem *picture;
 };
 #endif // BRIQUE_H
