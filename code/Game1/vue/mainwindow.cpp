@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grilleBonus.resize(largeurG);
     controleur = new ToucheClavier();
     personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
-  //id = 0;
+ // id = 0;
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++){
@@ -356,7 +356,7 @@ void MainWindow::tryMove(int x, int y){
 }
 //TODO partie modèle à placer dans Joueur (garder partie graphique)
 void MainWindow::tryJump(){
-    if(collisionTest(0,1)){
+    if(personnages[id]->getBonusJump() == 2 || collisionTest(0,1)){
         gravity = -baseGravity;
         //        personnages[id]->setCurrentS(6);
     }
