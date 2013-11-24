@@ -34,9 +34,6 @@ Joueur::Joueur(int id, int x , int y){
     picture->setPos(x,y);
 }
 
-void Joueur::detruireJoueur(){
-    delete this;
-}
 
 void Joueur::setX(int x)
 {

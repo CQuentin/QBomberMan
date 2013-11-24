@@ -66,7 +66,6 @@ public:
      */
     Joueur(int id,int x ,int y);
     void newPosition (int x , int y);
-    void detruireJoueur();
 
     /*!
      * \brief renvoie l'attribut picture
