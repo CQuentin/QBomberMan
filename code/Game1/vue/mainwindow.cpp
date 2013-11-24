@@ -106,8 +106,9 @@ void MainWindow::readyRead(){
         if(idRegex.indexIn(line) != -1){
             QStringList mots = idRegex.cap(1).split(" ");
             id = mots[0].toInt();
+            qDebug() << "id reçu :" << id;
             ajouterPersonnage(id,2,3);
-           // qDebug() << "id = " << id;
+
             // qDebug()<<" taille = "<<personnages.size();
         }
 

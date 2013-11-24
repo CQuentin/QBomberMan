@@ -33,7 +33,7 @@ private:
     QMap<QTcpSocket*,int >    m_utilisateurs;
     quint16                   m_tailleBloc;
     int                       m_nbUtilisateur;
-    int                       m_clientIdCourant;
+    static int                m_clientIdCourant;
 };
 
 #endif // SERVEUR_H

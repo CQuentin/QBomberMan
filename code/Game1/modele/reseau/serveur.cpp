@@ -1,9 +1,10 @@
 #include "serveur.h"
 
+int Serveur::m_clientIdCourant = -1;
+
 Serveur::Serveur(int t, QObject *parent) : QTcpServer(parent)
 {
-    m_nbUtilisateur = t;
-   m_clientIdCourant = -1;
+    m_nbUtilisateur = t;   
 }
 
 /**
@@ -37,12 +38,10 @@ void Serveur::readyRead()
         if(meRegex.indexIn(ligne) != -1){
 
             int utilisateur = m_clientIdCourant;
-            m_utilisateurs[client] = utilisateur;
-            //m_utilisateurs[client] = j;
-            qDebug() << utilisateur;
-           // qDebug() << m_utilisateurs[client];
+            m_utilisateurs[client] = utilisateur;           
+            qDebug() <<"id envoyé : " <<utilisateur;
 
-             client->write(QString("/i: %1 $\n").arg(utilisateur).toUtf8());
+            client->write(QString("/i:%1 $\n").arg(utilisateur).toUtf8());
 
             envoyerListeUtilisateur();
 
