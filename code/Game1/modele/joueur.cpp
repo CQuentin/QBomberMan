@@ -538,6 +538,7 @@ void Joueur::refreshPicture(){
         p.fillRect(currentImage.rect(), QColor(0, 0, 0,100));
         p.end();
     }
+    picture->setPos(posX,posY);
 
     picture->setPixmap(currentImage);
 }
@@ -562,8 +563,7 @@ void Joueur::receiveBonus(int t){
             bonusJump++;
         }
         else if (bonusJump == 1){
-            //maxJump
-            //maxHigh = 50;
+            maxHigh = 50;
             bonusJump++;
         }
         break;
@@ -577,6 +577,10 @@ void Joueur::receiveBonus(int t){
 
 bool Joueur::hasBonusTrigger(){
     return bonusTrigger;
+}
+
+int Joueur::getBonusJump(){
+    return bonusJump;
 }
 
 Joueur::~Joueur(){

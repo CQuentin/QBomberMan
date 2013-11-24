@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grilleBonus.resize(largeurG);
     controleur = new ToucheClavier();
     personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
- // id = 0;
+  //id = 0;
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++){
@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
     //TODO : gérer avec des classes niveau
     // for nb joueur...
-  // ajouterPersonnage(id,5,3);
+   //ajouterPersonnage(id,5,3);
     ajouterBrique(false,5,5);
 
 
@@ -397,7 +397,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             }
 
             int x = 0;
-            if(gravity == 0 && controleur->getStateKeys(0))
+            if((gravity == 0 || personnages[id]->getBonusJump() == 2) && controleur->getStateKeys(0))
                 tryJump();
 
             if(controleur->getStateKeys(2)){

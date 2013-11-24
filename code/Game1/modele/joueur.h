@@ -373,6 +373,16 @@ public:
     bool hasBonusTrigger();
 
     /*!
+     * \brief renvoie la valeur de bonusJump
+     *
+     * bonusJump est le nombre de fois que le joueur a ramassé un bonus pour sauter (max 2)
+     *
+     * \return bonusJump
+     * \author Quentin CHEYNET
+     */
+    int getBonusJump();
+
+    /*!
      * \brief Destructeur
      * Destructeur de la classe Joueur
      * \author Quentin CHEYNET
