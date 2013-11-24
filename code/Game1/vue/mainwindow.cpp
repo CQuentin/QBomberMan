@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
 
     //TODO : gérer avec des classes niveau
     // for nb joueur...
-   //ajouterPersonnage(id,5,3);
+ //  ajouterPersonnage(id,5,3);
     ajouterBrique(false,5,5);
 
 
@@ -424,7 +424,18 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             }
 
             tryMove(0,gravity);
-            tryMove(x,0);
+
+            int tired = personnages[id]->getTired();
+
+            if (tired == -1)
+                tryMove(x,0);
+            else if(tired == 0)
+                personnages[id]->setTired(1); // baseTired ?
+            else{
+                tryMove(x,0);
+                personnages[id]->setTired(tired-1);
+            }
+
             checkBonus();
 
 

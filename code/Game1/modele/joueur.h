@@ -54,9 +54,10 @@ private :
     int bonusPower;
     int bonusJump;
     bool bonusTrigger;
-
+    int tired;
 
 public:
+
     /*!
      * \brief Constructeur
      *
@@ -381,6 +382,20 @@ public:
      * \author Quentin CHEYNET
      */
     int getBonusJump();
+
+    /*!
+     * \brief renvoie la valeur tired
+     * \return tired, pour savoir si le personnage fait une pause avance
+     * \author Quentin CHEYNET
+     */
+    int getTired();
+
+    /*!
+     * \brief assignation d'un entier à tired
+     * \param t La nouvelle valeur de tired
+     * \author Quentin CHEYNET
+     */
+    int setTired(int t);
 
     /*!
      * \brief Destructeur

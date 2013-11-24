@@ -26,6 +26,7 @@ Joueur::Joueur(int id, int x , int y){
     bonusPower = 1;
     bonusJump = 0;
     bonusTrigger = false;
+    tired = 1;
 
     if(id <1) // 1 : le nombre de couleurs différentes existantes
       sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
@@ -568,11 +569,16 @@ void Joueur::receiveBonus(int t){
         }
         break;
     case 4 :
+        if(tired>-1)
+            tired = -1;
         break;
     case 5 :
         bonusTrigger = true;
         break;
     }
+    if(tired>-1)
+        tired = -1;
+
 }
 
 bool Joueur::hasBonusTrigger(){
@@ -581,6 +587,14 @@ bool Joueur::hasBonusTrigger(){
 
 int Joueur::getBonusJump(){
     return bonusJump;
+}
+
+int Joueur::getTired(){
+    return tired;
+}
+
+int Joueur::setTired(int t){
+    tired = t;
 }
 
 Joueur::~Joueur(){

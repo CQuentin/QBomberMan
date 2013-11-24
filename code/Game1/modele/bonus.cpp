@@ -21,7 +21,7 @@ Bonus::Bonus(int x, int y){
         currentImage = sprite.copy(82,81,20,20);
         break;
     case JUMP :
-        currentImage = sprite.copy(0,0,20,20);
+        currentImage = sprite.copy(42,123,20,20);
         break;
     case SPEED :
         currentImage = sprite.copy(0,0,20,20);
