@@ -51,6 +51,9 @@ private :
     QVector<Bombe*> bombes;
     bool immortality;
     int immortalityCD;
+    int bonusPower;
+    int bonusJump;
+    bool bonusTrigger;
 
 
 public:
@@ -352,6 +355,22 @@ public:
      * \author Quentin CHEYNET
      */
     void checkImmortality();
+
+
+    /*!
+     * \brief reçoit un bonus et modifie les caratéristiques du Joueur
+     * \param t Le type de bonus
+     * \author Quentin CHEYNET
+     */
+    void receiveBonus(int t);
+
+
+    /*!
+     * \brief regarde si le personnage a le bonus pour faire exploser une bombe
+     * \return vrai si bonusTrigger est vrai, faux sinon
+     * \author Quentin CHEYNET
+     */
+    bool hasBonusTrigger();
 
     /*!
      * \brief Destructeur

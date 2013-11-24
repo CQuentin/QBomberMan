@@ -177,6 +177,12 @@ public:
     int getBManId();
 
     /*!
+     * \brief stop le timer de la bombe
+     * \author Quentin CHEYNET
+     */
+    void stopCountDown();
+
+    /*!
      * \brief Destructeur
      * Destructeur de la classe Bombe
      * \author Quentin CHEYNET

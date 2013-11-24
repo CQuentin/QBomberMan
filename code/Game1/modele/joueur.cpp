@@ -17,12 +17,15 @@ Joueur::Joueur(int id, int x , int y){
     pauseSprite = 15;
     state = STANDING;
     orientG = false;
-    nbMaxBombes = 2;
+    nbMaxBombes = 1;
     nbBombes = 0;
-    hp = 3;
+    hp = 1;
     bombes.resize(0);
     immortality = false;
     immortalityCD = 1500;
+    bonusPower = 1;
+    bonusJump = 0;
+    bonusTrigger = false;
 
     if(id <1) // 1 : le nombre de couleurs différentes existantes
       sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
@@ -492,6 +495,9 @@ QVector<int> Joueur::getCoordSprite(){
 }
 
 void Joueur::addBombe(Bombe *b){
+    if(bonusTrigger)
+        b->stopCountDown();
+    b->setPower(bonusPower);
     bombes.append(b);
 }
 
@@ -534,6 +540,43 @@ void Joueur::refreshPicture(){
     }
 
     picture->setPixmap(currentImage);
+}
+
+void Joueur::receiveBonus(int t){
+    switch(t){
+    case 0 :
+        if(hp <3)
+            hp ++;
+        break;
+    case 1 :
+        if(bonusPower < 5)
+            bonusPower ++;
+        break;
+    case 2 :
+        if (nbMaxBombes < 5)
+            nbMaxBombes ++;
+        break;
+    case 3 :
+        if(bonusJump == 0){
+            maxHigh = 100;
+            bonusJump++;
+        }
+        else if (bonusJump == 1){
+            //maxJump
+            //maxHigh = 50;
+            bonusJump++;
+        }
+        break;
+    case 4 :
+        break;
+    case 5 :
+        bonusTrigger = true;
+        break;
+    }
+}
+
+bool Joueur::hasBonusTrigger(){
+    return bonusTrigger;
 }
 
 Joueur::~Joueur(){

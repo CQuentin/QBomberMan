@@ -19,6 +19,10 @@ Bombe::Bombe(QObject *parent = 0, int x = 0, int y = 0, int bmId = 1) : QObject(
     bomberManId = bmId;
 }
 
+void Bombe::stopCountDown(){
+    timer.stop();
+}
+
 void Bombe::setX(int x)
 {
     posX = x;
