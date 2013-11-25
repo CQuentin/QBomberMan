@@ -6,7 +6,7 @@ var searchData=
   ['toucheclavier_2ecpp',['toucheclavier.cpp',['../toucheclavier_8cpp.html',1,'']]],
   ['toucheclavier_2eh',['toucheclavier.h',['../toucheclavier_8h.html',1,'']]],
   ['trigger',['trigger',['../class_bombe.html#a98ac4accec949f0fba99e8f8ca656840',1,'Bombe::trigger()'],['../class_joueur.html#a87ed1c9d4a60c76c58d201a5a8b42242',1,'Joueur::trigger()']]],
-  ['triggerall',['triggerAll',['../class_main_window.html#abe62580b5c0382a40dc9774626bc06c0',1,'MainWindow']]],
+  ['triggerlastbombe',['triggerLastBombe',['../class_main_window.html#adea63d77559c92391e15aebc61c26256',1,'MainWindow']]],
   ['trydropbombe',['tryDropBombe',['../class_joueur.html#a60fe638abb3a92871eed965ed50455fa',1,'Joueur']]],
   ['tryjump',['tryJump',['../class_main_window.html#ab4dd36eab1ebae847317f2b229edb4d2',1,'MainWindow']]],
   ['trymove',['tryMove',['../class_main_window.html#aa247829763c9661274378b5e5f817d1a',1,'MainWindow']]]

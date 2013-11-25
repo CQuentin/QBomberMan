@@ -20,10 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="personnage.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Bomberman.jpg"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">QBomberman++
-   &#160;<span id="projectnumber">0.1</span>
    </div>
   </td>
  </tr>
@@ -38,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,11 +90,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="bombe_8h_source.html">bombe.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Bombe:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_bombe__coll__graph.png" border="0" usemap="#_bombe_coll__map" alt="Collaboration graph"/></div>
+<map name="_bombe_coll__map" id="_bombe_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1fa217c90a8fbc6380f62b1a81dd12df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a1fa217c90a8fbc6380f62b1a81dd12df">Bombe</a> (QObject *parent, int x, int y)</td></tr>
-<tr class="memdesc:a1fa217c90a8fbc6380f62b1a81dd12df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="#a1fa217c90a8fbc6380f62b1a81dd12df"></a><br/></td></tr>
+<tr class="memitem:a45137baff70bfbcc52b517aeae77cf41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a45137baff70bfbcc52b517aeae77cf41">Bombe</a> (QObject *parent, int x, int y, int bmId)</td></tr>
+<tr class="memdesc:a45137baff70bfbcc52b517aeae77cf41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="#a45137baff70bfbcc52b517aeae77cf41"></a><br/></td></tr>
 <tr class="memitem:a4a8d1892a8eee21eb98b0c16faa82fb8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a4a8d1892a8eee21eb98b0c16faa82fb8">getX</a> ()</td></tr>
 <tr class="memdesc:a4a8d1892a8eee21eb98b0c16faa82fb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie la position x de la bombe  <a href="#a4a8d1892a8eee21eb98b0c16faa82fb8"></a><br/></td></tr>
 <tr class="memitem:a3481f692bb7fab48d0592a55015ba88e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a3481f692bb7fab48d0592a55015ba88e">getY</a> ()</td></tr>
@@ -131,11 +138,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2d0ebe4b0cda7832d852edf441d0bf8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie le QVector explosions  <a href="#a2d0ebe4b0cda7832d852edf441d0bf8d"></a><br/></td></tr>
 <tr class="memitem:a98ac4accec949f0fba99e8f8ca656840"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a98ac4accec949f0fba99e8f8ca656840">trigger</a> ()</td></tr>
 <tr class="memdesc:a98ac4accec949f0fba99e8f8ca656840"><td class="mdescLeft">&#160;</td><td class="mdescRight">fait exploser une bombe  <a href="#a98ac4accec949f0fba99e8f8ca656840"></a><br/></td></tr>
+<tr class="memitem:ad49d181c2161b9d0ce858e8aa3f3a41f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#ad49d181c2161b9d0ce858e8aa3f3a41f">getBManId</a> ()</td></tr>
+<tr class="memdesc:ad49d181c2161b9d0ce858e8aa3f3a41f"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie l'identifiant du poseur de la bombe  <a href="#ad49d181c2161b9d0ce858e8aa3f3a41f"></a><br/></td></tr>
+<tr class="memitem:a42adb04a0c596879ca9c5d9e6d302cfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a42adb04a0c596879ca9c5d9e6d302cfd">stopCountDown</a> ()</td></tr>
+<tr class="memdesc:a42adb04a0c596879ca9c5d9e6d302cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">stop le timer de la bombe  <a href="#a42adb04a0c596879ca9c5d9e6d302cfd"></a><br/></td></tr>
 <tr class="memitem:aabe389bc75cefba777b2544b1926ce56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#aabe389bc75cefba777b2544b1926ce56">~Bombe</a> ()</td></tr>
 <tr class="memdesc:aabe389bc75cefba777b2544b1926ce56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur Destructeur de la classe <a class="el" href="class_bombe.html">Bombe</a>.  <a href="#aabe389bc75cefba777b2544b1926ce56"></a><br/></td></tr>
 </table>
-<h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1fa217c90a8fbc6380f62b1a81dd12df"></a>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00014">14</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+</div><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a45137baff70bfbcc52b517aeae77cf41"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -155,7 +169,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>y</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bmId</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -166,15 +186,19 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructeur. </p>
-<p>Constructeur de la classe <a class="el" href="class_bombe.html">Bombe</a></p>
+<p>Constructeur de la classe <a class="el" href="class_bombe.html">Bombe</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">parent</td><td>: QObject parent </td></tr>
     <tr><td class="paramname">x</td><td>La position à l'abscisse de la bombe </td></tr>
     <tr><td class="paramname">y</td><td>La position à l'ordonnée de la bombe </td></tr>
+    <tr><td class="paramname">bmId</td><td>Identifiant du <a class="el" href="class_joueur.html">Joueur</a> ayant posé la bombe </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00003">3</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -193,6 +217,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Destructeur Destructeur de la classe <a class="el" href="class_bombe.html">Bombe</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00151">151</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -214,11 +240,34 @@ Public Member Functions</h2></td></tr>
 <p>ajoute une explosion au QVector explosions </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pExplosions;</td><td></td></tr>
+    <tr><td class="paramname">pExplosions</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00132">132</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad49d181c2161b9d0ce858e8aa3f3a41f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Bombe::getBManId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie l'identifiant du poseur de la bombe </p>
+<dl class="section return"><dt>Returns</dt><dd>bomberManId </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00147">147</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -236,8 +285,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>renvoie le QVector explosions </p>
-<dl class="section return"><dt>Returns</dt><dd>explosions; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>explosions </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00136">136</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -258,6 +309,8 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>hauteur </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00048">48</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7faf1cc70ccf433d4d32ed03157993b4"></a>
@@ -276,6 +329,8 @@ Public Member Functions</h2></td></tr>
 <p>renvoie la largeur de la bombe </p>
 <dl class="section return"><dt>Returns</dt><dd>largeur </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00056">56</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -296,6 +351,8 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>picture </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00068">68</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db545d4d1d111c26912d94ba79f46fd"></a>
@@ -314,6 +371,8 @@ Public Member Functions</h2></td></tr>
 <p>renvoie la portée de la bombe </p>
 <dl class="section return"><dt>Returns</dt><dd>power </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00079">79</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -334,6 +393,8 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>posX </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00038">38</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3481f692bb7fab48d0592a55015ba88e"></a>
@@ -352,6 +413,8 @@ Public Member Functions</h2></td></tr>
 <p>renvoie la position y de la bombe </p>
 <dl class="section return"><dt>Returns</dt><dd>posY </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00043">43</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -372,6 +435,8 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Vrai si exploded == 0, faux sinon </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00075">75</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac910cfe76955a37faf73e0c295f7f2ea"></a>
@@ -390,6 +455,8 @@ Public Member Functions</h2></td></tr>
 <p>regarde si la bombe est en train d'exploser (timer = 0) </p>
 <dl class="section return"><dt>Returns</dt><dd>Vrai si exploding == true, faux sinon </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00072">72</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -416,6 +483,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00052">52</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5d17f01305c93b99e12b9fcf81866d15"></a>
@@ -440,6 +509,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00060">60</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -466,6 +537,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00064">64</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a4e425f50acc669c72e25f7f5786c19b4"></a>
@@ -490,6 +563,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00083">83</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -516,6 +591,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00026">26</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a03e2147ae2d8c51b1d485edc46d11092"></a>
@@ -540,6 +617,28 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00032">32</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a42adb04a0c596879ca9c5d9e6d302cfd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bombe::stopCountDown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>stop le timer de la bombe </p>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00022">22</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -566,6 +665,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00087">87</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a98ac4accec949f0fba99e8f8ca656840"></a>
@@ -584,16 +685,18 @@ Public Member Functions</h2></td></tr>
 <p>fait exploser une bombe </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00140">140</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Game1/modele/<a class="el" href="bombe_8h_source.html">bombe.h</a></li>
-<li>Game1/modele/<a class="el" href="bombe_8cpp.html">bombe.cpp</a></li>
+<li>modele/<a class="el" href="bombe_8h_source.html">bombe.h</a></li>
+<li>modele/<a class="el" href="bombe_8cpp_source.html">bombe.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 18 2013 18:30:59 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

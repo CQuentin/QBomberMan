@@ -1,12 +1,16 @@
-<map id="Game1/modele/brique.h" name="Game1/modele/brique.h">
-<area shape="rect" id="node3" href="$mainwindow_8h.html" title="Game1/vue/mainwindow.h" alt="" coords="268,237,444,267"/>
-<area shape="rect" id="node13" href="$joueur_8h.html" title="Game1/modele/joueur.h" alt="" coords="596,160,756,189"/>
-<area shape="rect" id="node18" href="$bombe_8h.html" title="Game1/modele/bombe.h" alt="" coords="401,83,564,112"/>
-<area shape="rect" id="node24" href="$brique_8cpp.html" title="Game1/modele/brique.cpp" alt="" coords="639,83,812,112"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="Game1/main.cpp" alt="" coords="5,315,125,344"/>
-<area shape="rect" id="node7" href="$moc__mainwindow_8cpp.html" title="Game1/moc_mainwindow.cpp" alt="" coords="149,315,347,344"/>
-<area shape="rect" id="node9" href="$mainwindow_8cpp.html" title="Game1/vue/mainwindow.cpp" alt="" coords="371,315,560,344"/>
-<area shape="rect" id="node11" href="$vue_2moc__mainwindow_8cpp.html" title="Game1/vue/moc_mainwindow.cpp" alt="" coords="584,315,805,344"/>
-<area shape="rect" id="node16" href="$joueur_8cpp.html" title="Game1/modele/joueur.cpp" alt="" coords="589,237,763,267"/>
-<area shape="rect" id="node22" href="$bombe_8cpp.html" title="Game1/modele/bombe.cpp" alt="" coords="393,160,572,189"/>
+<map id="modele/brique.h" name="modele/brique.h">
+<area shape="rect" id="node3" href="$mainwindow_8h.html" title="vue/mainwindow.h" alt="" coords="217,237,348,267"/>
+<area shape="rect" id="node18" href="$joueur_8h.html" title="modele/joueur.h" alt="" coords="474,160,589,189"/>
+<area shape="rect" id="node28" href="$bombe_8h.html" title="modele/bombe.h" alt="" coords="326,83,444,112"/>
+<area shape="rect" id="node34" href="$brique_8cpp.html" title="modele/brique.cpp" alt="" coords="518,83,646,112"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="main.cpp" alt="" coords="394,315,469,344"/>
+<area shape="rect" id="node7" href="$fenetreserveur_8h.html" title="vue/fenetreserveur.h" alt="" coords="493,315,634,344"/>
+<area shape="rect" id="node11" href="$qbomberman_8cpp.html" title="vue/qbomberman.cpp" alt="" coords="116,392,262,421"/>
+<area shape="rect" id="node13" href="$mainwindow_8cpp.html" title="vue/mainwindow.cpp" alt="" coords="26,315,170,344"/>
+<area shape="rect" id="node15" href="$moc__mainwindow_8cpp.html" title="vue/moc_mainwindow.cpp" alt="" coords="194,315,370,344"/>
+<area shape="rect" id="node9" href="$fenetreserveur_8cpp.html" title="vue/fenetreserveur.cpp" alt="" coords="486,392,641,421"/>
+<area shape="rect" id="node21" href="$joueur_8cpp.html" title="modele/joueur.cpp" alt="" coords="420,237,548,267"/>
+<area shape="rect" id="node23" href="$serveur_8h.html" title="modele/reseau/serveur.h" alt="" coords="572,237,737,267"/>
+<area shape="rect" id="node25" href="$serveur_8cpp.html" title="modele/reseau/serveur.cpp" alt="" coords="658,315,837,344"/>
+<area shape="rect" id="node32" href="$bombe_8cpp.html" title="modele/bombe.cpp" alt="" coords="320,160,450,189"/>
 </map>

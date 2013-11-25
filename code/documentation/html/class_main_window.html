@@ -20,10 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="personnage.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Bomberman.jpg"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">QBomberman++
-   &#160;<span id="projectnumber">0.1</span>
    </div>
   </td>
  </tr>
@@ -38,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,6 +90,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for MainWindow:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_main_window__coll__graph.png" border="0" usemap="#_main_window_coll__map" alt="Collaboration graph"/></div>
+<map name="_main_window_coll__map" id="_main_window_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -103,10 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aaa425b1554af3c1f58cc70b4815082ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">timerEvent  <a href="#aaa425b1554af3c1f58cc70b4815082ae"></a><br/></td></tr>
 <tr class="memitem:acb4c8d45756302a058178dec722bda35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#acb4c8d45756302a058178dec722bda35">ajouterBrique</a> (bool cassable, int i, int j)</td></tr>
 <tr class="memdesc:acb4c8d45756302a058178dec722bda35"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute une brique dans la vue  <a href="#acb4c8d45756302a058178dec722bda35"></a><br/></td></tr>
-<tr class="memitem:aa3d82c6fef1f80f72cd73d16150edd02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#aa3d82c6fef1f80f72cd73d16150edd02">ajouterPersonnage</a> (int i, int j)</td></tr>
-<tr class="memdesc:aa3d82c6fef1f80f72cd73d16150edd02"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute un personnage dans la vue  <a href="#aa3d82c6fef1f80f72cd73d16150edd02"></a><br/></td></tr>
-<tr class="memitem:a5e70a1a49eaf55f8487f4daab4978326"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a5e70a1a49eaf55f8487f4daab4978326">ajouterBombe</a> (int x, int y)</td></tr>
-<tr class="memdesc:a5e70a1a49eaf55f8487f4daab4978326"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute une bombe dans la vue  <a href="#a5e70a1a49eaf55f8487f4daab4978326"></a><br/></td></tr>
+<tr class="memitem:ab35e6cb622be5a0b039cad83705107a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ab35e6cb622be5a0b039cad83705107a5">ajouterPersonnage</a> (int id, int i, int j)</td></tr>
+<tr class="memdesc:ab35e6cb622be5a0b039cad83705107a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute un personnage dans la vue  <a href="#ab35e6cb622be5a0b039cad83705107a5"></a><br/></td></tr>
+<tr class="memitem:adf5cb1a2308f40aafec7cefb5e57b18d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#adf5cb1a2308f40aafec7cefb5e57b18d">ajouterBombe</a> (int bmId, int x, int y)</td></tr>
+<tr class="memdesc:adf5cb1a2308f40aafec7cefb5e57b18d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute une bombe dans la vue  <a href="#adf5cb1a2308f40aafec7cefb5e57b18d"></a><br/></td></tr>
 <tr class="memitem:a002047918cb0af4b2680c049607a9ac2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a002047918cb0af4b2680c049607a9ac2">ajouterExplosion</a> (<a class="el" href="class_bombe.html">Bombe</a> *bombe, int x, int y, int dx, int dy, bool end)</td></tr>
 <tr class="memdesc:a002047918cb0af4b2680c049607a9ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute une explosion dans la vue L'image d'une explosion est ajoutée  <a href="#a002047918cb0af4b2680c049607a9ac2"></a><br/></td></tr>
 <tr class="memitem:a0075839d12a4537953cea1a8667d2f73"><td class="memItemLeft" align="right" valign="top">QPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a0075839d12a4537953cea1a8667d2f73">getPositionFromGrille</a> (int i, int j)</td></tr>
@@ -131,11 +138,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9cfc8436bfe6ddc6559ba8fb2f4ad9a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie la valeur de la gravité  <a href="#a9cfc8436bfe6ddc6559ba8fb2f4ad9a6"></a><br/></td></tr>
 <tr class="memitem:a2efa30acc35d4a2532c9fba0b7d5f254"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a2efa30acc35d4a2532c9fba0b7d5f254">explosion</a> (<a class="el" href="class_bombe.html">Bombe</a> *bombe, int dx, int dy)</td></tr>
 <tr class="memdesc:a2efa30acc35d4a2532c9fba0b7d5f254"><td class="mdescLeft">&#160;</td><td class="mdescRight">génère l'explosion d'une bombe  <a href="#a2efa30acc35d4a2532c9fba0b7d5f254"></a><br/></td></tr>
-<tr class="memitem:abe62580b5c0382a40dc9774626bc06c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#abe62580b5c0382a40dc9774626bc06c0">triggerAll</a> ()</td></tr>
-<tr class="memdesc:abe62580b5c0382a40dc9774626bc06c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">fait exploser toutes les bombes  <a href="#abe62580b5c0382a40dc9774626bc06c0"></a><br/></td></tr>
+<tr class="memitem:adea63d77559c92391e15aebc61c26256"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#adea63d77559c92391e15aebc61c26256">triggerLastBombe</a> (int bmId)</td></tr>
+<tr class="memdesc:adea63d77559c92391e15aebc61c26256"><td class="mdescLeft">&#160;</td><td class="mdescRight">fait exploser toutes les bombes  <a href="#adea63d77559c92391e15aebc61c26256"></a><br/></td></tr>
+<tr class="memitem:a36a210a95a17262a4232cfd1d1da6689"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a36a210a95a17262a4232cfd1d1da6689">hitTest</a> (int bI, int bJ, int bI2, int bJ2)</td></tr>
+<tr class="memdesc:a36a210a95a17262a4232cfd1d1da6689"><td class="mdescLeft">&#160;</td><td class="mdescRight">regarde si une explosion touche un joueur  <a href="#a36a210a95a17262a4232cfd1d1da6689"></a><br/></td></tr>
+<tr class="memitem:a22e42564f3c5d26f93f0bd1c0b7bcee3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a22e42564f3c5d26f93f0bd1c0b7bcee3">detruireBrique</a> (int i, int j)</td></tr>
+<tr class="memdesc:a22e42564f3c5d26f93f0bd1c0b7bcee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">détruit une brique, et décide si un bonus doit apparaître  <a href="#a22e42564f3c5d26f93f0bd1c0b7bcee3"></a><br/></td></tr>
+<tr class="memitem:ae8de412d5710c6751764dd76386058b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ae8de412d5710c6751764dd76386058b6">ajouterBonus</a> (int i, int j)</td></tr>
+<tr class="memdesc:ae8de412d5710c6751764dd76386058b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute un bonus dans la scene  <a href="#ae8de412d5710c6751764dd76386058b6"></a><br/></td></tr>
+<tr class="memitem:a7d979e96ac224e6704c36204d43917a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a7d979e96ac224e6704c36204d43917a9">checkBonus</a> ()</td></tr>
+<tr class="memdesc:a7d979e96ac224e6704c36204d43917a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">vérifie si le joueur se trouve sur un bonus, et gère son obtntion si c'est le cas  <a href="#a7d979e96ac224e6704c36204d43917a9"></a><br/></td></tr>
 <tr class="memitem:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
 </table>
-<h2>Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00024">24</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+</div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a8b244be8b7b7db1b08de2a2acb9409db"></a>
 <div class="memitem">
 <div class="memproto">
@@ -168,6 +186,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00004">4</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae98d00a93bc118200eeef9f9bba1dba7"></a>
@@ -183,16 +203,24 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00714">714</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
 <h2>Member Function Documentation</h2>
-<a class="anchor" id="a5e70a1a49eaf55f8487f4daab4978326"></a>
+<a class="anchor" id="adf5cb1a2308f40aafec7cefb5e57b18d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void MainWindow::ajouterBombe </td>
           <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bmId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
@@ -211,15 +239,56 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>ajoute une bombe dans la vue </p>
-<p>Une instance de <a class="el" href="class_bombe.html">Bombe</a> est créée, puis elle est affichée dans la scène</p>
+<p>Une instance de <a class="el" href="class_bombe.html">Bombe</a> est créée, puis elle est affichée dans la scène </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">bmId</td><td>Identifiant du joueur qui a posé la bombe </td></tr>
     <tr><td class="paramname">i</td><td>Colonne de la grille </td></tr>
     <tr><td class="paramname">j</td><td>Ligne de la grille </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00244">244</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae8de412d5710c6751764dd76386058b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::ajouterBonus </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajoute un bonus dans la scene </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Ligne de la grilleBonus </td></tr>
+    <tr><td class="paramname">j</td><td>Colonne de la grilleBonus </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00283">283</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -264,6 +333,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00231">231</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -329,15 +400,23 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00259">259</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="aa3d82c6fef1f80f72cd73d16150edd02"></a>
+<a class="anchor" id="ab35e6cb622be5a0b039cad83705107a5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void MainWindow::ajouterPersonnage </td>
           <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>i</em>, </td>
         </tr>
@@ -356,15 +435,38 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>ajoute un personnage dans la vue </p>
-<p>Une instance de <a class="el" href="class_joueur.html">Joueur</a> est créée, puis elle est affichée dans la scène</p>
+<p>Une instance de <a class="el" href="class_joueur.html">Joueur</a> est créée, puis elle est affichée dans la scène </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">id</td><td>Identifiant du joueur </td></tr>
     <tr><td class="paramname">i</td><td>Colonne de la grille </td></tr>
     <tr><td class="paramname">j</td><td>Ligne de la grille </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00224">224</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d979e96ac224e6704c36204d43917a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::checkBonus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>vérifie si le joueur se trouve sur un bonus, et gère son obtntion si c'est le cas </p>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00674">674</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -402,6 +504,46 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>vrai si il y a une collision </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00306">306</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22e42564f3c5d26f93f0bd1c0b7bcee3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::detruireBrique </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>détruit une brique, et décide si un bonus doit apparaître </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Ligne de la grille </td></tr>
+    <tr><td class="paramname">j</td><td>Colonne de la grille </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00664">664</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -446,6 +588,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00540">540</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9cfc8436bfe6ddc6559ba8fb2f4ad9a6"></a>
@@ -464,6 +608,8 @@ Public Member Functions</h2></td></tr>
 <p>renvoie la valeur de la gravité </p>
 <dl class="section return"><dt>Returns</dt><dd>gravity </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00523">523</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -492,6 +638,8 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>i,colonne de la grille </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00511">511</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5715cd3d0a7ca74c12880e95e0f940d0"></a>
@@ -518,6 +666,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>j,ligne de la grille </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00515">515</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -557,6 +707,8 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Un QPoint, correspondant à la position dans la scène </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00492">492</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3ee05974a48a77176cc5ce8de20d74a3"></a>
@@ -583,6 +735,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>x, correspondant à l'abscisse dans la scène </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00498">498</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -611,6 +765,60 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>y, correspondant à l'ordonnée dans la scène </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00504">504</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36a210a95a17262a4232cfd1d1da6689"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MainWindow::hitTest </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bJ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bI2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bJ2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>regarde si une explosion touche un joueur </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bI</td><td>position I dans la grille de l'explosion, en partant du point haut gauche de la bombe </td></tr>
+    <tr><td class="paramname">bJ</td><td>position J dans la grille de l'explosion, en partant du point haut gauche de la bombe </td></tr>
+    <tr><td class="paramname">bI2</td><td>position I dans la grille de l'explosion, en partant du point bas droite de la bombe </td></tr>
+    <tr><td class="paramname">bJ2</td><td>position J dans la grille de l'explosion, en partant du point haut droite de la bombe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00626">626</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9c4f542263838b9ecd06eae839a42a34"></a>
@@ -635,6 +843,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00300">300</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -661,6 +871,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00293">293</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aaa425b1554af3c1f58cc70b4815082ae"></a>
@@ -686,6 +898,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00379">379</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae4188c5d28edb97bfa1926f796f8131d"></a>
@@ -704,23 +918,34 @@ Public Member Functions</h2></td></tr>
 <p>inverse le signe de la gravité </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00519">519</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="abe62580b5c0382a40dc9774626bc06c0"></a>
+<a class="anchor" id="adea63d77559c92391e15aebc61c26256"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MainWindow::triggerAll </td>
+          <td class="memname">void MainWindow::triggerLastBombe </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bmId</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>fait exploser toutes les bombes </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bmId</td><td>L'identifiant du joueur qui a appuyé sur espace </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00528">528</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -739,6 +964,8 @@ Public Member Functions</h2></td></tr>
 
 <p>fait sauter un personnage en prenant en compte les collisions </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00372">372</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -776,16 +1003,18 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00346">346</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Game1/vue/<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
-<li>Game1/vue/<a class="el" href="mainwindow_8cpp.html">mainwindow.cpp</a></li>
+<li>vue/<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
+<li>vue/<a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 18 2013 18:30:59 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

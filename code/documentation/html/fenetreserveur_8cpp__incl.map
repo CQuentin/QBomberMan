@@ -1,0 +1,10 @@
+<map id="vue/fenetreserveur.cpp" name="vue/fenetreserveur.cpp">
+<area shape="rect" id="node3" href="$fenetreserveur_8h.html" title="fenetreserveur.h" alt="" coords="1017,83,1132,112"/>
+<area shape="rect" id="node9" href="$serveur_8h.html" title="modele/reseau/serveur.h" alt="" coords="232,160,397,189"/>
+<area shape="rect" id="node55" href="$mainwindow_8h.html" title="mainwindow.h" alt="" coords="1180,160,1284,189"/>
+<area shape="rect" id="node21" href="$joueur_8h.html" title="modele/joueur.h" alt="" coords="501,237,616,267"/>
+<area shape="rect" id="node37" href="$brique_8h.html" title="brique.h" alt="" coords="751,392,817,421"/>
+<area shape="rect" id="node42" href="$bombe_8h.html" title="bombe.h" alt="" coords="892,315,964,344"/>
+<area shape="rect" id="node78" href="$bonus_8h.html" title="../modele/bonus.h" alt="" coords="1575,392,1700,421"/>
+<area shape="rect" id="node86" href="$toucheclavier_8h.html" title="Gestion des touches du clavier." alt="" coords="1141,237,1323,267"/>
+</map>

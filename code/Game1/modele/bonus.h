@@ -25,6 +25,10 @@ private :
 
 public:
 
+    /*!
+     * \brief constructeur de la classe Bonus
+     * \author Quentin CHEYNET
+     */
     Bonus(int x ,int y);
 
 
@@ -42,6 +46,10 @@ public:
      */
     QGraphicsPixmapItem *getPicture();
 
+    /*!
+     * \brief destructeur de la classe Bonus
+     * \author Quentin CHEYNET
+     */
     ~Bonus();
 
 };

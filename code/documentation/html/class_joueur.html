@@ -20,10 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="personnage.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Bomberman.jpg"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">QBomberman++
-   &#160;<span id="projectnumber">0.1</span>
    </div>
   </td>
  </tr>
@@ -38,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,13 +90,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="joueur_8h_source.html">joueur.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Joueur:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_joueur__coll__graph.png" border="0" usemap="#_joueur_coll__map" alt="Collaboration graph"/></div>
+<map name="_joueur_coll__map" id="_joueur_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aae7c260243605de55b76d67c5d995994"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#aae7c260243605de55b76d67c5d995994">Joueur</a> (int x, int y)</td></tr>
-<tr class="memdesc:aae7c260243605de55b76d67c5d995994"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="#aae7c260243605de55b76d67c5d995994"></a><br/></td></tr>
+<tr class="memitem:abd23d528681c1ffc83ff0ec6237f0614"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#abd23d528681c1ffc83ff0ec6237f0614">Joueur</a> (int id, int x, int y)</td></tr>
+<tr class="memdesc:abd23d528681c1ffc83ff0ec6237f0614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="#abd23d528681c1ffc83ff0ec6237f0614"></a><br/></td></tr>
 <tr class="memitem:a54af66d5801699885c73dbe1b0b3a62b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a54af66d5801699885c73dbe1b0b3a62b">newPosition</a> (int x, int y)</td></tr>
-<tr class="memitem:a2d38257cefb61f715ffe2b4e0e5bfb14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a2d38257cefb61f715ffe2b4e0e5bfb14">detruireJoueur</a> ()</td></tr>
 <tr class="memitem:ac26789403c9d74329b28678c04103f8b"><td class="memItemLeft" align="right" valign="top">QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#ac26789403c9d74329b28678c04103f8b">getPicture</a> ()</td></tr>
 <tr class="memdesc:ac26789403c9d74329b28678c04103f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie l'attribut picture  <a href="#ac26789403c9d74329b28678c04103f8b"></a><br/></td></tr>
 <tr class="memitem:ae9df920f1084987fa54008fced20de69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#ae9df920f1084987fa54008fced20de69">setPicture</a> (QGraphicsPixmapItem *)</td></tr>
@@ -153,15 +159,66 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a21c8a0dd3bc2a41ce85895e400cb7594"><td class="mdescLeft">&#160;</td><td class="mdescRight">regarde si le joueur est en vie  <a href="#a21c8a0dd3bc2a41ce85895e400cb7594"></a><br/></td></tr>
 <tr class="memitem:a87ed1c9d4a60c76c58d201a5a8b42242"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a87ed1c9d4a60c76c58d201a5a8b42242">trigger</a> ()</td></tr>
 <tr class="memdesc:a87ed1c9d4a60c76c58d201a5a8b42242"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait exploser toutes les bombes du joueur innutilisé pour le moment.  <a href="#a87ed1c9d4a60c76c58d201a5a8b42242"></a><br/></td></tr>
+<tr class="memitem:a3a93b087c019bb913e3ed46d61d7a811"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a3a93b087c019bb913e3ed46d61d7a811">setId</a> (int id)</td></tr>
+<tr class="memdesc:a3a93b087c019bb913e3ed46d61d7a811"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignation d'un entier id à id  <a href="#a3a93b087c019bb913e3ed46d61d7a811"></a><br/></td></tr>
+<tr class="memitem:a344107187c8ff4cdcf133af7e2e2c794"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a344107187c8ff4cdcf133af7e2e2c794">getId</a> ()</td></tr>
+<tr class="memdesc:a344107187c8ff4cdcf133af7e2e2c794"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie l' identifiant du joueur  <a href="#a344107187c8ff4cdcf133af7e2e2c794"></a><br/></td></tr>
+<tr class="memitem:a3aa1a83f874162285fc66779626094a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a3aa1a83f874162285fc66779626094a9">setCoordSprite</a> (int x, int y, int l, int h)</td></tr>
+<tr class="memdesc:a3aa1a83f874162285fc66779626094a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignation des nouvelles coordonées du sprite  <a href="#a3aa1a83f874162285fc66779626094a9"></a><br/></td></tr>
+<tr class="memitem:a0e052dec429c8cb633dcd2d2267bc896"><td class="memItemLeft" align="right" valign="top">QVector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a0e052dec429c8cb633dcd2d2267bc896">getCoordSprite</a> ()</td></tr>
+<tr class="memdesc:a0e052dec429c8cb633dcd2d2267bc896"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie les coordonées du sprite  <a href="#a0e052dec429c8cb633dcd2d2267bc896"></a><br/></td></tr>
+<tr class="memitem:a1cd74e3940e0bc553c297123e3e3f6d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a1cd74e3940e0bc553c297123e3e3f6d2">addBombe</a> (<a class="el" href="class_bombe.html">Bombe</a> *b)</td></tr>
+<tr class="memdesc:a1cd74e3940e0bc553c297123e3e3f6d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute une bombe au QVector bombes du <a class="el" href="class_joueur.html">Joueur</a>  <a href="#a1cd74e3940e0bc553c297123e3e3f6d2"></a><br/></td></tr>
+<tr class="memitem:ac8ce6fd54758f2891f77f8683e6beb74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#ac8ce6fd54758f2891f77f8683e6beb74">removeBombe</a> (int i)</td></tr>
+<tr class="memdesc:ac8ce6fd54758f2891f77f8683e6beb74"><td class="mdescLeft">&#160;</td><td class="mdescRight">supprime une bombe  <a href="#ac8ce6fd54758f2891f77f8683e6beb74"></a><br/></td></tr>
+<tr class="memitem:a7a2371b9ba1a4754969391c75b84a46d"><td class="memItemLeft" align="right" valign="top">QVector&lt; <a class="el" href="class_bombe.html">Bombe</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a7a2371b9ba1a4754969391c75b84a46d">getVectorBombes</a> ()</td></tr>
+<tr class="memdesc:a7a2371b9ba1a4754969391c75b84a46d"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie la vector de bombe  <a href="#a7a2371b9ba1a4754969391c75b84a46d"></a><br/></td></tr>
+<tr class="memitem:aa29ebf8cfe39cdb821bfc0170b93a509"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bombe.html">Bombe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#aa29ebf8cfe39cdb821bfc0170b93a509">getLastBombe</a> ()</td></tr>
+<tr class="memdesc:aa29ebf8cfe39cdb821bfc0170b93a509"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie la dernière bombe posée par le joueur, si elle existe  <a href="#aa29ebf8cfe39cdb821bfc0170b93a509"></a><br/></td></tr>
+<tr class="memitem:a39f2f068c960bb39550e66152556615f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a39f2f068c960bb39550e66152556615f">isOrientG</a> ()</td></tr>
+<tr class="memdesc:a39f2f068c960bb39550e66152556615f"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie si le personnage est orienté vers la gauche o non  <a href="#a39f2f068c960bb39550e66152556615f"></a><br/></td></tr>
+<tr class="memitem:a41e4c1c93f82ec82d49e4a68fb1b79fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a41e4c1c93f82ec82d49e4a68fb1b79fe">setOrientG</a> (bool o)</td></tr>
+<tr class="memdesc:a41e4c1c93f82ec82d49e4a68fb1b79fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignation d'un bool à orientG  <a href="#a41e4c1c93f82ec82d49e4a68fb1b79fe"></a><br/></td></tr>
+<tr class="memitem:a84a2e738cb4a60c093fb312b9663624d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a84a2e738cb4a60c093fb312b9663624d">refreshPicture</a> ()</td></tr>
+<tr class="memdesc:a84a2e738cb4a60c093fb312b9663624d"><td class="mdescLeft">&#160;</td><td class="mdescRight">change l'image du personnage  <a href="#a84a2e738cb4a60c093fb312b9663624d"></a><br/></td></tr>
+<tr class="memitem:aa2561b91be1e2d62c8d2652550ab3538"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#aa2561b91be1e2d62c8d2652550ab3538">die</a> ()</td></tr>
+<tr class="memdesc:aa2561b91be1e2d62c8d2652550ab3538"><td class="mdescLeft">&#160;</td><td class="mdescRight">active l'animation de la mort, puis met state à DEAD  <a href="#aa2561b91be1e2d62c8d2652550ab3538"></a><br/></td></tr>
+<tr class="memitem:a3402fbcfe43acfdef938981b8bfd1b8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a3402fbcfe43acfdef938981b8bfd1b8a">checkImmortality</a> ()</td></tr>
+<tr class="memdesc:a3402fbcfe43acfdef938981b8bfd1b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">gère l'imortalité (sprite, bool immortality)  <a href="#a3402fbcfe43acfdef938981b8bfd1b8a"></a><br/></td></tr>
+<tr class="memitem:a94313d8dcc960bf7ad5945e77e30f9d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a94313d8dcc960bf7ad5945e77e30f9d8">receiveBonus</a> (int t)</td></tr>
+<tr class="memdesc:a94313d8dcc960bf7ad5945e77e30f9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">reçoit un bonus et modifie les caratéristiques du <a class="el" href="class_joueur.html">Joueur</a>  <a href="#a94313d8dcc960bf7ad5945e77e30f9d8"></a><br/></td></tr>
+<tr class="memitem:ad7c1a7a855a81f0a14c7ab4845978508"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#ad7c1a7a855a81f0a14c7ab4845978508">hasBonusTrigger</a> ()</td></tr>
+<tr class="memdesc:ad7c1a7a855a81f0a14c7ab4845978508"><td class="mdescLeft">&#160;</td><td class="mdescRight">regarde si le personnage a le bonus pour faire exploser une bombe  <a href="#ad7c1a7a855a81f0a14c7ab4845978508"></a><br/></td></tr>
+<tr class="memitem:a6974e0158c4fd28524eb2d3755e660b8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a6974e0158c4fd28524eb2d3755e660b8">getBonusJump</a> ()</td></tr>
+<tr class="memdesc:a6974e0158c4fd28524eb2d3755e660b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie la valeur de bonusJump  <a href="#a6974e0158c4fd28524eb2d3755e660b8"></a><br/></td></tr>
+<tr class="memitem:a70ef3b547abd4b109b40cd78111d7f2e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a70ef3b547abd4b109b40cd78111d7f2e">getTired</a> ()</td></tr>
+<tr class="memdesc:a70ef3b547abd4b109b40cd78111d7f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie la valeur tired  <a href="#a70ef3b547abd4b109b40cd78111d7f2e"></a><br/></td></tr>
+<tr class="memitem:a25e070373a59fdd545d40b8691a35755"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a25e070373a59fdd545d40b8691a35755">setTired</a> (int t)</td></tr>
+<tr class="memdesc:a25e070373a59fdd545d40b8691a35755"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignation d'un entier à tired  <a href="#a25e070373a59fdd545d40b8691a35755"></a><br/></td></tr>
+<tr class="memitem:a4f72e20a2f8ca8620e3c77fa0834c560"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a4f72e20a2f8ca8620e3c77fa0834c560">isImmortal</a> ()</td></tr>
+<tr class="memdesc:a4f72e20a2f8ca8620e3c77fa0834c560"><td class="mdescLeft">&#160;</td><td class="mdescRight">regarde si le personnage est immortel  <a href="#a4f72e20a2f8ca8620e3c77fa0834c560"></a><br/></td></tr>
+<tr class="memitem:ae5dde4fe758904bf02920f67edad5ae0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#ae5dde4fe758904bf02920f67edad5ae0">setImmortality</a> (bool i)</td></tr>
+<tr class="memdesc:ae5dde4fe758904bf02920f67edad5ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignation d'un bool à immortality  <a href="#ae5dde4fe758904bf02920f67edad5ae0"></a><br/></td></tr>
+<tr class="memitem:a9fb594f755601ee77ce5884c4c0861f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a9fb594f755601ee77ce5884c4c0861f3">~Joueur</a> ()</td></tr>
+<tr class="memdesc:a9fb594f755601ee77ce5884c4c0861f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur Destructeur de la classe <a class="el" href="class_joueur.html">Joueur</a>.  <a href="#a9fb594f755601ee77ce5884c4c0861f3"></a><br/></td></tr>
 </table>
-<h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aae7c260243605de55b76d67c5d995994"></a>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="joueur_8h_source.html#l00013">13</a> of file <a class="el" href="joueur_8h_source.html">joueur.h</a>.</p>
+</div><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="abd23d528681c1ffc83ff0ec6237f0614"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Joueur::Joueur </td>
           <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
@@ -192,9 +249,78 @@ Public Member Functions</h2></td></tr>
 <dd>
 Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00004">4</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9fb594f755601ee77ce5884c4c0861f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Joueur::~Joueur </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructeur Destructeur de la classe <a class="el" href="class_joueur.html">Joueur</a>. </p>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00604">604</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <h2>Member Function Documentation</h2>
+<a class="anchor" id="a1cd74e3940e0bc553c297123e3e3f6d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::addBombe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_bombe.html">Bombe</a> *&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajoute une bombe au QVector bombes du <a class="el" href="class_joueur.html">Joueur</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>La bombe ajouté </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00498">498</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3402fbcfe43acfdef938981b8bfd1b8a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::checkImmortality </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>gère l'imortalité (sprite, bool immortality) </p>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00399">399</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ad229627608240f55a2c680bb86b15dd5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -210,6 +336,8 @@ Quentin CHEYNET </dd></dl>
 
 <p>change picture pour faire courir le personnage vers la droite </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00117">117</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -229,6 +357,8 @@ Quentin CHEYNET </dd></dl>
 <p>change picture pour faire courir le personnage vers la gauche </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00196">196</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7183c5e0e37aeba68cab0d0ea680e560"></a>
@@ -247,20 +377,70 @@ Quentin CHEYNET </dd></dl>
 <p>décremente nbBombes </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00369">369</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a2d38257cefb61f715ffe2b4e0e5bfb14"></a>
+<a class="anchor" id="aa2561b91be1e2d62c8d2652550ab3538"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Joueur::detruireJoueur </td>
+          <td class="memname">void Joueur::die </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>active l'animation de la mort, puis met state à DEAD </p>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00414">414</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6974e0158c4fd28524eb2d3755e660b8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Joueur::getBonusJump </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie la valeur de bonusJump </p>
+<p>bonusJump est le nombre de fois que le joueur a ramassé un bonus pour sauter (max 2)</p>
+<dl class="section return"><dt>Returns</dt><dd>bonusJump </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00584">584</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e052dec429c8cb633dcd2d2267bc896"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVector&lt; int &gt; Joueur::getCoordSprite </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie les coordonées du sprite </p>
+<dl class="section return"><dt>Returns</dt><dd>un QVector contenant xSprite, ySprite, lSprite, hSprite </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00488">488</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -281,6 +461,8 @@ Quentin CHEYNET </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>currentHigh </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00089">89</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="accf4df6bd539c24c075d6d81c38597a2"></a>
@@ -299,6 +481,8 @@ Quentin CHEYNET </dd></dl>
 <p>renvoie l'état du personnage </p>
 <dl class="section return"><dt>Returns</dt><dd>state </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00353">353</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -319,6 +503,29 @@ Quentin CHEYNET </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>hauteur </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00101">101</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a344107187c8ff4cdcf133af7e2e2c794"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Joueur::getId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie l' identifiant du joueur </p>
+<dl class="section return"><dt>Returns</dt><dd>id </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00477">477</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af55495cd9660964b08d165fc8fb5ef02"></a>
@@ -337,6 +544,29 @@ Quentin CHEYNET </dd></dl>
 <p>renvoie la largeur du personnage </p>
 <dl class="section return"><dt>Returns</dt><dd>largeur </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00109">109</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa29ebf8cfe39cdb821bfc0170b93a509"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_bombe.html">Bombe</a> * Joueur::getLastBombe </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie la dernière bombe posée par le joueur, si elle existe </p>
+<dl class="section return"><dt>Returns</dt><dd>la dernière bombe posée par le joueur, si elle existe, NULL sinon </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00513">513</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -357,6 +587,8 @@ Quentin CHEYNET </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>nbMaxBombes </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00361">361</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a501701e7e62ad2ef0aaa32c21f0637e1"></a>
@@ -375,6 +607,8 @@ Quentin CHEYNET </dd></dl>
 <p>renvoie la hauteur maximum à laquelle le personnage peut sauter </p>
 <dl class="section return"><dt>Returns</dt><dd>maxHigh </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00085">85</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -395,6 +629,50 @@ Quentin CHEYNET </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>picture </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00071">71</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a70ef3b547abd4b109b40cd78111d7f2e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Joueur::getTired </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie la valeur tired </p>
+<dl class="section return"><dt>Returns</dt><dd>tired, pour savoir si le personnage fait une pause avance </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00588">588</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7a2371b9ba1a4754969391c75b84a46d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVector&lt; <a class="el" href="class_bombe.html">Bombe</a> * &gt; Joueur::getVectorBombes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie la vector de bombe </p>
+<dl class="section return"><dt>Returns</dt><dd>bombes Le QVector de bombes lachées par le joueur </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00509">509</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a49cec60d6a245792394561bc13fcc71c"></a>
@@ -413,6 +691,8 @@ Quentin CHEYNET </dd></dl>
 <p>renvoie la position x du personnage </p>
 <dl class="section return"><dt>Returns</dt><dd>posX </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00052">52</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -433,6 +713,29 @@ Quentin CHEYNET </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>posY </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00057">57</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad7c1a7a855a81f0a14c7ab4845978508"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Joueur::hasBonusTrigger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>regarde si le personnage a le bonus pour faire exploser une bombe </p>
+<dl class="section return"><dt>Returns</dt><dd>vrai si bonusTrigger est vrai, faux sinon </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00580">580</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac92eaa605b162dd29f9d15ba8ee53d34"></a>
@@ -450,6 +753,8 @@ Quentin CHEYNET </dd></dl>
 
 <p>enleve un pv au joueur </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00384">384</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -469,6 +774,8 @@ Quentin CHEYNET </dd></dl>
 <p>change picture en cas d'immobilité, en fonction de state </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00281">281</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad1a2b063f98828b25223ffb2d640bbe2"></a>
@@ -486,6 +793,8 @@ Quentin CHEYNET </dd></dl>
 
 <p>incrémente nbBombes </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00365">365</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -505,6 +814,8 @@ Quentin CHEYNET </dd></dl>
 <p>regarde si le joueur est en vie </p>
 <dl class="section return"><dt>Returns</dt><dd>Vrai si le joueur est en vie </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00461">461</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -548,6 +859,50 @@ Quentin CHEYNET </dd></dl>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00075">75</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f72e20a2f8ca8620e3c77fa0834c560"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Joueur::isImmortal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>regarde si le personnage est immortel </p>
+<dl class="section return"><dt>Returns</dt><dd>vrai si immortality = vrai, faux sinon </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00596">596</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39f2f068c960bb39550e66152556615f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Joueur::isOrientG </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie si le personnage est orienté vers la gauche o non </p>
+<dl class="section return"><dt>Returns</dt><dd>Vrai si orientG = true, faux sinon </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00520">520</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a54af66d5801699885c73dbe1b0b3a62b"></a>
@@ -574,6 +929,135 @@ Quentin CHEYNET </dd></dl>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00062">62</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a94313d8dcc960bf7ad5945e77e30f9d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::receiveBonus </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>reçoit un bonus et modifie les caratéristiques du <a class="el" href="class_joueur.html">Joueur</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Le type de bonus </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00545">545</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a84a2e738cb4a60c093fb312b9663624d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::refreshPicture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>change l'image du personnage </p>
+<p>utilisé uniquement pour les autres personnages</p>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00529">529</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8ce6fd54758f2891f77f8683e6beb74"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::removeBombe </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>supprime une bombe </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>L'indice de la bombe supprimée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00505">505</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3aa1a83f874162285fc66779626094a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::setCoordSprite </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>assignation des nouvelles coordonées du sprite </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Position x du sprite </td></tr>
+    <tr><td class="paramname">y</td><td>Position y du sprite </td></tr>
+    <tr><td class="paramname">l</td><td>Largeur du sprite </td></tr>
+    <tr><td class="paramname">h</td><td>Hauteur du sprite </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00481">481</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8f57a0f38fca8824eacd90b65738a2a4"></a>
@@ -598,6 +1082,8 @@ Quentin CHEYNET </dd></dl>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00097">97</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -624,6 +1110,8 @@ Quentin CHEYNET </dd></dl>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00349">349</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ab268e0494f117ffcfd2df8fe1e92e6bf"></a>
@@ -648,6 +1136,62 @@ Quentin CHEYNET </dd></dl>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00105">105</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a93b087c019bb913e3ed46d61d7a811"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::setId </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>assignation d'un entier id à id </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>L'identifiant du joueur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00473">473</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae5dde4fe758904bf02920f67edad5ae0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::setImmortality </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>assignation d'un bool à immortality </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>vrai si le personnage doit être immortel, faux sinon </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00600">600</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -674,6 +1218,8 @@ Quentin CHEYNET </dd></dl>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00113">113</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a70ae4beb545448402722ab265695e88a"></a>
@@ -698,6 +1244,8 @@ Quentin CHEYNET </dd></dl>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00357">357</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -724,6 +1272,35 @@ Quentin CHEYNET </dd></dl>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00093">93</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41e4c1c93f82ec82d49e4a68fb1b79fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::setOrientG </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>assignation d'un bool à orientG </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>Le bool qui décide si orientG = true ou false </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00525">525</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae9df920f1084987fa54008fced20de69"></a>
@@ -748,6 +1325,35 @@ Quentin CHEYNET </dd></dl>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00067">67</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a25e070373a59fdd545d40b8691a35755"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::setTired </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>assignation d'un entier à tired </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>La nouvelle valeur de tired </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00592">592</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -774,6 +1380,8 @@ Quentin CHEYNET </dd></dl>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Clément CARLES </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00042">42</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a52340c9eed27b7fc9e19826a524f9cf0"></a>
@@ -799,6 +1407,8 @@ Quentin CHEYNET </dd></dl>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Clément CARLES </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00047">47</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a87ed1c9d4a60c76c58d201a5a8b42242"></a>
@@ -816,6 +1426,8 @@ Quentin CHEYNET </dd></dl>
 
 <p>Fait exploser toutes les bombes du joueur innutilisé pour le moment. </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00466">466</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
 
 </div>
 </div>
@@ -836,16 +1448,18 @@ Quentin CHEYNET </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Vrai si le joueur peut poser une bombe, faux sinon </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
+<p>Definition at line <a class="el" href="joueur_8cpp_source.html#l00373">373</a> of file <a class="el" href="joueur_8cpp_source.html">joueur.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Game1/modele/<a class="el" href="joueur_8h_source.html">joueur.h</a></li>
-<li>Game1/modele/<a class="el" href="joueur_8cpp.html">joueur.cpp</a></li>
+<li>modele/<a class="el" href="joueur_8h_source.html">joueur.h</a></li>
+<li>modele/<a class="el" href="joueur_8cpp_source.html">joueur.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 18 2013 18:30:59 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

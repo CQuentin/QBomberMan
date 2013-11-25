@@ -1,0 +1,5 @@
+<map id="modele/reseau/serveur.h" name="modele/reseau/serveur.h">
+<area shape="rect" id="node13" href="$joueur_8h.html" title="modele/joueur.h" alt="" coords="501,83,616,112"/>
+<area shape="rect" id="node29" href="$brique_8h.html" title="brique.h" alt="" coords="116,237,183,267"/>
+<area shape="rect" id="node34" href="$bombe_8h.html" title="bombe.h" alt="" coords="371,160,443,189"/>
+</map>

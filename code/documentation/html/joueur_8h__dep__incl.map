@@ -1,8 +1,12 @@
-<map id="Game1/modele/joueur.h" name="Game1/modele/joueur.h">
-<area shape="rect" id="node3" href="$mainwindow_8h.html" title="Game1/vue/mainwindow.h" alt="" coords="268,83,444,112"/>
-<area shape="rect" id="node13" href="$joueur_8cpp.html" title="Game1/modele/joueur.cpp" alt="" coords="468,83,641,112"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="Game1/main.cpp" alt="" coords="5,160,125,189"/>
-<area shape="rect" id="node7" href="$moc__mainwindow_8cpp.html" title="Game1/moc_mainwindow.cpp" alt="" coords="149,160,347,189"/>
-<area shape="rect" id="node9" href="$mainwindow_8cpp.html" title="Game1/vue/mainwindow.cpp" alt="" coords="371,160,560,189"/>
-<area shape="rect" id="node11" href="$vue_2moc__mainwindow_8cpp.html" title="Game1/vue/moc_mainwindow.cpp" alt="" coords="584,160,805,189"/>
+<map id="modele/joueur.h" name="modele/joueur.h">
+<area shape="rect" id="node3" href="$mainwindow_8h.html" title="vue/mainwindow.h" alt="" coords="217,83,348,112"/>
+<area shape="rect" id="node18" href="$joueur_8cpp.html" title="modele/joueur.cpp" alt="" coords="372,83,500,112"/>
+<area shape="rect" id="node20" href="$serveur_8h.html" title="modele/reseau/serveur.h" alt="" coords="524,83,689,112"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="main.cpp" alt="" coords="394,160,469,189"/>
+<area shape="rect" id="node7" href="$fenetreserveur_8h.html" title="vue/fenetreserveur.h" alt="" coords="493,160,634,189"/>
+<area shape="rect" id="node11" href="$qbomberman_8cpp.html" title="vue/qbomberman.cpp" alt="" coords="116,237,262,267"/>
+<area shape="rect" id="node13" href="$mainwindow_8cpp.html" title="vue/mainwindow.cpp" alt="" coords="26,160,170,189"/>
+<area shape="rect" id="node15" href="$moc__mainwindow_8cpp.html" title="vue/moc_mainwindow.cpp" alt="" coords="194,160,370,189"/>
+<area shape="rect" id="node9" href="$fenetreserveur_8cpp.html" title="vue/fenetreserveur.cpp" alt="" coords="486,237,641,267"/>
+<area shape="rect" id="node22" href="$serveur_8cpp.html" title="modele/reseau/serveur.cpp" alt="" coords="658,160,837,189"/>
 </map>

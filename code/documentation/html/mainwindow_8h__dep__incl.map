@@ -1,6 +1,8 @@
-<map id="Game1/vue/mainwindow.h" name="Game1/vue/mainwindow.h">
-<area shape="rect" id="node3" href="$main_8cpp.html" title="Game1/main.cpp" alt="" coords="5,83,125,112"/>
-<area shape="rect" id="node5" href="$moc__mainwindow_8cpp.html" title="Game1/moc_mainwindow.cpp" alt="" coords="149,83,347,112"/>
-<area shape="rect" id="node7" href="$mainwindow_8cpp.html" title="Game1/vue/mainwindow.cpp" alt="" coords="371,83,560,112"/>
-<area shape="rect" id="node9" href="$vue_2moc__mainwindow_8cpp.html" title="Game1/vue/moc_mainwindow.cpp" alt="" coords="584,83,805,112"/>
+<map id="vue/mainwindow.h" name="vue/mainwindow.h">
+<area shape="rect" id="node3" href="$main_8cpp.html" title="main.cpp" alt="" coords="5,83,80,112"/>
+<area shape="rect" id="node5" href="$fenetreserveur_8h.html" title="vue/fenetreserveur.h" alt="" coords="104,83,245,112"/>
+<area shape="rect" id="node9" href="$qbomberman_8cpp.html" title="vue/qbomberman.cpp" alt="" coords="209,160,356,189"/>
+<area shape="rect" id="node11" href="$mainwindow_8cpp.html" title="vue/mainwindow.cpp" alt="" coords="320,83,464,112"/>
+<area shape="rect" id="node13" href="$moc__mainwindow_8cpp.html" title="vue/moc_mainwindow.cpp" alt="" coords="488,83,664,112"/>
+<area shape="rect" id="node7" href="$fenetreserveur_8cpp.html" title="vue/fenetreserveur.cpp" alt="" coords="31,160,185,189"/>
 </map>

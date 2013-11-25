@@ -1,5 +1,9 @@
 var searchData=
 [
+  ['getbmanid',['getBManId',['../class_bombe.html#ad49d181c2161b9d0ce858e8aa3f3a41f',1,'Bombe']]],
+  ['getbonusjump',['getBonusJump',['../class_joueur.html#a6974e0158c4fd28524eb2d3755e660b8',1,'Joueur']]],
+  ['getbonustype',['getBonusType',['../class_bonus.html#a8c56ab664772b65e0a607fc011b802b8',1,'Bonus']]],
+  ['getcoordsprite',['getCoordSprite',['../class_joueur.html#a0e052dec429c8cb633dcd2d2267bc896',1,'Joueur']]],
   ['getcurrenth',['getCurrentH',['../class_joueur.html#a222d2d579328bbd6234dcc9ac2f6cafc',1,'Joueur']]],
   ['getcurrents',['getCurrentS',['../class_joueur.html#accf4df6bd539c24c075d6d81c38597a2',1,'Joueur']]],
   ['getexplosions',['getExplosions',['../class_bombe.html#a2d0ebe4b0cda7832d852edf441d0bf8d',1,'Bombe']]],
@@ -7,15 +11,21 @@ var searchData=
   ['getgrilleifromposition',['getGrilleIFromPosition',['../class_main_window.html#a2e7b2aedba926ee3925917e4ac76d3ac',1,'MainWindow']]],
   ['getgrillejfromposition',['getGrilleJFromPosition',['../class_main_window.html#a5715cd3d0a7ca74c12880e95e0f940d0',1,'MainWindow']]],
   ['gethauteur',['getHauteur',['../class_bombe.html#acc6eddff13a84de34923d2524364bed3',1,'Bombe::getHauteur()'],['../class_joueur.html#a8dc0ddf507149fb0f8c16a1468f5a50b',1,'Joueur::getHauteur()']]],
+  ['getid',['getId',['../class_joueur.html#a344107187c8ff4cdcf133af7e2e2c794',1,'Joueur']]],
   ['getlargeur',['getLargeur',['../class_bombe.html#a7faf1cc70ccf433d4d32ed03157993b4',1,'Bombe::getLargeur()'],['../class_joueur.html#af55495cd9660964b08d165fc8fb5ef02',1,'Joueur::getLargeur()']]],
+  ['getlastbombe',['getLastBombe',['../class_joueur.html#aa29ebf8cfe39cdb821bfc0170b93a509',1,'Joueur']]],
+  ['getm_5fnbutilisateur',['getm_nbUtilisateur',['../class_serveur.html#a8e45231fa32192ea8e522cb8bb5aac0b',1,'Serveur']]],
   ['getmaxbombes',['getMaxBombes',['../class_joueur.html#aa2cda4987999923d1dc78c9a0b2d532d',1,'Joueur']]],
   ['getmaxh',['getMaxH',['../class_joueur.html#a501701e7e62ad2ef0aaa32c21f0637e1',1,'Joueur']]],
-  ['getpicture',['getPicture',['../class_bombe.html#af42077c19c1b48296e01e15022975078',1,'Bombe::getPicture()'],['../class_brique.html#a5a81d221adb493b30abda72eada383dd',1,'Brique::getPicture()'],['../class_joueur.html#ac26789403c9d74329b28678c04103f8b',1,'Joueur::getPicture()']]],
+  ['getpicture',['getPicture',['../class_bombe.html#af42077c19c1b48296e01e15022975078',1,'Bombe::getPicture()'],['../class_bonus.html#a17498b174189be9807730d1b244cde38',1,'Bonus::getPicture()'],['../class_brique.html#a5a81d221adb493b30abda72eada383dd',1,'Brique::getPicture()'],['../class_joueur.html#ac26789403c9d74329b28678c04103f8b',1,'Joueur::getPicture()']]],
   ['getpositionfromgrille',['getPositionFromGrille',['../class_main_window.html#a0075839d12a4537953cea1a8667d2f73',1,'MainWindow']]],
   ['getpositionxfromgrille',['getPositionXFromGrille',['../class_main_window.html#a3ee05974a48a77176cc5ce8de20d74a3',1,'MainWindow']]],
   ['getpositionyfromgrille',['getPositionYFromGrille',['../class_main_window.html#a754ffa5f7e49647c22fd5dd8ec77e601',1,'MainWindow']]],
   ['getpower',['getPower',['../class_bombe.html#a1db545d4d1d111c26912d94ba79f46fd',1,'Bombe']]],
+  ['getsizem_5fclients',['getSizem_clients',['../class_serveur.html#a214ae19f2f92efdcc2032d42c0c47008',1,'Serveur']]],
   ['getstatekeys',['getStateKeys',['../class_touche_clavier.html#aa1bed6e27de19b250541a5c9e4c35d6f',1,'ToucheClavier']]],
+  ['gettired',['getTired',['../class_joueur.html#a70ef3b547abd4b109b40cd78111d7f2e',1,'Joueur']]],
+  ['getvectorbombes',['getVectorBombes',['../class_joueur.html#a7a2371b9ba1a4754969391c75b84a46d',1,'Joueur']]],
   ['getx',['getX',['../class_bombe.html#a4a8d1892a8eee21eb98b0c16faa82fb8',1,'Bombe::getX()'],['../class_joueur.html#a49cec60d6a245792394561bc13fcc71c',1,'Joueur::getX()']]],
   ['gety',['getY',['../class_bombe.html#a3481f692bb7fab48d0592a55015ba88e',1,'Bombe::getY()'],['../class_joueur.html#a4283c8c140f7e8f802bf0f0f33f263e6',1,'Joueur::getY()']]]
 ];

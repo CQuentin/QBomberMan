@@ -1,7 +1,8 @@
-<map id="Game1/moc_mainwindow.cpp" name="Game1/moc_mainwindow.cpp">
-<area shape="rect" id="node3" href="$mainwindow_8h.html" title="vue/mainwindow.h" alt="" coords="1037,83,1168,112"/>
-<area shape="rect" id="node31" href="$brique_8h.html" title="../modele/brique.h" alt="" coords="639,315,764,344"/>
-<area shape="rect" id="node37" href="$joueur_8h.html" title="../modele/joueur.h" alt="" coords="843,160,968,189"/>
-<area shape="rect" id="node48" href="$bombe_8h.html" title="bombe.h" alt="" coords="993,237,1065,267"/>
-<area shape="rect" id="node60" href="$toucheclavier_8h.html" title="Gestion des touches du clavier." alt="" coords="1292,160,1473,189"/>
+<map id="vue/moc_mainwindow.cpp" name="vue/moc_mainwindow.cpp">
+<area shape="rect" id="node3" href="$mainwindow_8h.html" title="mainwindow.h" alt="" coords="877,83,981,112"/>
+<area shape="rect" id="node31" href="$brique_8h.html" title="../modele/brique.h" alt="" coords="1704,315,1829,344"/>
+<area shape="rect" id="node37" href="$bonus_8h.html" title="../modele/bonus.h" alt="" coords="795,315,920,344"/>
+<area shape="rect" id="node43" href="$joueur_8h.html" title="../modele/joueur.h" alt="" coords="1491,160,1616,189"/>
+<area shape="rect" id="node56" href="$bombe_8h.html" title="bombe.h" alt="" coords="1411,237,1483,267"/>
+<area shape="rect" id="node68" href="$toucheclavier_8h.html" title="Gestion des touches du clavier." alt="" coords="1104,160,1285,189"/>
 </map>

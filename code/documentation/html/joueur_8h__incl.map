@@ -1,4 +1,4 @@
-<map id="Game1/modele/joueur.h" name="Game1/modele/joueur.h">
-<area shape="rect" id="node15" href="$brique_8h.html" title="brique.h" alt="" coords="108,160,175,189"/>
-<area shape="rect" id="node20" href="$bombe_8h.html" title="bombe.h" alt="" coords="351,83,423,112"/>
+<map id="modele/joueur.h" name="modele/joueur.h">
+<area shape="rect" id="node17" href="$brique_8h.html" title="brique.h" alt="" coords="108,160,175,189"/>
+<area shape="rect" id="node22" href="$bombe_8h.html" title="bombe.h" alt="" coords="364,83,436,112"/>
 </map>

@@ -20,10 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="personnage.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Bomberman.jpg"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">QBomberman++
-   &#160;<span id="projectnumber">0.1</span>
    </div>
   </td>
  </tr>
@@ -38,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,31 +88,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_main_window.html">MainWindow</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a5e70a1a49eaf55f8487f4daab4978326">ajouterBombe</a>(int x, int y)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_main_window.html#acb4c8d45756302a058178dec722bda35">ajouterBrique</a>(bool cassable, int i, int j)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a002047918cb0af4b2680c049607a9ac2">ajouterExplosion</a>(Bombe *bombe, int x, int y, int dx, int dy, bool end)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_main_window.html#aa3d82c6fef1f80f72cd73d16150edd02">ajouterPersonnage</a>(int i, int j)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#adf5cb1a2308f40aafec7cefb5e57b18d">ajouterBombe</a>(int bmId, int x, int y)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_main_window.html#ae8de412d5710c6751764dd76386058b6">ajouterBonus</a>(int i, int j)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#acb4c8d45756302a058178dec722bda35">ajouterBrique</a>(bool cassable, int i, int j)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_main_window.html#a002047918cb0af4b2680c049607a9ac2">ajouterExplosion</a>(Bombe *bombe, int x, int y, int dx, int dy, bool end)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#ab35e6cb622be5a0b039cad83705107a5">ajouterPersonnage</a>(int id, int i, int j)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_main_window.html#a7d979e96ac224e6704c36204d43917a9">checkBonus</a>()</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a0bae2240dfb64b7115a5e4db30894a33">collisionTest</a>(int x, int y)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_main_window.html#a2efa30acc35d4a2532c9fba0b7d5f254">explosion</a>(Bombe *bombe, int dx, int dy)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a9cfc8436bfe6ddc6559ba8fb2f4ad9a6">getGravity</a>()</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_main_window.html#a2e7b2aedba926ee3925917e4ac76d3ac">getGrilleIFromPosition</a>(int x)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a5715cd3d0a7ca74c12880e95e0f940d0">getGrilleJFromPosition</a>(int y)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_main_window.html#a0075839d12a4537953cea1a8667d2f73">getPositionFromGrille</a>(int i, int j)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a3ee05974a48a77176cc5ce8de20d74a3">getPositionXFromGrille</a>(int i)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_main_window.html#a754ffa5f7e49647c22fd5dd8ec77e601">getPositionYFromGrille</a>(int j)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_main_window.html#a22e42564f3c5d26f93f0bd1c0b7bcee3">detruireBrique</a>(int i, int j)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a2efa30acc35d4a2532c9fba0b7d5f254">explosion</a>(Bombe *bombe, int dx, int dy)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_main_window.html#a9cfc8436bfe6ddc6559ba8fb2f4ad9a6">getGravity</a>()</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a2e7b2aedba926ee3925917e4ac76d3ac">getGrilleIFromPosition</a>(int x)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_main_window.html#a5715cd3d0a7ca74c12880e95e0f940d0">getGrilleJFromPosition</a>(int y)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a0075839d12a4537953cea1a8667d2f73">getPositionFromGrille</a>(int i, int j)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_main_window.html#a3ee05974a48a77176cc5ce8de20d74a3">getPositionXFromGrille</a>(int i)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a754ffa5f7e49647c22fd5dd8ec77e601">getPositionYFromGrille</a>(int j)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_main_window.html#a36a210a95a17262a4232cfd1d1da6689">hitTest</a>(int bI, int bJ, int bI2, int bJ2)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a9c4f542263838b9ecd06eae839a42a34">keyPressEvent</a>(QKeyEvent *event)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_main_window.html#a6a706e2f733f701fe87e82e77294a035">keyReleaseEvent</a>(QKeyEvent *event)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db">MainWindow</a>(QWidget *parent=0)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_main_window.html#aaa425b1554af3c1f58cc70b4815082ae">timerEvent</a>(QTimerEvent *event)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#ae4188c5d28edb97bfa1926f796f8131d">toggleGravity</a>()</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_main_window.html#abe62580b5c0382a40dc9774626bc06c0">triggerAll</a>()</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_main_window.html#adea63d77559c92391e15aebc61c26256">triggerLastBombe</a>(int bmId)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#ab4dd36eab1ebae847317f2b229edb4d2">tryJump</a>()</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_main_window.html#aa247829763c9661274378b5e5f817d1a">tryMove</a>(int x, int y)</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a>()</td><td class="entry"><a class="el" href="class_main_window.html">MainWindow</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 18 2013 18:30:59 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
