@@ -589,8 +589,12 @@ int Joueur::getTired(){
     return tired;
 }
 
-int Joueur::setTired(int t){
+void Joueur::setTired(int t){
     tired = t;
+}
+
+bool Joueur::isImmortal(){
+    return immortality;
 }
 
 Joueur::~Joueur(){

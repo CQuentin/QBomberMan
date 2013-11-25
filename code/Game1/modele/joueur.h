@@ -395,7 +395,14 @@ public:
      * \param t La nouvelle valeur de tired
      * \author Quentin CHEYNET
      */
-    int setTired(int t);
+    void setTired(int t);
+
+    /*!
+     * \brief regarde si le personnage est immortel
+     * \return vrai si immortality = vrai, faux sinon
+     * \author Quentin CHEYNET
+     */
+    bool isImmortal();
 
     /*!
      * \brief Destructeur
