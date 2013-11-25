@@ -13,7 +13,7 @@ Bonus::Bonus(int x, int y){
     // TODO sprite
     switch(type){
     case HP :
-        currentImage = sprite.copy(40,46,20,20);
+        currentImage = sprite.copy(2,43,20,20);
         break;
     case EXPLOSION :
         currentImage = sprite.copy(0,83,20,20);
@@ -22,7 +22,7 @@ Bonus::Bonus(int x, int y){
         currentImage = sprite.copy(82,81,20,20);
         break;
     case JUMP :
-        currentImage = sprite.copy(42,123,20,20);
+        currentImage = sprite.copy(81,0,20,20);
         break;
     case SPEED :
         currentImage = sprite.copy(0,0,20,20);
