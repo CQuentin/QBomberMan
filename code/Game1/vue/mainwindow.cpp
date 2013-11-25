@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grille.resize(largeurG);
     grilleBonus.resize(largeurG);
     controleur = new ToucheClavier();
-    personnages.resize(0);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
+    personnages.resize(2);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
   //id = 0;
     grabKeyboard();
 
@@ -123,7 +123,11 @@ void MainWindow::readyRead(){
             id = mots[0].toInt();
             qDebug() << "id reçu :" << id;
             qDebug() << "ajout de : "<< id;
-            ajouterPersonnage(id,2,3);
+            ajouterPersonnage(id,5,3);
+
+//            for (int i = 0; i< id; i++){
+//                    ajouterPersonnage(i,5,3);
+//            }
 
             // qDebug()<<" taille = "<<personnages.size();
         }
@@ -144,31 +148,37 @@ void MainWindow::readyRead(){
                  *J[2] pos y
                  */
 //                personnages.resize(users.length());
+
                 foreach(Joueur *j ,personnages){
-                    if(j->getId() == J[0].toInt())
+                    if(j != NULL && j->getId() == J[0].toInt())
                         present = true;
                 }
                 if(!present){
                     qDebug() << "OKIDOKI ajout de :" << J[0].toInt();
                     ajouterPersonnage(J[0].toInt(),5,3);
                 }
+//                if(J[0].toInt() != 0)
+//                    for (int i = id+1; i< personnages.size(); i++){
+//                        ajouterPersonnage(i,5,3);
+//                }
             }
 
         }
         //Bombe posé
         else if(bombeRegex.indexIn(line) != -1){
-            QStringList bombe = usersRegex.cap(1).split(" ");
+            QStringList bombe = bombeRegex.cap(1).split(" ");
             // bombe[0] id joueur
             // bombe[1] pos X
             // bombe[2] pos Y
             // bombe[3] power des qui aura les bonus
-            if (bombe[0].toInt()!= id)
+            qDebug() << "lu :" << bombeRegex.cap(1) ;
+            if (personnages[bombe[0].toInt()] != NULL && bombe[0].toInt()!= id)
                 ajouterBombe(bombe[0].toInt(),bombe[1].toInt(),bombe[2].toInt());
 
 
         }
         //Deplacement
-        else if(deplacementRegex.indexIn(line) != -1){
+        else if(deplacementRegex.indexIn(line) != -1){            
             QStringList depl = deplacementRegex.cap(1).split(" ");
             // depl[0].toInt() id joueur
             // depl[1].toInt() pos X
@@ -179,7 +189,7 @@ void MainWindow::readyRead(){
             // depl[6].toInt() pos hauteur du sprite
             // depl[7]  bool orientation gauche
             // depl[8] bool est en vie
-
+            if(depl[0].toInt() != id){
             int oldPosX = personnages[depl[0].toInt()]->getX();
             int oldPosY =personnages[depl[0].toInt()]->getY();
             int dx = depl[1].toInt() - oldPosX;
@@ -187,10 +197,13 @@ void MainWindow::readyRead(){
 
             //TODO vérifier si depl[7].toInt() peut passer pour un bool
             personnages[depl[0].toInt()]->getPicture()->moveBy(dx,dy);
-                        personnages[depl[0].toInt()]->newPosition(depl[1].toInt(),depl[2].toInt());
-                        personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
-                        personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());
-                        personnages[depl[0].toInt()]->refreshPicture();
+
+            personnages[depl[0].toInt()]->setX(depl[1].toInt());
+            personnages[depl[0].toInt()]->setY(depl[2].toInt());
+            personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
+            personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());
+            personnages[depl[0].toInt()]->refreshPicture();
+            }
         }
 
         else if (declenchementRegex.indexIn(line) != -1){
@@ -211,8 +224,6 @@ void MainWindow::connected(){
 void MainWindow::ajouterPersonnage(int id,int i, int j){
     int posX = getPositionXFromGrille(i);
     int posY = getPositionYFromGrille(j);
-    //personnages.append(new Joueur(id,posX,posY));
-    personnages.resize(personnages.size()+1);
     personnages[id]=new Joueur(id,posX,posY);
     scene->addItem(personnages[id]->getPicture());
 }
@@ -232,6 +243,7 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
 //mettre id joueur
 void MainWindow::ajouterBombe(int bmId,int x, int y)
 {
+    if(controleur->getStateKeys(2)){
     Bombe *bombe = new Bombe(0,x,y,bmId);
     bombe->setY(bombe->getY() - bombe->getHauteur()/2);
     bombe->setX(bombe->getX() - bombe->getLargeur()/2);
@@ -239,7 +251,9 @@ void MainWindow::ajouterBombe(int bmId,int x, int y)
     personnages[bmId]->addBombe(bombe);
     scene->addItem(bombe->getPicture());
     //TODO ajouter le power au mess
-    socket->write(QString("/bom: %1 %2 %3 $\n" ).arg(bombe->getBManId()).arg(bombe->getX()).arg(bombe->getY()).toUtf8());
+    qDebug()<< "ecrit :" << bombe->getBManId()<< bombe->getX() << bombe->getY();
+    socket->write(QString("/bom:%1 %2 %3 $\n" ).arg(bombe->getBManId()).arg(bombe->getX()).arg(bombe->getY()).toUtf8());
+    }
 }
 
 void MainWindow::ajouterExplosion(Bombe *bombe,int x, int y, int dx, int dy,bool end){
@@ -349,7 +363,7 @@ void MainWindow::tryMove(int x, int y){
                // depl[8] bool est en vie
               // qDebug() << id;
                QVector<int> qv = personnages[id]->getCoordSprite();
-              // socket->write(QString("/p: %1 %2 %3 %4 %5 %6 %7 %8 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).toUtf8());
+              socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).toUtf8());
     }
 
 
@@ -363,7 +377,14 @@ void MainWindow::tryJump(){
 }
 
 void MainWindow::timerEvent ( QTimerEvent * event ){
-    if (personnages.size() >0){
+
+    bool start = true;
+    for(int i = 0; i < personnages.size(); i++){
+        if(personnages[i] == NULL)
+            start = false;
+    }
+    if (start){
+   //if (personnages.size() >0){
         if(personnages[id]->getCurrentS() == 8){
             personnages[id]->die();
             if(personnages[id]->getCurrentS() == 9)
