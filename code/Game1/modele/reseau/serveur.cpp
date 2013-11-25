@@ -41,7 +41,7 @@ void Serveur::readyRead()
             m_utilisateurs[client] = utilisateur;           
             qDebug() <<"id envoyé : " <<utilisateur;
 
-            client->write(QString("/i:%1 $\n").arg(utilisateur).toUtf8());
+            client->write(QString("/i:%1 %2 $\n").arg(utilisateur).arg(m_nbUtilisateur).toUtf8());
 
             envoyerListeUtilisateur();
 
@@ -97,6 +97,8 @@ void Serveur::envoyerListeUtilisateur()
     foreach(QTcpSocket *client, m_clients)
         client->write(QString("/users:" + listeUtilisateur.join(",") + "\n").toUtf8());
 }
+
+
 
 /**
  * @brief Serveur::incomingConnection

@@ -117,19 +117,16 @@ void MainWindow::readyRead(){
         QRegExp deplacementRegex("^/p:(.*)$");
         QRegExp bombeRegex("^/bom:(.*)$");
         QRegExp declenchementRegex("^/t:([0-9]+)$");
+        QRegExp erreurRegex("^/erreur:(.*)$");
 
         if(idRegex.indexIn(line) != -1){
             QStringList mots = idRegex.cap(1).split(" ");
+            personnages.resize(mots[1].toInt()); // mots[1] étant le nbre max de joueurs
             id = mots[0].toInt();
             qDebug() << "id reçu :" << id;
             qDebug() << "ajout de : "<< id;
+
             ajouterPersonnage(id,5,3);
-
-//            for (int i = 0; i< id; i++){
-//                    ajouterPersonnage(i,5,3);
-//            }
-
-            // qDebug()<<" taille = "<<personnages.size();
         }
 
         // Nouveau Joueur
@@ -211,6 +208,10 @@ void MainWindow::readyRead(){
             // tri[0] id joueur
             triggerLastBombe(tri.toInt());
 
+        } else if (erreurRegex.indexIn(line) != -1){
+             QStringList erreurs = erreurRegex.cap(1).split(" ");
+             qCritical() << erreurs[0];
+             close();
         }
     }
 
