@@ -405,6 +405,13 @@ public:
     bool isImmortal();
 
     /*!
+     * \brief assignation d'un bool à immortality
+     * \param i vrai si le personnage doit être immortel, faux sinon
+     * \author Quentin CHEYNET
+     */
+    void setImmortality(bool i);
+
+    /*!
      * \brief Destructeur
      * Destructeur de la classe Joueur
      * \author Quentin CHEYNET

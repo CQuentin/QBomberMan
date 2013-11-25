@@ -597,6 +597,10 @@ bool Joueur::isImmortal(){
     return immortality;
 }
 
+void Joueur::setImmortality(bool i){
+    immortality = i;
+}
+
 Joueur::~Joueur(){
     delete this;
 }
