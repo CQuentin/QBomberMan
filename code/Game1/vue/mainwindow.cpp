@@ -186,7 +186,13 @@ void MainWindow::readyRead(){
             // depl[6].toInt() pos hauteur du sprite
             // depl[7]  bool orientation gauche
             // depl[8] bool est en vie
+            // depl[9] doit disparaitre
             if(depl[0].toInt() != id){
+                qDebug()<<" isAlive  doit diparaitre"<<depl[8].toInt()<<depl[9].toInt();
+                if(!depl[8].toInt() && depl[9].toInt()){
+                     scene->removeItem(personnages[depl[0].toInt()]->getPicture());
+                }else{
+
             int oldPosX = personnages[depl[0].toInt()]->getX();
             int oldPosY =personnages[depl[0].toInt()]->getY();
             int dx = depl[1].toInt() - oldPosX;
@@ -200,6 +206,8 @@ void MainWindow::readyRead(){
             personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
             personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());
             personnages[depl[0].toInt()]->refreshPicture();
+
+                }
             }
         }
 
@@ -364,7 +372,7 @@ void MainWindow::tryMove(int x, int y){
                // depl[8] bool est en vie
               // qDebug() << id;
                QVector<int> qv = personnages[id]->getCoordSprite();
-              socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).toUtf8());
+               socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).arg(personnages[id]->isAlive()).arg(0).toUtf8());
     }
 
 
@@ -388,8 +396,14 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
    //if (personnages.size() >0){
         if(personnages[id]->getCurrentS() == 8){
             personnages[id]->die();
-            if(personnages[id]->getCurrentS() == 9)
+            QVector<int> qv = personnages[id]->getCoordSprite();
+            socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY()).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).arg(personnages[id]->isAlive()).arg(0).toUtf8());
+
+            if(personnages[id]->getCurrentS() == 9){
+                qDebug()<<"adios amigos";
                 scene->removeItem(personnages[id]->getPicture());
+                socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY()).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).arg(personnages[id]->isAlive()).arg(1).toUtf8());
+            }
         }
         else if(personnages[id]->getCurrentS() != 9){
             personnages[id]->checkImmortality();
