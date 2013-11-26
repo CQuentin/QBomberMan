@@ -169,8 +169,8 @@ void MainWindow::readyRead(){
             // bombe[2] pos Y
             // bombe[3] power des qui aura les bonus
             qDebug() << "lu :" << bombeRegex.cap(1) ;
-            if (personnages[bombe[0].toInt()] != NULL && bombe[0].toInt()!= id)
-                ajouterBombe(bombe[0].toInt(),bombe[1].toInt(),bombe[2].toInt());
+            if (bombe[0].toInt()!= id)
+                ajouterBombe(bombe[0].toInt(),bombe[1].toInt(),bombe[2].toInt(), false);
 
 
         }
@@ -188,7 +188,6 @@ void MainWindow::readyRead(){
             // depl[8] bool est en vie
             // depl[9] doit disparaitre
             if(depl[0].toInt() != id){
-                qDebug()<<" isAlive  doit diparaitre"<<depl[8].toInt()<<depl[9].toInt();
                 if(!depl[8].toInt() && depl[9].toInt()){
                      scene->removeItem(personnages[depl[0].toInt()]->getPicture());
                 }else{
@@ -250,19 +249,25 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
 }
 
 //mettre id joueur
-void MainWindow::ajouterBombe(int bmId,int x, int y)
+void MainWindow::ajouterBombe(int bmId,int x, int y, bool w)
 {
-    if(controleur->getStateKeys(2)){
+
     Bombe *bombe = new Bombe(0,x,y,bmId);
-    bombe->setY(bombe->getY() - bombe->getHauteur()/2);
-    bombe->setX(bombe->getX() - bombe->getLargeur()/2);
+    if(w){
+        bombe->setY(bombe->getY() - bombe->getHauteur()/2);
+        bombe->setX(bombe->getX() - bombe->getLargeur()/2);
+    }else{
+        bombe->setX(x);
+        bombe->setY(y);
+    }
     //bombes.append(bombe);
     personnages[bmId]->addBombe(bombe);
     scene->addItem(bombe->getPicture());
     //TODO ajouter le power au mess
     qDebug()<< "ecrit :" << bombe->getBManId()<< bombe->getX() << bombe->getY();
-    socket->write(QString("/bom:%1 %2 %3 $\n" ).arg(bombe->getBManId()).arg(bombe->getX()).arg(bombe->getY()).toUtf8());
-    }
+    if(w)
+        socket->write(QString("/bom:%1 %2 %3 $\n" ).arg(bombe->getBManId()).arg(bombe->getX()).arg(bombe->getY()).toUtf8());
+
 }
 
 void MainWindow::ajouterExplosion(Bombe *bombe,int x, int y, int dx, int dy,bool end){
@@ -438,7 +443,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
             if(controleur->getStateKeys(2)){
                 if (personnages[id]->tryDropBombe()){
-                    ajouterBombe(id,personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur()/2);
+                    ajouterBombe(id,personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur()/2,true);
                     controleur->setPressed(Qt::Key_Down,false);
                 }
             }
