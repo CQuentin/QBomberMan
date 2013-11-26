@@ -28,7 +28,7 @@ Joueur::Joueur(int id, int x , int y){
     bonusTrigger = false;
     tired = 1;
 
-    if(id <1) // 1 : le nombre de couleurs différentes existantes
+    if(id <4) // 1 : le nombre de couleurs différentes existantes
       sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
     else
         sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
