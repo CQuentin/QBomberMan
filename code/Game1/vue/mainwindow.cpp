@@ -228,7 +228,7 @@ void MainWindow::readyRead(){
             personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());
             personnages[depl[0].toInt()]->refreshPicture();
             personnages[depl[0].toInt()]->setPowerBomb(depl[10].toInt());
-            personnages[depl[0].toInt()]->setTriggerBomb(depl[11].toInt());
+            //personnages[depl[0].toInt()]->setTriggerBomb(depl[11].toInt());
                 }
             }
         }
@@ -236,7 +236,7 @@ void MainWindow::readyRead(){
         else if (declenchementRegex.indexIn(line) != -1){
             QString tri = declenchementRegex.cap(1) ;
             // tri[0] id joueur
-            triggerLastBombe(tri.toInt());
+            triggerLastBombe(tri.toInt(),false);
 
         } else if (erreurRegex.indexIn(line) != -1){
              QStringList erreurs = erreurRegex.cap(1).split(" ");
@@ -402,14 +402,14 @@ void MainWindow::tryMove(int x, int y){
               //  if
 
                QVector<int> qv = personnages[id]->getCoordSprite();
-               socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 $\n")
+               socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 $\n")
                              .arg(id).arg(newX).arg(newY)
                              .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
                              .arg(personnages[id]->isOrientG())
                              .arg(personnages[id]->isAlive())
                              .arg(0)
                              .arg(personnages[id]->getPowerBomb())
-                             .arg(personnages[id]->hasBonusTrigger())
+                            // .arg(personnages[id]->hasBonusTrigger())
                              .toUtf8());
     }
 
@@ -494,7 +494,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 personnages[id]->immobile();
 
             if(controleur->getStateKeys(4) && personnages[id]->hasBonusTrigger()){
-                triggerLastBombe(id);
+                triggerLastBombe(id,true);
             }
 
             tryMove(0,gravity);
@@ -578,7 +578,7 @@ int MainWindow::getGravity(){
 }
 
 
-void MainWindow::triggerLastBombe(int bmId){
+void MainWindow::triggerLastBombe(int bmId, bool w){
 //    int i = bombes.size()-1;
 //    while(i >= 0 && bombes[i]->getBManId() != bmId )
 //        i--;
@@ -586,7 +586,8 @@ void MainWindow::triggerLastBombe(int bmId){
 //        bombes[i]->trigger();
    if (personnages[bmId]->getLastBombe() != NULL){
        personnages[bmId]->getLastBombe()->trigger();
-       socket->write(QString("/t: %1 $\n").arg(bmId).toUtf8());
+//       if (w)
+//       socket->write(QString("/t:%1 $\n").arg(bmId).toUtf8());
    }
 }
 
