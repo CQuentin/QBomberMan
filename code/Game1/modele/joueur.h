@@ -416,6 +416,11 @@ public:
      * Destructeur de la classe Joueur
      * \author Quentin CHEYNET
      */
+
+    int getPowerBomb();
+    void setPowerBomb(int p);
+    void setTriggerBomb(bool t);
+
     ~Joueur();
 };
 #endif // JOUEUR_H

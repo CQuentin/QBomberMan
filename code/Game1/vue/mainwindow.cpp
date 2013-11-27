@@ -126,7 +126,26 @@ void MainWindow::readyRead(){
             qDebug() << "id reçu :" << id;
             qDebug() << "ajout de : "<< id;
 
-            ajouterPersonnage(id,5,3);
+            //tmp pour placer 4 joueurs dans des endroits différents
+            switch (id){
+            case 0:
+                 ajouterPersonnage(id,5,3);
+                break;
+            case 1:
+                 ajouterPersonnage(id,39,3);
+                break;
+            case 2:
+                 ajouterPersonnage(id,5,22);
+            break;
+            case 3:
+                 ajouterPersonnage(id,39,22);
+                break;
+            default:
+                ajouterPersonnage(id,5,3);
+                break;
+            }
+
+
         }
 
         // Nouveau Joueur
@@ -167,7 +186,7 @@ void MainWindow::readyRead(){
             // bombe[0] id joueur
             // bombe[1] pos X
             // bombe[2] pos Y
-            // bombe[3] power des qui aura les bonus
+            // bombe[3] si on apelle write ou non
             qDebug() << "lu :" << bombeRegex.cap(1) ;
             if (bombe[0].toInt()!= id)
                 ajouterBombe(bombe[0].toInt(),bombe[1].toInt(),bombe[2].toInt(), false);
@@ -187,6 +206,9 @@ void MainWindow::readyRead(){
             // depl[7]  bool orientation gauche
             // depl[8] bool est en vie
             // depl[9] doit disparaitre
+            // depl[10] power bombes
+            // depl[11] trigger bombe
+
             if(depl[0].toInt() != id){
                 if(!depl[8].toInt() && depl[9].toInt()){
                      scene->removeItem(personnages[depl[0].toInt()]->getPicture());
@@ -205,7 +227,8 @@ void MainWindow::readyRead(){
             personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
             personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());
             personnages[depl[0].toInt()]->refreshPicture();
-
+            personnages[depl[0].toInt()]->setPowerBomb(depl[10].toInt());
+            personnages[depl[0].toInt()]->setTriggerBomb(depl[11].toInt());
                 }
             }
         }
@@ -263,10 +286,10 @@ void MainWindow::ajouterBombe(int bmId,int x, int y, bool w)
     //bombes.append(bombe);
     personnages[bmId]->addBombe(bombe);
     scene->addItem(bombe->getPicture());
-    //TODO ajouter le power au mess
-    qDebug()<< "ecrit :" << bombe->getBManId()<< bombe->getX() << bombe->getY();
-    if(w)
+
+    if(w){
         socket->write(QString("/bom:%1 %2 %3 $\n" ).arg(bombe->getBManId()).arg(bombe->getX()).arg(bombe->getY()).toUtf8());
+    }
 
 }
 
@@ -376,8 +399,18 @@ void MainWindow::tryMove(int x, int y){
                // depl[7]  bool orientation gauche
                // depl[8] bool est en vie
               // qDebug() << id;
+              //  if
+
                QVector<int> qv = personnages[id]->getCoordSprite();
-               socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 $\n").arg(id).arg(newX).arg(newY).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).arg(personnages[id]->isAlive()).arg(0).toUtf8());
+               socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 $\n")
+                             .arg(id).arg(newX).arg(newY)
+                             .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
+                             .arg(personnages[id]->isOrientG())
+                             .arg(personnages[id]->isAlive())
+                             .arg(0)
+                             .arg(personnages[id]->getPowerBomb())
+                             .arg(personnages[id]->hasBonusTrigger())
+                             .toUtf8());
     }
 
 
@@ -684,10 +717,10 @@ bool MainWindow::hitTest(int bI, int bJ, int bI2, int bJ2){
 void MainWindow::detruireBrique(int i, int j){
     scene->removeItem(grille[i][j]->getPicture());
     grille[i][j] = NULL;
-    if(id == 0){
+    //if(id == 0){
         if(qrand()%4 +1 == 1) // une chance sur 4
             ajouterBonus(i,j);
-    }
+    //}
 
 }
 

@@ -601,6 +601,18 @@ void Joueur::setImmortality(bool i){
     immortality = i;
 }
 
+int Joueur::getPowerBomb(){
+    return bonusPower;
+}
+
+void Joueur::setPowerBomb(int p){
+    bonusPower = p;
+}
+
+void Joueur::setTriggerBomb(bool t){
+    bonusTrigger = t;
+}
+
 Joueur::~Joueur(){
     delete this;
 }
