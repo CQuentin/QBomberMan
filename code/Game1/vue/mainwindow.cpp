@@ -482,6 +482,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             }
 
             endText->setPos(largeur/2 - decH, hauteur/2 - 22);
+            endText->setZValue(99);
             scene->addItem(endText);
              end = 2;
             }
