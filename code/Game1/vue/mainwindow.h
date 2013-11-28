@@ -47,6 +47,7 @@ class MainWindow : public QMainWindow
        // QVector<Bombe*> bombes;
         int id;
         QTcpSocket *socket;
+        bool end;
 
     private slots:
         void readyRead();
