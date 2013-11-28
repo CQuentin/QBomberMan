@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grilleBonus.resize(largeurG);
     controleur = new ToucheClavier();
     personnages.resize(2);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
-
+    end = false;
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++){
@@ -215,6 +215,7 @@ void MainWindow::readyRead(){
             if(depl[0].toInt() != id){
                 if(!depl[8].toInt() && depl[9].toInt()){
                      scene->removeItem(personnages[depl[0].toInt()]->getPicture());
+                     personnages[depl[0].toInt()]->setCurrentS(9);
                 }else{
 
             int oldPosX = personnages[depl[0].toInt()]->getX();
@@ -449,15 +450,43 @@ void MainWindow::tryJump(){
 }
 
 void MainWindow::timerEvent ( QTimerEvent * event ){
-
+    int cptDead = 0;
     bool start = true;
     for(int i = 0; i < personnages.size(); i++){
         if(personnages[i] == NULL)
             start = false;
     }
     if (start){
-   //if (personnages.size() >0){
-        if(personnages[id]->getCurrentS() == 8){
+
+        for (int i =0; i < personnages.size(); i++){
+            if (personnages[i]->getCurrentS() == 9)
+                cptDead ++;
+            if (cptDead >= personnages.size()-1)
+                end = true;
+        }
+        if(end){
+            int decH = 0;
+            QGraphicsTextItem * endText = new QGraphicsTextItem;
+            QFont myFont = QFont("Time", 45);
+            myFont.setBold(true);
+            endText->setFont(myFont);
+           // endText->setTextWidth(900);
+
+            if(personnages[id]->isAlive()){
+                endText->setPlainText("Victoire");
+                decH = 8*22;
+                endText->setDefaultTextColor(Qt::green);
+            }
+            else{
+                endText->setPlainText("Défaite");
+                decH = 6*22;
+                endText->setDefaultTextColor(Qt::red);
+            }
+
+            endText->setPos(largeur/2 - decH, hauteur/2 - 22);
+            scene->addItem(endText);
+        }
+        else if(personnages[id]->getCurrentS() == 8){
             personnages[id]->die();
             QVector<int> qv = personnages[id]->getCoordSprite();
             socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY())

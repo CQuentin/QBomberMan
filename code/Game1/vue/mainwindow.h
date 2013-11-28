@@ -20,6 +20,8 @@
 #include "../modele/bombe.h"
 #include "../controleur/toucheclavier.h"
 #include <QTcpSocket>
+#include <QTextCursor>
+#include <QTextBlockFormat>
 
 class MainWindow : public QMainWindow
 {
@@ -45,6 +47,7 @@ class MainWindow : public QMainWindow
        // QVector<Bombe*> bombes;
         int id;
         QTcpSocket *socket;
+        bool end;
 
     private slots:
         void readyRead();
