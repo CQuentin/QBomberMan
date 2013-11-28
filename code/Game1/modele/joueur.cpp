@@ -577,6 +577,52 @@ void Joueur::receiveBonus(int t){
 
 }
 
+
+void Joueur::cheer(){
+    state = WINNING;
+    if(pauseSprite >= 15){
+        switch (step){
+        case 0:
+            setCoordSprite(5,374,19,31);
+            step++;
+            break;
+        case 1:
+            setCoordSprite(33,374,31,34);
+            step++;
+            break;
+        case 2:
+            setCoordSprite(67,374,31,32);
+            step++;
+            break;
+        case 3:
+            setCoordSprite(101,374,31,34);
+            step++;
+            break;
+        case 4:
+            setCoordSprite(135,374,31,36);
+            step++;
+            break;
+        case 5:
+            setCoordSprite(173,374,23,36);
+            step++;
+            break;
+        case 6:
+            setCoordSprite(206,374,24,36);
+            step++;
+            break;
+        case 7:
+            setCoordSprite(241,373,23,37);
+            step = 0;
+            break;
+
+        }
+        currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
+        pauseSprite = 0;
+        picture->setPixmap(currentImage);
+    }
+    else pauseSprite++;
+}
+
 bool Joueur::hasBonusTrigger(){
     return bonusTrigger;
 }

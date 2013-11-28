@@ -25,7 +25,8 @@ private :
         JUMPING = 6,
         DROPING = 7,
         DYING = 8,
-        DEAD = 9
+        DEAD = 9,
+        WINNING = 10
     };
     int id;
     int posX;
@@ -417,9 +418,32 @@ public:
      * \author Quentin CHEYNET
      */
 
+    /*!
+     * \brief retourne la valeur de bonusPower
+     * \return La valeur de l'explosion des bombes du Joueur
+     * \author Quentin CHEYNET
+     */
     int getPowerBomb();
+
+    /*!
+     * \brief assignation d'un entier à bonusPower
+     * \param p La valeur de l'explosion des bombes du Joueur
+     * \author Quentin CHEYNET
+     */
     void setPowerBomb(int p);
+
+    /*!
+     * \brief assignation d'un bool à bonusTrigger
+     * \param t vrai si le personnage doit avoir le bonus pour déclencher les bombes
+     * \author Quentin CHEYNET
+     */
     void setTriggerBomb(bool t);
+
+    /*!
+     * \brief met les sprites de la victoire
+     * \author Quentin CHEYNET
+     */
+    void cheer();
 
     ~Joueur();
 };

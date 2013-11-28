@@ -31,7 +31,6 @@ class MainWindow : public QMainWindow
         QGraphicsScene * scene;
         QGraphicsView * view;
         QPixmap * background;
-        //Joueur * personnage;
         QVector <Joueur*> personnages;
         int largeur;
         int hauteur;
@@ -44,10 +43,9 @@ class MainWindow : public QMainWindow
         ToucheClavier *controleur;
         QVector<QVector<Brique*> > grille;
         QVector<QVector<Bonus*> > grilleBonus;
-       // QVector<Bombe*> bombes;
         int id;
         QTcpSocket *socket;
-        bool end;
+        int end;
 
     private slots:
         void readyRead();
