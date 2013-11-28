@@ -95,6 +95,8 @@ MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
     view->setFixedHeight(hauteur);
     view->show();
 
+    this->setFixedSize(largeur, hauteur);
+
 
 }
 

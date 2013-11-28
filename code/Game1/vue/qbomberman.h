@@ -17,6 +17,7 @@ private slots:
     void on_creerPartie_clicked();
     void on_rejoindreChannel_clicked();
     void on_rejoindreBtn_clicked();
+    void on_okButton_clicked();
 
 private:
     Ui::QBomberMan *ui;

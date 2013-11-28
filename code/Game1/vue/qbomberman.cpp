@@ -20,9 +20,7 @@ QBomberMan::~QBomberMan()
 
 void QBomberMan::on_creerPartie_clicked()
 {
-    hide();
-    FenetreServeur *f = new FenetreServeur();
-    f->show();    
+      ui->stackedWidget->setCurrentWidget(ui->CreerPartie);
 }
 
 void QBomberMan::on_rejoindreChannel_clicked()
@@ -39,3 +37,27 @@ void QBomberMan::on_rejoindreBtn_clicked()
     c->resize(900, 600);
     c->show();
 }
+
+void QBomberMan::on_okButton_clicked()
+{
+    Serveur *serveur = new Serveur(ui->nbJSpinBox->value());
+    bool reussi = serveur->listen(QHostAddress::Any, 4200);
+    if(!reussi)
+    {
+        qFatal("Impossible d'écouter le port 4200");
+    }
+    qDebug() << "Pret!";
+    qDebug() << ui->nbJSpinBox->value() ;
+
+    ui->okButton->setEnabled(false);
+    ui->nbJSpinBox->setEnabled(false);
+
+    hide();
+    MainWindow *c = new MainWindow("localhost");
+    c->setWindowTitle(QString::fromUtf8("Game1"));
+    c->resize(900, 600);
+    c->show();
+
+    qDebug() << "OK" ;
+}
+

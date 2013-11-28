@@ -17,7 +17,7 @@ FenetreServeur::~FenetreServeur()
 
 void FenetreServeur::on_okButton_clicked()
 {
-    Serveur *serveur = new Serveur(ui->nbJSpinBox->value());
+   /* Serveur *serveur = new Serveur(ui->nbJSpinBox->value());
     bool reussi = serveur->listen(QHostAddress::Any, 4200);
     if(!reussi)
     {
@@ -35,5 +35,5 @@ void FenetreServeur::on_okButton_clicked()
     c->resize(900, 600);
     c->show();
 
-    qDebug() << "OK" ;
+    qDebug() << "OK" ;*/
 }
