@@ -88,7 +88,6 @@ MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
     // scene->setBackgroundBrush(*background);
 
     timer.start(5, this);
-
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setFixedWidth(largeur);
@@ -471,6 +470,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 endText->setPlainText("Victoire");
                 decH = 8*22;
                 endText->setDefaultTextColor(Qt::green);
+                //personnages[id]->cheer();
             }
             else{
                 endText->setPlainText("Défaite");
