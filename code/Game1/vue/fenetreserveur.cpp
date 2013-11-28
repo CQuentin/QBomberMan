@@ -30,9 +30,10 @@ void FenetreServeur::on_okButton_clicked()
     ui->nbJSpinBox->setEnabled(false);
 
     hide();
-    MainWindow *c = new MainWindow();
+    MainWindow *c = new MainWindow("localhost");
     c->setWindowTitle(QString::fromUtf8("Game1"));
     c->resize(900, 600);
     c->show();
+
     qDebug() << "OK" ;
 }

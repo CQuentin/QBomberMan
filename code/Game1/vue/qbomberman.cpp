@@ -25,12 +25,17 @@ void QBomberMan::on_creerPartie_clicked()
     f->show();    
 }
 
-void QBomberMan::on_rejoindrePartie_clicked()
+void QBomberMan::on_rejoindreChannel_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->RejoindrePartie);
+}
+
+void QBomberMan::on_rejoindreBtn_clicked()
 {
     hide();
-    MainWindow *c = new MainWindow();
+
+    MainWindow *c = new MainWindow(ui->ipLineEdit->text());
     c->setWindowTitle(QString::fromUtf8("Game1"));
     c->resize(900, 600);
     c->show();
-
 }

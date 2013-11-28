@@ -1,15 +1,10 @@
 #include "mainwindow.h"
 
 /* Constructeur de la classe MainWindow */
-MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
+MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
 {
 
-    socket = new QTcpSocket(parent);
-    socket->connectToHost("localhost", 4200);
-    connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
-    connect(socket, SIGNAL(connected()), this, SLOT(connected()));
-
-
+   initialiserSocket(hote);
 
     baseGravity = 1;
     largeur = 900;
@@ -808,6 +803,26 @@ void MainWindow::checkBonus(){
     }
 }
 
+QString const MainWindow::getHote ()
+{
+    return m_hote;
+}
+
+void MainWindow::setHote(QString hote)
+{
+    m_hote = hote;
+}
+
+void MainWindow::initialiserSocket(QString  hote)
+{
+    m_hote = hote;
+    socket = new QTcpSocket(this);
+    socket->connectToHost(m_hote, 4200);
+    connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
+    connect(socket, SIGNAL(connected()), this, SLOT(connected()));
+}
+
+
 /* Destructeur de la classe MainWindow */
 MainWindow::~MainWindow()
 {
@@ -820,3 +835,5 @@ MainWindow::~MainWindow()
     delete scene;
     // delete background;
 }
+
+
