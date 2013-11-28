@@ -14,20 +14,20 @@
 #include <QDebug>
 #include <QVector>
 #include<QBasicTimer>
+#include <QTcpSocket>
 #include "../modele/brique.h"
 #include "../modele/bonus.h"
 #include "../modele/joueur.h"
 #include "../modele/bombe.h"
 #include "../controleur/toucheclavier.h"
-#include <QTcpSocket>
-#include <QTextCursor>
-#include <QTextBlockFormat>
+
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
     private:
+        QString m_hote;
         QGraphicsScene * scene;
         QGraphicsView * view;
         QPixmap * background;
@@ -62,7 +62,7 @@ class MainWindow : public QMainWindow
         * \param parent : QMainWindow parent
         * \author Quentin CHEYNET
         */
-            explicit MainWindow(QWidget * parent = 0);
+            explicit MainWindow(QString hote, QWidget * parent = 0);
 
        /*!
         * \brief détéction des évènement clavier (touches enfoncées)
@@ -289,13 +289,37 @@ class MainWindow : public QMainWindow
          */
         void ajouterBonus(int i, int j, bool w, int t);
 
+
         /*!
          * \brief vérifie si le joueur se trouve sur un bonus, et gère son obtntion si c'est le cas
          * \author Quentin CHEYNET
          */
         void checkBonus();
 
+
+        /*!
+         * \brief Permet de récupérer l'hote ou l'on va se connecter.
+         * \author Sébastien Trousse
+         */
+        QString const getHote ();
+
+
+        /*!
+         * \brief vérifie si le joueur se trouve sur un bonus, et gère son obtntion si c'est le cas
+         * \param hote Ligne de la grilleBonus
+         * \author Sébastien Trousse
+         */
+        void setHote(QString hote);
+        /*!
+         * \brief vérifie si le joueur se trouve sur un bonus, et gère son obtntion si c'est le cas
+         * \author Sébastien Trousse
+         */
+        void initialiserSocket(QString hote);
+
+
          ~MainWindow();
+
+
 
 };
 #endif
