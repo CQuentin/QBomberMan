@@ -1,11 +1,13 @@
 #include "bonus.h"
 
-Bonus::Bonus(int x, int y){
+Bonus::Bonus(int x, int y, int t){
     posX = x;
     posY = y;
 
-
-    type = qrand()%6;
+    if(t < 0)
+        type = qrand()%6;
+    else
+        type = t;
 
     QPixmap sprite = QPixmap("../Game1/ressource/sprites_bonus.png");
     QPixmap currentImage;

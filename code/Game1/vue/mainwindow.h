@@ -270,18 +270,21 @@ class MainWindow : public QMainWindow
          * \brief détruit une brique, et décide si un bonus doit apparaître
          * \param i Ligne de la grille
          * \param j Colonne de la grille
+         * \param idJ Joueur qui a détruit la brique
          * \author Quentin CHEYNET
          */
-        void detruireBrique(int i, int j);
+        void detruireBrique(int i, int j, int idJ);
 
 
         /*!
          * \brief ajoute un bonus dans la scene
          * \param i Ligne de la grilleBonus
          * \param j Colonne de la grilleBonus
+         * \param w Si l'ajout du bonus doit être envoyé aux autres joueurs
+         * \param t Le type de bonus ( -1 si à définir aléatoirement)
          * \author Quentin CHEYNET
          */
-        void ajouterBonus(int i, int j);
+        void ajouterBonus(int i, int j, bool w, int t);
 
         /*!
          * \brief vérifie si le joueur se trouve sur un bonus, et gère son obtntion si c'est le cas

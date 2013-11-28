@@ -117,7 +117,9 @@ void MainWindow::readyRead(){
         QRegExp deplacementRegex("^/p:(.*)$");
         QRegExp bombeRegex("^/bom:(.*)$");
         QRegExp declenchementRegex("^/t:(.*)$");
+        QRegExp addBonusRegex("^/abon:(.*)$");
         QRegExp erreurRegex("^/erreur:(.*)$");
+
 
         if(idRegex.indexIn(line) != -1){
             QStringList mots = idRegex.cap(1).split(" ");
@@ -237,7 +239,13 @@ void MainWindow::readyRead(){
                 triggerLastBombe(tri[0].toInt(),false);
             }
 
-        } else if (erreurRegex.indexIn(line) != -1){
+        }else if(addBonusRegex.indexIn(line) != -1){
+             QStringList abon = addBonusRegex.cap(1).split(" ");
+             if(abon[0].toInt() != id){
+                 ajouterBonus(abon[1].toInt(),abon[2].toInt(),false,abon[3].toInt());
+             }
+        }
+        else if (erreurRegex.indexIn(line) != -1){
              QStringList erreurs = erreurRegex.cap(1).split(" ");
              qCritical() << erreurs[0];
              close();
@@ -316,13 +324,16 @@ void MainWindow::ajouterExplosion(Bombe *bombe,int x, int y, int dx, int dy,bool
 
 }
 
-void MainWindow::ajouterBonus(int i, int j){
+void MainWindow::ajouterBonus(int i, int j, bool w, int t){
     int x = getPositionXFromGrille(i);
     int y = getPositionYFromGrille(j);
-    grilleBonus[i][j] = new Bonus(x,y);
+    grilleBonus[i][j] = new Bonus(x,y,t);
     scene->addItem(grilleBonus[i][j]->getPicture());
-    int t = grilleBonus[i][j]->getBonusType();
+
     //TODO write bonus (i,j,t)
+    if(w){
+        socket->write(QString("/abon:%1 %2 %3 %4 $\n" ).arg(id).arg(i).arg(j).arg(grilleBonus[i][j]->getBonusType()).toUtf8());
+    }
 
 }
 
@@ -632,12 +643,12 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
             if(grille[i][j] != NULL && grille[i][j]->estCassable()){
 //                scene->removeItem(grille[i][j]->getPicture());
 //                grille[i][j] = NULL;
-                detruireBrique(i,j);
+                detruireBrique(i,j,bombe->getBManId());
             }
             if(grille[i2][j2] != NULL && grille[i2][j2]->estCassable()){
 //               scene->removeItem(grille[i2][j2]->getPicture());
 //               grille[i2][j2] = NULL;
-              detruireBrique(i2,j2);
+              detruireBrique(i2,j2, bombe->getBManId());
             }
             if(personnages[id]->isAlive() && hitTest(i,j,i2,j2))
                 hit = true;
@@ -718,13 +729,13 @@ bool MainWindow::hitTest(int bI, int bJ, int bI2, int bJ2){
     return hit;
 }
 
-void MainWindow::detruireBrique(int i, int j){
+void MainWindow::detruireBrique(int i, int j,int idJ){
     scene->removeItem(grille[i][j]->getPicture());
     grille[i][j] = NULL;
-    //if(id == 0){
+    if(id == idJ){
         if(qrand()%4 +1 == 1) // une chance sur 4
-            ajouterBonus(i,j);
-    //}
+            ajouterBonus(i,j,true,-1);
+    }
 
 }
 

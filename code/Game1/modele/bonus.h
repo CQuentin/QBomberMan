@@ -27,9 +27,12 @@ public:
 
     /*!
      * \brief constructeur de la classe Bonus
+     * \param x La position x du bonus
+     * \param y La position y du bonus
+     * \param t Le type du bonus (-1 si il doit être défini)
      * \author Quentin CHEYNET
      */
-    Bonus(int x ,int y);
+    Bonus(int x , int y, int t);
 
 
     /*!
