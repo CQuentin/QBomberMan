@@ -118,6 +118,7 @@ void MainWindow::readyRead(){
         QRegExp bombeRegex("^/bom:(.*)$");
         QRegExp declenchementRegex("^/t:(.*)$");
         QRegExp addBonusRegex("^/abon:(.*)$");
+        QRegExp removeBonusRegex("^/rbon:(.*)$");
         QRegExp erreurRegex("^/erreur:(.*)$");
 
 
@@ -209,6 +210,7 @@ void MainWindow::readyRead(){
             // depl[9] doit disparaitre
             // depl[10] power bombes
             // depl[11] trigger bombe
+            // depl[12] immortel
 
             if(depl[0].toInt() != id){
                 if(!depl[8].toInt() && depl[9].toInt()){
@@ -223,13 +225,16 @@ void MainWindow::readyRead(){
             //TODO vérifier si depl[7].toInt() peut passer pour un bool
             personnages[depl[0].toInt()]->getPicture()->moveBy(dx,dy);
 
+
+            personnages[depl[0].toInt()]->setImmortality(depl[12].toInt());
+
             personnages[depl[0].toInt()]->setX(depl[1].toInt());
             personnages[depl[0].toInt()]->setY(depl[2].toInt());
             personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
             personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());
             personnages[depl[0].toInt()]->refreshPicture();
-            personnages[depl[0].toInt()]->setPowerBomb(depl[10].toInt());
-            //personnages[depl[0].toInt()]->setTriggerBomb(depl[11].toInt());
+            personnages[depl[0].toInt()]->setPowerBomb(depl[10].toInt()); 
+            personnages[depl[0].toInt()]->setTriggerBomb(depl[11].toInt());
                 }
             }
         }
@@ -243,6 +248,15 @@ void MainWindow::readyRead(){
              QStringList abon = addBonusRegex.cap(1).split(" ");
              if(abon[0].toInt() != id){
                  ajouterBonus(abon[1].toInt(),abon[2].toInt(),false,abon[3].toInt());
+             }
+        }
+        else if(removeBonusRegex.indexIn(line) != -1){
+             QStringList rbon = removeBonusRegex.cap(1).split(" ");
+             if(rbon[0].toInt() != id){
+
+                 scene->removeItem(grilleBonus[rbon[1].toInt()][rbon[2].toInt()]->getPicture());
+                 grilleBonus[rbon[1].toInt()][rbon[2].toInt()] = NULL;
+
              }
         }
         else if (erreurRegex.indexIn(line) != -1){
@@ -412,14 +426,15 @@ void MainWindow::tryMove(int x, int y){
               //  if
 
                QVector<int> qv = personnages[id]->getCoordSprite();
-               socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 $\n")
+               socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n")
                              .arg(id).arg(newX).arg(newY)
                              .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
                              .arg(personnages[id]->isOrientG())
                              .arg(personnages[id]->isAlive())
                              .arg(0)
                              .arg(personnages[id]->getPowerBomb())
-                            // .arg(personnages[id]->hasBonusTrigger())
+                             .arg(personnages[id]->hasBonusTrigger())
+                             .arg(personnages[id]->isImmortal())
                              .toUtf8());
     }
 
@@ -445,12 +460,26 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         if(personnages[id]->getCurrentS() == 8){
             personnages[id]->die();
             QVector<int> qv = personnages[id]->getCoordSprite();
-            socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY()).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).arg(personnages[id]->isAlive()).arg(0).toUtf8());
+            socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY())
+                          .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
+                    .arg(personnages[id]->isOrientG())
+                    .arg(personnages[id]->isAlive())
+                    .arg(0)
+                    .arg(personnages[id]->hasBonusTrigger())
+                    .arg(personnages[id]->isImmortal())
+                    .toUtf8());
 
             if(personnages[id]->getCurrentS() == 9){
                 qDebug()<<"adios amigos";
                 scene->removeItem(personnages[id]->getPicture());
-                socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY()).arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3]).arg(personnages[id]->isOrientG()).arg(personnages[id]->isAlive()).arg(1).toUtf8());
+                socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY())
+                              .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
+                        .arg(personnages[id]->isOrientG())
+                        .arg(personnages[id]->isAlive())
+                        .arg(1)
+                        .arg(personnages[id]->hasBonusTrigger())
+                        .arg(personnages[id]->isImmortal())
+                        .toUtf8());
             }
         }
         else if(personnages[id]->getCurrentS() != 9){
@@ -597,10 +626,9 @@ void MainWindow::triggerLastBombe(int bmId, bool w){
 //        bombes[i]->trigger();
    if (personnages[bmId]->getLastBombe() != NULL){
        personnages[bmId]->getLastBombe()->trigger();
-       if (w){
+       if (w)
             socket->write(QString("/t:%1 $\n").arg(bmId).toUtf8());
-            qDebug()<<" trig écrit ahaha";
-       }
+
 
    }
 }
@@ -773,6 +801,8 @@ void MainWindow::checkBonus(){
                 personnages[id]->receiveBonus(grilleBonus[posGrilleI][posGrilleJ]->getBonusType());
                 scene->removeItem(grilleBonus[posGrilleI][posGrilleJ]->getPicture());
                 grilleBonus[posGrilleI][posGrilleJ] = NULL;
+
+                socket->write(QString("/rbon:%1 %2 %3 $\n").arg(id).arg(posGrilleI).arg(posGrilleJ).toUtf8());
             }
         }
     }
