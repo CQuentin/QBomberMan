@@ -113,9 +113,10 @@ class MainWindow : public QMainWindow
          * \param bmId Identifiant du joueur qui a posé la bombe
          * \param i Colonne de la grille
          * \param j Ligne de la grille
+         * \param w Si la bombe doit être envoyé
          * \author Quentin CHEYNET
          */
-        void ajouterBombe(int bmId, int x, int y);
+        void ajouterBombe(int bmId, int x, int y, bool w);
 
 
         /*!
@@ -252,7 +253,7 @@ class MainWindow : public QMainWindow
          * \param bmId L'identifiant du joueur qui a appuyé sur espace
          * \author Quentin CHEYNET
          */
-        void triggerLastBombe(int bmId);
+        void triggerLastBombe(int bmId, bool w);
 
 
         /*!

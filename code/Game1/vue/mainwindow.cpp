@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent)
     grilleBonus.resize(largeurG);
     controleur = new ToucheClavier();
     personnages.resize(2);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
-  //id = 0;
+
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++){
@@ -116,7 +116,7 @@ void MainWindow::readyRead(){
         QRegExp idRegex("^/i:(.*)$");
         QRegExp deplacementRegex("^/p:(.*)$");
         QRegExp bombeRegex("^/bom:(.*)$");
-        QRegExp declenchementRegex("^/t:([0-9]+)$");
+        QRegExp declenchementRegex("^/t:(.*)$");
         QRegExp erreurRegex("^/erreur:(.*)$");
 
         if(idRegex.indexIn(line) != -1){
@@ -187,7 +187,6 @@ void MainWindow::readyRead(){
             // bombe[1] pos X
             // bombe[2] pos Y
             // bombe[3] si on apelle write ou non
-            qDebug() << "lu :" << bombeRegex.cap(1) ;
             if (bombe[0].toInt()!= id)
                 ajouterBombe(bombe[0].toInt(),bombe[1].toInt(),bombe[2].toInt(), false);
 
@@ -232,11 +231,11 @@ void MainWindow::readyRead(){
                 }
             }
         }
-
         else if (declenchementRegex.indexIn(line) != -1){
-            QString tri = declenchementRegex.cap(1) ;
-            // tri[0] id joueur
-            triggerLastBombe(tri.toInt(),false);
+             QStringList tri = declenchementRegex.cap(1).split(" ");
+            if(tri[0].toInt() != id){
+                triggerLastBombe(tri[0].toInt(),false);
+            }
 
         } else if (erreurRegex.indexIn(line) != -1){
              QStringList erreurs = erreurRegex.cap(1).split(" ");
@@ -495,6 +494,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
             if(controleur->getStateKeys(4) && personnages[id]->hasBonusTrigger()){
                 triggerLastBombe(id,true);
+                controleur->setPressed(Qt::Key_Space, false);
             }
 
             tryMove(0,gravity);
@@ -586,8 +586,11 @@ void MainWindow::triggerLastBombe(int bmId, bool w){
 //        bombes[i]->trigger();
    if (personnages[bmId]->getLastBombe() != NULL){
        personnages[bmId]->getLastBombe()->trigger();
-//       if (w)
-//       socket->write(QString("/t:%1 $\n").arg(bmId).toUtf8());
+       if (w){
+            socket->write(QString("/t:%1 $\n").arg(bmId).toUtf8());
+            qDebug()<<" trig écrit ahaha";
+       }
+
    }
 }
 
