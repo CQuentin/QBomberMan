@@ -14,7 +14,7 @@ class Serveur : public QTcpServer
     Q_OBJECT
 
 public:
-    Serveur(int,QObject *parent = 0);
+    Serveur(int,int,QObject *parent = 0);
     ~Serveur();
     int getSizem_clients();
     int getm_nbUtilisateur();
@@ -34,6 +34,7 @@ private:
     quint16                   m_tailleBloc;
     int                       m_nbUtilisateur;
     static int                m_clientIdCourant;
+    int                       m_niv;
 };
 
 #endif // SERVEUR_H

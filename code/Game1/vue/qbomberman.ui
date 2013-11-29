@@ -86,26 +86,6 @@
        <property name="fieldGrowthPolicy">
         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
        </property>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="portLigneEdit">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="inputMethodHints">
-          <set>Qt::ImhDigitsOnly</set>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="portLabel">
-         <property name="text">
-          <string>Port d'écoute du serveur :</string>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="0">
         <widget class="QLabel" name="nbjLabel">
          <property name="text">
@@ -117,6 +97,23 @@
         <widget class="QSpinBox" name="nbJSpinBox">
          <property name="minimum">
           <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="nivSpinBox">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>3</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="nivLabel">
+         <property name="text">
+          <string>Niveau                   :</string>
          </property>
         </widget>
        </item>

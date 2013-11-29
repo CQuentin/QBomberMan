@@ -46,6 +46,7 @@ class MainWindow : public QMainWindow
         int id;
         QTcpSocket *socket;
         int end;
+        QVector < QPair<int,int> > entrer;
 
     private slots:
         void readyRead();
@@ -61,6 +62,13 @@ class MainWindow : public QMainWindow
         * \author Quentin CHEYNET
         */
             explicit MainWindow(QString hote, QWidget * parent = 0);
+
+       /*!
+        * \brief Fonction de Création du niveau
+        * \param niveau : niveau à charger
+        * \author Jérémy Vaz Borges
+        */
+            void chargerNiveau(QString niveau);
 
        /*!
         * \brief détéction des évènement clavier (touches enfoncées)
