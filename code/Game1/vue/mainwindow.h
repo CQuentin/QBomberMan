@@ -7,7 +7,6 @@
 #include <QGraphicsItem>
 #include <QPixmap>
 #include <QGraphicsPixmapItem>
-#include <vector>
 #include <QWidget>
 #include <QKeyEvent>
 #include <QTimerEvent>
@@ -15,15 +14,11 @@
 #include <QVector>
 #include <QBasicTimer>
 #include <QTcpSocket>
-#include <QPalette>
-#include <QColor>
 #include <QTableWidget>
 #include <QTableWidgetItem>
-#include <QStyle>
 #include "../modele/brique.h"
 #include "../modele/bonus.h"
 #include "../modele/joueur.h"
-#include "../modele/bombe.h"
 #include "../controleur/toucheclavier.h"
 
 
