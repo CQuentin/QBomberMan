@@ -33,7 +33,7 @@ MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
     //TODO : gérer avec des classes niveau
     // for nb joueur...
  //  ajouterPersonnage(id,5,3);
-    ajouterBrique(false,5,5);
+   /* ajouterBrique(false,5,5);
 
 
     // -------- 4 murs du contour
@@ -121,33 +121,23 @@ void MainWindow::readyRead(){
 
 
         if(idRegex.indexIn(line) != -1){
-            QStringList mots = idRegex.cap(1).split(" ");
-            personnages.resize(mots[1].toInt()); // mots[1] étant le nbre max de joueurs
-            id = mots[0].toInt();
-            qDebug() << "id reçu :" << id;
-            qDebug() << "ajout de : "<< id;
+           QStringList mots = idRegex.cap(1).split(" ");
 
-            //tmp pour placer 4 joueurs dans des endroits différents
-            switch (id){
-            case 0:
-                 ajouterPersonnage(id,5,3);
-                break;
-            case 1:
-                 ajouterPersonnage(id,39,3);
-                break;
-            case 2:
-                 ajouterPersonnage(id,5,22);
-            break;
-            case 3:
-                 ajouterPersonnage(id,39,22);
-                break;
-            default:
-                ajouterPersonnage(id,5,3);
-                break;
-            }
+           chargerNiveau(mots[2]);
 
+           personnages.resize(mots[1].toInt()); // mots[1] étant le nbre max de joueurs
+           id = mots[0].toInt();
+           qDebug() << "id reçu :" << id;
+           qDebug() << "ajout de : "<< id;
+           QPair<int,int> pair;
 
-        }
+           if(entrer.size() > id){
+               pair = entrer.at(id);
+               ajouterPersonnage(id,pair.second,pair.first);
+           }
+           else
+               ajouterPersonnage(id,4,2);
+       }
 
         // Nouveau Joueur
         else if(usersRegex.indexIn(line) != -1)
@@ -273,6 +263,45 @@ void MainWindow::readyRead(){
     }
 
 
+}
+
+
+void MainWindow::chargerNiveau(QString niveau){
+    qDebug() << "2PAC";
+    QString fileName = "../Game1/ressource/Niveaux/Niv"+niveau+".level";
+    QFile fichier(fileName);
+    fichier.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream flux(&fichier);
+    QString ligne;
+    int i = -1 ;
+    while(!flux.atEnd()){
+        ligne = flux.readLine();
+        i++;
+        QStringList colonne = ligne.split(" ");
+        QPair<int,int> pair;
+        for(int j = 0 ; j < colonne.size() ; j++){
+            qDebug() << i << " "  << j;
+            switch(colonne[j].toInt()){
+
+            case 1 :
+                ajouterBrique(false,j,i);
+                break;
+
+            case 2:
+                ajouterBrique(true,j,i);
+                break;
+
+            case 3:
+                pair.first = i;
+                pair.second = j;
+                entrer.push_back(pair);
+                break;
+
+            default:
+                break;
+            }
+        }
+    }
 }
 
 void MainWindow::connected(){

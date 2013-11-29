@@ -2,9 +2,10 @@
 
 int Serveur::m_clientIdCourant = -1;
 
-Serveur::Serveur(int t, QObject *parent) : QTcpServer(parent)
+Serveur::Serveur(int t,int niv, QObject *parent) : QTcpServer(parent)
 {
-    m_nbUtilisateur = t;   
+    m_nbUtilisateur = t;
+    m_niv = niv;
 }
 
 /**
@@ -43,7 +44,7 @@ void Serveur::readyRead()
             m_utilisateurs[client] = utilisateur;           
             qDebug() <<"id envoyé : " <<utilisateur;
 
-            client->write(QString("/i:%1 %2 $\n").arg(utilisateur).arg(m_nbUtilisateur).toUtf8());
+            client->write(QString("/i:%1 %2 %3 $\n").arg(utilisateur).arg(m_nbUtilisateur).arg(m_niv).toUtf8());
 
             envoyerListeUtilisateur();
 

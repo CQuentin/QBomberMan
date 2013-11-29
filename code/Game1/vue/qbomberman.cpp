@@ -40,7 +40,7 @@ void QBomberMan::on_rejoindreBtn_clicked()
 
 void QBomberMan::on_okButton_clicked()
 {
-    Serveur *serveur = new Serveur(ui->nbJSpinBox->value());
+    Serveur *serveur = new Serveur(ui->nbJSpinBox->value(), ui->nivSpinBox->value());
     bool reussi = serveur->listen(QHostAddress::Any, 4200);
     if(!reussi)
     {
