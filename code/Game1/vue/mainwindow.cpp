@@ -127,8 +127,6 @@ void MainWindow::readyRead(){
 
            personnages.resize(mots[1].toInt()); // mots[1] étant le nbre max de joueurs
            id = mots[0].toInt();
-           qDebug() << "id reçu :" << id;
-           qDebug() << "ajout de : "<< id;
            QPair<int,int> pair;
 
            if(entrer.size() > id){
@@ -161,7 +159,6 @@ void MainWindow::readyRead(){
                         present = true;
                 }
                 if(!present){
-                    qDebug() << "OKIDOKI ajout de :" << J[0].toInt();
                     ajouterPersonnage(J[0].toInt(),5,3);
                 }
 //                if(J[0].toInt() != 0)
@@ -267,7 +264,7 @@ void MainWindow::readyRead(){
 
 
 void MainWindow::chargerNiveau(QString niveau){
-    qDebug() << "2PAC";
+
     QString fileName = "../Game1/ressource/Niveaux/Niv"+niveau+".level";
     QFile fichier(fileName);
     fichier.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -280,7 +277,6 @@ void MainWindow::chargerNiveau(QString niveau){
         QStringList colonne = ligne.split(" ");
         QPair<int,int> pair;
         for(int j = 0 ; j < colonne.size() ; j++){
-            qDebug() << i << " "  << j;
             switch(colonne[j].toInt()){
 
             case 1 :
@@ -457,8 +453,7 @@ void MainWindow::tryMove(int x, int y){
                // depl[6].toInt() pos hauteur du sprite
                // depl[7]  bool orientation gauche
                // depl[8] bool est en vie
-              // qDebug() << id;
-              //  if
+
 
                QVector<int> qv = personnages[id]->getCoordSprite();
                socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n")
@@ -530,7 +525,6 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                     .toUtf8());
 
             if(personnages[id]->getCurrentS() == 9){
-                qDebug()<<"adios amigos";
                 scene->removeItem(personnages[id]->getPicture());
                 socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY())
                               .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
