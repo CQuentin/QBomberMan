@@ -56,6 +56,8 @@ private :
     int bonusJump;
     bool bonusTrigger;
     int tired;
+    int nbKills;
+    int killBy;
 
 public:
 
@@ -444,6 +446,35 @@ public:
      * \author Quentin CHEYNET
      */
     void cheer();
+
+    /*!
+     * \brief assignation d'un entier à killBy
+     * \param idJ L'identifiant du joueur qui vous a tué
+     * \author Quentin CHEYNET
+     */
+    void setKillBy(int idJ);
+
+
+    /*!
+     * \brief retourne la valeur de killBy
+     * \return killBy l'identifiant du joueur qui vous a tué
+     * \author Quentin CHEYNET
+     */
+    int getKillBy();
+
+    /*!
+     * \brief retourne la valeur de nbKills
+     * \return nbKills Le nombre de joueur que vous avez tué
+     * \author Quentin CHEYNET
+     */
+    int getNbKills();
+
+    /*!
+     * \brief augmente le nombre de personnage tué de 1
+     * \author Quentin CHEYNET
+     */
+    void incrNbKills();
+
 
     ~Joueur();
 };

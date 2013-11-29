@@ -115,7 +115,9 @@ void MainWindow::readyRead(){
         QRegExp declenchementRegex("^/t:(.*)$");
         QRegExp addBonusRegex("^/abon:(.*)$");
         QRegExp removeBonusRegex("^/rbon:(.*)$");
+        QRegExp killsRegex("^/k:(.*)$");
         QRegExp erreurRegex("^/erreur:(.*)$");
+
 
 
         if(idRegex.indexIn(line) != -1){
@@ -255,6 +257,13 @@ void MainWindow::readyRead(){
                  grilleBonus[rbon[1].toInt()][rbon[2].toInt()] = NULL;
 
              }
+        }
+        else if(killsRegex.indexIn(line) != -1){
+            QStringList kills = killsRegex.cap(1).split(" ");
+            if(kills[0].toInt() != id){
+                personnages[kills[0].toInt()]->setKillBy(kills[1].toInt());
+                personnages[kills[1].toInt()]->incrNbKills();
+            }
         }
         else if (erreurRegex.indexIn(line) != -1){
              QStringList erreurs = erreurRegex.cap(1).split(" ");
@@ -463,28 +472,35 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
         }
         if(end >0){
             if (end == 1){
-            int decH = 0;
-            QGraphicsTextItem * endText = new QGraphicsTextItem;
-            QFont myFont = QFont("Time", 45);
-            myFont.setBold(true);
-            endText->setFont(myFont);
-            endText->setTextWidth(900);
+                int decH = 0;
+                QGraphicsTextItem * endText = new QGraphicsTextItem;
+                QFont myFont = QFont("Time", 45);
+                myFont.setBold(true);
+                endText->setFont(myFont);
+                endText->setTextWidth(900);
 
-            if(personnages[id]->isAlive()){
-                endText->setPlainText("Victoire");
-                decH = 8*22;
-                endText->setDefaultTextColor(Qt::green);
-            }
-            else{
-                endText->setPlainText("Défaite");
-                decH = 6*22;
-                endText->setDefaultTextColor(Qt::red);
-            }
+                if(personnages[id]->isAlive()){
+                    endText->setPlainText("Victoire");
+                    decH = 8*22;
+                    endText->setDefaultTextColor(Qt::green);
+                }
+                else{
+                    endText->setPlainText("Défaite");
+                    decH = 6*22;
+                    endText->setDefaultTextColor(Qt::red);
+                }
 
-            endText->setPos(largeur/2 - decH, hauteur/2 - 22);
-            endText->setZValue(99);
-            scene->addItem(endText);
-             end = 2;
+                endText->setPos(largeur/2 - decH, hauteur/2 - 22);
+                endText->setZValue(99);
+                scene->addItem(endText);
+                end = 2;
+
+                for(int i = 0; i<personnages.size(); i++){
+                qDebug() << "J"<<i+1<<" a tué "<<personnages[i]->getNbKills()<< "joueurs";
+                   if(personnages[i]->getKillBy() != -1)
+                 qDebug() << "J"<<i+1<<"a été tué par J"<<personnages[i]->getKillBy()+1;
+                }
+              //  scene->addWidget()
             }
 
             if (end == 2 && personnages[id]->isAlive()){
@@ -493,13 +509,13 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n")
                               .arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY())
                               .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
-                              .arg(personnages[id]->isOrientG())
-                              .arg(personnages[id]->isAlive())
-                              .arg(0)
-                              .arg(personnages[id]->getPowerBomb())
-                              .arg(personnages[id]->hasBonusTrigger())
-                              .arg(personnages[id]->isImmortal())
-                              .toUtf8());
+                        .arg(personnages[id]->isOrientG())
+                        .arg(personnages[id]->isAlive())
+                        .arg(0)
+                        .arg(personnages[id]->getPowerBomb())
+                        .arg(personnages[id]->hasBonusTrigger())
+                        .arg(personnages[id]->isImmortal())
+                        .toUtf8());
             }
         }
         else if(personnages[id]->getCurrentS() == 8){
@@ -756,10 +772,14 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
             range --;
         }
     }
-
-    if(hit)
+    if(hit){
         personnages[id]->hit();
-
+        if(!personnages[id]->isAlive()){
+            personnages[id]->setKillBy(bombe->getBManId());
+            personnages[bombe->getBManId()]->incrNbKills();
+            socket->write(QString("/k:%1 %2 $\n").arg(id).arg(bombe->getBManId()).toUtf8());
+        }
+    }
 }
 
 

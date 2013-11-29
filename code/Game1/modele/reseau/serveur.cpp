@@ -35,7 +35,7 @@ void Serveur::readyRead()
        QRegExp addBonusRegex("^/abon:(.*)$");
        QRegExp removeBonusRegex("^/rbon:(.*)$");
        QRegExp declenchementRegex("^/t:(.*)$");
-
+       QRegExp killsRegex("^/k:(.*)$");
 
         if(meRegex.indexIn(ligne) != -1){
 
@@ -51,7 +51,7 @@ void Serveur::readyRead()
         }
         else if(m_utilisateurs.contains(client))
         {
-            if(deplacementRegex.indexIn(ligne) != -1 || bombeRegex.indexIn(ligne) != -1 || declenchementRegex.indexIn(ligne) != -1 || addBonusRegex.indexIn(ligne) != -1 || removeBonusRegex.indexIn(ligne) != -1){
+            if(deplacementRegex.indexIn(ligne) != -1 || bombeRegex.indexIn(ligne) != -1 || declenchementRegex.indexIn(ligne) != -1 || addBonusRegex.indexIn(ligne) != -1 || removeBonusRegex.indexIn(ligne) != -1 || killsRegex.indexIn(ligne) != -1 ){
                 QString message = ligne;
                 foreach(QTcpSocket *otherClient, m_clients)
                     otherClient->write(QString(message + "\n").toUtf8());

@@ -27,6 +27,8 @@ Joueur::Joueur(int id, int x , int y){
     bonusJump = 0;
     bonusTrigger = false;
     tired = 1;
+    nbKills = 0;
+    killBy = -1;
 
     if(id <4) // 1 : le nombre de couleurs différentes existantes
       sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
@@ -657,6 +659,22 @@ void Joueur::setPowerBomb(int p){
 
 void Joueur::setTriggerBomb(bool t){
     bonusTrigger = t;
+}
+
+void Joueur::setKillBy(int idJ){
+    killBy = idJ;
+}
+
+int Joueur::getKillBy(){
+    return killBy;
+}
+
+int Joueur::getNbKills(){
+    return nbKills;
+}
+
+void Joueur::incrNbKills(){
+    nbKills++;
 }
 
 Joueur::~Joueur(){
