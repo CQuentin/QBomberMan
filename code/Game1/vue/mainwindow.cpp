@@ -529,6 +529,10 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                    if(personnages[i]->getKillBy() != -1)
                  qDebug() << "J"<<i+1<<"a été tué par J"<<personnages[i]->getKillBy()+1;
                 }
+//                QWidget score = new QWidget();
+//                score.setMinimumHeight(100);
+//                score.setMinimumWidth(100);
+//                score.setb
               //  scene->addWidget()
             }
 
@@ -668,7 +672,6 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 }
             }
         }
-
     }
 }
 
