@@ -4,7 +4,7 @@
 MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
 {
 
-   initialiserSocket(hote);
+    initialiserSocket(hote);
 
     baseGravity = 1;
     largeur = 900;
@@ -28,62 +28,6 @@ MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
     scene = new QGraphicsScene(0, 0, largeur, hauteur, this);
     view = new QGraphicsView(scene, this);
 
-    /*  -------------- début niveau -------------------- */
-
-    //TODO : gérer avec des classes niveau
-    // for nb joueur...
- //  ajouterPersonnage(id,5,3);
-   /* ajouterBrique(false,5,5);
-
-
-    // -------- 4 murs du contour
-    for (int i =0; i< largeurG; i++)
-        ajouterBrique(false,i,29);
-    for (int i =0; i< largeurG; i++)
-        ajouterBrique(false,i,0);
-    for (int j =0; j< hauteurG; j++)
-        ajouterBrique(false,0,j);
-    for (int j =0; j< hauteurG; j++)
-        ajouterBrique(false,44,j);
-    // -------- fin 4 murs du contour
-
-
-    for (int k = 1; k<30; k+=5)
-        for(int i = 0; i < largeurG; i++)
-           ajouterBrique(true,i,k);
-
-    for (int k = 1; k<45; k+=5)
-            for(int j = 0; j < hauteurG; j++)
-             ajouterBrique(true,k,j);
-
-
-    for (int j =29; j>= 15; j--)
-        ajouterBrique(true,30,j);
-
-    for (int i =30; i< 37; i++)
-        ajouterBrique(true,i,14);
-
-    for (int i =30; i< 37; i++)
-        ajouterBrique(false,i,15);
-
-    for (int i = 0; i< 2; i++)
-        ajouterBrique(false,i,27);
-    for (int i = 5; i< 10; i++)
-        ajouterBrique(false,i,25);
-
-    int dec = 0;
-    for(int j = 23; j>=15; j-=2){
-        for (int i =6; i< 16; i++)
-            ajouterBrique(false,i+dec,j);
-        dec+= 4;
-        if(dec >=largeurG)
-            dec = 44;
-
-
-
-    }
-    /*  -------------- fin niveau -------------------- */
-
     // background = new QPixmap("IMG_8708_blue_Sky2.jpg");
     // scene->setBackgroundBrush(*background);
 
@@ -106,7 +50,6 @@ void MainWindow::readyRead(){
 
         QString line = QString::fromUtf8(socket->readLine()).trimmed();
 
-        // TODO: REGEX a créer pour l
         //QRegExp messageRegex("^([^:]+):(.*)$");
         QRegExp usersRegex("^/users:(.*)$");
         QRegExp idRegex("^/i:(.*)$");
@@ -121,21 +64,21 @@ void MainWindow::readyRead(){
 
 
         if(idRegex.indexIn(line) != -1){
-           QStringList mots = idRegex.cap(1).split(" ");
+            QStringList mots = idRegex.cap(1).split(" ");
 
-           chargerNiveau(mots[2]);
+            chargerNiveau(mots[2]);
 
-           personnages.resize(mots[1].toInt()); // mots[1] étant le nbre max de joueurs
-           id = mots[0].toInt();
-           QPair<int,int> pair;
+            personnages.resize(mots[1].toInt()); // mots[1] étant le nbre max de joueurs
+            id = mots[0].toInt();
+            QPair<int,int> pair;
 
-           if(entrer.size() > id){
-               pair = entrer.at(id);
-               ajouterPersonnage(id,pair.second,pair.first);
-           }
-           else
-               ajouterPersonnage(id,4,2);
-       }
+            if(entrer.size() > id){
+                pair = entrer.at(id);
+                ajouterPersonnage(id,pair.second,pair.first);
+            }
+            else
+                ajouterPersonnage(id,4,2);
+        }
 
         // Nouveau Joueur
         else if(usersRegex.indexIn(line) != -1)
@@ -152,7 +95,7 @@ void MainWindow::readyRead(){
                  *J[1] pos x
                  *J[2] pos y
                  */
-//                personnages.resize(users.length());
+
 
                 foreach(Joueur *j ,personnages){
                     if(j != NULL && j->getId() == J[0].toInt())
@@ -161,10 +104,7 @@ void MainWindow::readyRead(){
                 if(!present){
                     ajouterPersonnage(J[0].toInt(),5,3);
                 }
-//                if(J[0].toInt() != 0)
-//                    for (int i = id+1; i< personnages.size(); i++){
-//                        ajouterPersonnage(i,5,3);
-//                }
+
             }
 
         }
@@ -181,7 +121,7 @@ void MainWindow::readyRead(){
 
         }
         //Deplacement
-        else if(deplacementRegex.indexIn(line) != -1){            
+        else if(deplacementRegex.indexIn(line) != -1){
             QStringList depl = deplacementRegex.cap(1).split(" ");
             // depl[0].toInt() id joueur
             // depl[1].toInt() pos X
@@ -199,51 +139,51 @@ void MainWindow::readyRead(){
 
             if(depl[0].toInt() != id){
                 if(!depl[8].toInt() && depl[9].toInt()){
-                     scene->removeItem(personnages[depl[0].toInt()]->getPicture());
-                     personnages[depl[0].toInt()]->setCurrentS(9);
+                    scene->removeItem(personnages[depl[0].toInt()]->getPicture());
+                    personnages[depl[0].toInt()]->setCurrentS(9);
                 }else{
 
-            int oldPosX = personnages[depl[0].toInt()]->getX();
-            int oldPosY =personnages[depl[0].toInt()]->getY();
-            int dx = depl[1].toInt() - oldPosX;
-            int dy = depl[2].toInt() - oldPosY;
-
-            //TODO vérifier si depl[7].toInt() peut passer pour un bool
-            personnages[depl[0].toInt()]->getPicture()->moveBy(dx,dy);
+                    int oldPosX = personnages[depl[0].toInt()]->getX();
+                    int oldPosY =personnages[depl[0].toInt()]->getY();
+                    int dx = depl[1].toInt() - oldPosX;
+                    int dy = depl[2].toInt() - oldPosY;
 
 
-            personnages[depl[0].toInt()]->setImmortality(depl[12].toInt());
+                    personnages[depl[0].toInt()]->getPicture()->moveBy(dx,dy);
 
-            personnages[depl[0].toInt()]->setX(depl[1].toInt());
-            personnages[depl[0].toInt()]->setY(depl[2].toInt());
-            personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
-            personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());
-            personnages[depl[0].toInt()]->refreshPicture();
-            personnages[depl[0].toInt()]->setPowerBomb(depl[10].toInt()); 
-            personnages[depl[0].toInt()]->setTriggerBomb(depl[11].toInt());
+
+                    personnages[depl[0].toInt()]->setImmortality(depl[12].toInt());
+
+                    personnages[depl[0].toInt()]->setX(depl[1].toInt());
+                    personnages[depl[0].toInt()]->setY(depl[2].toInt());
+                    personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
+                    personnages[depl[0].toInt()]->setOrientG(depl[7].toInt());
+                    personnages[depl[0].toInt()]->refreshPicture();
+                    personnages[depl[0].toInt()]->setPowerBomb(depl[10].toInt());
+                    personnages[depl[0].toInt()]->setTriggerBomb(depl[11].toInt());
                 }
             }
         }
         else if (declenchementRegex.indexIn(line) != -1){
-             QStringList tri = declenchementRegex.cap(1).split(" ");
+            QStringList tri = declenchementRegex.cap(1).split(" ");
             if(tri[0].toInt() != id){
                 triggerLastBombe(tri[0].toInt(),false);
             }
 
         }else if(addBonusRegex.indexIn(line) != -1){
-             QStringList abon = addBonusRegex.cap(1).split(" ");
-             if(abon[0].toInt() != id){
-                 ajouterBonus(abon[1].toInt(),abon[2].toInt(),false,abon[3].toInt());
-             }
+            QStringList abon = addBonusRegex.cap(1).split(" ");
+            if(abon[0].toInt() != id){
+                ajouterBonus(abon[1].toInt(),abon[2].toInt(),false,abon[3].toInt());
+            }
         }
         else if(removeBonusRegex.indexIn(line) != -1){
-             QStringList rbon = removeBonusRegex.cap(1).split(" ");
-             if(rbon[0].toInt() != id){
+            QStringList rbon = removeBonusRegex.cap(1).split(" ");
+            if(rbon[0].toInt() != id){
 
-                 scene->removeItem(grilleBonus[rbon[1].toInt()][rbon[2].toInt()]->getPicture());
-                 grilleBonus[rbon[1].toInt()][rbon[2].toInt()] = NULL;
+                scene->removeItem(grilleBonus[rbon[1].toInt()][rbon[2].toInt()]->getPicture());
+                grilleBonus[rbon[1].toInt()][rbon[2].toInt()] = NULL;
 
-             }
+            }
         }
         else if(killsRegex.indexIn(line) != -1){
             QStringList kills = killsRegex.cap(1).split(" ");
@@ -253,9 +193,9 @@ void MainWindow::readyRead(){
             }
         }
         else if (erreurRegex.indexIn(line) != -1){
-             QStringList erreurs = erreurRegex.cap(1).split(" ");
-             qCritical() << erreurs[0];
-             close();
+            QStringList erreurs = erreurRegex.cap(1).split(" ");
+            qCritical() << erreurs[0];
+            close();
         }
     }
 
@@ -323,7 +263,7 @@ void MainWindow::ajouterBrique(bool cassable, int i, int j)
     }
 }
 
-//mettre id joueur
+
 void MainWindow::ajouterBombe(int bmId,int x, int y, bool w)
 {
 
@@ -335,7 +275,6 @@ void MainWindow::ajouterBombe(int bmId,int x, int y, bool w)
         bombe->setX(x);
         bombe->setY(y);
     }
-    //bombes.append(bombe);
     personnages[bmId]->addBombe(bombe);
     scene->addItem(bombe->getPicture());
 
@@ -375,10 +314,9 @@ void MainWindow::ajouterBonus(int i, int j, bool w, int t){
     grilleBonus[i][j] = new Bonus(x,y,t);
     scene->addItem(grilleBonus[i][j]->getPicture());
 
-    //TODO write bonus (i,j,t)
-    if(w){
+    if(w)
         socket->write(QString("/abon:%1 %2 %3 %4 $\n" ).arg(id).arg(i).arg(j).arg(grilleBonus[i][j]->getBonusType()).toUtf8());
-    }
+
 
 }
 
@@ -434,7 +372,7 @@ bool MainWindow::collisionTest(int x, int y){
     return colision;
 }
 
-//TODO partie modèle à placer dans Joueur (garder partie graphique)
+
 void MainWindow::tryMove(int x, int y){
     int newX = personnages[id]->getX()+x;
     int newY = personnages[id]->getY()+y;
@@ -443,38 +381,36 @@ void MainWindow::tryMove(int x, int y){
         personnages[id]->setX(newX);
         personnages[id]->setY(newY);
         personnages[id]->getPicture()->moveBy(x,y);
-        //TODO getOrientG
-               // depl[0].toInt() id joueur
-               // depl[1].toInt() pos X
-               // depl[2].toInt() pos Y
-               // depl[3].toInt() pos X dans sprite
-               // depl[4].toInt() pos Y dans sprite
-               // depl[5].toInt() pos largeur du sprite
-               // depl[6].toInt() pos hauteur du sprite
-               // depl[7]  bool orientation gauche
-               // depl[8] bool est en vie
+        // depl[0].toInt() id joueur
+        // depl[1].toInt() pos X
+        // depl[2].toInt() pos Y
+        // depl[3].toInt() pos X dans sprite
+        // depl[4].toInt() pos Y dans sprite
+        // depl[5].toInt() pos largeur du sprite
+        // depl[6].toInt() pos hauteur du sprite
+        // depl[7]  bool orientation gauche
+        // depl[8] bool est en vie
 
 
-               QVector<int> qv = personnages[id]->getCoordSprite();
-               socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n")
-                             .arg(id).arg(newX).arg(newY)
-                             .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
-                             .arg(personnages[id]->isOrientG())
-                             .arg(personnages[id]->isAlive())
-                             .arg(0)
-                             .arg(personnages[id]->getPowerBomb())
-                             .arg(personnages[id]->hasBonusTrigger())
-                             .arg(personnages[id]->isImmortal())
-                             .toUtf8());
+        QVector<int> qv = personnages[id]->getCoordSprite();
+        socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n")
+                      .arg(id).arg(newX).arg(newY)
+                      .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
+                .arg(personnages[id]->isOrientG())
+                .arg(personnages[id]->isAlive())
+                .arg(0)
+                .arg(personnages[id]->getPowerBomb())
+                .arg(personnages[id]->hasBonusTrigger())
+                .arg(personnages[id]->isImmortal())
+                .toUtf8());
     }
 
 
 }
-//TODO partie modèle à placer dans Joueur (garder partie graphique)
+
 void MainWindow::tryJump(){
     if(personnages[id]->getBonusJump() == 2 || collisionTest(0,1)){
         gravity = -baseGravity;
-        //        personnages[id]->setCurrentS(6);
     }
 }
 
@@ -583,7 +519,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 personnages[id]->courireD();
             }
 
-            if(x == 0 && gravity == 0 /*&& personnages[id]->getCurrentS() != 3*/)
+            if(x == 0 && gravity == 0 )
                 personnages[id]->immobile();
 
             if(controleur->getStateKeys(4) && personnages[id]->hasBonusTrigger()){
@@ -611,7 +547,6 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
 
         // ----------- partie bombes
-        // int tmpSizeB = bombes.size();
         for (int idJ = 0; idJ < personnages.size(); idJ++ ){
             for(int i = 0; i<personnages[idJ]->getVectorBombes().size(); i++){
                 if(personnages[idJ]->getVectorBombes()[i]->isExploding()){
@@ -637,20 +572,17 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
 QPoint MainWindow::getPositionFromGrille(int i, int j){
     // tailleC car une case = tailleCp,
-    // à modifier pour gérer les différentes tailles
+
     return QPoint(i * tailleC , j * tailleC );
 }
 
 int MainWindow::getPositionXFromGrille(int i){
     // tailleC car une case = tailleCp,
-    // à modifier pour gérer les différentes tailles
     return i * tailleC;
 }
 
 int MainWindow::getPositionYFromGrille( int j){
     // tailleC car une case = tailleCp,
-    // à modifier pour gérer les différentes tailles
-
     return j*tailleC;
 }
 
@@ -672,18 +604,13 @@ int MainWindow::getGravity(){
 
 
 void MainWindow::triggerLastBombe(int bmId, bool w){
-//    int i = bombes.size()-1;
-//    while(i >= 0 && bombes[i]->getBManId() != bmId )
-//        i--;
-//    if (i>=0)
-//        bombes[i]->trigger();
-   if (personnages[bmId]->getLastBombe() != NULL){
-       personnages[bmId]->getLastBombe()->trigger();
-       if (w)
+    if (personnages[bmId]->getLastBombe() != NULL){
+        personnages[bmId]->getLastBombe()->trigger();
+        if (w)
             socket->write(QString("/t:%1 $\n").arg(bmId).toUtf8());
 
 
-   }
+    }
 }
 
 void MainWindow::explosion(Bombe *bombe, int dx, int dy){
@@ -721,20 +648,15 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
         while(((grille[i][j] == NULL || grille[i][j]->estCassable()) && ((grille[i2][j2] == NULL || grille[i2][j2]->estCassable() || j2 == hauteurG-1 || i2 == largeurG-1 || j2 == 0 || i2 == 0) ))&& range >0){
             if (range -1 <= 0)
                 end = true;
-            if(grille[i][j] != NULL && grille[i][j]->estCassable()){
-//                scene->removeItem(grille[i][j]->getPicture());
-//                grille[i][j] = NULL;
+            if(grille[i][j] != NULL && grille[i][j]->estCassable())
                 detruireBrique(i,j,bombe->getBManId());
-            }
-            if(grille[i2][j2] != NULL && grille[i2][j2]->estCassable()){
-//               scene->removeItem(grille[i2][j2]->getPicture());
-//               grille[i2][j2] = NULL;
-              detruireBrique(i2,j2, bombe->getBManId());
-            }
+            if(grille[i2][j2] != NULL && grille[i2][j2]->estCassable())
+                detruireBrique(i2,j2, bombe->getBManId());
+
             if(personnages[id]->isAlive() && hitTest(i,j,i2,j2))
                 hit = true;
 
-               ajouterExplosion(bombe,x,y,dx,dy,end);
+            ajouterExplosion(bombe,x,y,dx,dy,end);
 
             i = i +dx;
             j = j +dy;
@@ -888,20 +810,17 @@ void MainWindow::initialiserSocket(QString  hote)
 void MainWindow::displayEndScreen(){
     int decH = 0;
     QGraphicsTextItem * endText = new QGraphicsTextItem;
-    QString endText2;
     QFont myFont = QFont("Time", 45);
     myFont.setBold(true);
     endText->setFont(myFont);
     endText->setTextWidth(900);
 
     if(personnages[id]->isAlive()){
-       endText2  = "Victoire";
         endText->setPlainText("Victoire");
         decH = 7*22;
         endText->setDefaultTextColor(Qt::green);
     }
     else{
-        endText2 = "Défaite";
         endText->setPlainText("Défaite");
         decH = 6*22;
         endText->setDefaultTextColor(Qt::red);
@@ -913,11 +832,6 @@ void MainWindow::displayEndScreen(){
     end = 2;
 
 
-
-
-
-
-
     setStyleSheet("QTableWidget {background-color: rgba(0, 0, 0,150);}"
                   "QTableWidget {gridline-color: white;}"
                   "QTableWidget {color: white; }"
@@ -927,7 +841,7 @@ void MainWindow::displayEndScreen(){
                   "QHeaderView::section {gridline-color:white ;}"
                   "QHeaderView {background-color: rgba(0, 0, 0,150);}"
                   "QHeaderView {color: white;}"
-                 );
+                  );
 
     QTableWidget *score = new QTableWidget(personnages.size(),2,this);
     score->setGeometry(largeur/2 -65,hauteur/2 -90,131,180);
@@ -945,14 +859,14 @@ void MainWindow::displayEndScreen(){
     for(int i = 0; i<personnages.size(); i++){
         score->setVerticalHeaderItem(i, new QTableWidgetItem(QString("J%1").arg(personnages[i]->getId() +1)));
         QTableWidgetItem *item = new QTableWidgetItem();
-            score->setItem(i,0,item);
-            item->setText(QString("%1").arg(personnages[i]->getNbKills()));
+        score->setItem(i,0,item);
+        item->setText(QString("%1").arg(personnages[i]->getNbKills()));
 
 
-           QTableWidgetItem *item2 = new QTableWidgetItem();
-               score->setItem(i,1,item2);
-               if(personnages[i]->getKillBy() != -1)
-                 item2->setText(QString("J%1").arg(personnages[i]->getKillBy() +1));
+        QTableWidgetItem *item2 = new QTableWidgetItem();
+        score->setItem(i,1,item2);
+        if(personnages[i]->getKillBy() != -1)
+            item2->setText(QString("J%1").arg(personnages[i]->getKillBy() +1));
     }
     score->show();
 }
@@ -964,10 +878,9 @@ MainWindow::~MainWindow()
         for(int j=0; j<(int) grille[i].size(); j++)
             delete grille[i][j];
     for(int i = 0; i < personnages.size(); i++)
-     delete personnages[i];
+        delete personnages[i];
     delete view;
     delete scene;
-    // delete background;
 }
 
 
