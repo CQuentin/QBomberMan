@@ -500,42 +500,8 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             }
         }
         if(end >0){
-            if (end == 1){
-                int decH = 0;
-                QGraphicsTextItem * endText = new QGraphicsTextItem;
-                QFont myFont = QFont("Time", 45);
-                myFont.setBold(true);
-                endText->setFont(myFont);
-                endText->setTextWidth(900);
-
-                if(personnages[id]->isAlive()){
-                    endText->setPlainText("Victoire");
-                    decH = 8*22;
-                    endText->setDefaultTextColor(Qt::green);
-                }
-                else{
-                    endText->setPlainText("Défaite");
-                    decH = 6*22;
-                    endText->setDefaultTextColor(Qt::red);
-                }
-
-                endText->setPos(largeur/2 - decH, hauteur/2 - 22);
-                endText->setZValue(99);
-                scene->addItem(endText);
-                end = 2;
-
-                for(int i = 0; i<personnages.size(); i++){
-                qDebug() << "J"<<i+1<<" a tué "<<personnages[i]->getNbKills()<< "joueurs";
-                   if(personnages[i]->getKillBy() != -1)
-                 qDebug() << "J"<<i+1<<"a été tué par J"<<personnages[i]->getKillBy()+1;
-                }
-//                QWidget score = new QWidget();
-//                score.setMinimumHeight(100);
-//                score.setMinimumWidth(100);
-//                score.setb
-              //  scene->addWidget()
-            }
-
+            if (end == 1)
+                displayEndScreen();
             if (end == 2 && personnages[id]->isAlive()){
                 personnages[id]->cheer();
                 QVector<int> qv = personnages[id]->getCoordSprite();
@@ -924,6 +890,78 @@ void MainWindow::initialiserSocket(QString  hote)
     connect(socket, SIGNAL(connected()), this, SLOT(connected()));
 }
 
+
+void MainWindow::displayEndScreen(){
+    int decH = 0;
+    QGraphicsTextItem * endText = new QGraphicsTextItem;
+    QString endText2;
+    QFont myFont = QFont("Time", 45);
+    myFont.setBold(true);
+    endText->setFont(myFont);
+    endText->setTextWidth(900);
+
+    if(personnages[id]->isAlive()){
+       endText2  = "Victoire";
+        endText->setPlainText("Victoire");
+        decH = 7*22;
+        endText->setDefaultTextColor(Qt::green);
+    }
+    else{
+        endText2 = "Défaite";
+        endText->setPlainText("Défaite");
+        decH = 6*22;
+        endText->setDefaultTextColor(Qt::red);
+    }
+
+    endText->setPos(largeur/2 - decH, 0);
+    endText->setZValue(99);
+    scene->addItem(endText);
+    end = 2;
+
+
+
+
+
+
+
+    setStyleSheet("QTableWidget {background-color: rgba(0, 0, 0,150);}"
+                  "QTableWidget {gridline-color: white;}"
+                  "QTableWidget {color: white; }"
+                  "QTableCornerButton::section {background-color: rgba(0, 0, 0,150);}"
+                  "QHeaderView::section {background-color:rgba(0, 0, 0,150);}"
+                  "QHeaderView::section {color:white;}"
+                  "QHeaderView::section {gridline-color:white ;}"
+                  "QHeaderView {background-color: rgba(0, 0, 0,150);}"
+                  "QHeaderView {color: white;}"
+                 );
+
+    QTableWidget *score = new QTableWidget(personnages.size(),2,this);
+    score->setGeometry(largeur/2 -65,hauteur/2 -90,131,180);
+
+
+
+
+
+
+    score->setHorizontalHeaderItem(0, new QTableWidgetItem("Tués"));
+    score->setHorizontalHeaderItem(1, new QTableWidgetItem("Tué par"));
+    score->resizeColumnsToContents();
+    score->resizeRowsToContents();
+
+    for(int i = 0; i<personnages.size(); i++){
+        score->setVerticalHeaderItem(i, new QTableWidgetItem(QString("J%1").arg(personnages[i]->getId() +1)));
+        QTableWidgetItem *item = new QTableWidgetItem();
+            score->setItem(i,0,item);
+            item->setText(QString("%1").arg(personnages[i]->getNbKills()));
+
+
+           QTableWidgetItem *item2 = new QTableWidgetItem();
+               score->setItem(i,1,item2);
+               if(personnages[i]->getKillBy() != -1)
+                 item2->setText(QString("J%1").arg(personnages[i]->getKillBy() +1));
+    }
+    score->show();
+}
 
 /* Destructeur de la classe MainWindow */
 MainWindow::~MainWindow()

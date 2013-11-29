@@ -13,8 +13,13 @@
 #include <QTimerEvent>
 #include <QDebug>
 #include <QVector>
-#include<QBasicTimer>
+#include <QBasicTimer>
 #include <QTcpSocket>
+#include <QPalette>
+#include <QColor>
+#include <QTableWidget>
+#include <QTableWidgetItem>
+#include <QStyle>
 #include "../modele/brique.h"
 #include "../modele/bonus.h"
 #include "../modele/joueur.h"
@@ -322,6 +327,11 @@ class MainWindow : public QMainWindow
          */
         void initialiserSocket(QString hote);
 
+        /*!
+         * \brief affiche l'écran de fin (victoire/défaite et score)
+         * \author Quentin Cheynet
+         */
+        void displayEndScreen();
 
          ~MainWindow();
 
