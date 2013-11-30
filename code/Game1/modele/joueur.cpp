@@ -450,6 +450,7 @@ void Joueur::die(){
             break;
         case 8:
             state = DEAD;
+            QSound::play("../Game1/ressource/sons/mort.wav");
             break;
 
         }

@@ -2,6 +2,7 @@
 #define BOMBE_H
 #include <QString>
 #include <QGraphicsPixmapItem>
+#include <QtMultimedia/QSound>
 #include <QPixmap>
 #include <QDebug>
 #include <QRect>

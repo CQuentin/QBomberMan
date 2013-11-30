@@ -10,7 +10,7 @@ Bonus::Bonus(int x, int y, int t){
         type = t;
 
     QPixmap sprite = QPixmap("../Game1/ressource/sprites_bonus.png");
-    QPixmap currentImage;
+    QPixmap currentImage;    
 
     // TODO sprite
     switch(type){

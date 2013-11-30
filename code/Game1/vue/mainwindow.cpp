@@ -778,6 +778,7 @@ void MainWindow::checkBonus(){
 
             if(grilleBonus[posGrilleI][posGrilleJ] != NULL){
                 personnages[id]->receiveBonus(grilleBonus[posGrilleI][posGrilleJ]->getBonusType());
+                QSound::play("../Game1/ressource/sons/bonus.wav");
                 scene->removeItem(grilleBonus[posGrilleI][posGrilleJ]->getPicture());
                 grilleBonus[posGrilleI][posGrilleJ] = NULL;
 

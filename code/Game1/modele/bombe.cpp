@@ -121,6 +121,7 @@ void Bombe::timerEvent ( QTimerEvent * event ){
     if (countDown < 0 && !exploding){
         currentImage = sprite.copy(13,209,1,24);
         exploding = true;
+        QSound::play("../Game1/ressource/sons/explosion.wav");
     }
     else if (exploding){
         exploded = true;
