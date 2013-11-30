@@ -2,7 +2,6 @@
 #define BONUS_H
 
 #include <QGraphicsPixmapItem>
-#include <QtMultimedia/QSound>
 #include <QPixmap>
 #include <QTime>
 class Bonus

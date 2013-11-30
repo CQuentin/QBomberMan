@@ -546,6 +546,7 @@ void Joueur::refreshPicture(){
 }
 
 void Joueur::receiveBonus(int t){
+    QSound::play("../Game1/ressource/sons/bonus.wav");
     switch(t){
     case 0 :
         if(hp <3)

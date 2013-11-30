@@ -778,7 +778,6 @@ void MainWindow::checkBonus(){
 
             if(grilleBonus[posGrilleI][posGrilleJ] != NULL){
                 personnages[id]->receiveBonus(grilleBonus[posGrilleI][posGrilleJ]->getBonusType());
-                QSound::play("../Game1/ressource/sons/bonus.wav");
                 scene->removeItem(grilleBonus[posGrilleI][posGrilleJ]->getPicture());
                 grilleBonus[posGrilleI][posGrilleJ] = NULL;
 
@@ -846,11 +845,6 @@ void MainWindow::displayEndScreen(){
 
     QTableWidget *score = new QTableWidget(personnages.size(),2,this);
     score->setGeometry(largeur/2 -65,hauteur/2 -90,131,180);
-
-
-
-
-
 
     score->setHorizontalHeaderItem(0, new QTableWidgetItem("Tués"));
     score->setHorizontalHeaderItem(1, new QTableWidgetItem("Tué par"));
