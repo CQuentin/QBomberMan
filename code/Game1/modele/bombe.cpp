@@ -5,7 +5,7 @@ Bombe::Bombe(QObject *parent = 0, int x = 0, int y = 0, int bmId = 1) : QObject(
     posX = x;
     posY = y;
     sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
-    currentImage = sprite.copy(66, 238, 13, 15);
+    currentImage = sprite.copy(66,238,13,15);
     picture = new QGraphicsPixmapItem(currentImage);
     picture->setPos(x,y);
     hauteur = 15;
@@ -50,62 +50,50 @@ int Bombe::getY()
     return posY;
 }
 
-int Bombe::getHauteur()
-{
+int Bombe::getHauteur(){
     return hauteur;
 }
 
-void Bombe::setHauteur(int h)
-{
+void Bombe::setHauteur(int h){
     hauteur = h;
 }
 
-int Bombe::getLargeur()
-{
+int Bombe::getLargeur(){
     return largeur;
 }
 
-void Bombe::setLargeur(int l)
-{
+void Bombe::setLargeur(int l){
     largeur = l;
 }
 
-void Bombe::setPicture(QGraphicsPixmapItem *picture)
-{
+void Bombe::setPicture(QGraphicsPixmapItem *picture){
     this->picture = picture;
 }
 
-QGraphicsPixmapItem* Bombe::getPicture()
-{
+QGraphicsPixmapItem* Bombe::getPicture(){
     return picture;
 }
 
-bool Bombe::isExploding()
-{
+bool Bombe::isExploding(){
     return exploding;
 }
-bool Bombe::hasExploded()
-{
+bool Bombe::hasExploded(){
     return exploded;
 }
 
-int Bombe::getPower()
-{
+int Bombe::getPower(){
     return power;
 }
 
-void Bombe::setPower(int p)
-{
+void Bombe::setPower(int p){
     power = p;
 }
 
-void Bombe::timerEvent (QTimerEvent * event)
-{
+void Bombe::timerEvent ( QTimerEvent * event ){
 
     if (countDown > 100)
-        countDown -= 1000;
-    else
-    {
+        countDown -=1000;
+    else{
         switch (countDown) {
         case 100 :
             timer.start(100,this);
@@ -135,42 +123,37 @@ void Bombe::timerEvent (QTimerEvent * event)
         }
     }
 
-    if (countDown < 0 && !exploding)
-    {
+    if (countDown < 0 && !exploding){
         currentImage = sprite.copy(13,209,1,24);
         exploding = true;
         QSound::play("../Game1/ressource/sons/explosion.wav");
     }
-    else if (exploding)
-    {
+    else if (exploding){
         exploded = true;
         timer.stop();
     }
     picture->setPixmap(currentImage);
 }
 
-void Bombe::addExplosions(QGraphicsPixmapItem *pExplosion)
-{
+void Bombe::addExplosions(QGraphicsPixmapItem *pExplosion){
     explosions.append(pExplosion);
 }
 
-QVector<QGraphicsPixmapItem*> Bombe::getExplosions()
-{
+QVector<QGraphicsPixmapItem*> Bombe::getExplosions(){
     return explosions;
 }
 
-void Bombe::trigger()
-{
+void Bombe::trigger(){
+
     timer.start(100,this);
-    countDown = -1;
+countDown = -1;
+
 }
 
-int Bombe::getBManId()
-{
+int Bombe::getBManId(){
     return bomberManId;
 }
 
-Bombe::~Bombe()
-{
+Bombe::~Bombe(){
     delete this;
 }
