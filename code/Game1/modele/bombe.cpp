@@ -23,6 +23,11 @@ void Bombe::stopCountDown(){
     timer.stop();
 }
 
+void Bombe::startCountDown(){
+    countDown = 3100;
+    timer.start(1000,this);
+}
+
 void Bombe::setX(int x)
 {
     posX = x;

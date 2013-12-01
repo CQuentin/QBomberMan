@@ -184,6 +184,12 @@ public:
     void stopCountDown();
 
     /*!
+     * \brief lance le timer de la bombe
+     * \author Quentin CHEYNET
+     */
+    void startCountDown();
+
+    /*!
      * \brief Destructeur
      * Destructeur de la classe Bombe
      * \author Quentin CHEYNET

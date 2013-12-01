@@ -39,8 +39,6 @@ MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
     view->show();
 
     this->setFixedSize(largeur, hauteur);
-
-
 }
 
 
@@ -141,6 +139,12 @@ void MainWindow::readyRead(){
                 if(!depl[8].toInt() && depl[9].toInt()){
                     scene->removeItem(personnages[depl[0].toInt()]->getPicture());
                     personnages[depl[0].toInt()]->setCurrentS(9);
+
+                    if(personnages[depl[0].toInt()]->hasBonusTrigger()){
+                        for(int i = 0; i < personnages[depl[0].toInt()]->getVectorBombes().size(); i++)
+                            personnages[depl[0].toInt()]->getVectorBombes()[i]->startCountDown();
+                    }
+
                 }else{
 
                     int oldPosX = personnages[depl[0].toInt()]->getX();
@@ -461,6 +465,12 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                     .toUtf8());
 
             if(personnages[id]->getCurrentS() == 9){
+
+                if(personnages[id]->hasBonusTrigger()){
+                    for(int i = 0; i < personnages[id]->getVectorBombes().size(); i++)
+                        personnages[id]->getVectorBombes()[i]->startCountDown();
+                }
+
                 scene->removeItem(personnages[id]->getPicture());
                 socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY())
                               .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
