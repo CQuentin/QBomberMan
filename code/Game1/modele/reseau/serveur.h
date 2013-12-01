@@ -16,8 +16,8 @@ class Serveur : public QTcpServer
 public:
     Serveur(int,int,QObject *parent = 0);
     ~Serveur();
-    int getSizem_clients();
-    int getm_nbUtilisateur();
+    int getSizeClients();
+    int getNbUtilisateur();
 
 private slots:
     void readyRead();

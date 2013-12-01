@@ -1,8 +1,8 @@
 #include "serveur.h"
 
-int Serveur::m_clientIdCourant = -1;
+ int Serveur::m_clientIdCourant = -1;
 
-Serveur::Serveur(int t,int niv, QObject *parent) : QTcpServer(parent)
+Serveur::Serveur(int t, int niv, QObject *parent) : QTcpServer(parent)
 {
     m_nbUtilisateur = t;
     m_niv = niv;
@@ -19,7 +19,7 @@ Serveur::~Serveur()
 
 /**
  * Slot
- * @brief Serveur::pretALire
+ * @brief Serveur::readyRead
  */
 void Serveur::readyRead()
 {
@@ -120,13 +120,21 @@ void Serveur::incomingConnection(int descripteurSocket)
         connect(client, SIGNAL(readyRead()), this, SLOT(readyRead()));
         connect(client, SIGNAL(disconnected()), this, SLOT(disconnected()));
     }
+    else{
+        QTcpSocket *client = new QTcpSocket(this);
+        client->setSocketDescriptor(descripteurSocket);
+        connect(client, SIGNAL(disconnected()), this, SLOT(disconnected()));
+
+        qWarning() << "SERVEUR PLEIN!";
+
+    }
     // TODO: Gerer erreur serveur plein
 }
 
-int Serveur::getSizem_clients(){
+int Serveur::getSizeClients(){
     return m_clients.size();
 }
 
-int Serveur::getm_nbUtilisateur(){
+int Serveur::getNbUtilisateur(){
     return m_nbUtilisateur;
 }
