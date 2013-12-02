@@ -140,7 +140,8 @@ void MainWindow::readyRead(){
                     scene->removeItem(personnages[depl[0].toInt()]->getPicture());
                     personnages[depl[0].toInt()]->setCurrentS(9);
 
-                    if(personnages[depl[0].toInt()]->hasBonusTrigger()){
+                    if(personnages[depl[11].toInt()]){
+                        qDebug() << " suppr des bombes détruites ";
                         for(int i = 0; i < personnages[depl[0].toInt()]->getVectorBombes().size(); i++)
                             personnages[depl[0].toInt()]->getVectorBombes()[i]->startCountDown();
                     }
