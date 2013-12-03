@@ -1,6 +1,5 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
-#include <QString>
 #include <QGraphicsPixmapItem>
 #include <QtMultimedia/QSound>
 #include <QPixmap>
@@ -11,54 +10,64 @@
 #include "brique.h"
 #include "bombe.h"
 
+
+/*! \class Joueur
+ * \brief classe représentant les joueurs
+ * \author Quentin CHEYNET
+ */
 class Joueur
 {
 private :
 
+    /*!
+     * \brief ensemble des différents états du Joueur (utilisé surtout pour les sprites)
+     * \author Quentin CHEYNET
+     */
     enum states
     {
-        STANDING =0,
-        RUNNING_D =1,
-        RUNNING_G = 2,
-        FALLING = 3,
-        LANDING = 4,
-        GETTING_UP = 5,
-        JUMPING = 6,
-        DROPING = 7,
-        DYING = 8,
-        DEAD = 9,
-        WINNING = 10
+        STANDING =0,                        /*!< le personnage est debout, sur le sol, et ne fait rien */
+        RUNNING_R =1,                       /*!< le personnage court vers la droite */
+        RUNNING_L = 2,                      /*!< le personnage court vers la gauche */
+        FALLING = 3,                        /*!< le personnage est en train de tomber */
+        LANDING = 4,                        /*!< le personnage atterit sur le sol */
+        GETTING_UP = 5,                     /*!< le personnage se relève après avoir atteri sur le sol */
+        JUMPING = 6,                        /*!< le personnage est dans les air après un saut, avant d'avoir atteint sa hauteur maximal */
+        DROPING = 7,                        /*!< le personnage lache une bombe */
+        DYING = 8,                          /*!< le personnage est en train de mourrir */
+        DEAD = 9,                           /*!< le personnage est mort */
+        WINNING = 10                        /*!< le personnage a gagné et s'en réjouit */
     };
-    int id;
-    int posX;
-    int posY;
-    int hauteur;
-    int largeur;
-    int maxHigh;
-    int state;
-    int currentHigh;
-    int step;
-    int pauseSprite;
-    bool orientG;
-    QPixmap sprite;
-    QPixmap currentImage;
-    QGraphicsPixmapItem *picture;
-    int xSprite;
-    int ySprite;
-    int hSprite;
-    int lSprite;
-    int nbMaxBombes;
-    int nbBombes;
-    int hp;
-    QVector<Bombe*> bombes;
-    bool immortality;
-    int immortalityCD;
-    int bonusPower;
-    int bonusJump;
-    bool bonusTrigger;
-    int tired;
-    int nbKills;
-    int killBy;
+
+    int id;                                 /*!< id du personnage */
+    int posX;                               /*!< position sur l'axe des abscisses */
+    int posY;                               /*!< position sur l'axe des ordonnées */
+    int hauteur;                            /*!< hauteur du personnage */
+    int largeur;                            /*!< largeur du personnage */
+    int maxHigh;                            /*!< la distance maximum sur y parcourue lors d'un saut */
+    int state;                              /*!< type du bonus (choisi dans l'enum states) */
+    int currentHigh;                        /*!< distance sur y actuellement parcouru après un saut */
+    int step;                               /*!< indique quelle sprite utiliser lors de l'enchainement de plusieurs sprites */
+    int pauseSprite;                        /*!< pause (en nombe de tic du timer) entre le changement de chaque image */
+    bool orientG;                           /*!< vrai si le joueur est orienté vers la gauche, faux sinon (utilisé pour les sprites) */
+    QPixmap sprite;                         /*!< le fichier des sprites */
+    QPixmap currentImage;                   /*!< l'image utilisée actuellement */
+    QGraphicsPixmapItem *picture;           /*!< l'image affiché */
+    int xSprite;                            /*!< position x de l'image voulu dans le fichier des sprites */
+    int ySprite;                            /*!< position y de l'image voulu dans le fichier des sprites */
+    int hSprite;                            /*!< hauteur de l'image voulu dans le fichier des sprites */
+    int lSprite;                            /*!< largeur de l'image voulu dans le fichier des sprites */
+    int nbMaxBombes;                        /*!< nombre maximum de bombes que le Joueur peut poser simultanément */
+    int nbBombes;                           /*!< nombre de bombes non explosée que le Joueur a actuellement posée */
+    int hp;                                 /*!< nombre de point de vie du Joueur */
+    QVector<Bombe*> bombes;                 /*!< listes des bombes posées par le Joueur */
+    bool immortality;                       /*!< vrai si le joueur est immortel, faux sinon */
+    int immortalityCD;                      /*!< durée actuelle de l'immortalité */
+    int bonusPower;                         /*!< nombre de bonus de type EXPLOSION ramassé par le joueur */
+    int bonusJump;                          /*!< nombre de bonus de type JUMP ramassé par le joueur */
+    bool bonusTrigger;                      /*!< vrai si le joueur a ramassé le bonus de type TRIGGER, faux sinon */
+    int tired;                              /*!< permet de savoir si le personnage peut se déplacer ou non (sert à ralentir la vitesse de déplacement) */
+    int nbKills;                            /*!< nombre de joueurs que vous avez tués */
+    int killBy;                             /*!< id du Joueur qui vous a tués */
 
 public:
 
@@ -67,13 +76,12 @@ public:
      *
      * Constructeur de la classe Joueur
      *
+     * \param id L'identifiant du Joueur
      * \param x La position à l'abscisse du personnage
      * \param y La position à l'ordonnée du personnage
-     * \author Clément CARLES
      * \author Quentin CHEYNET
      */
     Joueur(int id,int x ,int y);
-    void newPosition (int x , int y);
 
     /*!
      * \brief renvoie l'attribut picture
@@ -89,10 +97,11 @@ public:
      */
     void setPicture(QGraphicsPixmapItem *);
 
-   /*!
+    /*!
     * \brief renvoie vrai si le la case[i][j] contient une brique
     * \param i Ligne de la grille à regarder
     * \param j Colonne de la grille à regarder
+    * \param grille L'ensembles des briques
     * \author Quentin CHEYNET
     */
     bool isColliding(int i, int j, QVector<QVector<Brique *> > grille);
@@ -260,14 +269,6 @@ public:
     bool isAlive();
 
     /*!
-     * \brief Fait exploser toutes les bombes du joueur
-     * innutilisé pour le moment
-     * \author Quentin CHEYNET
-     */
-    void trigger();
-
-
-    /*!
      * \brief assignation d'un entier id à id
      * \param id L'identifiant du joueur
      * \author Quentin CHEYNET
@@ -415,11 +416,6 @@ public:
      */
     void setImmortality(bool i);
 
-    /*!
-     * \brief Destructeur
-     * Destructeur de la classe Joueur
-     * \author Quentin CHEYNET
-     */
 
     /*!
      * \brief retourne la valeur de bonusPower
@@ -476,7 +472,11 @@ public:
      */
     void incrNbKills();
 
-
+    /*!
+     * \brief Destructeur
+     * Destructeur de la classe Joueur
+     * \author Quentin CHEYNET
+     */
     ~Joueur();
 };
 #endif // JOUEUR_H

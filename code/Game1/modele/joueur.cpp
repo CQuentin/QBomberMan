@@ -2,8 +2,8 @@
 
 
 Joueur::Joueur(int id, int x , int y){
-    setX(x);
-    setY(y);
+    posX = x;
+    posY = y;
     this->id = id;
     xSprite = 11;
     ySprite = 505;
@@ -31,7 +31,7 @@ Joueur::Joueur(int id, int x , int y){
     killBy = -1;
 
     if(id <4) // 1 : le nombre de couleurs différentes existantes
-      sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
+        sprite = QPixmap(QString("../Game1/ressource/sprites_bomberman_p%1.png").arg(id));
     else
         sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
 
@@ -61,10 +61,6 @@ int Joueur::getY()
     return posY;
 }
 
-void Joueur::newPosition(int x,int y){
-    setX(x);
-    setY(y);
-}
 
 void Joueur::setPicture(QGraphicsPixmapItem *picture){
     this->picture = picture;
@@ -120,10 +116,10 @@ void Joueur::courireD(){
 
     if (state != FALLING && state != JUMPING){
         orientG = false;
-        if (state != RUNNING_D)
+        if (state != RUNNING_R)
             step = 0;
 
-        state = RUNNING_D;
+        state = RUNNING_R;
         if(pauseSprite >= 15){
             switch(step){
             case 0:
@@ -166,7 +162,7 @@ void Joueur::courireD(){
             pauseSprite = 0;
             currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
 
-            if(immortality){
+            if(immortality){ // ajout de transparance si le joueur est immortel
                 QPainter p;
                 p.begin(&currentImage);
                 p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
@@ -179,9 +175,9 @@ void Joueur::courireD(){
         }
         else pauseSprite ++;
     }
-    else if (orientG){
+    else if (orientG){  // si il est dans les airs et change de sens, rotation de l'image pour qu'il soit tourné vers la droite
 
-        if(immortality){
+        if(immortality){ // ajout de transparance si le joueur est immortel
             QPainter p;
             p.begin(&currentImage);
             p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
@@ -189,8 +185,8 @@ void Joueur::courireD(){
             p.end();
         }
 
-         picture->setPixmap(currentImage);
-         orientG = false;
+        picture->setPixmap(currentImage);
+        orientG = false;
     }
 
 }
@@ -200,14 +196,10 @@ void Joueur::courireG(){
     QTransform transform;
     if (state != FALLING && state != JUMPING){
         orientG = true;
-        if (state != RUNNING_G){
-//            if(step == 4 || step == 8)
-//                picture->moveBy(2,0);
+        if (state != RUNNING_L)
             step = 0;
-        }
 
-
-        state = RUNNING_G;
+        state = RUNNING_L;
         if(pauseSprite >= 15){
             switch(step){
             case 0:
@@ -248,10 +240,11 @@ void Joueur::courireG(){
                 break;
             }
             currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
+            // rotation de l'image pour qu'il soit tourné vers la gauche
             currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
             pauseSprite = 0;
 
-            if(immortality){
+            if(immortality){ // ajout de transparance si le joueur est immortel
                 QPainter p;
                 p.begin(&currentImage);
                 p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
@@ -264,7 +257,7 @@ void Joueur::courireG(){
         }
         else pauseSprite ++;
     }
-    else if (!orientG){
+    else if (!orientG){ // si il est dans les airs et change de sens, rotation de l'image pour qu'il soit tourné vers la gauche
         currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
 
         if(immortality){
@@ -283,32 +276,23 @@ void Joueur::courireG(){
 void Joueur::immobile(){
     QTransform transform;
 
-//if(step == 4 || step == 8){
-//    if(orientG)
-//        picture->moveBy(-2,0);
-//    else
-//        picture->moveBy(2,0);
-//    step = 0;
-//}
     if(pauseSprite >= 45){
         switch(state){
         case STANDING :
             setCoordSprite(11,505,22,36);
             break;
-        case RUNNING_D :
+        case RUNNING_R :
             setCoordSprite(294,28,25,34);
             state = STANDING;
-           // orientG = false;
             break;
-        case RUNNING_G :
+        case RUNNING_L :
             setCoordSprite(294,28,25,34);
             state = STANDING;
-          //  orientG = true;
             break;
         case FALLING :
             setCoordSprite(200,73,32,41);
             break;
-        // LANDING et GETTING_UP : diminution de y, augmentation de H (pour baisser l'image, car personnage accroupi)
+            // LANDING et GETTING_UP : diminution de y, augmentation de H (pour baisser l'image, car personnage accroupi)
         case LANDING :
             setCoordSprite(238,81,27,35);
             state = GETTING_UP;
@@ -326,14 +310,12 @@ void Joueur::immobile(){
             break;
         }
 
-
-
         currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
-        if (orientG)
+        if (orientG)  // rotation de l'image pour qu'il soit tourné vers la gauche
             currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
         pauseSprite = 0;
 
-        if (immortality){
+        if (immortality){ // ajout de transparance si le joueur est immortel
             QPainter p;
             p.begin(&currentImage);
             p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
@@ -375,15 +357,18 @@ void Joueur::decrNbBombe(){
 bool Joueur::tryDropBombe(){
     if (nbBombes < nbMaxBombes){
         nbBombes++;
-        if (state == STANDING)
+        if (state == STANDING) // on ne met pas la sprite où le personnage dépose une bombe si il est en cours de déplacement
             state = DROPING;
         return true;
     }
     else
-    return false;
+        return false;
 }
 
 void Joueur::hit(){
+    // enlève un point de vie au joueur si il n'est pas immortel
+    // le tue si il a 0 point de vie, le rend immortel sinon
+
     if (!immortality){
         hp --;
         if(hp <= 0){
@@ -399,18 +384,14 @@ void Joueur::hit(){
 }
 
 void Joueur::checkImmortality(){
+    // diminue la durée d'immortalité, et retire l'immortalité quand elle atteint 0
     if (immortality){
-
-
-
         if (immortalityCD == 0){
             immortality = false;
             immortalityCD = 1500;
         }else
             immortalityCD -= 5;
-
     }
-
 }
 
 void Joueur::die(){
@@ -466,12 +447,6 @@ bool Joueur::isAlive(){
     return (hp > 0);
 }
 
-void Joueur::trigger(){
-//    TODO ?: avoir un vector de bombes, et les faire toutes exploser
-    // retirer le trigger de mainwindwow
-
-    //nbBombes = 0;
-}
 
 void Joueur::setId(int id){
     this->id = id;
@@ -499,6 +474,7 @@ QVector<int> Joueur::getCoordSprite(){
 }
 
 void Joueur::addBombe(Bombe *b){
+    // ajoute une bombe, et lui donne des propriétés en fonction des bonus ramassé par le Joueur
     if(bonusTrigger)
         b->stopCountDown();
     b->setPower(bonusPower);
@@ -529,13 +505,13 @@ void Joueur::setOrientG(bool o){
     orientG = o;
 }
 
-void Joueur::refreshPicture(){
+void Joueur::refreshPicture(){  // uniquement pour les autres Joueur
     QTransform transform;
     currentImage = sprite.copy(xSprite,ySprite,lSprite,hSprite);
-    if (orientG)
+    if (orientG)    // rotation de l'image si le joueur est orienté vers la gauche
         currentImage = currentImage.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
 
-    if(immortality){
+    if(immortality){ // ajout de transparance si le joueur est immortel
         QPainter p;
         p.begin(&currentImage);
         p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
