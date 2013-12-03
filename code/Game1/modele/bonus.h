@@ -29,7 +29,7 @@ private :
     };
     int posX;                           /*!< position sur l'axe des abscisse */
     int posY;                           /*!< position sur l'axe des ordonnée */
-    int type;                           /*!< type du bonus (choisi dans l'enum types */
+    int type;                           /*!< type du bonus (choisi dans l'enum types) */
     QGraphicsPixmapItem *picture;       /*!< image du bonus affichée */
 
 
