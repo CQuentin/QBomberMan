@@ -101,7 +101,7 @@ public:
     /*!
      * \brief timerEvent
      * \param event
-     * \author Quentin CHEYNET
+     * \author Quentin CHEYNET et Jérémy Vaz Borges(liaison réseau)
      */
     void timerEvent ( QTimerEvent * event );
 
@@ -137,7 +137,7 @@ public:
      * \param i Colonne de la grille
      * \param j Ligne de la grille
      * \param w Si la bombe doit être envoyé
-     * \author Quentin CHEYNET
+     * \author Quentin CHEYNET et Jérémy Vaz Borges(liaison réseau)
      */
     void ajouterBombe(int bmId, int x, int y, bool w);
 
@@ -240,7 +240,7 @@ public:
      * \param x Abscisse de l'image dans scene
      * \param Y Ordonnée de l'image dans scene
      * \return vrai si il y a une collision
-     * \author Quentin CHEYNET
+     * \author Quentin CHEYNET et Jérémy Vaz Borges(liaison réseau)
      */
     bool collisionTest(int x, int y);
 
@@ -305,7 +305,7 @@ public:
      * \param j Colonne de la grilleBonus
      * \param w Si l'ajout du bonus doit être envoyé aux autres joueurs
      * \param t Le type de bonus ( -1 si à définir aléatoirement)
-     * \author Quentin CHEYNET
+     * \author Quentin CHEYNET et Jérémy Vaz Borges(liaison réseau)
      */
     void ajouterBonus(int i, int j, bool w, int t);
 

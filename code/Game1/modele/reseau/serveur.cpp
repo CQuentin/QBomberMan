@@ -28,8 +28,7 @@ void Serveur::readyRead()
 
         if(meRegex.indexIn(ligne) != -1){
             int utilisateur = m_clientIdCourant;
-            m_utilisateurs[client] = utilisateur;
-            qDebug() <<"id envoyé : " <<utilisateur;
+            m_utilisateurs[client] = utilisateur;            
 
             client->write(QString("/i:%1 %2 %3 $\n").arg(utilisateur).arg(m_nbUtilisateur).arg(m_niv).toUtf8());
 
@@ -54,9 +53,7 @@ void Serveur::readyRead()
 void Serveur::disconnected()
 {
     QTcpSocket *client = (QTcpSocket*)sender();
-    qDebug() << "Client deconnecte:" << client->peerAddress().toString();
-
-    m_clients.remove(client);    
+    m_clients.remove(client);
     m_utilisateurs.remove(client);
 }
 
@@ -79,9 +76,7 @@ void Serveur::incomingConnection(int descripteurSocket)
         QTcpSocket *client = new QTcpSocket(this);
         m_clientIdCourant++;
         client->setSocketDescriptor(descripteurSocket);
-        m_clients.insert(client);
-
-        qDebug() << "Nouveau client :" << client->peerAddress().toString();
+        m_clients.insert(client);        
 
         connect(client, SIGNAL(readyRead()), this, SLOT(readyRead()));
         connect(client, SIGNAL(disconnected()), this, SLOT(disconnected()));

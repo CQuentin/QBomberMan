@@ -150,7 +150,7 @@ public:
     /*!
      * \brief timer de la bombe
      * \param event
-     * \author Quentin CHEYNET
+     * \author Quentin CHEYNET et Jean-Phillipe Huguet(gestion son)
      */
     void timerEvent ( QTimerEvent * event );
 

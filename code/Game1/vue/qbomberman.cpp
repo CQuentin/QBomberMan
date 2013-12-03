@@ -46,8 +46,6 @@ void QBomberMan::on_okButton_clicked()
     {
         qFatal("Impossible d'écouter le port 4200");
     }
-    qDebug() << "Pret!";
-    qDebug() << ui->nbJSpinBox->value() ;
 
     ui->okButton->setEnabled(false);
     ui->nbJSpinBox->setEnabled(false);
@@ -58,6 +56,5 @@ void QBomberMan::on_okButton_clicked()
     c->resize(900, 600);
     c->show();
 
-    qDebug() << "OK" ;
 }
 

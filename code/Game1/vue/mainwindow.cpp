@@ -363,13 +363,13 @@ void MainWindow::tryMove(int x, int y){
         socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n")
                       .arg(id).arg(newX).arg(newY)
                       .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
-                .arg(personnages[id]->isOrientG())
-                .arg(personnages[id]->isAlive())
-                .arg(0)
-                .arg(personnages[id]->getPowerBomb())
-                .arg(personnages[id]->hasBonusTrigger())
-                .arg(personnages[id]->isImmortal())
-                .toUtf8());
+                      .arg(personnages[id]->isOrientG())
+                      .arg(personnages[id]->isAlive())
+                      .arg(0)
+                      .arg(personnages[id]->getPowerBomb())
+                      .arg(personnages[id]->hasBonusTrigger())
+                      .arg(personnages[id]->isImmortal())
+                      .toUtf8());
     }
 }
 
@@ -407,13 +407,13 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n")
                               .arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY())
                               .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
-                        .arg(personnages[id]->isOrientG())
-                        .arg(personnages[id]->isAlive())
-                        .arg(0)
-                        .arg(personnages[id]->getPowerBomb())
-                        .arg(personnages[id]->hasBonusTrigger())
-                        .arg(personnages[id]->isImmortal())
-                        .toUtf8());
+                              .arg(personnages[id]->isOrientG())
+                              .arg(personnages[id]->isAlive())
+                              .arg(0)
+                              .arg(personnages[id]->getPowerBomb())
+                              .arg(personnages[id]->hasBonusTrigger())
+                              .arg(personnages[id]->isImmortal())
+                              .toUtf8());
             }
         }
         // si ce n'est pas la fin, on regarde si son personnage est en train de mourrir
@@ -423,12 +423,12 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
             QVector<int> qv = personnages[id]->getCoordSprite();
             socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY())
                           .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
-                    .arg(personnages[id]->isOrientG())
-                    .arg(personnages[id]->isAlive())
-                    .arg(0)
-                    .arg(personnages[id]->hasBonusTrigger())
-                    .arg(personnages[id]->isImmortal())
-                    .toUtf8());
+                          .arg(personnages[id]->isOrientG())
+                          .arg(personnages[id]->isAlive())
+                          .arg(0)
+                          .arg(personnages[id]->hasBonusTrigger())
+                          .arg(personnages[id]->isImmortal())
+                          .toUtf8());
 
             if(personnages[id]->getCurrentS() == 9){
 
@@ -441,10 +441,10 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 scene->removeItem(personnages[id]->getPicture());
                 socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY())
                               .arg(qv.at(0)).arg(qv.at(1)).arg(qv[2]).arg(qv[3])
-                        .arg(personnages[id]->isOrientG())
-                        .arg(personnages[id]->isAlive())
-                        .arg(1)
-                        .arg(personnages[id]->hasBonusTrigger())
+                              .arg(personnages[id]->isOrientG())
+                              .arg(personnages[id]->isAlive())
+                              .arg(1)
+                              .arg(personnages[id]->hasBonusTrigger())
                         .arg(personnages[id]->isImmortal())
                         .toUtf8());
             }

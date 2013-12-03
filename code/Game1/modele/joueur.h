@@ -352,7 +352,7 @@ public:
 
     /*!
      * \brief active l'animation de la mort, puis met state à DEAD
-     * \author Quentin CHEYNET
+     * \author Quentin CHEYNET et Jean-Phillipe Huguet(gestion son)
      */
     void die();
 
@@ -366,7 +366,7 @@ public:
     /*!
      * \brief reçoit un bonus et modifie les caratéristiques du Joueur
      * \param t Le type de bonus
-     * \author Quentin CHEYNET
+     * \author Quentin CHEYNET et Jean-Phillipe Huguet(gestion son)
      */
     void receiveBonus(int t);
 
