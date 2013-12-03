@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>QBomberman++: modele/joueur.h Source File</title>
+<title>QBomberman++: QBomberMan/code/Game1/modele/joueur.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_2e0e0ebfc332dfb3a8c7a05d4cfced85.html">modele</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_b7cb77d441a293e414264780b072b694.html">QBomberMan</a></li><li class="navelem"><a class="el" href="dir_0fc5a2a9c35e83be82275418a72dd579.html">code</a></li><li class="navelem"><a class="el" href="dir_a7abab8619881ab39783d957bb28ecc4.html">Game1</a></li><li class="navelem"><a class="el" href="dir_6406a86e2e8adf859ca73a396e80b643.html">modele</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -90,8 +90,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <a href="joueur_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef JOUEUR_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define JOUEUR_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;QString&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QGraphicsPixmapItem&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;QGraphicsPixmapItem&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QtMultimedia/QSound&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QPixmap&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QRect&gt;</span></div>
@@ -100,163 +100,181 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="brique_8h.html">brique.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="bombe_8h.html">bombe.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_joueur.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_joueur.html">Joueur</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span> :</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">enum</span> states</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        STANDING =0,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        RUNNING_D =1,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        RUNNING_G = 2,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        FALLING = 3,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        LANDING = 4,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        GETTING_UP = 5,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        JUMPING = 6,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        DROPING = 7,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        DYING = 8,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        DEAD = 9</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    };</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> id;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> posX;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> posY;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> hauteur;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> largeur;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> maxHigh;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> state;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> currentHigh;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> step;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> pauseSprite;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> orientG;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    QPixmap sprite;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QPixmap currentImage;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QGraphicsPixmapItem *picture;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> xSprite;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> ySprite;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> hSprite;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> lSprite;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span> nbMaxBombes;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> nbBombes;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span> hp;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    QVector&lt;Bombe*&gt; bombes;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> immortality;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> immortalityCD;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> bonusPower;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">int</span> bonusJump;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> bonusTrigger;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">int</span> tired;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="class_joueur.html#abd23d528681c1ffc83ff0ec6237f0614" title="Constructeur.">Joueur</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>,<span class="keywordtype">int</span> x ,<span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a54af66d5801699885c73dbe1b0b3a62b">newPosition</a> (<span class="keywordtype">int</span> x , <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_joueur.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_joueur.html" title="classe représentant les joueurs">Joueur</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span> :</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6c">   26</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6c" title="ensemble des différents états du Joueur (utilisé surtout pour les sprites)">states</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca7ab37e1e935e69e675a9dab2480cb88f">   28</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca7ab37e1e935e69e675a9dab2480cb88f">STANDING</a> =0,                        </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6cac028f4ea903d49d19a6016555ce17d7c">   29</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6cac028f4ea903d49d19a6016555ce17d7c">RUNNING_R</a> =1,                       </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca1687fb544df51d3a2e62e02d6bf0b3c2">   30</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca1687fb544df51d3a2e62e02d6bf0b3c2">RUNNING_L</a> = 2,                      </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca81f180085ec5841bf60584fd325d0657">   31</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca81f180085ec5841bf60584fd325d0657">FALLING</a> = 3,                        </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca4b5e9252986369c6e8029fefe7450e02">   32</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca4b5e9252986369c6e8029fefe7450e02">LANDING</a> = 4,                        </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca8eef57ed75abc6f59dc1aab17e3430f1">   33</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca8eef57ed75abc6f59dc1aab17e3430f1">GETTING_UP</a> = 5,                     </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca1c7f636b22eedff0f20d4d159a82e988">   34</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca1c7f636b22eedff0f20d4d159a82e988">JUMPING</a> = 6,                        </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6cac7f2a9e7201596f8b5f651b5ea8fa373">   35</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6cac7f2a9e7201596f8b5f651b5ea8fa373">DROPING</a> = 7,                        </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6cafdad2b6f51071e43951522aeb56e660b">   36</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6cafdad2b6f51071e43951522aeb56e660b">DYING</a> = 8,                          </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6cac19277d0575cfd2eabe43013ab961a8d">   37</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6cac19277d0575cfd2eabe43013ab961a8d">DEAD</a> = 9,                           </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca2834aa632761db07fc0404b2c11c9b05">   38</a></span>&#160;        <a class="code" href="class_joueur.html#a6270ac3efcdf14796a49bf353b3cec6ca2834aa632761db07fc0404b2c11c9b05">WINNING</a> = 10                        </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="class_joueur.html#a3c83c4ba0e9b07c444b5d65fb627e1e4">   41</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a3c83c4ba0e9b07c444b5d65fb627e1e4">id</a>;                                 </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="class_joueur.html#ad8dd83f0a5f049b49043d7536380479d">   42</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#ad8dd83f0a5f049b49043d7536380479d">posX</a>;                               </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="class_joueur.html#a7c66e6f378632f84de9d40d15cb223da">   43</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a7c66e6f378632f84de9d40d15cb223da">posY</a>;                               </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="class_joueur.html#a42eec2114ba173d2b8ce94ddd6a12d3e">   44</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a42eec2114ba173d2b8ce94ddd6a12d3e">hauteur</a>;                            </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="class_joueur.html#a348df0e8a1756900bef499894994c26d">   45</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a348df0e8a1756900bef499894994c26d">largeur</a>;                            </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="class_joueur.html#a5ed988910915c47ce24aedeba4b8f232">   46</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a5ed988910915c47ce24aedeba4b8f232">maxHigh</a>;                            </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="class_joueur.html#a6a98e830eec1bf22c202634dc3205b19">   47</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a6a98e830eec1bf22c202634dc3205b19">state</a>;                              </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="class_joueur.html#a278c1130b73ed655c172e3af4b0e7729">   48</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a278c1130b73ed655c172e3af4b0e7729">currentHigh</a>;                        </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="class_joueur.html#aa8dd01eb991e41e3726f915c8e019879">   49</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#aa8dd01eb991e41e3726f915c8e019879">step</a>;                               </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="class_joueur.html#aac1d2e046f539e4181c34e93f4943d85">   50</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#aac1d2e046f539e4181c34e93f4943d85">pauseSprite</a>;                        </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="class_joueur.html#ab3edd0b42650013a16a64b5651ab1771">   51</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#ab3edd0b42650013a16a64b5651ab1771">orientG</a>;                           </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="class_joueur.html#abaa733a923dd719661f4e20cbbd07d13">   52</a></span>&#160;    QPixmap <a class="code" href="class_joueur.html#abaa733a923dd719661f4e20cbbd07d13">sprite</a>;                         </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="class_joueur.html#ae0bff4066141104baaed4e286b11d9ba">   53</a></span>&#160;    QPixmap <a class="code" href="class_joueur.html#ae0bff4066141104baaed4e286b11d9ba">currentImage</a>;                   </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="class_joueur.html#a7849781ee357aff366d949fc27dafee3">   54</a></span>&#160;    QGraphicsPixmapItem *<a class="code" href="class_joueur.html#a7849781ee357aff366d949fc27dafee3">picture</a>;           </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="class_joueur.html#a404fab7c03c82db08c0279e56a6b74ea">   55</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a404fab7c03c82db08c0279e56a6b74ea">xSprite</a>;                            </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="class_joueur.html#acef70d3fba5f9eaffcff1369b70deb01">   56</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#acef70d3fba5f9eaffcff1369b70deb01">ySprite</a>;                            </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="class_joueur.html#abe0a665dee534a40f6caa4ea67567bf3">   57</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#abe0a665dee534a40f6caa4ea67567bf3">hSprite</a>;                            </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="class_joueur.html#a019feb8959851c3b4c0bc72611a45c59">   58</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a019feb8959851c3b4c0bc72611a45c59">lSprite</a>;                            </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="class_joueur.html#a3984caf32211ff63a36eb382c3a25997">   59</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a3984caf32211ff63a36eb382c3a25997">nbMaxBombes</a>;                        </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="class_joueur.html#a4370e1a93bff7c89aadc6df25a350487">   60</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a4370e1a93bff7c89aadc6df25a350487">nbBombes</a>;                           </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="class_joueur.html#aef1c330b9aa8cd173080c6fe4b3af40a">   61</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#aef1c330b9aa8cd173080c6fe4b3af40a">hp</a>;                                 </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="class_joueur.html#a5fc89f630be7f6cd3533ad16fed0fa2f">   62</a></span>&#160;    QVector&lt;Bombe*&gt; <a class="code" href="class_joueur.html#a5fc89f630be7f6cd3533ad16fed0fa2f">bombes</a>;                 </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="class_joueur.html#a6804e4a6e2b84c270435a0d1a08fb87e">   63</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#a6804e4a6e2b84c270435a0d1a08fb87e">immortality</a>;                       </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="class_joueur.html#aa8de1497558eaf5e475881fb97785204">   64</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#aa8de1497558eaf5e475881fb97785204">immortalityCD</a>;                      </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="class_joueur.html#aeedc2131e5d6e6e5222a070e741b0a31">   65</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#aeedc2131e5d6e6e5222a070e741b0a31">bonusPower</a>;                         </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="class_joueur.html#a4f53434b7fbe966047ae0214feba7a97">   66</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a4f53434b7fbe966047ae0214feba7a97">bonusJump</a>;                          </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="class_joueur.html#ad2c62cd0c574a6b6c3ddb36efe362a06">   67</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#ad2c62cd0c574a6b6c3ddb36efe362a06">bonusTrigger</a>;                      </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="class_joueur.html#a53e35342c24a7f99e46c8ad4739be72e">   68</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a53e35342c24a7f99e46c8ad4739be72e">tired</a>;                              </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="class_joueur.html#abf813cbf60d32284fae225adbf313479">   69</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#abf813cbf60d32284fae225adbf313479">nbKills</a>;                            </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="class_joueur.html#a6314d1de9dda86215f337d2bea2d14c7">   70</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a6314d1de9dda86215f337d2bea2d14c7">killBy</a>;                             </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    QGraphicsPixmapItem *<a class="code" href="class_joueur.html#ac26789403c9d74329b28678c04103f8b" title="renvoie l&#39;attribut picture">getPicture</a>();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ae9df920f1084987fa54008fced20de69" title="assignation d&#39;un QGraphicsPixmapItem à l&#39;attribut picture">setPicture</a>(QGraphicsPixmapItem *);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#af1c58b18320d2d07b62f67cd5dbe08cf" title="renvoie vrai si le la case[i][j] contient une brique">isColliding</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, QVector&lt;QVector&lt;Brique *&gt; &gt; grille);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a49cec60d6a245792394561bc13fcc71c" title="renvoie la position x du personnage">getX</a>();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a4283c8c140f7e8f802bf0f0f33f263e6" title="renvoie la position y du personnage">getY</a>();</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a3b3eb965d19ddfff227f0ee65956fa9d" title="assignation d&#39;un entier x à posX">setX</a>(<span class="keywordtype">int</span> x);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a52340c9eed27b7fc9e19826a524f9cf0" title="assignation d&#39;un entier y à posY">setY</a>(<span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a501701e7e62ad2ef0aaa32c21f0637e1" title="renvoie la hauteur maximum à laquelle le personnage peut sauter">getMaxH</a>();</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a222d2d579328bbd6234dcc9ac2f6cafc" title="renvoie la hauteur courrante après un saut">getCurrentH</a>();</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#acd16ca7d6b087b6cadebcbef4307f041" title="assignation d&#39;un entier h à maxHigh">setMaxH</a>(<span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a8f57a0f38fca8824eacd90b65738a2a4" title="assignation d&#39;un entier h à currentHigh">setCurrentH</a>(<span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a8dc0ddf507149fb0f8c16a1468f5a50b" title="renvoie la hauteur du personnage">getHauteur</a>();</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ab268e0494f117ffcfd2df8fe1e92e6bf" title="assignation d&#39;un entier h à hauteur">setHauteur</a>(<span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#af55495cd9660964b08d165fc8fb5ef02" title="renvoie la largeur du personnage">getLargeur</a>();</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a937f0a40243d0dc4ab8df73bd337c929" title="assignation d&#39;un entier l à largeur">setLargeur</a>(<span class="keywordtype">int</span> l);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ad229627608240f55a2c680bb86b15dd5" title="change picture pour faire courir le personnage vers la droite">courireD</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="class_joueur.html#abd23d528681c1ffc83ff0ec6237f0614" title="Constructeur.">Joueur</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>,<span class="keywordtype">int</span> x ,<span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    QGraphicsPixmapItem *<a class="code" href="class_joueur.html#ac26789403c9d74329b28678c04103f8b" title="renvoie l&#39;attribut picture">getPicture</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ae9df920f1084987fa54008fced20de69" title="assignation d&#39;un QGraphicsPixmapItem à l&#39;attribut picture">setPicture</a>(QGraphicsPixmapItem *);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#af1c58b18320d2d07b62f67cd5dbe08cf" title="renvoie vrai si le la case[i][j] contient une brique">isColliding</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, QVector&lt;QVector&lt;Brique *&gt; &gt; grille);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a49cec60d6a245792394561bc13fcc71c" title="renvoie la position x du personnage">getX</a>();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a4283c8c140f7e8f802bf0f0f33f263e6" title="renvoie la position y du personnage">getY</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a3b3eb965d19ddfff227f0ee65956fa9d" title="assignation d&#39;un entier x à posX">setX</a>(<span class="keywordtype">int</span> x);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a52340c9eed27b7fc9e19826a524f9cf0" title="assignation d&#39;un entier y à posY">setY</a>(<span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a501701e7e62ad2ef0aaa32c21f0637e1" title="renvoie la hauteur maximum à laquelle le personnage peut sauter">getMaxH</a>();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a222d2d579328bbd6234dcc9ac2f6cafc" title="renvoie la hauteur courrante après un saut">getCurrentH</a>();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#acd16ca7d6b087b6cadebcbef4307f041" title="assignation d&#39;un entier h à maxHigh">setMaxH</a>(<span class="keywordtype">int</span> h);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a8f57a0f38fca8824eacd90b65738a2a4" title="assignation d&#39;un entier h à currentHigh">setCurrentH</a>(<span class="keywordtype">int</span> h);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a8dc0ddf507149fb0f8c16a1468f5a50b" title="renvoie la hauteur du personnage">getHauteur</a>();</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ab268e0494f117ffcfd2df8fe1e92e6bf" title="assignation d&#39;un entier h à hauteur">setHauteur</a>(<span class="keywordtype">int</span> h);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#af55495cd9660964b08d165fc8fb5ef02" title="renvoie la largeur du personnage">getLargeur</a>();</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ac918510c8a60cb81d73937353337a0cd" title="change picture pour faire courir le personnage vers la gauche">courireG</a>();</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ae780fc74c1f47cfc3b932782b1a0a05b" title="change picture en cas d&#39;immobilité, en fonction de state">immobile</a>();</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a21fa2afc9b2efa32bff6ac3c1ab42960" title="assignation d&#39;un entier s à state">setCurrentS</a>(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a937f0a40243d0dc4ab8df73bd337c929" title="assignation d&#39;un entier l à largeur">setLargeur</a>(<span class="keywordtype">int</span> l);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ad229627608240f55a2c680bb86b15dd5" title="change picture pour faire courir le personnage vers la droite">courireD</a>();</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ac918510c8a60cb81d73937353337a0cd" title="change picture pour faire courir le personnage vers la gauche">courireG</a>();</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#accf4df6bd539c24c075d6d81c38597a2" title="renvoie l&#39;état du personnage">getCurrentS</a>();</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a70ae4beb545448402722ab265695e88a" title="assignation d&#39;un entier n à nbMaxBombes">setMaxBombes</a>(<span class="keywordtype">int</span> n);</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#aa2cda4987999923d1dc78c9a0b2d532d" title="renvoie le nombre maximum de bombes déposées">getMaxBombes</a>();</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ad1a2b063f98828b25223ffb2d640bbe2" title="incrémente nbBombes">incrNbBombe</a>();</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ae780fc74c1f47cfc3b932782b1a0a05b" title="change picture en cas d&#39;immobilité, en fonction de state">immobile</a>();</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a21fa2afc9b2efa32bff6ac3c1ab42960" title="assignation d&#39;un entier s à state">setCurrentS</a>(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#accf4df6bd539c24c075d6d81c38597a2" title="renvoie l&#39;état du personnage">getCurrentS</a>();</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a70ae4beb545448402722ab265695e88a" title="assignation d&#39;un entier n à nbMaxBombes">setMaxBombes</a>(<span class="keywordtype">int</span> n);</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a7183c5e0e37aeba68cab0d0ea680e560" title="décremente nbBombes">decrNbBombe</a>();</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#a60fe638abb3a92871eed965ed50455fa" title="pose une bombe si c&#39;est possible">tryDropBombe</a>();</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#aa2cda4987999923d1dc78c9a0b2d532d" title="renvoie le nombre maximum de bombes déposées">getMaxBombes</a>();</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ad1a2b063f98828b25223ffb2d640bbe2" title="incrémente nbBombes">incrNbBombe</a>();</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ac92eaa605b162dd29f9d15ba8ee53d34" title="enleve un pv au joueur">hit</a>();</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a7183c5e0e37aeba68cab0d0ea680e560" title="décremente nbBombes">decrNbBombe</a>();</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#a21c8a0dd3bc2a41ce85895e400cb7594" title="regarde si le joueur est en vie">isAlive</a>();</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#a60fe638abb3a92871eed965ed50455fa" title="pose une bombe si c&#39;est possible">tryDropBombe</a>();</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a87ed1c9d4a60c76c58d201a5a8b42242" title="Fait exploser toutes les bombes du joueur innutilisé pour le moment.">trigger</a>();</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a3a93b087c019bb913e3ed46d61d7a811" title="assignation d&#39;un entier id à id">setId</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a344107187c8ff4cdcf133af7e2e2c794" title="renvoie l&#39; identifiant du joueur">getId</a>();</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a3aa1a83f874162285fc66779626094a9" title="assignation des nouvelles coordonées du sprite">setCoordSprite</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    QVector&lt;int&gt; <a class="code" href="class_joueur.html#a0e052dec429c8cb633dcd2d2267bc896" title="renvoie les coordonées du sprite">getCoordSprite</a>();</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a1cd74e3940e0bc553c297123e3e3f6d2" title="ajoute une bombe au QVector bombes du Joueur">addBombe</a>(<a class="code" href="class_bombe.html">Bombe</a> *b);</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ac8ce6fd54758f2891f77f8683e6beb74" title="supprime une bombe">removeBombe</a>(<span class="keywordtype">int</span> i);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    QVector&lt;Bombe*&gt; <a class="code" href="class_joueur.html#a7a2371b9ba1a4754969391c75b84a46d" title="renvoie la vector de bombe">getVectorBombes</a>();</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <a class="code" href="class_bombe.html">Bombe</a> *<a class="code" href="class_joueur.html#aa29ebf8cfe39cdb821bfc0170b93a509" title="renvoie la dernière bombe posée par le joueur, si elle existe">getLastBombe</a>();</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#a39f2f068c960bb39550e66152556615f" title="renvoie si le personnage est orienté vers la gauche o non">isOrientG</a>();</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a41e4c1c93f82ec82d49e4a68fb1b79fe" title="assignation d&#39;un bool à orientG">setOrientG</a>(<span class="keywordtype">bool</span> o);</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a84a2e738cb4a60c093fb312b9663624d" title="change l&#39;image du personnage">refreshPicture</a>();</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#aa2561b91be1e2d62c8d2652550ab3538" title="active l&#39;animation de la mort, puis met state à DEAD">die</a>();</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a3402fbcfe43acfdef938981b8bfd1b8a" title="gère l&#39;imortalité (sprite, bool immortality)">checkImmortality</a>();</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a94313d8dcc960bf7ad5945e77e30f9d8" title="reçoit un bonus et modifie les caratéristiques du Joueur">receiveBonus</a>(<span class="keywordtype">int</span> t);</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#ad7c1a7a855a81f0a14c7ab4845978508" title="regarde si le personnage a le bonus pour faire exploser une bombe">hasBonusTrigger</a>();</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a6974e0158c4fd28524eb2d3755e660b8" title="renvoie la valeur de bonusJump">getBonusJump</a>();</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a70ef3b547abd4b109b40cd78111d7f2e" title="renvoie la valeur tired">getTired</a>();</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a25e070373a59fdd545d40b8691a35755" title="assignation d&#39;un entier à tired">setTired</a>(<span class="keywordtype">int</span> t);</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#a4f72e20a2f8ca8620e3c77fa0834c560" title="regarde si le personnage est immortel">isImmortal</a>();</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ae5dde4fe758904bf02920f67edad5ae0" title="assignation d&#39;un bool à immortality">setImmortality</a>(<span class="keywordtype">bool</span> i);</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <a class="code" href="class_joueur.html#a9fb594f755601ee77ce5884c4c0861f3" title="Destructeur Destructeur de la classe Joueur.">~Joueur</a>();</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;};</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="preprocessor">#endif // JOUEUR_H</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ac92eaa605b162dd29f9d15ba8ee53d34" title="enleve un pv au joueur">hit</a>();</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#a21c8a0dd3bc2a41ce85895e400cb7594" title="regarde si le joueur est en vie">isAlive</a>();</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a3a93b087c019bb913e3ed46d61d7a811" title="assignation d&#39;un entier id à id">setId</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a344107187c8ff4cdcf133af7e2e2c794" title="renvoie l&#39; identifiant du joueur">getId</a>();</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a3aa1a83f874162285fc66779626094a9" title="assignation des nouvelles coordonées du sprite">setCoordSprite</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    QVector&lt;int&gt; <a class="code" href="class_joueur.html#a0e052dec429c8cb633dcd2d2267bc896" title="renvoie les coordonées du sprite">getCoordSprite</a>();</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a1cd74e3940e0bc553c297123e3e3f6d2" title="ajoute une bombe au QVector bombes du Joueur">addBombe</a>(<a class="code" href="class_bombe.html" title="classe représentant les bombes">Bombe</a> *b);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ac8ce6fd54758f2891f77f8683e6beb74" title="supprime une bombe">removeBombe</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    QVector&lt;Bombe*&gt; <a class="code" href="class_joueur.html#a7a2371b9ba1a4754969391c75b84a46d" title="renvoie la vector de bombe">getVectorBombes</a>();</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <a class="code" href="class_bombe.html" title="classe représentant les bombes">Bombe</a> *<a class="code" href="class_joueur.html#aa29ebf8cfe39cdb821bfc0170b93a509" title="renvoie la dernière bombe posée par le joueur, si elle existe">getLastBombe</a>();</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#a39f2f068c960bb39550e66152556615f" title="renvoie si le personnage est orienté vers la gauche o non">isOrientG</a>();</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a41e4c1c93f82ec82d49e4a68fb1b79fe" title="assignation d&#39;un bool à orientG">setOrientG</a>(<span class="keywordtype">bool</span> o);</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a84a2e738cb4a60c093fb312b9663624d" title="change l&#39;image du personnage">refreshPicture</a>();</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#aa2561b91be1e2d62c8d2652550ab3538" title="active l&#39;animation de la mort, puis met state à DEAD">die</a>();</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a3402fbcfe43acfdef938981b8bfd1b8a" title="gère l&#39;imortalité (sprite, bool immortality)">checkImmortality</a>();</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a94313d8dcc960bf7ad5945e77e30f9d8" title="reçoit un bonus et modifie les caratéristiques du Joueur">receiveBonus</a>(<span class="keywordtype">int</span> t);</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#ad7c1a7a855a81f0a14c7ab4845978508" title="regarde si le personnage a le bonus pour faire exploser une bombe">hasBonusTrigger</a>();</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a6974e0158c4fd28524eb2d3755e660b8" title="renvoie la valeur de bonusJump">getBonusJump</a>();</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a70ef3b547abd4b109b40cd78111d7f2e" title="renvoie la valeur tired">getTired</a>();</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a25e070373a59fdd545d40b8691a35755" title="assignation d&#39;un entier à tired">setTired</a>(<span class="keywordtype">int</span> t);</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#a4f72e20a2f8ca8620e3c77fa0834c560" title="regarde si le personnage est immortel">isImmortal</a>();</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#ae5dde4fe758904bf02920f67edad5ae0" title="assignation d&#39;un bool à immortality">setImmortality</a>(<span class="keywordtype">bool</span> i);</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a4f6c88b4faa303439e0dede8c9809865" title="retourne la valeur de bonusPower">getPowerBomb</a>();</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#aba823ae5cb777efd3e3952331aec4c8f" title="assignation d&#39;un entier à bonusPower">setPowerBomb</a>(<span class="keywordtype">int</span> p);</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#aae7cfd15f5330bce43659ffe620c7815" title="assignation d&#39;un bool à bonusTrigger">setTriggerBomb</a>(<span class="keywordtype">bool</span> t);</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a3fe3b0bee7ac50d6330920980df924bc" title="met les sprites de la victoire">cheer</a>();</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a10ee032b0c569b9c63f41bbcaf440e91" title="assignation d&#39;un entier à killBy">setKillBy</a>(<span class="keywordtype">int</span> idJ);</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#ab9beac9ae95bbe67de0aafc98dece30a" title="retourne la valeur de killBy">getKillBy</a>();</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a47a16668e14de582bdc0a01532cca8b9" title="retourne la valeur de nbKills">getNbKills</a>();</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#af78ccafa5a83f83512c23f3755b3c4fd" title="augmente le nombre de personnage tué de 1">incrNbKills</a>();</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <a class="code" href="class_joueur.html#a9fb594f755601ee77ce5884c4c0861f3" title="Destructeur Destructeur de la classe Joueur.">~Joueur</a>();</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;};</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="preprocessor">#endif // JOUEUR_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:43:58 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

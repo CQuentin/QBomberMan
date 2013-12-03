@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>QBomberman++: vue/mainwindow.h Source File</title>
+<title>QBomberman++: QBomberMan/code/Game1/vue/mainwindow.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68611070b0f67861173a8c471800b7e1.html">vue</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_b7cb77d441a293e414264780b072b694.html">QBomberMan</a></li><li class="navelem"><a class="el" href="dir_0fc5a2a9c35e83be82275418a72dd579.html">code</a></li><li class="navelem"><a class="el" href="dir_a7abab8619881ab39783d957bb28ecc4.html">Game1</a></li><li class="navelem"><a class="el" href="dir_136ae392401fa2d50052f06985db8293.html">vue</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -97,108 +97,119 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QGraphicsItem&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QPixmap&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QGraphicsPixmapItem&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QKeyEvent&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QTimerEvent&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;QVector&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include&lt;QBasicTimer&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../modele/brique.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;../modele/bonus.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;../modele/joueur.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../modele/bombe.h&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../controleur/toucheclavier.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QTcpSocket&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QKeyEvent&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QTimerEvent&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QVector&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;QBasicTimer&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QTcpSocket&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QTableWidget&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QTableWidgetItem&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;../modele/brique.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../modele/bonus.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../modele/joueur.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../controleur/toucheclavier.h&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="class_main_window.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_main_window.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        QGraphicsScene * scene;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        QGraphicsView * view;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        QPixmap * background;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">//Joueur * personnage;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        QVector &lt;Joueur*&gt; personnages;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">int</span> largeur;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">int</span> hauteur;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">int</span> largeurG;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">int</span> hauteurG;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">int</span> tailleC;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        QBasicTimer timer;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">int</span> gravity;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">int</span> baseGravity;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="class_touche_clavier.html" title="classe gérant les touches du clavier">ToucheClavier</a> *controleur;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        QVector&lt;QVector&lt;Brique*&gt; &gt; grille;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        QVector&lt;QVector&lt;Bonus*&gt; &gt; grilleBonus;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;       <span class="comment">// QVector&lt;Bombe*&gt; bombes;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">int</span> id;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        QTcpSocket *socket;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">void</span> readyRead();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">void</span> connected();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keyword">explicit</span> <a class="code" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db" title="Constructeur.">MainWindow</a>(QWidget * parent = 0);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a9c4f542263838b9ecd06eae839a42a34" title="détéction des évènement clavier (touches enfoncées)">keyPressEvent</a>(QKeyEvent* event);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a6a706e2f733f701fe87e82e77294a035" title="détéction des évènement clavier (touches relachées)">keyReleaseEvent</a>(QKeyEvent* event);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#aaa425b1554af3c1f58cc70b4815082ae" title="timerEvent">timerEvent</a> ( QTimerEvent * event );</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#acb4c8d45756302a058178dec722bda35" title="ajoute une brique dans la vue">ajouterBrique</a>(<span class="keywordtype">bool</span> cassable, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ab35e6cb622be5a0b039cad83705107a5" title="ajoute un personnage dans la vue">ajouterPersonnage</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#adf5cb1a2308f40aafec7cefb5e57b18d" title="ajoute une bombe dans la vue">ajouterBombe</a>(<span class="keywordtype">int</span> bmId, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="class_main_window.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_main_window.html" title="classe gérant l&#39;affichage et le déroulement du jeu">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="class_main_window.html#ad6e0c337de8d71e1d63ad1f8c3e0aaa3">   33</a></span>&#160;    QString <a class="code" href="class_main_window.html#ad6e0c337de8d71e1d63ad1f8c3e0aaa3">m_hote</a>;                             </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_main_window.html#a51ac2b126495216832501cea3929c6f6">   34</a></span>&#160;    QGraphicsScene * <a class="code" href="class_main_window.html#a51ac2b126495216832501cea3929c6f6">scene</a>;                     </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="class_main_window.html#a6e33bc418ea3e6d93b3021933bfa3baa">   35</a></span>&#160;    QGraphicsView * <a class="code" href="class_main_window.html#a6e33bc418ea3e6d93b3021933bfa3baa">view</a>;                       </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="class_main_window.html#ae09a2dd68d40d4bf7f9d9ca28595918d">   36</a></span>&#160;    QPixmap * <a class="code" href="class_main_window.html#ae09a2dd68d40d4bf7f9d9ca28595918d">background</a>;                       </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="class_main_window.html#aee4b53f1cf12534d0a0db586119640e4">   37</a></span>&#160;    QVector &lt;Joueur*&gt; <a class="code" href="class_main_window.html#aee4b53f1cf12534d0a0db586119640e4">personnages</a>;              </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="class_main_window.html#aa5672d0377c127ea81a94221ddca02d4">   38</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#aa5672d0377c127ea81a94221ddca02d4">largeur</a>;                                </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="class_main_window.html#ad4bf4569401bc00cd2e8722dccd71f9c">   39</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#ad4bf4569401bc00cd2e8722dccd71f9c">hauteur</a>;                                </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="class_main_window.html#ac9f0d1722aed29de3976063faff4598e">   40</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#ac9f0d1722aed29de3976063faff4598e">largeurG</a>;                               </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="class_main_window.html#adebbc1a8556a952ef3542663e13d6813">   41</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#adebbc1a8556a952ef3542663e13d6813">hauteurG</a>;                               </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="class_main_window.html#a4c9d3fee29a47b061687ecc14b9ed286">   42</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a4c9d3fee29a47b061687ecc14b9ed286">tailleC</a>;                                </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="class_main_window.html#a1c442c9187f3ff023d9c3f4b77270c8b">   43</a></span>&#160;    QBasicTimer <a class="code" href="class_main_window.html#a1c442c9187f3ff023d9c3f4b77270c8b">timer</a>;                          </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="class_main_window.html#a88202bb84fa5784d5553cf2b013c6167">   44</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a88202bb84fa5784d5553cf2b013c6167">gravity</a>;                                </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="class_main_window.html#a205359640813f34def87769eb77b39f4">   45</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a205359640813f34def87769eb77b39f4">baseGravity</a>;                            </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="class_main_window.html#a8a943387d38a0c3e9a081ddf7294ab02">   46</a></span>&#160;    <a class="code" href="class_touche_clavier.html" title="classe gérant les touches du clavier">ToucheClavier</a> *<a class="code" href="class_main_window.html#a8a943387d38a0c3e9a081ddf7294ab02">controleur</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="class_main_window.html#af7ab0b92006dbc3c112050ebabef645c">   47</a></span>&#160;    QVector&lt;QVector&lt;Brique*&gt; &gt; <a class="code" href="class_main_window.html#af7ab0b92006dbc3c112050ebabef645c">grilleBrique</a>;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="class_main_window.html#adc151f062737316f7ed8b6d7934a0f44">   48</a></span>&#160;    QVector&lt;QVector&lt;Bonus*&gt; &gt; <a class="code" href="class_main_window.html#adc151f062737316f7ed8b6d7934a0f44">grilleBonus</a>;      </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="class_main_window.html#ab22b1dfe1bc4ef00977f2110895f51c2">   49</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#ab22b1dfe1bc4ef00977f2110895f51c2">id</a>;                                     </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="class_main_window.html#af85cfe62c116f8d2f2021e5411b0356e">   50</a></span>&#160;    QTcpSocket *<a class="code" href="class_main_window.html#af85cfe62c116f8d2f2021e5411b0356e">socket</a>;                         </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="class_main_window.html#af878b69bed2d71c9d24095ae1ccebd41">   51</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#af878b69bed2d71c9d24095ae1ccebd41">end</a>;                                    </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="class_main_window.html#a2c111c6a751c8eb11e511dbb4691741c">   52</a></span>&#160;    QVector &lt; QPair&lt;int,int&gt; &gt; <a class="code" href="class_main_window.html#a2c111c6a751c8eb11e511dbb4691741c">entrer</a>;          </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a6fbd40db27747f24949453dd048ded4e" title="Slots de lecture Lit le message reçu et le traite.">readyRead</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ab0f207dba0ad81324d034d29988f8fd3" title="Slots de connection Initie les échanges de messages.">connected</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_main_window.html#a84599e1e3a30795923ac94fd8644940c" title="Constructeur.">MainWindow</a>(QString hote, QWidget * parent = 0);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a3429411ef19a93ade9f14a7752043462" title="Fonction de Création du niveau.">chargerNiveau</a>(QString niveau);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a9c4f542263838b9ecd06eae839a42a34" title="détéction des évènement clavier (touches enfoncées)">keyPressEvent</a>(QKeyEvent* event);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a6a706e2f733f701fe87e82e77294a035" title="détéction des évènement clavier (touches relachées)">keyReleaseEvent</a>(QKeyEvent* event);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#aaa425b1554af3c1f58cc70b4815082ae" title="timerEvent">timerEvent</a> ( QTimerEvent * event );</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#acb4c8d45756302a058178dec722bda35" title="ajoute une brique dans la vue">ajouterBrique</a>(<span class="keywordtype">bool</span> cassable, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a002047918cb0af4b2680c049607a9ac2" title="ajoute une explosion dans la vue L&#39;image d&#39;une explosion est ajoutée">ajouterExplosion</a>(<a class="code" href="class_bombe.html">Bombe</a> *bombe, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy, <span class="keywordtype">bool</span> end);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        QPoint <a class="code" href="class_main_window.html#a0075839d12a4537953cea1a8667d2f73" title="renvoie la position en pixel d&#39;un objet dans la scene">getPositionFromGrille</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a3ee05974a48a77176cc5ce8de20d74a3" title="renvoie l&#39;abscisse en pixel d&#39;un objet dans la scene">getPositionXFromGrille</a>(<span class="keywordtype">int</span> i);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a754ffa5f7e49647c22fd5dd8ec77e601" title="renvoie l&#39;ordonnée en pixel d&#39;un objet dans la scene">getPositionYFromGrille</a>(<span class="keywordtype">int</span> j);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a2e7b2aedba926ee3925917e4ac76d3ac" title="renvoie la colonne i d&#39;un objet dans la grille">getGrilleIFromPosition</a>(<span class="keywordtype">int</span> x);</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a5715cd3d0a7ca74c12880e95e0f940d0" title="renvoie la ligne j d&#39;un objet dans la grille">getGrilleJFromPosition</a>(<span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#aa247829763c9661274378b5e5f817d1a" title="fait bouger un personnage en prenant en compte les collisions">tryMove</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_main_window.html#a0bae2240dfb64b7115a5e4db30894a33" title="Test si un Joueur déplacé de x,y va entrer en collison avec une brique.">collisionTest</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ab4dd36eab1ebae847317f2b229edb4d2" title="fait sauter un personnage en prenant en compte les collisions">tryJump</a>();</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ae4188c5d28edb97bfa1926f796f8131d" title="inverse le signe de la gravité">toggleGravity</a>();</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a9cfc8436bfe6ddc6559ba8fb2f4ad9a6" title="renvoie la valeur de la gravité">getGravity</a>();</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a2efa30acc35d4a2532c9fba0b7d5f254" title="génère l&#39;explosion d&#39;une bombe">explosion</a> (<a class="code" href="class_bombe.html">Bombe</a> *bombe, <span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#adea63d77559c92391e15aebc61c26256" title="fait exploser toutes les bombes">triggerLastBombe</a>(<span class="keywordtype">int</span> bmId);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_main_window.html#a36a210a95a17262a4232cfd1d1da6689" title="regarde si une explosion touche un joueur">hitTest</a>(<span class="keywordtype">int</span> bI, <span class="keywordtype">int</span> bJ, <span class="keywordtype">int</span> bI2, <span class="keywordtype">int</span> bJ2);</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a22e42564f3c5d26f93f0bd1c0b7bcee3" title="détruit une brique, et décide si un bonus doit apparaître">detruireBrique</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ae8de412d5710c6751764dd76386058b6" title="ajoute un bonus dans la scene">ajouterBonus</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a7d979e96ac224e6704c36204d43917a9" title="vérifie si le joueur se trouve sur un bonus, et gère son obtntion si c&#39;est le cas">checkBonus</a>();</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;         <a class="code" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a>();</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;};</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ab35e6cb622be5a0b039cad83705107a5" title="ajoute un personnage dans la vue">ajouterPersonnage</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a01571302297e710a735c71bf3da9052d" title="ajoute une bombe dans la vue">ajouterBombe</a>(<span class="keywordtype">int</span> bmId, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">bool</span> w);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a002047918cb0af4b2680c049607a9ac2" title="ajoute une explosion dans la vue L&#39;image d&#39;une explosion est ajoutée">ajouterExplosion</a>(<a class="code" href="class_bombe.html" title="classe représentant les bombes">Bombe</a> *bombe, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy, <span class="keywordtype">bool</span> <a class="code" href="class_main_window.html#af878b69bed2d71c9d24095ae1ccebd41">end</a>);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    QPoint <a class="code" href="class_main_window.html#a0075839d12a4537953cea1a8667d2f73" title="renvoie la position en pixel d&#39;un objet dans la scene">getPositionFromGrille</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a3ee05974a48a77176cc5ce8de20d74a3" title="renvoie l&#39;abscisse en pixel d&#39;un objet dans la scene">getPositionXFromGrille</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a754ffa5f7e49647c22fd5dd8ec77e601" title="renvoie l&#39;ordonnée en pixel d&#39;un objet dans la scene">getPositionYFromGrille</a>(<span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a2e7b2aedba926ee3925917e4ac76d3ac" title="renvoie la colonne i d&#39;un objet dans la grille">getGrilleIFromPosition</a>(<span class="keywordtype">int</span> x);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a5715cd3d0a7ca74c12880e95e0f940d0" title="renvoie la ligne j d&#39;un objet dans la grille">getGrilleJFromPosition</a>(<span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#aa247829763c9661274378b5e5f817d1a" title="fait bouger un personnage en prenant en compte les collisions">tryMove</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_main_window.html#a0bae2240dfb64b7115a5e4db30894a33" title="Test si un Joueur déplacé de x,y va entrer en collison avec une brique.">collisionTest</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ab4dd36eab1ebae847317f2b229edb4d2" title="fait sauter un personnage en prenant en compte les collisions">tryJump</a>();</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ae4188c5d28edb97bfa1926f796f8131d" title="inverse le signe de la gravité">toggleGravity</a>();</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_main_window.html#a9cfc8436bfe6ddc6559ba8fb2f4ad9a6" title="renvoie la valeur de la gravité">getGravity</a>();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a2efa30acc35d4a2532c9fba0b7d5f254" title="génère l&#39;explosion d&#39;une bombe">explosion</a> (<a class="code" href="class_bombe.html" title="classe représentant les bombes">Bombe</a> *bombe, <span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a6897993396bdf71fec98c3782cd887a8" title="fait exploser toutes les bombes">triggerLastBombe</a>(<span class="keywordtype">int</span> bmId, <span class="keywordtype">bool</span> w);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_main_window.html#a36a210a95a17262a4232cfd1d1da6689" title="regarde si une explosion touche un joueur">hitTest</a>(<span class="keywordtype">int</span> bI, <span class="keywordtype">int</span> bJ, <span class="keywordtype">int</span> bI2, <span class="keywordtype">int</span> bJ2);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a192f41b24003a55293221688f6a510dd" title="détruit une brique, et décide si un bonus doit apparaître">detruireBrique</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <span class="keywordtype">int</span> idJ);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#aa87bc4d192520f53f4c39ced8fd4d2fb" title="ajoute un bonus dans la scene">ajouterBonus</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <span class="keywordtype">bool</span> w, <span class="keywordtype">int</span> t);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a7d979e96ac224e6704c36204d43917a9" title="vérifie si le joueur se trouve sur un bonus, et gère son obtention si c&#39;est le cas">checkBonus</a>();</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    QString <span class="keyword">const</span> <a class="code" href="class_main_window.html#a14634815419e92b85c211dbdfc7a9ad9" title="Permet de récupérer l&#39;hote ou l&#39;on va se connecter.">getHote</a> ();</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ab85ef1e838e9493432e69f359e3b89fd" title="vérifie si le joueur se trouve sur un bonus, et gère son obtntion si c&#39;est le cas">setHote</a>(QString hote);</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#af348f15fa4db82e06a9e43c620c74dc7" title="Initialisation et Connection de la socket au serveur.">connection</a>(QString hote);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#aead3917061a7773089e2045c605f3b98" title="affiche l&#39;écran de fin (victoire/défaite et score)">displayEndScreen</a>();</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <a class="code" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="Destructeur Destructeur de la classe MainWindow.">~MainWindow</a>();</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;};</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:43:58 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

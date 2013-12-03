@@ -1,10 +1,9 @@
-<map id="modele/bonus.h" name="modele/bonus.h">
-<area shape="rect" id="node3" href="$mainwindow_8h.html" title="vue/mainwindow.h" alt="" coords="217,83,348,112"/>
-<area shape="rect" id="node18" href="$bonus_8cpp.html" title="modele/bonus.cpp" alt="" coords="372,83,500,112"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="main.cpp" alt="" coords="5,160,80,189"/>
-<area shape="rect" id="node7" href="$fenetreserveur_8h.html" title="vue/fenetreserveur.h" alt="" coords="104,160,245,189"/>
-<area shape="rect" id="node11" href="$qbomberman_8cpp.html" title="vue/qbomberman.cpp" alt="" coords="209,237,356,267"/>
-<area shape="rect" id="node13" href="$mainwindow_8cpp.html" title="vue/mainwindow.cpp" alt="" coords="320,160,464,189"/>
-<area shape="rect" id="node15" href="$moc__mainwindow_8cpp.html" title="vue/moc_mainwindow.cpp" alt="" coords="488,160,664,189"/>
-<area shape="rect" id="node9" href="$fenetreserveur_8cpp.html" title="vue/fenetreserveur.cpp" alt="" coords="31,237,185,267"/>
+<map id="QBomberMan/code/Game1/modele/bonus.h" name="QBomberMan/code/Game1/modele/bonus.h">
+<area shape="rect" id="node3" href="$mainwindow_8h.html" title="QBomberMan/code/Game1\l/vue/mainwindow.h" alt="" coords="271,102,449,149"/>
+<area shape="rect" id="node16" href="$bonus_8cpp.html" title="QBomberMan/code/Game1\l/modele/bonus.cpp" alt="" coords="473,102,652,149"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="QBomberMan/code/Game1\l/main.cpp" alt="" coords="5,198,184,245"/>
+<area shape="rect" id="node7" href="$fenetreserveur_8h.html" title="QBomberMan/code/Game1\l/vue/fenetreserveur.h" alt="" coords="208,198,387,245"/>
+<area shape="rect" id="node11" href="$qbomberman_8cpp.html" title="QBomberMan/code/Game1\l/vue/qbomberman.cpp" alt="" coords="335,294,513,341"/>
+<area shape="rect" id="node13" href="$mainwindow_8cpp.html" title="QBomberMan/code/Game1\l/vue/mainwindow.cpp" alt="" coords="461,198,640,245"/>
+<area shape="rect" id="node9" href="$fenetreserveur_8cpp.html" title="QBomberMan/code/Game1\l/vue/fenetreserveur.cpp" alt="" coords="132,294,311,341"/>
 </map>

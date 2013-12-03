@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,6 +83,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_fenetre_serveur-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FenetreServeur Class Reference</div>  </div>
@@ -102,6 +104,14 @@ Collaboration diagram for FenetreServeur:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac14ce213fca8129c64b5cc6f4a94389b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fenetre_serveur.html#ac14ce213fca8129c64b5cc6f4a94389b">FenetreServeur</a> (QWidget *parent=0)</td></tr>
 <tr class="memitem:ad6f99c8e619765b50237edde96757bee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fenetre_serveur.html#ad6f99c8e619765b50237edde96757bee">~FenetreServeur</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr class="memitem:aecb853c5b663d2e0719bc3dd074991d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fenetre_serveur.html#aecb853c5b663d2e0719bc3dd074991d2">on_okButton_clicked</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5899b6c7d258dbabe241f58678e6a51c"><td class="memItemLeft" align="right" valign="top">Ui::FenetreServeur *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fenetre_serveur.html#a5899b6c7d258dbabe241f58678e6a51c">ui</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -150,14 +160,63 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2>Member Function Documentation</h2>
+<a class="anchor" id="aecb853c5b663d2e0719bc3dd074991d2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FenetreServeur::on_okButton_clicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="fenetreserveur_8cpp_source.html#l00018">18</a> of file <a class="el" href="fenetreserveur_8cpp_source.html">fenetreserveur.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="a5899b6c7d258dbabe241f58678e6a51c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Ui::FenetreServeur* FenetreServeur::ui</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="fenetreserveur_8h_source.html#l00028">28</a> of file <a class="el" href="fenetreserveur_8h_source.html">fenetreserveur.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>vue/<a class="el" href="fenetreserveur_8h_source.html">fenetreserveur.h</a></li>
-<li>vue/<a class="el" href="fenetreserveur_8cpp_source.html">fenetreserveur.cpp</a></li>
+<li>QBomberMan/code/Game1/vue/<a class="el" href="fenetreserveur_8h_source.html">fenetreserveur.h</a></li>
+<li>QBomberMan/code/Game1/vue/<a class="el" href="fenetreserveur_8cpp_source.html">fenetreserveur.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -1,11 +1,19 @@
 var searchData=
 [
-  ['bombe',['Bombe',['../class_bombe.html',1,'Bombe'],['../class_bombe.html#a45137baff70bfbcc52b517aeae77cf41',1,'Bombe::Bombe()']]],
+  ['background',['background',['../class_main_window.html#ae09a2dd68d40d4bf7f9d9ca28595918d',1,'MainWindow']]],
+  ['bas',['BAS',['../class_touche_clavier.html#af4eec9adcddda72cac212fa7a4bb7618adb06ec30d01e89128daad7bfa80d149f',1,'ToucheClavier']]],
+  ['basegravity',['baseGravity',['../class_main_window.html#a205359640813f34def87769eb77b39f4',1,'MainWindow']]],
+  ['bombe',['Bombe',['../class_bombe.html',1,'Bombe'],['../class_bombe.html#a45137baff70bfbcc52b517aeae77cf41',1,'Bombe::Bombe()'],['../class_bonus.html#a8d303cfff606c6057b0745f35b79c617ac9846bf5a883b0cf280240ff0648cc68',1,'Bonus::BOMBE()']]],
   ['bombe_2ecpp',['bombe.cpp',['../bombe_8cpp.html',1,'']]],
   ['bombe_2eh',['bombe.h',['../bombe_8h.html',1,'']]],
-  ['bonus',['Bonus',['../class_bonus.html',1,'Bonus'],['../class_bonus.html#a709d40a9c86d92f7bd9ff67117ffbff6',1,'Bonus::Bonus()']]],
+  ['bombermanid',['bomberManId',['../class_bombe.html#ac803e9b389fa25ecfaf0ce6fe7b3f017',1,'Bombe']]],
+  ['bombes',['bombes',['../class_joueur.html#a5fc89f630be7f6cd3533ad16fed0fa2f',1,'Joueur']]],
+  ['bonus',['Bonus',['../class_bonus.html',1,'Bonus'],['../class_bonus.html#a66a95374fc29b38883b9eb44a8643738',1,'Bonus::Bonus()']]],
   ['bonus_2ecpp',['bonus.cpp',['../bonus_8cpp.html',1,'']]],
   ['bonus_2eh',['bonus.h',['../bonus_8h.html',1,'']]],
+  ['bonusjump',['bonusJump',['../class_joueur.html#a4f53434b7fbe966047ae0214feba7a97',1,'Joueur']]],
+  ['bonuspower',['bonusPower',['../class_joueur.html#aeedc2131e5d6e6e5222a070e741b0a31',1,'Joueur']]],
+  ['bonustrigger',['bonusTrigger',['../class_joueur.html#ad2c62cd0c574a6b6c3ddb36efe362a06',1,'Joueur']]],
   ['brique',['Brique',['../class_brique.html',1,'Brique'],['../class_brique.html#aa224fc13c8c1c288adb93ec109273f0a',1,'Brique::Brique()']]],
   ['brique_2ecpp',['brique.cpp',['../brique_8cpp.html',1,'']]],
   ['brique_2eh',['brique.h',['../brique_8h.html',1,'']]]

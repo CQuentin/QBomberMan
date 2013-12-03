@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +83,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_bombe-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Bombe Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>classe représentant les bombes  
+ <a href="class_bombe.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="bombe_8h_source.html">bombe.h</a>&gt;</code></p>
 <div class="dynheader">
@@ -142,12 +146,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad49d181c2161b9d0ce858e8aa3f3a41f"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie l'identifiant du poseur de la bombe  <a href="#ad49d181c2161b9d0ce858e8aa3f3a41f"></a><br/></td></tr>
 <tr class="memitem:a42adb04a0c596879ca9c5d9e6d302cfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a42adb04a0c596879ca9c5d9e6d302cfd">stopCountDown</a> ()</td></tr>
 <tr class="memdesc:a42adb04a0c596879ca9c5d9e6d302cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">stop le timer de la bombe  <a href="#a42adb04a0c596879ca9c5d9e6d302cfd"></a><br/></td></tr>
+<tr class="memitem:a77a59a73301b6b9496ac36a70daaccdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a77a59a73301b6b9496ac36a70daaccdb">startCountDown</a> ()</td></tr>
+<tr class="memdesc:a77a59a73301b6b9496ac36a70daaccdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">lance le timer de la bombe  <a href="#a77a59a73301b6b9496ac36a70daaccdb"></a><br/></td></tr>
 <tr class="memitem:aabe389bc75cefba777b2544b1926ce56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#aabe389bc75cefba777b2544b1926ce56">~Bombe</a> ()</td></tr>
-<tr class="memdesc:aabe389bc75cefba777b2544b1926ce56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur Destructeur de la classe <a class="el" href="class_bombe.html">Bombe</a>.  <a href="#aabe389bc75cefba777b2544b1926ce56"></a><br/></td></tr>
+<tr class="memdesc:aabe389bc75cefba777b2544b1926ce56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur Destructeur de la classe <a class="el" href="class_bombe.html" title="classe représentant les bombes">Bombe</a>.  <a href="#aabe389bc75cefba777b2544b1926ce56"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a182b062019ef951448115dd4ef1fc200"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a182b062019ef951448115dd4ef1fc200">posX</a></td></tr>
+<tr class="memitem:a5e0587f4c44eab1648b2c4bb0894fb0b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a5e0587f4c44eab1648b2c4bb0894fb0b">posY</a></td></tr>
+<tr class="memitem:a6ac219922702fa116d093d81c8b08954"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a6ac219922702fa116d093d81c8b08954">hauteur</a></td></tr>
+<tr class="memitem:a9ca382be56daa1d9454af72c76a280f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a9ca382be56daa1d9454af72c76a280f2">largeur</a></td></tr>
+<tr class="memitem:a35e3c221c8dadb1a21876949e5a61f27"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a35e3c221c8dadb1a21876949e5a61f27">pauseSprite</a></td></tr>
+<tr class="memitem:a60c6a2991732f68d86ee32e07daa07bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a60c6a2991732f68d86ee32e07daa07bb">power</a></td></tr>
+<tr class="memitem:a1d9e4b45e4a5ce95aaf1257b38b8a9bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a1d9e4b45e4a5ce95aaf1257b38b8a9bc">countDown</a></td></tr>
+<tr class="memitem:aeb491b4e0dd554f3e555c5c8eadc8117"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#aeb491b4e0dd554f3e555c5c8eadc8117">exploding</a></td></tr>
+<tr class="memitem:a92f0b65278adb4df870cae9cc386b9f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a92f0b65278adb4df870cae9cc386b9f3">exploded</a></td></tr>
+<tr class="memitem:add13a367a46661e3378e2b65e0fc72ce"><td class="memItemLeft" align="right" valign="top">QVector&lt; QGraphicsPixmapItem * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#add13a367a46661e3378e2b65e0fc72ce">explosions</a></td></tr>
+<tr class="memitem:a1ba6b9e8415263271656d52566a21c22"><td class="memItemLeft" align="right" valign="top">QBasicTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a1ba6b9e8415263271656d52566a21c22">timer</a></td></tr>
+<tr class="memitem:acc871923335242e219379b9f8819ba84"><td class="memItemLeft" align="right" valign="top">QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#acc871923335242e219379b9f8819ba84">sprite</a></td></tr>
+<tr class="memitem:a251cc4ad5925958d8766258339913bb2"><td class="memItemLeft" align="right" valign="top">QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a251cc4ad5925958d8766258339913bb2">currentImage</a></td></tr>
+<tr class="memitem:a339b99feb438a933a01f8fa083e56227"><td class="memItemLeft" align="right" valign="top">QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#a339b99feb438a933a01f8fa083e56227">picture</a></td></tr>
+<tr class="memitem:ac803e9b389fa25ecfaf0ce6fe7b3f017"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bombe.html#ac803e9b389fa25ecfaf0ce6fe7b3f017">bomberManId</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="bombe_8h_source.html#l00014">14</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+<div class="textblock"><p>classe représentant les bombes </p>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00019">19</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a45137baff70bfbcc52b517aeae77cf41"></a>
 <div class="memitem">
@@ -186,13 +212,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructeur. </p>
-<p>Constructeur de la classe <a class="el" href="class_bombe.html">Bombe</a> </p>
+<p>Constructeur de la classe <a class="el" href="class_bombe.html" title="classe représentant les bombes">Bombe</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parent</td><td>: QObject parent </td></tr>
     <tr><td class="paramname">x</td><td>La position à l'abscisse de la bombe </td></tr>
     <tr><td class="paramname">y</td><td>La position à l'ordonnée de la bombe </td></tr>
-    <tr><td class="paramname">bmId</td><td>Identifiant du <a class="el" href="class_joueur.html">Joueur</a> ayant posé la bombe </td></tr>
+    <tr><td class="paramname">bmId</td><td>Identifiant du <a class="el" href="class_joueur.html" title="classe représentant les joueurs">Joueur</a> ayant posé la bombe </td></tr>
   </table>
   </dd>
 </dl>
@@ -215,10 +241,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Destructeur Destructeur de la classe <a class="el" href="class_bombe.html">Bombe</a>. </p>
+<p>Destructeur Destructeur de la classe <a class="el" href="class_bombe.html" title="classe représentant les bombes">Bombe</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00151">151</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00158">158</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -240,13 +266,13 @@ Public Member Functions</h2></td></tr>
 <p>ajoute une explosion au QVector explosions </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pExplosions</td><td></td></tr>
+    <tr><td class="paramname">pExplosion</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00132">132</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00139">139</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -267,7 +293,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>bomberManId </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00147">147</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00154">154</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -288,7 +314,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>explosions </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00136">136</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00143">143</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -309,7 +335,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>hauteur </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00048">48</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00053">53</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -330,7 +356,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>largeur </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00056">56</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00061">61</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +377,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>picture </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00068">68</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00073">73</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -372,7 +398,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>power </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00079">79</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00084">84</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -393,7 +419,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>posX </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00038">38</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00043">43</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -414,7 +440,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>posY </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00043">43</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00048">48</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -435,7 +461,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Vrai si exploded == 0, faux sinon </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00075">75</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00080">80</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -456,7 +482,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Vrai si exploding == true, faux sinon </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00072">72</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00077">77</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -483,7 +509,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00052">52</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00057">57</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -510,7 +536,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00060">60</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00065">65</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -537,7 +563,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00064">64</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00069">69</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -564,7 +590,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00083">83</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00088">88</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -591,7 +617,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00026">26</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00031">31</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -618,7 +644,27 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00032">32</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00037">37</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a77a59a73301b6b9496ac36a70daaccdb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bombe::startCountDown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>lance le timer de la bombe </p>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00026">26</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -665,7 +711,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00087">87</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00092">92</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
 
 </div>
 </div>
@@ -685,18 +731,364 @@ Public Member Functions</h2></td></tr>
 <p>fait exploser une bombe </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00140">140</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+<p>Definition at line <a class="el" href="bombe_8cpp_source.html#l00147">147</a> of file <a class="el" href="bombe_8cpp_source.html">bombe.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="ac803e9b389fa25ecfaf0ce6fe7b3f017"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Bombe::bomberManId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>l'id du <a class="el" href="class_joueur.html" title="classe représentant les joueurs">Joueur</a> qui a posé la bombe </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00036">36</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d9e4b45e4a5ce95aaf1257b38b8a9bc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Bombe::countDown</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>temps écoulé en ms avant l'explosion de la bombe </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00028">28</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a251cc4ad5925958d8766258339913bb2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPixmap Bombe::currentImage</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>l'image utilisée actuellement </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00034">34</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a92f0b65278adb4df870cae9cc386b9f3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Bombe::exploded</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>vrai si la bombe a explosé, faux sinon </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00030">30</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb491b4e0dd554f3e555c5c8eadc8117"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Bombe::exploding</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>vrai si la bombe est en train d'exploser, faux sinon </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00029">29</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="add13a367a46661e3378e2b65e0fc72ce"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVector&lt;QGraphicsPixmapItem*&gt; Bombe::explosions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>QVector des explosions de la bombe (une explosion étant une image de 20x20) </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00031">31</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ac219922702fa116d093d81c8b08954"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Bombe::hauteur</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>hauteur de la bombe </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00024">24</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ca382be56daa1d9454af72c76a280f2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Bombe::largeur</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>largeur de la bombe </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00025">25</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a35e3c221c8dadb1a21876949e5a61f27"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Bombe::pauseSprite</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>pause (en nombe de tic du timer) entre le changement de chaque image </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00026">26</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a339b99feb438a933a01f8fa083e56227"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QGraphicsPixmapItem* Bombe::picture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>l'image affiché </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00035">35</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a182b062019ef951448115dd4ef1fc200"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Bombe::posX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>position sur l'axe des abscisse </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00022">22</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e0587f4c44eab1648b2c4bb0894fb0b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Bombe::posY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>position sur l'axe des ordonnées </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00023">23</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a60c6a2991732f68d86ee32e07daa07bb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Bombe::power</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>puissance de la bombe (portée des explosions) </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00027">27</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc871923335242e219379b9f8819ba84"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPixmap Bombe::sprite</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>le fichier des sprites </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00033">33</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1ba6b9e8415263271656d52566a21c22"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QBasicTimer Bombe::timer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>timer gérant le countDown et le changement d'image </p>
+
+<p>Definition at line <a class="el" href="bombe_8h_source.html#l00032">32</a> of file <a class="el" href="bombe_8h_source.html">bombe.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>modele/<a class="el" href="bombe_8h_source.html">bombe.h</a></li>
-<li>modele/<a class="el" href="bombe_8cpp_source.html">bombe.cpp</a></li>
+<li>QBomberMan/code/Game1/modele/<a class="el" href="bombe_8h_source.html">bombe.h</a></li>
+<li>QBomberMan/code/Game1/modele/<a class="el" href="bombe_8cpp_source.html">bombe.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

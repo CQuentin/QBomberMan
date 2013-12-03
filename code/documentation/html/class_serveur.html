@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,11 +84,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_serveur-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Serveur Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>classe gérant le serveur  
+ <a href="class_serveur.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="serveur_8h_source.html">serveur.h</a>&gt;</code></p>
 <div class="dynheader">
@@ -101,22 +107,43 @@ Collaboration diagram for Serveur:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a77c2de9359b8d048fe657fb82d06558e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#a77c2de9359b8d048fe657fb82d06558e">Serveur</a> (int, QObject *parent=0)</td></tr>
+<tr class="memitem:a2b56792646ab151b6c9d664e955db126"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#a2b56792646ab151b6c9d664e955db126">Serveur</a> (int, int, QObject *parent=0)</td></tr>
+<tr class="memdesc:a2b56792646ab151b6c9d664e955db126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="#a2b56792646ab151b6c9d664e955db126"></a><br/></td></tr>
 <tr class="memitem:a722aefd65c9efab0b3e0646bf3440ea1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#a722aefd65c9efab0b3e0646bf3440ea1">~Serveur</a> ()</td></tr>
-<tr class="memdesc:a722aefd65c9efab0b3e0646bf3440ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_serveur.html#a722aefd65c9efab0b3e0646bf3440ea1" title="Serveur::~Serveur.">Serveur::~Serveur</a>.  <a href="#a722aefd65c9efab0b3e0646bf3440ea1"></a><br/></td></tr>
-<tr class="memitem:a214ae19f2f92efdcc2032d42c0c47008"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#a214ae19f2f92efdcc2032d42c0c47008">getSizem_clients</a> ()</td></tr>
-<tr class="memitem:a8e45231fa32192ea8e522cb8bb5aac0b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#a8e45231fa32192ea8e522cb8bb5aac0b">getm_nbUtilisateur</a> ()</td></tr>
+<tr class="memdesc:a722aefd65c9efab0b3e0646bf3440ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur Destructeur de la classe <a class="el" href="class_serveur.html" title="classe gérant le serveur">Serveur</a>.  <a href="#a722aefd65c9efab0b3e0646bf3440ea1"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:addb6fa11416f3810f3234dee05b74bc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#addb6fa11416f3810f3234dee05b74bc5">incomingConnection</a> (int descripteurSocket)</td></tr>
-<tr class="memdesc:addb6fa11416f3810f3234dee05b74bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_serveur.html#addb6fa11416f3810f3234dee05b74bc5" title="Serveur::incomingConnection.">Serveur::incomingConnection</a>.  <a href="#addb6fa11416f3810f3234dee05b74bc5"></a><br/></td></tr>
+<tr class="memdesc:addb6fa11416f3810f3234dee05b74bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots de gestion de connection Gestion de la connection d'un client.  <a href="#addb6fa11416f3810f3234dee05b74bc5"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr class="memitem:acefd3c6785bb3fafcc2e717c7f1b258f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#acefd3c6785bb3fafcc2e717c7f1b258f">readyRead</a> ()</td></tr>
+<tr class="memdesc:acefd3c6785bb3fafcc2e717c7f1b258f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots de lecture Lit le message reçu et le traite.  <a href="#acefd3c6785bb3fafcc2e717c7f1b258f"></a><br/></td></tr>
+<tr class="memitem:a12836ee0cffe52fc151029f293c0c22d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#a12836ee0cffe52fc151029f293c0c22d">disconnected</a> ()</td></tr>
+<tr class="memdesc:a12836ee0cffe52fc151029f293c0c22d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots de déconnection Gestion de la déconnection d'un client.  <a href="#a12836ee0cffe52fc151029f293c0c22d"></a><br/></td></tr>
+<tr class="memitem:aee91e8d760ac08e2d9d8c2641dd46726"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#aee91e8d760ac08e2d9d8c2641dd46726">envoyerListeUtilisateur</a> ()</td></tr>
+<tr class="memdesc:aee91e8d760ac08e2d9d8c2641dd46726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots de synchronisation des joueurs presents.  <a href="#aee91e8d760ac08e2d9d8c2641dd46726"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a2d9e90e546a1254b3b992cb340d0f073"><td class="memItemLeft" align="right" valign="top">QSet&lt; QTcpSocket * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#a2d9e90e546a1254b3b992cb340d0f073">m_clients</a></td></tr>
+<tr class="memitem:a7b427833dcd7ac215e3c665eb9efccd8"><td class="memItemLeft" align="right" valign="top">QMap&lt; QTcpSocket *, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#a7b427833dcd7ac215e3c665eb9efccd8">m_utilisateurs</a></td></tr>
+<tr class="memitem:ae71e93779475955e75c8133f345f4531"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#ae71e93779475955e75c8133f345f4531">m_nbUtilisateur</a></td></tr>
+<tr class="memitem:ab7a81f3f1d8fc0bccaa2f441259791f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#ab7a81f3f1d8fc0bccaa2f441259791f2">m_niv</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:abb3c4d217477f730fe16a597424be916"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serveur.html#abb3c4d217477f730fe16a597424be916">m_clientIdCourant</a> = -1</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="serveur_8h_source.html#l00012">12</a> of file <a class="el" href="serveur_8h_source.html">serveur.h</a>.</p>
+<div class="textblock"><p>classe gérant le serveur </p>
+<dl class="section author"><dt>Author</dt><dd>Jérémy VAZ BORGES et Sébastien TROUSSE </dd></dl>
+
+<p>Definition at line <a class="el" href="serveur_8h_source.html#l00022">22</a> of file <a class="el" href="serveur_8h_source.html">serveur.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a77c2de9359b8d048fe657fb82d06558e"></a>
+<a class="anchor" id="a2b56792646ab151b6c9d664e955db126"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -125,6 +152,12 @@ Protected Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>niv</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -139,6 +172,9 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructeur. </p>
+<dl class="section author"><dt>Author</dt><dd>Jérémy VAZ BORGES </dd></dl>
 
 <p>Definition at line <a class="el" href="serveur_8cpp_source.html#l00005">5</a> of file <a class="el" href="serveur_8cpp_source.html">serveur.cpp</a>.</p>
 
@@ -157,45 +193,67 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_serveur.html#a722aefd65c9efab0b3e0646bf3440ea1" title="Serveur::~Serveur.">Serveur::~Serveur</a>. </p>
-<p>Destructeur par défaut </p>
+<p>Destructeur Destructeur de la classe <a class="el" href="class_serveur.html" title="classe gérant le serveur">Serveur</a>. </p>
+<dl class="section author"><dt>Author</dt><dd>Sébastien TROUSSE </dd></dl>
 
-<p>Definition at line <a class="el" href="serveur_8cpp_source.html#l00014">14</a> of file <a class="el" href="serveur_8cpp_source.html">serveur.cpp</a>.</p>
+<p>Definition at line <a class="el" href="serveur_8cpp_source.html#l00012">12</a> of file <a class="el" href="serveur_8cpp_source.html">serveur.cpp</a>.</p>
 
 </div>
 </div>
 <h2>Member Function Documentation</h2>
-<a class="anchor" id="a8e45231fa32192ea8e522cb8bb5aac0b"></a>
+<a class="anchor" id="a12836ee0cffe52fc151029f293c0c22d"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Serveur::getm_nbUtilisateur </td>
+          <td class="memname">void Serveur::disconnected </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="serveur_8cpp_source.html#l00126">126</a> of file <a class="el" href="serveur_8cpp_source.html">serveur.cpp</a>.</p>
+<p>Slots de déconnection Gestion de la déconnection d'un client. </p>
+<dl class="section author"><dt>Author</dt><dd>Sébastien TROUSSE </dd></dl>
+
+<p>Definition at line <a class="el" href="serveur_8cpp_source.html#l00054">54</a> of file <a class="el" href="serveur_8cpp_source.html">serveur.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a214ae19f2f92efdcc2032d42c0c47008"></a>
+<a class="anchor" id="aee91e8d760ac08e2d9d8c2641dd46726"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Serveur::getSizem_clients </td>
+          <td class="memname">void Serveur::envoyerListeUtilisateur </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="serveur_8cpp_source.html#l00122">122</a> of file <a class="el" href="serveur_8cpp_source.html">serveur.cpp</a>.</p>
+<p>Slots de synchronisation des joueurs presents. </p>
+<dl class="section author"><dt>Author</dt><dd>Sébastien TROUSSE </dd></dl>
+
+<p>Definition at line <a class="el" href="serveur_8cpp_source.html#l00064">64</a> of file <a class="el" href="serveur_8cpp_source.html">serveur.cpp</a>.</p>
 
 </div>
 </div>
@@ -221,26 +279,164 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_serveur.html#addb6fa11416f3810f3234dee05b74bc5" title="Serveur::incomingConnection.">Serveur::incomingConnection</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">descripteurSocket</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Slots de gestion de connection Gestion de la connection d'un client. </p>
+<dl class="section author"><dt>Author</dt><dd>Jérémy VAZ BORGES et Sébastien TROUSSE </dd></dl>
 
-<p>Definition at line <a class="el" href="serveur_8cpp_source.html#l00105">105</a> of file <a class="el" href="serveur_8cpp_source.html">serveur.cpp</a>.</p>
+<p>Definition at line <a class="el" href="serveur_8cpp_source.html#l00075">75</a> of file <a class="el" href="serveur_8cpp_source.html">serveur.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acefd3c6785bb3fafcc2e717c7f1b258f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Serveur::readyRead </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Slots de lecture Lit le message reçu et le traite. </p>
+<dl class="section author"><dt>Author</dt><dd>Jérémy VAZ BORGES et Sébastien TROUSSE </dd></dl>
+
+<p>Definition at line <a class="el" href="serveur_8cpp_source.html#l00014">14</a> of file <a class="el" href="serveur_8cpp_source.html">serveur.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="abb3c4d217477f730fe16a597424be916"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Serveur::m_clientIdCourant = -1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Nombre maximum de client sur la partie </p>
+
+<p>Definition at line <a class="el" href="serveur_8h_source.html#l00073">73</a> of file <a class="el" href="serveur_8h_source.html">serveur.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d9e90e546a1254b3b992cb340d0f073"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSet&lt;QTcpSocket*&gt; Serveur::m_clients</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Liste des sockets clients </p>
+
+<p>Definition at line <a class="el" href="serveur_8h_source.html#l00070">70</a> of file <a class="el" href="serveur_8h_source.html">serveur.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae71e93779475955e75c8133f345f4531"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Serveur::m_nbUtilisateur</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Liste des sockets et identifiants clients </p>
+
+<p>Definition at line <a class="el" href="serveur_8h_source.html#l00072">72</a> of file <a class="el" href="serveur_8h_source.html">serveur.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab7a81f3f1d8fc0bccaa2f441259791f2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Serveur::m_niv</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Identifiant du client courant </p>
+
+<p>Definition at line <a class="el" href="serveur_8h_source.html#l00074">74</a> of file <a class="el" href="serveur_8h_source.html">serveur.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7b427833dcd7ac215e3c665eb9efccd8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMap&lt;QTcpSocket*,int &gt; Serveur::m_utilisateurs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="serveur_8h_source.html#l00071">71</a> of file <a class="el" href="serveur_8h_source.html">serveur.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>modele/reseau/<a class="el" href="serveur_8h_source.html">serveur.h</a></li>
-<li>modele/reseau/<a class="el" href="serveur_8cpp_source.html">serveur.cpp</a></li>
+<li>QBomberMan/code/Game1/modele/reseau/<a class="el" href="serveur_8h_source.html">serveur.h</a></li>
+<li>QBomberMan/code/Game1/modele/reseau/<a class="el" href="serveur_8cpp_source.html">serveur.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

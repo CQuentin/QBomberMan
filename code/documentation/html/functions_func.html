@@ -69,6 +69,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -85,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_j"><span>j</span></a></li>
       <li><a href="#index_k"><span>k</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
-      <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_q"><span>q</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
@@ -99,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,10 +122,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_bombe.html#a42738d18633c53173d18535f47fed1d0">Bombe</a>
 </li>
 <li>ajouterBombe()
-: <a class="el" href="class_main_window.html#adf5cb1a2308f40aafec7cefb5e57b18d">MainWindow</a>
+: <a class="el" href="class_main_window.html#a01571302297e710a735c71bf3da9052d">MainWindow</a>
 </li>
 <li>ajouterBonus()
-: <a class="el" href="class_main_window.html#ae8de412d5710c6751764dd76386058b6">MainWindow</a>
+: <a class="el" href="class_main_window.html#aa87bc4d192520f53f4c39ced8fd4d2fb">MainWindow</a>
 </li>
 <li>ajouterBrique()
 : <a class="el" href="class_main_window.html#acb4c8d45756302a058178dec722bda35">MainWindow</a>
@@ -141,7 +144,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_bombe.html#a45137baff70bfbcc52b517aeae77cf41">Bombe</a>
 </li>
 <li>Bonus()
-: <a class="el" href="class_bonus.html#a709d40a9c86d92f7bd9ff67117ffbff6">Bonus</a>
+: <a class="el" href="class_bonus.html#a66a95374fc29b38883b9eb44a8643738">Bonus</a>
 </li>
 <li>Brique()
 : <a class="el" href="class_brique.html#aa224fc13c8c1c288adb93ec109273f0a">Brique</a>
@@ -150,14 +153,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>chargerNiveau()
+: <a class="el" href="class_main_window.html#a3429411ef19a93ade9f14a7752043462">MainWindow</a>
+</li>
 <li>checkBonus()
 : <a class="el" href="class_main_window.html#a7d979e96ac224e6704c36204d43917a9">MainWindow</a>
 </li>
 <li>checkImmortality()
 : <a class="el" href="class_joueur.html#a3402fbcfe43acfdef938981b8bfd1b8a">Joueur</a>
 </li>
+<li>cheer()
+: <a class="el" href="class_joueur.html#a3fe3b0bee7ac50d6330920980df924bc">Joueur</a>
+</li>
 <li>collisionTest()
 : <a class="el" href="class_main_window.html#a0bae2240dfb64b7115a5e4db30894a33">MainWindow</a>
+</li>
+<li>connected()
+: <a class="el" href="class_main_window.html#ab0f207dba0ad81324d034d29988f8fd3">MainWindow</a>
+</li>
+<li>connection()
+: <a class="el" href="class_main_window.html#af348f15fa4db82e06a9e43c620c74dc7">MainWindow</a>
 </li>
 <li>courireD()
 : <a class="el" href="class_joueur.html#ad229627608240f55a2c680bb86b15dd5">Joueur</a>
@@ -173,15 +188,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_joueur.html#a7183c5e0e37aeba68cab0d0ea680e560">Joueur</a>
 </li>
 <li>detruireBrique()
-: <a class="el" href="class_main_window.html#a22e42564f3c5d26f93f0bd1c0b7bcee3">MainWindow</a>
+: <a class="el" href="class_main_window.html#a192f41b24003a55293221688f6a510dd">MainWindow</a>
 </li>
 <li>die()
 : <a class="el" href="class_joueur.html#aa2561b91be1e2d62c8d2652550ab3538">Joueur</a>
+</li>
+<li>disconnected()
+: <a class="el" href="class_serveur.html#a12836ee0cffe52fc151029f293c0c22d">Serveur</a>
+</li>
+<li>displayEndScreen()
+: <a class="el" href="class_main_window.html#aead3917061a7773089e2045c605f3b98">MainWindow</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>envoyerListeUtilisateur()
+: <a class="el" href="class_serveur.html#aee91e8d760ac08e2d9d8c2641dd46726">Serveur</a>
+</li>
 <li>estCassable()
 : <a class="el" href="class_brique.html#a3703582e631be7ddefed86fcabfe0ede">Brique</a>
 </li>
@@ -233,8 +257,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_bombe.html#acc6eddff13a84de34923d2524364bed3">Bombe</a>
 , <a class="el" href="class_joueur.html#a8dc0ddf507149fb0f8c16a1468f5a50b">Joueur</a>
 </li>
+<li>getHote()
+: <a class="el" href="class_main_window.html#a14634815419e92b85c211dbdfc7a9ad9">MainWindow</a>
+</li>
 <li>getId()
 : <a class="el" href="class_joueur.html#a344107187c8ff4cdcf133af7e2e2c794">Joueur</a>
+</li>
+<li>getKillBy()
+: <a class="el" href="class_joueur.html#ab9beac9ae95bbe67de0aafc98dece30a">Joueur</a>
 </li>
 <li>getLargeur()
 : <a class="el" href="class_bombe.html#a7faf1cc70ccf433d4d32ed03157993b4">Bombe</a>
@@ -243,18 +273,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>getLastBombe()
 : <a class="el" href="class_joueur.html#aa29ebf8cfe39cdb821bfc0170b93a509">Joueur</a>
 </li>
-<li>getm_nbUtilisateur()
-: <a class="el" href="class_serveur.html#a8e45231fa32192ea8e522cb8bb5aac0b">Serveur</a>
-</li>
 <li>getMaxBombes()
 : <a class="el" href="class_joueur.html#aa2cda4987999923d1dc78c9a0b2d532d">Joueur</a>
 </li>
 <li>getMaxH()
 : <a class="el" href="class_joueur.html#a501701e7e62ad2ef0aaa32c21f0637e1">Joueur</a>
 </li>
+<li>getNbKills()
+: <a class="el" href="class_joueur.html#a47a16668e14de582bdc0a01532cca8b9">Joueur</a>
+</li>
 <li>getPicture()
-: <a class="el" href="class_bombe.html#af42077c19c1b48296e01e15022975078">Bombe</a>
-, <a class="el" href="class_bonus.html#a17498b174189be9807730d1b244cde38">Bonus</a>
+: <a class="el" href="class_bonus.html#a17498b174189be9807730d1b244cde38">Bonus</a>
+, <a class="el" href="class_bombe.html#af42077c19c1b48296e01e15022975078">Bombe</a>
 , <a class="el" href="class_brique.html#a5a81d221adb493b30abda72eada383dd">Brique</a>
 , <a class="el" href="class_joueur.html#ac26789403c9d74329b28678c04103f8b">Joueur</a>
 </li>
@@ -270,8 +300,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>getPower()
 : <a class="el" href="class_bombe.html#a1db545d4d1d111c26912d94ba79f46fd">Bombe</a>
 </li>
-<li>getSizem_clients()
-: <a class="el" href="class_serveur.html#a214ae19f2f92efdcc2032d42c0c47008">Serveur</a>
+<li>getPowerBomb()
+: <a class="el" href="class_joueur.html#a4f6c88b4faa303439e0dede8c9809865">Joueur</a>
 </li>
 <li>getStateKeys()
 : <a class="el" href="class_touche_clavier.html#aa1bed6e27de19b250541a5c9e4c35d6f">ToucheClavier</a>
@@ -283,12 +313,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_joueur.html#a7a2371b9ba1a4754969391c75b84a46d">Joueur</a>
 </li>
 <li>getX()
-: <a class="el" href="class_bombe.html#a4a8d1892a8eee21eb98b0c16faa82fb8">Bombe</a>
-, <a class="el" href="class_joueur.html#a49cec60d6a245792394561bc13fcc71c">Joueur</a>
+: <a class="el" href="class_joueur.html#a49cec60d6a245792394561bc13fcc71c">Joueur</a>
+, <a class="el" href="class_bombe.html#a4a8d1892a8eee21eb98b0c16faa82fb8">Bombe</a>
 </li>
 <li>getY()
-: <a class="el" href="class_joueur.html#a4283c8c140f7e8f802bf0f0f33f263e6">Joueur</a>
-, <a class="el" href="class_bombe.html#a3481f692bb7fab48d0592a55015ba88e">Bombe</a>
+: <a class="el" href="class_bombe.html#a3481f692bb7fab48d0592a55015ba88e">Bombe</a>
+, <a class="el" href="class_joueur.html#a4283c8c140f7e8f802bf0f0f33f263e6">Joueur</a>
 </li>
 </ul>
 
@@ -318,6 +348,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>incrNbBombe()
 : <a class="el" href="class_joueur.html#ad1a2b063f98828b25223ffb2d640bbe2">Joueur</a>
+</li>
+<li>incrNbKills()
+: <a class="el" href="class_joueur.html#af78ccafa5a83f83512c23f3755b3c4fd">Joueur</a>
 </li>
 <li>isAlive()
 : <a class="el" href="class_joueur.html#a21c8a0dd3bc2a41ce85895e400cb7594">Joueur</a>
@@ -356,14 +389,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>MainWindow()
-: <a class="el" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db">MainWindow</a>
+: <a class="el" href="class_main_window.html#a84599e1e3a30795923ac94fd8644940c">MainWindow</a>
 </li>
 </ul>
 
 
-<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
-<li>newPosition()
-: <a class="el" href="class_joueur.html#a54af66d5801699885c73dbe1b0b3a62b">Joueur</a>
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>on_creerPartie_clicked()
+: <a class="el" href="class_q_bomber_man.html#a473301022b51a119a87939f57c0cdbf2">QBomberMan</a>
+</li>
+<li>on_okButton_clicked()
+: <a class="el" href="class_fenetre_serveur.html#aecb853c5b663d2e0719bc3dd074991d2">FenetreServeur</a>
+, <a class="el" href="class_q_bomber_man.html#a90cc952f5310c49324cfade2039f349f">QBomberMan</a>
+</li>
+<li>on_rejoindreBtn_clicked()
+: <a class="el" href="class_q_bomber_man.html#a53ec57a96b4c845a90cf355a5fe6dc83">QBomberMan</a>
+</li>
+<li>on_rejoindreChannel_clicked()
+: <a class="el" href="class_q_bomber_man.html#ad26161be8517b25fa7b8e1e5fa0de103">QBomberMan</a>
 </li>
 </ul>
 
@@ -376,6 +419,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>readyRead()
+: <a class="el" href="class_serveur.html#acefd3c6785bb3fafcc2e717c7f1b258f">Serveur</a>
+, <a class="el" href="class_main_window.html#a6fbd40db27747f24949453dd048ded4e">MainWindow</a>
+</li>
 <li>receiveBonus()
 : <a class="el" href="class_joueur.html#a94313d8dcc960bf7ad5945e77e30f9d8">Joueur</a>
 </li>
@@ -390,7 +437,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>Serveur()
-: <a class="el" href="class_serveur.html#a77c2de9359b8d048fe657fb82d06558e">Serveur</a>
+: <a class="el" href="class_serveur.html#a2b56792646ab151b6c9d664e955db126">Serveur</a>
 </li>
 <li>setCoordSprite()
 : <a class="el" href="class_joueur.html#a3aa1a83f874162285fc66779626094a9">Joueur</a>
@@ -405,11 +452,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_bombe.html#a3cb6377a7db441816444204ea8b8246d">Bombe</a>
 , <a class="el" href="class_joueur.html#ab268e0494f117ffcfd2df8fe1e92e6bf">Joueur</a>
 </li>
+<li>setHote()
+: <a class="el" href="class_main_window.html#ab85ef1e838e9493432e69f359e3b89fd">MainWindow</a>
+</li>
 <li>setId()
 : <a class="el" href="class_joueur.html#a3a93b087c019bb913e3ed46d61d7a811">Joueur</a>
 </li>
 <li>setImmortality()
 : <a class="el" href="class_joueur.html#ae5dde4fe758904bf02920f67edad5ae0">Joueur</a>
+</li>
+<li>setKillBy()
+: <a class="el" href="class_joueur.html#a10ee032b0c569b9c63f41bbcaf440e91">Joueur</a>
 </li>
 <li>setLargeur()
 : <a class="el" href="class_bombe.html#a5d17f01305c93b99e12b9fcf81866d15">Bombe</a>
@@ -425,18 +478,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_joueur.html#a41e4c1c93f82ec82d49e4a68fb1b79fe">Joueur</a>
 </li>
 <li>setPicture()
-: <a class="el" href="class_brique.html#ac16238b730f35bb384e2807559446abd">Brique</a>
+: <a class="el" href="class_bombe.html#aed3186d355659c02826339037b392132">Bombe</a>
+, <a class="el" href="class_brique.html#ac16238b730f35bb384e2807559446abd">Brique</a>
 , <a class="el" href="class_joueur.html#ae9df920f1084987fa54008fced20de69">Joueur</a>
-, <a class="el" href="class_bombe.html#aed3186d355659c02826339037b392132">Bombe</a>
 </li>
 <li>setPower()
 : <a class="el" href="class_bombe.html#a4e425f50acc669c72e25f7f5786c19b4">Bombe</a>
+</li>
+<li>setPowerBomb()
+: <a class="el" href="class_joueur.html#aba823ae5cb777efd3e3952331aec4c8f">Joueur</a>
 </li>
 <li>setPressed()
 : <a class="el" href="class_touche_clavier.html#a6e103a74588f04f4599539f40d2866ee">ToucheClavier</a>
 </li>
 <li>setTired()
 : <a class="el" href="class_joueur.html#a25e070373a59fdd545d40b8691a35755">Joueur</a>
+</li>
+<li>setTriggerBomb()
+: <a class="el" href="class_joueur.html#aae7cfd15f5330bce43659ffe620c7815">Joueur</a>
 </li>
 <li>setX()
 : <a class="el" href="class_joueur.html#a3b3eb965d19ddfff227f0ee65956fa9d">Joueur</a>
@@ -445,6 +504,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>setY()
 : <a class="el" href="class_joueur.html#a52340c9eed27b7fc9e19826a524f9cf0">Joueur</a>
 , <a class="el" href="class_bombe.html#a03e2147ae2d8c51b1d485edc46d11092">Bombe</a>
+</li>
+<li>startCountDown()
+: <a class="el" href="class_bombe.html#a77a59a73301b6b9496ac36a70daaccdb">Bombe</a>
 </li>
 <li>stopCountDown()
 : <a class="el" href="class_bombe.html#a42adb04a0c596879ca9c5d9e6d302cfd">Bombe</a>
@@ -465,10 +527,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>trigger()
 : <a class="el" href="class_bombe.html#a98ac4accec949f0fba99e8f8ca656840">Bombe</a>
-, <a class="el" href="class_joueur.html#a87ed1c9d4a60c76c58d201a5a8b42242">Joueur</a>
 </li>
 <li>triggerLastBombe()
-: <a class="el" href="class_main_window.html#adea63d77559c92391e15aebc61c26256">MainWindow</a>
+: <a class="el" href="class_main_window.html#a6897993396bdf71fec98c3782cd887a8">MainWindow</a>
 </li>
 <li>tryDropBombe()
 : <a class="el" href="class_joueur.html#a60fe638abb3a92871eed965ed50455fa">Joueur</a>
@@ -514,7 +575,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

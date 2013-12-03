@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,15 +88,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_serveur.html">Serveur</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_serveur.html#a8e45231fa32192ea8e522cb8bb5aac0b">getm_nbUtilisateur</a>()</td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_serveur.html#a214ae19f2f92efdcc2032d42c0c47008">getSizem_clients</a>()</td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serveur.html#a12836ee0cffe52fc151029f293c0c22d">disconnected</a>()</td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">slot</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_serveur.html#aee91e8d760ac08e2d9d8c2641dd46726">envoyerListeUtilisateur</a>()</td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">slot</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_serveur.html#addb6fa11416f3810f3234dee05b74bc5">incomingConnection</a>(int descripteurSocket)</td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_serveur.html#a77c2de9359b8d048fe657fb82d06558e">Serveur</a>(int, QObject *parent=0)</td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_serveur.html#abb3c4d217477f730fe16a597424be916">m_clientIdCourant</a></td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serveur.html#a2d9e90e546a1254b3b992cb340d0f073">m_clients</a></td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_serveur.html#ae71e93779475955e75c8133f345f4531">m_nbUtilisateur</a></td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serveur.html#ab7a81f3f1d8fc0bccaa2f441259791f2">m_niv</a></td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_serveur.html#a7b427833dcd7ac215e3c665eb9efccd8">m_utilisateurs</a></td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serveur.html#acefd3c6785bb3fafcc2e717c7f1b258f">readyRead</a>()</td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">slot</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_serveur.html#a2b56792646ab151b6c9d664e955db126">Serveur</a>(int, int, QObject *parent=0)</td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_serveur.html#a722aefd65c9efab0b3e0646bf3440ea1">~Serveur</a>()</td><td class="entry"><a class="el" href="class_serveur.html">Serveur</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

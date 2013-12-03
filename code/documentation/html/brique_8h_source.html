@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>QBomberman++: modele/brique.h Source File</title>
+<title>QBomberman++: QBomberMan/code/Game1/modele/brique.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_2e0e0ebfc332dfb3a8c7a05d4cfced85.html">modele</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_b7cb77d441a293e414264780b072b694.html">QBomberMan</a></li><li class="navelem"><a class="el" href="dir_0fc5a2a9c35e83be82275418a72dd579.html">code</a></li><li class="navelem"><a class="el" href="dir_a7abab8619881ab39783d957bb28ecc4.html">Game1</a></li><li class="navelem"><a class="el" href="dir_6406a86e2e8adf859ca73a396e80b643.html">modele</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -90,37 +90,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <a href="brique_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef BRIQUE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BRIQUE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QGraphicsPixmapItem&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QPixmap&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="code" href="class_brique.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_brique.html">Brique</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span> :</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">bool</span> cassable;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">int</span> posX;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">int</span> posY;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> setX(<span class="keywordtype">int</span> x);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> setY(<span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QGraphicsPixmapItem *picture;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_brique.html#aa224fc13c8c1c288adb93ec109273f0a" title="Constructeur.">Brique</a>(<span class="keywordtype">bool</span> cassable, <span class="keywordtype">int</span> x , <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QGraphicsPixmapItem *<a class="code" href="class_brique.html#a5a81d221adb493b30abda72eada383dd" title="renvoie l&#39;attribut picture">getPicture</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_brique.html#ac16238b730f35bb384e2807559446abd" title="assignation d&#39;un QGraphicsPixmapItem à l&#39;attribut picture">setPicture</a>(QGraphicsPixmapItem *);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_brique.html#a3703582e631be7ddefed86fcabfe0ede" title="regarde si la brique est cassable">estCassable</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="class_brique.html#a6727cbeb21e64b49106506b7400a6121" title="Destructeur Destructeur de la classe Brique.">~Brique</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif // BRIQUE_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_brique.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_brique.html" title="classe représentant les briques">Brique</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span> :</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_brique.html#a906d604d5de2b82f4b26e34307f4d44b">   16</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_brique.html#a906d604d5de2b82f4b26e34307f4d44b">cassable</a>;                      </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="class_brique.html#a932f312b86b75c30bd1ef65c2bf3ba96">   17</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_brique.html#a932f312b86b75c30bd1ef65c2bf3ba96">posX</a>;                           </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_brique.html#aa585d824ad1d1987cee9a47656c3b435">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_brique.html#aa585d824ad1d1987cee9a47656c3b435">posY</a>;                           </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="class_brique.html#aed7e712bab309e4e0c9914abd35d9cbb">   19</a></span>&#160;    QGraphicsPixmapItem *<a class="code" href="class_brique.html#aed7e712bab309e4e0c9914abd35d9cbb">picture</a>;       </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_brique.html#aa224fc13c8c1c288adb93ec109273f0a" title="Constructeur.">Brique</a>(<span class="keywordtype">bool</span> <a class="code" href="class_brique.html#a906d604d5de2b82f4b26e34307f4d44b">cassable</a>, <span class="keywordtype">int</span> x , <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QGraphicsPixmapItem *<a class="code" href="class_brique.html#a5a81d221adb493b30abda72eada383dd" title="renvoie l&#39;attribut picture">getPicture</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_brique.html#ac16238b730f35bb384e2807559446abd" title="assignation d&#39;un QGraphicsPixmapItem à l&#39;attribut picture">setPicture</a>(QGraphicsPixmapItem *);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_brique.html#a3703582e631be7ddefed86fcabfe0ede" title="regarde si la brique est cassable">estCassable</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_brique.html#a6727cbeb21e64b49106506b7400a6121" title="Destructeur Destructeur de la classe Brique.">~Brique</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif // BRIQUE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:43:58 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

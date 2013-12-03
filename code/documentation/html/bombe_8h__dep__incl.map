@@ -1,14 +1,13 @@
-<map id="modele/bombe.h" name="modele/bombe.h">
-<area shape="rect" id="node3" href="$joueur_8h.html" title="modele/joueur.h" alt="" coords="487,83,601,112"/>
-<area shape="rect" id="node5" href="$mainwindow_8h.html" title="vue/mainwindow.h" alt="" coords="327,160,457,189"/>
-<area shape="rect" id="node28" href="$bombe_8cpp.html" title="modele/bombe.cpp" alt="" coords="625,83,756,112"/>
-<area shape="rect" id="node20" href="$joueur_8cpp.html" title="modele/joueur.cpp" alt="" coords="671,160,799,189"/>
-<area shape="rect" id="node22" href="$serveur_8h.html" title="modele/reseau/serveur.h" alt="" coords="481,160,647,189"/>
-<area shape="rect" id="node7" href="$main_8cpp.html" title="main.cpp" alt="" coords="395,237,469,267"/>
-<area shape="rect" id="node9" href="$fenetreserveur_8h.html" title="vue/fenetreserveur.h" alt="" coords="493,237,635,267"/>
-<area shape="rect" id="node13" href="$qbomberman_8cpp.html" title="vue/qbomberman.cpp" alt="" coords="116,315,263,344"/>
-<area shape="rect" id="node15" href="$mainwindow_8cpp.html" title="vue/mainwindow.cpp" alt="" coords="27,237,171,267"/>
-<area shape="rect" id="node17" href="$moc__mainwindow_8cpp.html" title="vue/moc_mainwindow.cpp" alt="" coords="195,237,371,267"/>
-<area shape="rect" id="node11" href="$fenetreserveur_8cpp.html" title="vue/fenetreserveur.cpp" alt="" coords="487,315,641,344"/>
-<area shape="rect" id="node24" href="$serveur_8cpp.html" title="modele/reseau/serveur.cpp" alt="" coords="659,237,837,267"/>
+<map id="QBomberMan/code/Game1/modele/bombe.h" name="QBomberMan/code/Game1/modele/bombe.h">
+<area shape="rect" id="node3" href="$joueur_8h.html" title="QBomberMan/code/Game1\l/modele/joueur.h" alt="" coords="330,102,509,149"/>
+<area shape="rect" id="node25" href="$bombe_8cpp.html" title="QBomberMan/code/Game1\l/modele/bombe.cpp" alt="" coords="533,102,712,149"/>
+<area shape="rect" id="node5" href="$mainwindow_8h.html" title="QBomberMan/code/Game1\l/vue/mainwindow.h" alt="" coords="128,198,306,245"/>
+<area shape="rect" id="node18" href="$joueur_8cpp.html" title="QBomberMan/code/Game1\l/modele/joueur.cpp" alt="" coords="330,198,509,245"/>
+<area shape="rect" id="node20" href="$serveur_8h.html" title="Gestion de la partie réseau coté serveur." alt="" coords="533,198,712,245"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title="QBomberMan/code/Game1\l/main.cpp" alt="" coords="229,294,408,341"/>
+<area shape="rect" id="node9" href="$fenetreserveur_8h.html" title="QBomberMan/code/Game1\l/vue/fenetreserveur.h" alt="" coords="432,294,610,341"/>
+<area shape="rect" id="node13" href="$qbomberman_8cpp.html" title="QBomberMan/code/Game1\l/vue/qbomberman.cpp" alt="" coords="65,390,244,437"/>
+<area shape="rect" id="node15" href="$mainwindow_8cpp.html" title="QBomberMan/code/Game1\l/vue/mainwindow.cpp" alt="" coords="26,294,205,341"/>
+<area shape="rect" id="node11" href="$fenetreserveur_8cpp.html" title="QBomberMan/code/Game1\l/vue/fenetreserveur.cpp" alt="" coords="432,390,610,437"/>
+<area shape="rect" id="node22" href="$serveur_8cpp.html" title="QBomberMan/code/Game1\l/modele/reseau/serveur.cpp" alt="" coords="634,294,816,341"/>
 </map>

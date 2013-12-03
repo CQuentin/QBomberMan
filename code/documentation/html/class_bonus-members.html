@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,14 +88,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_bonus.html">Bonus</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_bonus.html#a709d40a9c86d92f7bd9ff67117ffbff6">Bonus</a>(int x, int y)</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_bonus.html#a8d303cfff606c6057b0745f35b79c617ac9846bf5a883b0cf280240ff0648cc68">BOMBE</a> enum value</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_bonus.html#a66a95374fc29b38883b9eb44a8643738">Bonus</a>(int x, int y, int t)</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_bonus.html#a8d303cfff606c6057b0745f35b79c617aedefdb502a93b0a1fa9a3e89d95405c2">EXPLOSION</a> enum value</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_bonus.html#a8c56ab664772b65e0a607fc011b802b8">getBonusType</a>()</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_bonus.html#a17498b174189be9807730d1b244cde38">getPicture</a>()</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bonus.html#ace96cd91925b1f65b2c8596930fed6f5">~Bonus</a>()</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_bonus.html#a8d303cfff606c6057b0745f35b79c617a0579187c468426a4cc0821259d268051">HP</a> enum value</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_bonus.html#a8d303cfff606c6057b0745f35b79c617a8714daee59ed1f221243c3b1dc432a1b">JUMP</a> enum value</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_bonus.html#a9c69ba6eafebd167a06b832d306bfc03">picture</a></td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_bonus.html#a8bb233ee594d54e30804cb90d4d4f0e8">posX</a></td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_bonus.html#aedf2c37ccea9a04302ed8e241d3feb55">posY</a></td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_bonus.html#a8d303cfff606c6057b0745f35b79c617a2a84573193c181781e9b9c5d94466f9e">SPEED</a> enum value</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_bonus.html#a8d303cfff606c6057b0745f35b79c617a9e39e47ca0f800cf721bec583dd96023">TRIGGER</a> enum value</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_bonus.html#aafa44bd11bf3fbd095e1d2b97fa5212e">type</a></td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_bonus.html#a8d303cfff606c6057b0745f35b79c617">types</a> enum name</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_bonus.html#ace96cd91925b1f65b2c8596930fed6f5">~Bonus</a>()</td><td class="entry"><a class="el" href="class_bonus.html">Bonus</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

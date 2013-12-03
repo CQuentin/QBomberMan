@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,6 +83,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_touche_clavier-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ToucheClavier Class Reference</div>  </div>
@@ -111,13 +113,66 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa1bed6e27de19b250541a5c9e4c35d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'état d'une touche (pressée ou non)  <a href="#aa1bed6e27de19b250541a5c9e4c35d6f"></a><br/></td></tr>
 <tr class="memitem:a6bf0c8207dd82e40a9f29dee16865792"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_touche_clavier.html#a6bf0c8207dd82e40a9f29dee16865792">~ToucheClavier</a> ()</td></tr>
 <tr class="memdesc:a6bf0c8207dd82e40a9f29dee16865792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur Destructeur de la classe <a class="el" href="class_touche_clavier.html" title="classe gérant les touches du clavier">ToucheClavier</a>.  <a href="#a6bf0c8207dd82e40a9f29dee16865792"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:af4eec9adcddda72cac212fa7a4bb7618"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_touche_clavier.html#af4eec9adcddda72cac212fa7a4bb7618">touches</a> { <br/>
+&#160;&#160;<a class="el" href="class_touche_clavier.html#af4eec9adcddda72cac212fa7a4bb7618af281f144a832830b0c36ae98c52e8159">HAUT</a> = 0, 
+<a class="el" href="class_touche_clavier.html#af4eec9adcddda72cac212fa7a4bb7618a134293a1bb4b01b8751423d862070a21">GAUCHE</a> =  1, 
+<a class="el" href="class_touche_clavier.html#af4eec9adcddda72cac212fa7a4bb7618adb06ec30d01e89128daad7bfa80d149f">BAS</a> =  2, 
+<a class="el" href="class_touche_clavier.html#af4eec9adcddda72cac212fa7a4bb7618a028717f1b0064c3d961049e79ffe33af">DROIT</a> =  3, 
+<br/>
+&#160;&#160;<a class="el" href="class_touche_clavier.html#af4eec9adcddda72cac212fa7a4bb7618a4248ec591873fb2ee57bdc7df9c8ca75">ESPACE</a> =  4
+<br/>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4c1dbbff1e7f6a774597859c21fbbae2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_touche_clavier.html#a4c1dbbff1e7f6a774597859c21fbbae2">stateKeys</a> [5]</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>classe gérant les touches du clavier </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
 <p>Definition at line <a class="el" href="toucheclavier_8h_source.html#l00018">18</a> of file <a class="el" href="toucheclavier_8h_source.html">toucheclavier.h</a>.</p>
-</div><h2>Constructor &amp; Destructor Documentation</h2>
+</div><h2>Member Enumeration Documentation</h2>
+<a class="anchor" id="af4eec9adcddda72cac212fa7a4bb7618"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_touche_clavier.html#af4eec9adcddda72cac212fa7a4bb7618">ToucheClavier::touches</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="af4eec9adcddda72cac212fa7a4bb7618af281f144a832830b0c36ae98c52e8159"></a>HAUT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="af4eec9adcddda72cac212fa7a4bb7618a134293a1bb4b01b8751423d862070a21"></a>GAUCHE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="af4eec9adcddda72cac212fa7a4bb7618adb06ec30d01e89128daad7bfa80d149f"></a>BAS</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="af4eec9adcddda72cac212fa7a4bb7618a028717f1b0064c3d961049e79ffe33af"></a>DROIT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="af4eec9adcddda72cac212fa7a4bb7618a4248ec591873fb2ee57bdc7df9c8ca75"></a>ESPACE</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+<p>Definition at line <a class="el" href="toucheclavier_8h_source.html#l00022">22</a> of file <a class="el" href="toucheclavier_8h_source.html">toucheclavier.h</a>.</p>
+
+</div>
+</div>
+<h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a42e2c21897c3cf95d2f51de70b7e4c3f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -225,14 +280,38 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="a4c1dbbff1e7f6a774597859c21fbbae2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ToucheClavier::stateKeys[5]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Tableau de l'état (préssée ou non) des touches </p>
+
+<p>Definition at line <a class="el" href="toucheclavier_8h_source.html#l00030">30</a> of file <a class="el" href="toucheclavier_8h_source.html">toucheclavier.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>controleur/<a class="el" href="toucheclavier_8h_source.html">toucheclavier.h</a></li>
-<li>controleur/<a class="el" href="toucheclavier_8cpp_source.html">toucheclavier.cpp</a></li>
+<li>QBomberMan/code/Game1/controleur/<a class="el" href="toucheclavier_8h_source.html">toucheclavier.h</a></li>
+<li>QBomberMan/code/Game1/controleur/<a class="el" href="toucheclavier_8cpp_source.html">toucheclavier.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -1,9 +1,9 @@
-<map id="vue/fenetreserveur.h" name="vue/fenetreserveur.h">
-<area shape="rect" id="node7" href="$serveur_8h.html" title="modele/reseau/serveur.h" alt="" coords="232,83,397,112"/>
-<area shape="rect" id="node53" href="$mainwindow_8h.html" title="mainwindow.h" alt="" coords="1180,83,1284,112"/>
-<area shape="rect" id="node19" href="$joueur_8h.html" title="modele/joueur.h" alt="" coords="501,160,616,189"/>
-<area shape="rect" id="node35" href="$brique_8h.html" title="brique.h" alt="" coords="751,315,817,344"/>
-<area shape="rect" id="node40" href="$bombe_8h.html" title="bombe.h" alt="" coords="892,237,964,267"/>
-<area shape="rect" id="node76" href="$bonus_8h.html" title="../modele/bonus.h" alt="" coords="1575,315,1700,344"/>
-<area shape="rect" id="node84" href="$toucheclavier_8h.html" title="Gestion des touches du clavier." alt="" coords="1141,160,1323,189"/>
+<map id="QBomberMan/code/Game1/vue/fenetreserveur.h" name="QBomberMan/code/Game1/vue/fenetreserveur.h">
+<area shape="rect" id="node7" href="$serveur_8h.html" title="Gestion de la partie réseau coté serveur." alt="" coords="232,101,397,131"/>
+<area shape="rect" id="node54" href="$mainwindow_8h.html" title="mainwindow.h" alt="" coords="1244,101,1348,131"/>
+<area shape="rect" id="node19" href="$joueur_8h.html" title="modele/joueur.h" alt="" coords="384,179,499,208"/>
+<area shape="rect" id="node35" href="$brique_8h.html" title="brique.h" alt="" coords="1035,333,1101,363"/>
+<area shape="rect" id="node39" href="$bombe_8h.html" title="bombe.h" alt="" coords="768,256,840,285"/>
+<area shape="rect" id="node80" href="$bonus_8h.html" title="../modele/bonus.h" alt="" coords="1613,333,1739,363"/>
+<area shape="rect" id="node87" href="$toucheclavier_8h.html" title="Gestion des touches du clavier." alt="" coords="1205,179,1387,208"/>
 </map>

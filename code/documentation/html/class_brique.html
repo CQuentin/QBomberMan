@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +83,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_brique-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Brique Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>classe représentant les briques  
+ <a href="class_brique.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="brique_8h_source.html">brique.h</a>&gt;</code></p>
 <div class="dynheader">
@@ -100,7 +104,7 @@ Collaboration diagram for Brique:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa224fc13c8c1c288adb93ec109273f0a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brique.html#aa224fc13c8c1c288adb93ec109273f0a">Brique</a> (bool cassable, int x, int y)</td></tr>
+<tr class="memitem:aa224fc13c8c1c288adb93ec109273f0a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brique.html#aa224fc13c8c1c288adb93ec109273f0a">Brique</a> (bool <a class="el" href="class_brique.html#a906d604d5de2b82f4b26e34307f4d44b">cassable</a>, int x, int y)</td></tr>
 <tr class="memdesc:aa224fc13c8c1c288adb93ec109273f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="#aa224fc13c8c1c288adb93ec109273f0a"></a><br/></td></tr>
 <tr class="memitem:a5a81d221adb493b30abda72eada383dd"><td class="memItemLeft" align="right" valign="top">QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brique.html#a5a81d221adb493b30abda72eada383dd">getPicture</a> ()</td></tr>
 <tr class="memdesc:a5a81d221adb493b30abda72eada383dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie l'attribut picture  <a href="#a5a81d221adb493b30abda72eada383dd"></a><br/></td></tr>
@@ -109,11 +113,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3703582e631be7ddefed86fcabfe0ede"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brique.html#a3703582e631be7ddefed86fcabfe0ede">estCassable</a> ()</td></tr>
 <tr class="memdesc:a3703582e631be7ddefed86fcabfe0ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">regarde si la brique est cassable  <a href="#a3703582e631be7ddefed86fcabfe0ede"></a><br/></td></tr>
 <tr class="memitem:a6727cbeb21e64b49106506b7400a6121"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brique.html#a6727cbeb21e64b49106506b7400a6121">~Brique</a> ()</td></tr>
-<tr class="memdesc:a6727cbeb21e64b49106506b7400a6121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur Destructeur de la classe <a class="el" href="class_brique.html">Brique</a>.  <a href="#a6727cbeb21e64b49106506b7400a6121"></a><br/></td></tr>
+<tr class="memdesc:a6727cbeb21e64b49106506b7400a6121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur Destructeur de la classe <a class="el" href="class_brique.html" title="classe représentant les briques">Brique</a>.  <a href="#a6727cbeb21e64b49106506b7400a6121"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a906d604d5de2b82f4b26e34307f4d44b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brique.html#a906d604d5de2b82f4b26e34307f4d44b">cassable</a></td></tr>
+<tr class="memitem:a932f312b86b75c30bd1ef65c2bf3ba96"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brique.html#a932f312b86b75c30bd1ef65c2bf3ba96">posX</a></td></tr>
+<tr class="memitem:aa585d824ad1d1987cee9a47656c3b435"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brique.html#aa585d824ad1d1987cee9a47656c3b435">posY</a></td></tr>
+<tr class="memitem:aed7e712bab309e4e0c9914abd35d9cbb"><td class="memItemLeft" align="right" valign="top">QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brique.html#aed7e712bab309e4e0c9914abd35d9cbb">picture</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="brique_8h_source.html#l00006">6</a> of file <a class="el" href="brique_8h_source.html">brique.h</a>.</p>
+<div class="textblock"><p>classe représentant les briques </p>
+<dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
+
+<p>Definition at line <a class="el" href="brique_8h_source.html#l00012">12</a> of file <a class="el" href="brique_8h_source.html">brique.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa224fc13c8c1c288adb93ec109273f0a"></a>
 <div class="memitem">
@@ -146,7 +159,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructeur. </p>
-<p>Constructeur de la classe <a class="el" href="class_brique.html">Brique</a> </p>
+<p>Constructeur de la classe <a class="el" href="class_brique.html" title="classe représentant les briques">Brique</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cassable</td><td>Vrai si la brique est cassable, faux sinon </td></tr>
@@ -174,10 +187,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Destructeur Destructeur de la classe <a class="el" href="class_brique.html">Brique</a>. </p>
+<p>Destructeur Destructeur de la classe <a class="el" href="class_brique.html" title="classe représentant les briques">Brique</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="brique_8cpp_source.html#l00043">43</a> of file <a class="el" href="brique_8cpp_source.html">brique.cpp</a>.</p>
+<p>Definition at line <a class="el" href="brique_8cpp_source.html#l00032">32</a> of file <a class="el" href="brique_8cpp_source.html">brique.cpp</a>.</p>
 
 </div>
 </div>
@@ -199,7 +212,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Vrai si la brique est cassable, faux sinon </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="brique_8cpp_source.html#l00039">39</a> of file <a class="el" href="brique_8cpp_source.html">brique.cpp</a>.</p>
+<p>Definition at line <a class="el" href="brique_8cpp_source.html#l00028">28</a> of file <a class="el" href="brique_8cpp_source.html">brique.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,7 +233,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>picture </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="brique_8cpp_source.html#l00035">35</a> of file <a class="el" href="brique_8cpp_source.html">brique.cpp</a>.</p>
+<p>Definition at line <a class="el" href="brique_8cpp_source.html#l00024">24</a> of file <a class="el" href="brique_8cpp_source.html">brique.cpp</a>.</p>
 
 </div>
 </div>
@@ -247,18 +260,111 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Quentin CHEYNET </dd></dl>
 
-<p>Definition at line <a class="el" href="brique_8cpp_source.html#l00031">31</a> of file <a class="el" href="brique_8cpp_source.html">brique.cpp</a>.</p>
+<p>Definition at line <a class="el" href="brique_8cpp_source.html#l00020">20</a> of file <a class="el" href="brique_8cpp_source.html">brique.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="a906d604d5de2b82f4b26e34307f4d44b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Brique::cassable</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>vrai si la brique est cassable, faux sinon </p>
+
+<p>Definition at line <a class="el" href="brique_8h_source.html#l00016">16</a> of file <a class="el" href="brique_8h_source.html">brique.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aed7e712bab309e4e0c9914abd35d9cbb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QGraphicsPixmapItem* Brique::picture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>image de la brique affichée </p>
+
+<p>Definition at line <a class="el" href="brique_8h_source.html#l00019">19</a> of file <a class="el" href="brique_8h_source.html">brique.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a932f312b86b75c30bd1ef65c2bf3ba96"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Brique::posX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>position sur l'axe des abscisses </p>
+
+<p>Definition at line <a class="el" href="brique_8h_source.html#l00017">17</a> of file <a class="el" href="brique_8h_source.html">brique.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa585d824ad1d1987cee9a47656c3b435"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Brique::posY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>position sur l'axe des ordonnées </p>
+
+<p>Definition at line <a class="el" href="brique_8h_source.html#l00018">18</a> of file <a class="el" href="brique_8h_source.html">brique.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>modele/<a class="el" href="brique_8h_source.html">brique.h</a></li>
-<li>modele/<a class="el" href="brique_8cpp_source.html">brique.cpp</a></li>
+<li>QBomberMan/code/Game1/modele/<a class="el" href="brique_8h_source.html">brique.h</a></li>
+<li>QBomberMan/code/Game1/modele/<a class="el" href="brique_8cpp_source.html">brique.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 25 2013 20:44:00 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

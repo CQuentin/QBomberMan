@@ -1,9 +1,9 @@
-<map id="main.cpp" name="main.cpp">
-<area shape="rect" id="node3" href="$qbomberman_8h.html" title="qbomberman.h" alt="" coords="2003,83,2109,112"/>
-<area shape="rect" id="node11" href="$mainwindow_8h.html" title="./vue/mainwindow.h" alt="" coords="967,83,1105,112"/>
-<area shape="rect" id="node38" href="$brique_8h.html" title="../modele/brique.h" alt="" coords="400,315,525,344"/>
-<area shape="rect" id="node44" href="$bonus_8h.html" title="../modele/bonus.h" alt="" coords="40,315,165,344"/>
-<area shape="rect" id="node50" href="$joueur_8h.html" title="../modele/joueur.h" alt="" coords="565,160,691,189"/>
-<area shape="rect" id="node63" href="$bombe_8h.html" title="bombe.h" alt="" coords="749,237,821,267"/>
-<area shape="rect" id="node75" href="$toucheclavier_8h.html" title="Gestion des touches du clavier." alt="" coords="1099,160,1280,189"/>
+<map id="QBomberMan/code/Game1/main.cpp" name="QBomberMan/code/Game1/main.cpp">
+<area shape="rect" id="node3" href="$qbomberman_8h.html" title="qbomberman.h" alt="" coords="2132,101,2239,131"/>
+<area shape="rect" id="node11" href="$mainwindow_8h.html" title="./vue/mainwindow.h" alt="" coords="1071,101,1209,131"/>
+<area shape="rect" id="node42" href="$brique_8h.html" title="../modele/brique.h" alt="" coords="688,333,813,363"/>
+<area shape="rect" id="node46" href="$bonus_8h.html" title="../modele/bonus.h" alt="" coords="1104,333,1229,363"/>
+<area shape="rect" id="node52" href="$joueur_8h.html" title="../modele/joueur.h" alt="" coords="361,179,487,208"/>
+<area shape="rect" id="node79" href="$toucheclavier_8h.html" title="Gestion des touches du clavier." alt="" coords="591,179,772,208"/>
+<area shape="rect" id="node66" href="$bombe_8h.html" title="bombe.h" alt="" coords="425,256,497,285"/>
 </map>
