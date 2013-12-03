@@ -90,47 +90,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <a href="fenetreserveur_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fenetreserveur_8h.html">fenetreserveur.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="code" href="class_fenetre_serveur.html#ac14ce213fca8129c64b5cc6f4a94389b">    3</a></span>&#160;<a class="code" href="class_fenetre_serveur.html#ac14ce213fca8129c64b5cc6f4a94389b">FenetreServeur::FenetreServeur</a>(QWidget *parent) :</div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="code" href="class_fenetre_serveur.html#ac14ce213fca8129c64b5cc6f4a94389b">    3</a></span>&#160;<a class="code" href="class_fenetre_serveur.html#ac14ce213fca8129c64b5cc6f4a94389b" title="Constructeur.">FenetreServeur::FenetreServeur</a>(QWidget *parent) :</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    QMainWindow(parent),</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    ui(new Ui::<a class="code" href="class_fenetre_serveur.html">FenetreServeur</a>)</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    ui(new Ui::<a class="code" href="class_fenetre_serveur.html" title="classe représentant la fenetre de création d&#39;une partie">FenetreServeur</a>)</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="class_fenetre_serveur.html#a5899b6c7d258dbabe241f58678e6a51c">ui</a>-&gt;setupUi(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_fenetre_serveur.html#a5899b6c7d258dbabe241f58678e6a51c">ui</a>-&gt;portLigneEdit-&gt;setText(<span class="stringliteral">&quot;4200&quot;</span>);</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_fenetre_serveur.html#ad6f99c8e619765b50237edde96757bee">   12</a></span>&#160;<a class="code" href="class_fenetre_serveur.html#ad6f99c8e619765b50237edde96757bee">FenetreServeur::~FenetreServeur</a>()</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_fenetre_serveur.html#ad6f99c8e619765b50237edde96757bee">   12</a></span>&#160;<a class="code" href="class_fenetre_serveur.html#ad6f99c8e619765b50237edde96757bee" title="Destructeur.">FenetreServeur::~FenetreServeur</a>()</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">delete</span> <a class="code" href="class_fenetre_serveur.html#a5899b6c7d258dbabe241f58678e6a51c">ui</a>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_fenetre_serveur.html#aecb853c5b663d2e0719bc3dd074991d2">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_fenetre_serveur.html#aecb853c5b663d2e0719bc3dd074991d2">FenetreServeur::on_okButton_clicked</a>()</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;   <span class="comment">/* Serveur *serveur = new Serveur(ui-&gt;nbJSpinBox-&gt;value());</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">    bool reussi = serveur-&gt;listen(QHostAddress::Any, 4200);</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">    if(!reussi)</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">    {</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">        qFatal(&quot;Impossible d&#39;écouter le port 4200&quot;);</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">    qDebug() &lt;&lt; &quot;Pret!&quot;;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">    qDebug() &lt;&lt; ui-&gt;nbJSpinBox-&gt;value() ;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">    ui-&gt;okButton-&gt;setEnabled(false);</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">    ui-&gt;nbJSpinBox-&gt;setEnabled(false);</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">    hide();</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">    MainWindow *c = new MainWindow(&quot;localhost&quot;);</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">    c-&gt;setWindowTitle(QString::fromUtf8(&quot;Game1&quot;));</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">    c-&gt;resize(900, 600);</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">    c-&gt;show();</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">    qDebug() &lt;&lt; &quot;OK&quot; ;*/</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_fenetre_serveur.html#aecb853c5b663d2e0719bc3dd074991d2">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_fenetre_serveur.html#aecb853c5b663d2e0719bc3dd074991d2" title="Slot boutton OK.">FenetreServeur::on_okButton_clicked</a>(){}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 22:03:28 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

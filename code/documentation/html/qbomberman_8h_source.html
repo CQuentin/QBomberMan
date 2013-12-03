@@ -94,30 +94,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;ui_qbomberman.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="class_q_bomber_man.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_q_bomber_man.html">QBomberMan</a> : <span class="keyword">public</span> QMainWindow, <span class="keyword">public</span> Ui::QBomberMan</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_q_bomber_man.html#a6183c275540727c7d9e5d74cfbf2bbbe">QBomberMan</a>(QWidget *parent = 0);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_q_bomber_man.html#aa4f2ccf504f5b94c604d3c14842b5e7f">~QBomberMan</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_q_bomber_man.html#a473301022b51a119a87939f57c0cdbf2">on_creerPartie_clicked</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_q_bomber_man.html#ad26161be8517b25fa7b8e1e5fa0de103">on_rejoindreChannel_clicked</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_q_bomber_man.html#a53ec57a96b4c845a90cf355a5fe6dc83">on_rejoindreBtn_clicked</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_q_bomber_man.html#a90cc952f5310c49324cfade2039f349f">on_okButton_clicked</a>();</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="class_q_bomber_man.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_q_bomber_man.html" title="classe représentant la fenetre d&#39;acceuil">QBomberMan</a> : <span class="keyword">public</span> QMainWindow, <span class="keyword">public</span> Ui::QBomberMan</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_q_bomber_man.html#a6183c275540727c7d9e5d74cfbf2bbbe" title="Constructeur.">QBomberMan</a>(QWidget *parent = 0);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="class_q_bomber_man.html#a4e043877de8583a3d068eb650bf8e2ce">   23</a></span>&#160;    Ui::QBomberMan *<a class="code" href="class_q_bomber_man.html#a4e043877de8583a3d068eb650bf8e2ce">ui</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif // QBOMBERMAN_H</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_q_bomber_man.html#aa4f2ccf504f5b94c604d3c14842b5e7f" title="Destructeur.">~QBomberMan</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_q_bomber_man.html#a473301022b51a119a87939f57c0cdbf2" title="Slot boutton creer partie.">on_creerPartie_clicked</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_q_bomber_man.html#ad26161be8517b25fa7b8e1e5fa0de103" title="Slot boutton rejoindre partie.">on_rejoindreChannel_clicked</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_q_bomber_man.html#a53ec57a96b4c845a90cf355a5fe6dc83" title="Slot boutton Rejoindre de la fenetre rejoindre partie.">on_rejoindreBtn_clicked</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_q_bomber_man.html#a90cc952f5310c49324cfade2039f349f" title="Slot boutton OK de la fenetre creer partie.">on_okButton_clicked</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="class_q_bomber_man.html#a4e043877de8583a3d068eb650bf8e2ce">   55</a></span>&#160;    Ui::QBomberMan *<a class="code" href="class_q_bomber_man.html#a4e043877de8583a3d068eb650bf8e2ce">ui</a>; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif // QBOMBERMAN_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 3 2013 20:21:06 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 3 2013 22:03:28 for QBomberman++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
