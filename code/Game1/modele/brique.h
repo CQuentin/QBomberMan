@@ -1,18 +1,22 @@
 #ifndef BRIQUE_H
 #define BRIQUE_H
-#include <QString>
+
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
+
+/*! \class Brique
+ * \brief classe représentant les briques
+ * \author Quentin CHEYNET
+ */
+
 class Brique
 {
 
 private :
-    bool cassable;
-    int posX;
-    int posY;
-    void setX(int x);
-    void setY(int y);
-    QGraphicsPixmapItem *picture;
+    bool cassable;                      /*!< vrai si la brique est cassable, faux sinon */
+    int posX;                           /*!< position sur l'axe des abscisses */
+    int posY;                           /*!< position sur l'axe des ordonnées */
+    QGraphicsPixmapItem *picture;       /*!< image de la brique affichée */
 
 
 public:
