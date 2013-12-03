@@ -3,9 +3,7 @@
 /* Constructeur de la classe MainWindow */
 MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
 {
-
     initialiserSocket(hote);
-
     baseGravity = 1;
     largeur = 900;
     hauteur = 600;
@@ -13,15 +11,15 @@ MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
     largeurG = largeur/tailleC;
     hauteurG = hauteur/tailleC;
     gravity = 0;
-    grille.resize(largeurG);
+    grilleBrique.resize(largeurG);
     grilleBonus.resize(largeurG);
     controleur = new ToucheClavier();
-    personnages.resize(2);     // nb joueur donné par serveur -> mettre les joueurs dans l'ordre de leur id
+    personnages.resize(2);
     end = 0;
     grabKeyboard();
 
     for(int i = 0; i<largeurG; i++){
-        grille[i].resize(hauteurG);
+        grilleBrique[i].resize(hauteurG);
         grilleBonus[i].resize(hauteurG);
     }
 
@@ -45,7 +43,6 @@ MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
 void MainWindow::readyRead(){
     while(socket->canReadLine())
     {
-
         QString line = QString::fromUtf8(socket->readLine()).trimmed();
 
         //QRegExp messageRegex("^([^:]+):(.*)$");
@@ -58,8 +55,6 @@ void MainWindow::readyRead(){
         QRegExp removeBonusRegex("^/rbon:(.*)$");
         QRegExp killsRegex("^/k:(.*)$");
         QRegExp erreurRegex("^/erreur:(.*)$");
-
-
 
         if(idRegex.indexIn(line) != -1){
             QStringList mots = idRegex.cap(1).split(" ");
@@ -88,35 +83,26 @@ void MainWindow::readyRead(){
                 QStringList J = user.split(" ");
                 bool present = false;
                 /*
-                 *Exemple de code quand ça fonctionnera !
-                 *J[0] id joueur
-                 *J[1] pos x
-                 *J[2] pos y
-                 */
-
+                *J[0] id joueur
+                */
 
                 foreach(Joueur *j ,personnages){
                     if(j != NULL && j->getId() == J[0].toInt())
                         present = true;
                 }
-                if(!present){
+                if(!present)
                     ajouterPersonnage(J[0].toInt(),5,3);
-                }
-
             }
 
         }
-        //Bombe posé
+        //Bombe posée
         else if(bombeRegex.indexIn(line) != -1){
             QStringList bombe = bombeRegex.cap(1).split(" ");
             // bombe[0] id joueur
             // bombe[1] pos X
             // bombe[2] pos Y
-            // bombe[3] si on apelle write ou non
             if (bombe[0].toInt()!= id)
                 ajouterBombe(bombe[0].toInt(),bombe[1].toInt(),bombe[2].toInt(), false);
-
-
         }
         //Deplacement
         else if(deplacementRegex.indexIn(line) != -1){
@@ -126,9 +112,9 @@ void MainWindow::readyRead(){
             // depl[2].toInt() pos Y
             // depl[3].toInt() pos X dans sprite
             // depl[4].toInt() pos Y dans sprite
-            // depl[5].toInt() pos largeur du sprite
-            // depl[6].toInt() pos hauteur du sprite
-            // depl[7]  bool orientation gauche
+            // depl[5].toInt() largeur du sprite
+            // depl[6].toInt() hauteur du sprite
+            // depl[7] bool orientation gauche
             // depl[8] bool est en vie
             // depl[9] doit disparaitre
             // depl[10] power bombes
@@ -140,8 +126,8 @@ void MainWindow::readyRead(){
                     scene->removeItem(personnages[depl[0].toInt()]->getPicture());
                     personnages[depl[0].toInt()]->setCurrentS(9);
 
+                    //si le Joueur est mort et qu'il avait le bonus TRIGGER, on lance le timer de ses bombes
                     if(personnages[depl[11].toInt()]){
-                        qDebug() << " suppr des bombes détruites ";
                         for(int i = 0; i < personnages[depl[0].toInt()]->getVectorBombes().size(); i++)
                             personnages[depl[0].toInt()]->getVectorBombes()[i]->startCountDown();
                     }
@@ -155,10 +141,7 @@ void MainWindow::readyRead(){
 
 
                     personnages[depl[0].toInt()]->getPicture()->moveBy(dx,dy);
-
-
                     personnages[depl[0].toInt()]->setImmortality(depl[12].toInt());
-
                     personnages[depl[0].toInt()]->setX(depl[1].toInt());
                     personnages[depl[0].toInt()]->setY(depl[2].toInt());
                     personnages[depl[0].toInt()]->setCoordSprite(depl[3].toInt(),depl[4].toInt(),depl[5].toInt(),depl[6].toInt());
@@ -169,27 +152,26 @@ void MainWindow::readyRead(){
                 }
             }
         }
+        // déclenchement d'une bombe avec espace
         else if (declenchementRegex.indexIn(line) != -1){
             QStringList tri = declenchementRegex.cap(1).split(" ");
-            if(tri[0].toInt() != id){
+            if(tri[0].toInt() != id)
                 triggerLastBombe(tri[0].toInt(),false);
-            }
-
+            // apparition d'un bonus
         }else if(addBonusRegex.indexIn(line) != -1){
             QStringList abon = addBonusRegex.cap(1).split(" ");
-            if(abon[0].toInt() != id){
+            if(abon[0].toInt() != id)
                 ajouterBonus(abon[1].toInt(),abon[2].toInt(),false,abon[3].toInt());
-            }
         }
+        // disparition d'un bonus
         else if(removeBonusRegex.indexIn(line) != -1){
             QStringList rbon = removeBonusRegex.cap(1).split(" ");
             if(rbon[0].toInt() != id){
-
                 scene->removeItem(grilleBonus[rbon[1].toInt()][rbon[2].toInt()]->getPicture());
                 grilleBonus[rbon[1].toInt()][rbon[2].toInt()] = NULL;
-
             }
         }
+        // dit qui a tué qui
         else if(killsRegex.indexIn(line) != -1){
             QStringList kills = killsRegex.cap(1).split(" ");
             if(kills[0].toInt() != id){
@@ -256,36 +238,31 @@ void MainWindow::ajouterPersonnage(int id,int i, int j){
     scene->addItem(personnages[id]->getPicture());
 }
 
-void MainWindow::ajouterBrique(bool cassable, int i, int j)
-{
-    if(grille[i][j] == NULL){
+void MainWindow::ajouterBrique(bool cassable, int i, int j){
+    if(grilleBrique[i][j] == NULL){
         int posX = getPositionXFromGrille(i);
         int posY = getPositionYFromGrille(j);
-
-        grille[i][j] = new Brique(cassable,posX,posY);
-
-        scene->addItem(grille[i][j]->getPicture());
+        grilleBrique[i][j] = new Brique(cassable,posX,posY);
+        scene->addItem(grilleBrique[i][j]->getPicture());
     }
 }
 
 
-void MainWindow::ajouterBombe(int bmId,int x, int y, bool w)
-{
-
+void MainWindow::ajouterBombe(int bmId,int x, int y, bool w){
     Bombe *bombe = new Bombe(0,x,y,bmId);
     if(w){
         bombe->setY(bombe->getY() - bombe->getHauteur()/2);
         bombe->setX(bombe->getX() - bombe->getLargeur()/2);
-    }else{
+    }
+    else{
         bombe->setX(x);
         bombe->setY(y);
     }
     personnages[bmId]->addBombe(bombe);
     scene->addItem(bombe->getPicture());
 
-    if(w){
+    if(w)
         socket->write(QString("/bom:%1 %2 %3 $\n" ).arg(bombe->getBManId()).arg(bombe->getX()).arg(bombe->getY()).toUtf8());
-    }
 
 }
 
@@ -293,18 +270,16 @@ void MainWindow::ajouterExplosion(Bombe *bombe,int x, int y, int dx, int dy,bool
     QPixmap sprite = QPixmap("../Game1/ressource/sprites_bomberman.png");
     QTransform transform;
 
-    if(end)
+    if(end) // si l'image est le carré noir ou le morceau arrondi
         sprite = sprite.copy(48,591,20,20);
     else
         sprite = sprite.copy(18,591,20,20);
 
-
+    // rotation de l'image en fonction de du sens de propagation de l'explosion
     if (dx == -1)
         sprite = sprite.transformed(transform.rotate( -180,Qt::YAxis ), Qt::FastTransformation);
-    else if (dy != 0){
+    else if (dy != 0)
         sprite = sprite.transformed(transform.rotate( dy *90 ), Qt::FastTransformation);
-    }
-
 
     QGraphicsPixmapItem *picture = new QGraphicsPixmapItem(sprite);
     bombe->addExplosions(picture);
@@ -321,19 +296,14 @@ void MainWindow::ajouterBonus(int i, int j, bool w, int t){
 
     if(w)
         socket->write(QString("/abon:%1 %2 %3 %4 $\n" ).arg(id).arg(i).arg(j).arg(grilleBonus[i][j]->getBonusType()).toUtf8());
-
-
 }
 
 void MainWindow::keyReleaseEvent(QKeyEvent* event) {
-
-    if(!event->isAutoRepeat()){
+    if(!event->isAutoRepeat())
         controleur->setPressed(event->key(),false);
-    }
 }
 
 void MainWindow::keyPressEvent(QKeyEvent* event) {
-
     if(!event->isAutoRepeat())
         controleur->setPressed(event->key(),true);
 }
@@ -368,7 +338,7 @@ bool MainWindow::collisionTest(int x, int y){
             else
                 posGrilleJ = getGrilleJFromPosition(newY + j * tailleC);
 
-            if(personnages[id]->isColliding(posGrilleI,posGrilleJ,grille)){
+            if(personnages[id]->isColliding(posGrilleI,posGrilleJ,grilleBrique)){
                 colision  = true;
             }
         }
@@ -386,16 +356,6 @@ void MainWindow::tryMove(int x, int y){
         personnages[id]->setX(newX);
         personnages[id]->setY(newY);
         personnages[id]->getPicture()->moveBy(x,y);
-        // depl[0].toInt() id joueur
-        // depl[1].toInt() pos X
-        // depl[2].toInt() pos Y
-        // depl[3].toInt() pos X dans sprite
-        // depl[4].toInt() pos Y dans sprite
-        // depl[5].toInt() pos largeur du sprite
-        // depl[6].toInt() pos hauteur du sprite
-        // depl[7]  bool orientation gauche
-        // depl[8] bool est en vie
-
 
         QVector<int> qv = personnages[id]->getCoordSprite();
         socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n")
@@ -409,24 +369,24 @@ void MainWindow::tryMove(int x, int y){
                 .arg(personnages[id]->isImmortal())
                 .toUtf8());
     }
-
-
 }
 
 void MainWindow::tryJump(){
-    if(personnages[id]->getBonusJump() == 2 || collisionTest(0,1)){
+    // si le Joueur a le bonus pour voler ou si il a une brique sous ses pieds
+    if(personnages[id]->getBonusJump() == 2 || collisionTest(0,1))
         gravity = -baseGravity;
-    }
 }
 
 void MainWindow::timerEvent ( QTimerEvent * event ){
     int cptDead = 0;
     bool start = true;
+    // tant que tout les joueurs n'ont pas rejoint la partie, start = false et on ne fait rien
     for(int i = 0; i < personnages.size(); i++){
         if(personnages[i] == NULL)
             start = false;
     }
     if (start){
+        // on regarde si il reste au plus un Joueur en vie. Si c'est le cas, on dit que c'est la fin
         if(end == 0){
             for (int i =0; i < personnages.size(); i++){
                 if (personnages[i]->getCurrentS() == 9)
@@ -435,6 +395,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                     end = 1;
             }
         }
+        // si c'est la fin, le Joueur vivant est content, et on affiche les scores si ce n'est pas déjà fait (end == 1)
         if(end >0){
             if (end == 1)
                 displayEndScreen();
@@ -453,7 +414,9 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                         .toUtf8());
             }
         }
+        // si ce n'est pas la fin, on regarde si son personnage est en train de mourrir
         else if(personnages[id]->getCurrentS() == 8){
+            //si c'est le cas, on met les sprites de la mort et on les envoie aux autres joueurs
             personnages[id]->die();
             QVector<int> qv = personnages[id]->getCoordSprite();
             socket->write(QString("/p:%1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13 $\n").arg(id).arg(personnages[id]->getX()).arg(personnages[id]->getY())
@@ -467,6 +430,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
 
             if(personnages[id]->getCurrentS() == 9){
 
+                // si le Joueur a le bonus TRIGGER, on lance le timer de ses bombes
                 if(personnages[id]->hasBonusTrigger()){
                     for(int i = 0; i < personnages[id]->getVectorBombes().size(); i++)
                         personnages[id]->getVectorBombes()[i]->startCountDown();
@@ -483,37 +447,45 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                         .toUtf8());
             }
         }
+        // si son personnage n'est pas en train de mourrir, on vérifie qu'il n'est pas déjà mort.
         else if(personnages[id]->getCurrentS() != 9){
-            personnages[id]->checkImmortality();
+            // si il est en vie, on calcule toutes les données cncernant notre personnage
 
             // ----------- partie personnages[id]
+            int x = 0; // déplacement du personnage sur l'axe des abscisse
+
+            // gestion du saut
+            personnages[id]->checkImmortality();
             if (gravity<0){
                 personnages[id]->setCurrentH(personnages[id]->getCurrentH()+1);
-                if(personnages[id]->getCurrentH()>= personnages[id]->getMaxH() || collisionTest(0,-1)){
+                if(personnages[id]->getCurrentH()>= personnages[id]->getMaxH() || collisionTest(0,-1)){ // fin du saut, on retombe
                     gravity = baseGravity;
                     personnages[id]->setCurrentH(0);
                 }
-                else{
+                else{ // on continue à monter
                     personnages[id]->setCurrentS(6);
                     personnages[id]->immobile();
                 }
 
             }
+            // atterissage
             else if(collisionTest(0,1)){
                 if(gravity == 1)
                     personnages[id]->setCurrentS(4); //LANDING
                 gravity = 0;
             }
+            // chute
             else {
                 gravity = baseGravity;
                 personnages[id]->setCurrentS(3); // FALLING
                 personnages[id]->immobile();
             }
 
-            int x = 0;
+            // on essaie de sauter si on a appuyer sur la flèche du haut
             if((gravity == 0 || personnages[id]->getBonusJump() == 2) && controleur->getStateKeys(0))
                 tryJump();
 
+            // on essaie de poser une bombe si on a appuyer sur la flèche du bas
             if(controleur->getStateKeys(2)){
                 if (personnages[id]->tryDropBombe()){
                     ajouterBombe(id,personnages[id]->getX()+personnages[id]->getLargeur()/2,personnages[id]->getY()+ personnages[id]->getHauteur()/2,true);
@@ -521,6 +493,7 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 }
             }
 
+            // déplacement gauche / droite en fonction de la touche sur laquelle on appuit
             if(controleur->getStateKeys(1)){
                 x +=- 1;
                 personnages[id]->courireG();
@@ -530,19 +503,23 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 personnages[id]->courireD();
             }
 
+            // si on ne bouge pas, on regarde quel état et quelle image le Joueur doit avoir
             if(x == 0 && gravity == 0 )
                 personnages[id]->immobile();
 
+            // on fait exploser la dernière bombe posée du personnage si on appuit sur espace et q'u o a le bonus TRIGGER
             if(controleur->getStateKeys(4) && personnages[id]->hasBonusTrigger()){
                 triggerLastBombe(id,true);
                 controleur->setPressed(Qt::Key_Space, false);
             }
 
+            // on bouge le personnage en fonction de gravity (qui dépend du saut et des collisions)
             tryMove(0,gravity);
 
+            //tired permet de ne bouger qu'une fois sur deux (possible de modifier) pour ralentir le personnage
             int tired = personnages[id]->getTired();
 
-            if (tired == -1)
+            if (tired == -1) // -1 si le personnage a le bonus SPEED, il bouge chaque fois
                 tryMove(x,0);
             else if(tired == 0)
                 personnages[id]->setTired(1); // baseTired ?
@@ -550,14 +527,11 @@ void MainWindow::timerEvent ( QTimerEvent * event ){
                 tryMove(x,0);
                 personnages[id]->setTired(tired-1);
             }
-
             checkBonus();
-
-
         }
 
-
         // ----------- partie bombes
+        // on fait exploser toutes les bombes présentes dans scene, si elles doivent exploser
         for (int idJ = 0; idJ < personnages.size(); idJ++ ){
             for(int i = 0; i<personnages[idJ]->getVectorBombes().size(); i++){
                 if(personnages[idJ]->getVectorBombes()[i]->isExploding()){
@@ -619,8 +593,6 @@ void MainWindow::triggerLastBombe(int bmId, bool w){
         personnages[bmId]->getLastBombe()->trigger();
         if (w)
             socket->write(QString("/t:%1 $\n").arg(bmId).toUtf8());
-
-
     }
 }
 
@@ -630,11 +602,11 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
     int x = bombe->getX();
     int y = bombe->getY();
 
-    // point en haut à gauche
+    // point en haut à gauche de la bombe
     int posGrilleI = getGrilleIFromPosition(x);
     int posGrilleJ = getGrilleJFromPosition(y);
 
-    // point en bas à droite
+    // point en bas à droite de la bombe
     int posGrilleI2 = getGrilleIFromPosition(x+bombe->getLargeur());
     int posGrilleJ2 = getGrilleJFromPosition(y+bombe->getHauteur());
 
@@ -642,12 +614,15 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
     int i = posGrilleI, j= posGrilleJ;
     int i2 = posGrilleI2, j2 = posGrilleJ2;
 
-    if(dx == 0 && dy == 0){
+    if(dx == 0 && dy == 0){ // explosion sur la position de la bombe
         if(personnages[id]->isAlive() && hitTest(i,j,i2,j2))
             hit = true;
         ajouterExplosion(bombe,x,y,dx,dy,false);
     }
     else{
+        // gestion de la propagation des explosions en fonction de leur sens (dx et dy)
+
+        //end sert à savoir si l'image doit être le carré noir ou le morceau arrondi(dernière explosion)
         bool end = false;
 
         i = i +dx;
@@ -656,14 +631,27 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
         j2 = j2 +dy;
         x += dx * tailleC; // 20 = taille explosion
         y += dy * tailleC;
-        while(((grille[i][j] == NULL || grille[i][j]->estCassable()) && ((grille[i2][j2] == NULL || grille[i2][j2]->estCassable() || j2 == hauteurG-1 || i2 == largeurG-1 || j2 == 0 || i2 == 0) ))&& range >0){
+
+        /*
+        On ajoute une explosion tant que :
+            - l'explosion n'est pas bloqué par une brique incassable
+            - l'explosion partant de deux points (haut gauche, bas droite), il faut vérifier que le point le plus avancé ne soit pas derrière
+              la limite du jeu
+            - range > 0 (range dépend de power, la portée des bombes
+        */
+        while(((grilleBrique[i][j] == NULL || grilleBrique[i][j]->estCassable())
+               && ((grilleBrique[i2][j2] == NULL || grilleBrique[i2][j2]->estCassable() || j2 == hauteurG-1 || i2 == largeurG-1 || j2 == 0 || i2 == 0) ))
+              && range >0)
+        {
+
             if (range -1 <= 0)
                 end = true;
-            if(grille[i][j] != NULL && grille[i][j]->estCassable())
+            if(grilleBrique[i][j] != NULL && grilleBrique[i][j]->estCassable())
                 detruireBrique(i,j,bombe->getBManId());
-            if(grille[i2][j2] != NULL && grille[i2][j2]->estCassable())
+            if(grilleBrique[i2][j2] != NULL && grilleBrique[i2][j2]->estCassable())
                 detruireBrique(i2,j2, bombe->getBManId());
 
+            // on regarde si son personnage est touché
             if(personnages[id]->isAlive() && hitTest(i,j,i2,j2))
                 hit = true;
 
@@ -693,10 +681,10 @@ void MainWindow::explosion(Bombe *bombe, int dx, int dy){
                 j2 = hauteurG;
             if (i2 > largeurG)
                 i2 = largeurG;
-
             range --;
         }
     }
+    // si le personnage touché est morts, on envoie aux autres joueurs qui a tué qui
     if(hit){
         personnages[id]->hit();
         if(!personnages[id]->isAlive()){
@@ -738,18 +726,17 @@ bool MainWindow::hitTest(int bI, int bJ, int bI2, int bJ2){
             else
                 posGrilleJ = getGrilleJFromPosition(personnages[id]->getY() + j * tailleC);
 
-            if((posGrilleI == bI && posGrilleJ == bJ) ||(posGrilleI == bI2 && posGrilleJ == bJ2)){
+            if((posGrilleI == bI && posGrilleJ == bJ) ||(posGrilleI == bI2 && posGrilleJ == bJ2))
                 hit  = true;
-            }
         }
     }
-
     return hit;
 }
 
 void MainWindow::detruireBrique(int i, int j,int idJ){
-    scene->removeItem(grille[i][j]->getPicture());
-    grille[i][j] = NULL;
+    scene->removeItem(grilleBrique[i][j]->getPicture());
+    grilleBrique[i][j] = NULL;
+    // le client qui a détruit la brique se charge de générer aléatoirement le bonus et de l'envoyer aux aurtes clients
     if(id == idJ){
         if(qrand()%4 +1 == 1) // une chance sur 4
             ajouterBonus(i,j,true,-1);
@@ -819,7 +806,7 @@ void MainWindow::initialiserSocket(QString  hote)
 
 
 void MainWindow::displayEndScreen(){
-    int decH = 0;
+    int decH = 0; // décale la position du texte sur l'axe des abscisses pour à peu près le centrer
     QGraphicsTextItem * endText = new QGraphicsTextItem;
     QFont myFont = QFont("Time", 45);
     myFont.setBold(true);
@@ -880,13 +867,17 @@ void MainWindow::displayEndScreen(){
 /* Destructeur de la classe MainWindow */
 MainWindow::~MainWindow()
 {
-    for(int i=0; i<(int) grille.size(); i++)
-        for(int j=0; j<(int) grille[i].size(); j++)
-            delete grille[i][j];
+    for(int i=0; i<(int) grilleBrique.size(); i++)
+        for(int j=0; j<(int) grilleBrique[i].size(); j++)
+            delete grilleBrique[i][j];
+
+    for(int i=0; i<(int) grilleBonus.size(); i++)
+        for(int j=0; j<(int) grilleBonus[i].size(); j++)
+            delete grilleBonus[i][j];
+
     for(int i = 0; i < personnages.size(); i++)
         delete personnages[i];
+
     delete view;
     delete scene;
 }
-
-
