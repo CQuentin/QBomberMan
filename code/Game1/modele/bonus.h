@@ -4,23 +4,33 @@
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 #include <QTime>
+
+
+/*! \class Bombe
+ * \brief classe représentant les bonus
+ * \author Quentin CHEYNET
+ */
 class Bonus
 {
 
 private :
+    /*!
+     * \brief ensemble des différents types d'un bonus
+     * \author Quentin CHEYNET
+     */
     enum types
     {
-        HP =0,
-        EXPLOSION =1,
-        BOMBE = 2,
-        JUMP = 3,
-        SPEED = 4,
-        TRIGGER = 5
+        HP =0,                          /*!< bonus augmentant la vie */
+        EXPLOSION =1,                   /*!< bonus augmentant power (la portée des bombes) */
+        BOMBE = 2,                      /*!< bonus augmentant le nombre de bombes pouvant être posées simultanément */
+        JUMP = 3,                       /*!< bonus augmentant hauteur du saut, puis donnant la capactié de voler */
+        SPEED = 4,                      /*!< bonus augmentant la vitesse de déplacement */
+        TRIGGER = 5                     /*!< bonus donnant la possibilité de déclancher les bombes à distance, et supprimme leur timer */
     };
-    int posX;
-    int posY;
-    int type;
-    QGraphicsPixmapItem *picture;
+    int posX;                           /*!< position sur l'axe des abscisse */
+    int posY;                           /*!< position sur l'axe des ordonnée */
+    int type;                           /*!< type du bonus (choisi dans l'enum types */
+    QGraphicsPixmapItem *picture;       /*!< image du bonus affichée */
 
 
 public:

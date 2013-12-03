@@ -10,9 +10,8 @@ Bonus::Bonus(int x, int y, int t){
         type = t;
 
     QPixmap sprite = QPixmap("../Game1/ressource/sprites_bonus.png");
-    QPixmap currentImage;    
+    QPixmap currentImage;
 
-    // TODO sprite
     switch(type){
     case HP :
         currentImage = sprite.copy(2,43,20,20);
@@ -34,10 +33,8 @@ Bonus::Bonus(int x, int y, int t){
         break;
     }
 
-
-
-picture = new QGraphicsPixmapItem(currentImage);
-picture->setPos(x,y);
+    picture = new QGraphicsPixmapItem(currentImage);
+    picture->setPos(x,y);
 
 }
 
