@@ -6,7 +6,7 @@
 #include <QTime>
 
 
-/*! \class Bombe
+/*! \class Bonus
  * \brief classe représentant les bonus
  * \author Quentin CHEYNET
  */
