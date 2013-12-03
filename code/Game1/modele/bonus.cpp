@@ -45,3 +45,7 @@ int Bonus::getBonusType(){
 QGraphicsPixmapItem* Bonus::getPicture(){
     return picture;
 }
+
+Bonus::~Bonus(){
+    delete this;
+}
