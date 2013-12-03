@@ -12,24 +12,28 @@
 #include "brique.h"
 
 
+/*! \class Bombe
+ * \brief classe représentant les bombes
+ * \author Quentin CHEYNET
+ */
 class Bombe: public QObject
 {
 private:
-    int posX;
-    int posY;
-    int hauteur;
-    int largeur;
-    int pauseSprite;
-    int power;
-    int countDown;
-    bool exploding;
-    bool exploded;
-    QVector <QGraphicsPixmapItem*> explosions;
-    QBasicTimer timer;
-    QPixmap sprite;
-    QPixmap currentImage;
-    QGraphicsPixmapItem *picture;
-    int bomberManId;
+    int posX;                                   /*!< position sur l'axe des abscisse */
+    int posY;                                   /*!< position sur l'axe des ordonnées */
+    int hauteur;                                /*!< hauteur de la bombe */
+    int largeur;                                /*!< largeur de la bombe */
+    int pauseSprite;                            /*!< pause (en nombe de tic du timer) entre le changement de chaque image */
+    int power;                                  /*!< puissance de la bombe (portée des explosions) */
+    int countDown;                              /*!< temps écoulé en ms avant l'explosion de la bombe */
+    bool exploding;                             /*!< vrai si la bombe est en train d'exploser, faux sinon */
+    bool exploded;                              /*!< vrai si la bombe a explosé, faux sinon */
+    QVector <QGraphicsPixmapItem*> explosions;       /*!< QVector des explosions de la bombe (une explosion étant une image de 20x20) */
+    QBasicTimer timer;                          /*!< timer gérant le countDown et le changement d'image */
+    QPixmap sprite;                             /*!< le fichier des sprites */
+    QPixmap currentImage;                       /*!< l'image utilisée actuellement */
+    QGraphicsPixmapItem *picture;               /*!< l'image affiché */
+    int bomberManId;                            /*!< l'id du Joueur qui a posé la bombe */
 
 
 public:
@@ -152,7 +156,7 @@ public:
 
     /*!
      * \brief ajoute une explosion au QVector explosions
-     * \param pExplosions
+     * \param pExplosion
      * \author Quentin CHEYNET
      */
     void addExplosions(QGraphicsPixmapItem * pExplosion);

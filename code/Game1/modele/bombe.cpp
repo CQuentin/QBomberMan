@@ -91,6 +91,7 @@ void Bombe::setPower(int p){
 
 void Bombe::timerEvent ( QTimerEvent * event ){
 
+    //enlève trois fois une seconde, puis 6 fois 20 ms, en changeant de sprite à chaque fois
     if (countDown > 100)
         countDown -=1000;
     else{
@@ -146,7 +147,7 @@ QVector<QGraphicsPixmapItem*> Bombe::getExplosions(){
 void Bombe::trigger(){
 
     timer.start(100,this);
-countDown = -1;
+    countDown = -1;
 
 }
 
