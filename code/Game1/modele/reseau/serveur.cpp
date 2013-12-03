@@ -8,47 +8,32 @@ Serveur::Serveur(int t,int niv, QObject *parent) : QTcpServer(parent)
     m_niv = niv;
 }
 
-/**
- * Destructeur par défaut
- * @brief Serveur::~Serveur
- */
-Serveur::~Serveur()
-{
 
-}
+Serveur::~Serveur(){}
 
-/**
- * Slot
- * @brief Serveur::pretALire
- */
 void Serveur::readyRead()
 {
-
     QTcpSocket *client = (QTcpSocket*)sender();
     while(client->canReadLine())
     {
         QString ligne = QString::fromUtf8(client->readLine()).trimmed();
-        //qDebug() << "Read line:" << ligne;
 
-       QRegExp meRegex("^/me:(.*)$");
-       QRegExp deplacementRegex("^/p:(.*)$");
-       QRegExp bombeRegex("^/bom:(.*)$");
-       QRegExp addBonusRegex("^/abon:(.*)$");
-       QRegExp removeBonusRegex("^/rbon:(.*)$");
-       QRegExp declenchementRegex("^/t:(.*)$");
-       QRegExp killsRegex("^/k:(.*)$");
+        QRegExp meRegex("^/me:(.*)$");
+        QRegExp deplacementRegex("^/p:(.*)$");
+        QRegExp bombeRegex("^/bom:(.*)$");
+        QRegExp addBonusRegex("^/abon:(.*)$");
+        QRegExp removeBonusRegex("^/rbon:(.*)$");
+        QRegExp declenchementRegex("^/t:(.*)$");
+        QRegExp killsRegex("^/k:(.*)$");
 
         if(meRegex.indexIn(ligne) != -1){
-
             int utilisateur = m_clientIdCourant;
-            m_utilisateurs[client] = utilisateur;           
+            m_utilisateurs[client] = utilisateur;
             qDebug() <<"id envoyé : " <<utilisateur;
 
             client->write(QString("/i:%1 %2 %3 $\n").arg(utilisateur).arg(m_nbUtilisateur).arg(m_niv).toUtf8());
 
             envoyerListeUtilisateur();
-
-
         }
         else if(m_utilisateurs.contains(client))
         {
@@ -66,30 +51,16 @@ void Serveur::readyRead()
 }
 
 
-
-/**
- * Slot
- * @brief Serveur::disconnected
- */
 void Serveur::disconnected()
 {
     QTcpSocket *client = (QTcpSocket*)sender();
     qDebug() << "Client deconnecte:" << client->peerAddress().toString();
 
-    m_clients.remove(client);
-
-    //QString user = m_utilisateurs[client];
+    m_clients.remove(client);    
     m_utilisateurs.remove(client);
-
-    /*envoyerListeUtilisateur();
-    foreach(QTcpSocket *client, m_clients)
-        client->write(QString("Serveur:" + user + " est parti.\n").toUtf8());*/
 }
 
-/**
- * Slot
- * @brief Serveur::envoyerListeUtilisateur
- */
+
 void Serveur::envoyerListeUtilisateur()
 {
     QStringList listeUtilisateur;
@@ -101,11 +72,6 @@ void Serveur::envoyerListeUtilisateur()
 }
 
 
-
-/**
- * @brief Serveur::incomingConnection
- * @param descripteurSocket
- */
 void Serveur::incomingConnection(int descripteurSocket)
 {
     if(m_clients.size() < m_nbUtilisateur){
@@ -120,13 +86,4 @@ void Serveur::incomingConnection(int descripteurSocket)
         connect(client, SIGNAL(readyRead()), this, SLOT(readyRead()));
         connect(client, SIGNAL(disconnected()), this, SLOT(disconnected()));
     }
-    // TODO: Gerer erreur serveur plein
-}
-
-int Serveur::getSizem_clients(){
-    return m_clients.size();
-}
-
-int Serveur::getm_nbUtilisateur(){
-    return m_nbUtilisateur;
 }

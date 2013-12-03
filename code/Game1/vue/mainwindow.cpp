@@ -3,7 +3,9 @@
 /* Constructeur de la classe MainWindow */
 MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
 {
-    initialiserSocket(hote);
+
+    connection(hote);
+
     baseGravity = 1;
     largeur = 900;
     hauteur = 600;
@@ -26,8 +28,7 @@ MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
     scene = new QGraphicsScene(0, 0, largeur, hauteur, this);
     view = new QGraphicsView(scene, this);
 
-    // background = new QPixmap("IMG_8708_blue_Sky2.jpg");
-    // scene->setBackgroundBrush(*background);
+
 
     timer.start(5, this);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -45,7 +46,6 @@ void MainWindow::readyRead(){
     {
         QString line = QString::fromUtf8(socket->readLine()).trimmed();
 
-        //QRegExp messageRegex("^([^:]+):(.*)$");
         QRegExp usersRegex("^/users:(.*)$");
         QRegExp idRegex("^/i:(.*)$");
         QRegExp deplacementRegex("^/p:(.*)$");
@@ -65,26 +65,26 @@ void MainWindow::readyRead(){
             id = mots[0].toInt();
             QPair<int,int> pair;
 
+            //Cherche une entrée sur la map
             if(entrer.size() > id){
                 pair = entrer.at(id);
                 ajouterPersonnage(id,pair.second,pair.first);
             }
             else
-                ajouterPersonnage(id,4,2);
+                ajouterPersonnage(id,4,2); //Entrée par default
         }
 
         // Nouveau Joueur
         else if(usersRegex.indexIn(line) != -1)
         {
-            // If so, update our users list on the right:
             QStringList users = usersRegex.cap(1).split(",");
 
             foreach(QString user, users){
                 QStringList J = user.split(" ");
                 bool present = false;
                 /*
-                *J[0] id joueur
-                */
+                 *   J[0] id joueur
+                 */
 
                 foreach(Joueur *j ,personnages){
                     if(j != NULL && j->getId() == J[0].toInt())
@@ -132,13 +132,13 @@ void MainWindow::readyRead(){
                             personnages[depl[0].toInt()]->getVectorBombes()[i]->startCountDown();
                     }
 
-                }else{
+                }
+                else{
 
                     int oldPosX = personnages[depl[0].toInt()]->getX();
                     int oldPosY =personnages[depl[0].toInt()]->getY();
                     int dx = depl[1].toInt() - oldPosX;
                     int dy = depl[2].toInt() - oldPosY;
-
 
                     personnages[depl[0].toInt()]->getPicture()->moveBy(dx,dy);
                     personnages[depl[0].toInt()]->setImmortality(depl[12].toInt());
@@ -155,17 +155,22 @@ void MainWindow::readyRead(){
         // déclenchement d'une bombe avec espace
         else if (declenchementRegex.indexIn(line) != -1){
             QStringList tri = declenchementRegex.cap(1).split(" ");
+
             if(tri[0].toInt() != id)
                 triggerLastBombe(tri[0].toInt(),false);
-            // apparition d'un bonus
-        }else if(addBonusRegex.indexIn(line) != -1){
+
+        }
+        // apparition d'un bonus
+        else if(addBonusRegex.indexIn(line) != -1){
             QStringList abon = addBonusRegex.cap(1).split(" ");
+
             if(abon[0].toInt() != id)
                 ajouterBonus(abon[1].toInt(),abon[2].toInt(),false,abon[3].toInt());
         }
         // disparition d'un bonus
         else if(removeBonusRegex.indexIn(line) != -1){
             QStringList rbon = removeBonusRegex.cap(1).split(" ");
+
             if(rbon[0].toInt() != id){
                 scene->removeItem(grilleBonus[rbon[1].toInt()][rbon[2].toInt()]->getPicture());
                 grilleBonus[rbon[1].toInt()][rbon[2].toInt()] = NULL;
@@ -185,13 +190,10 @@ void MainWindow::readyRead(){
             close();
         }
     }
-
-
 }
 
 
-void MainWindow::chargerNiveau(QString niveau){
-
+void MainWindow::chargerNiveau(QString niveau){    
     QString fileName = "../Game1/ressource/Niveaux/Niv"+niveau+".level";
     QFile fichier(fileName);
     fichier.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -795,7 +797,7 @@ void MainWindow::setHote(QString hote)
     m_hote = hote;
 }
 
-void MainWindow::initialiserSocket(QString  hote)
+void MainWindow::connection(QString  hote)
 {
     m_hote = hote;
     socket = new QTcpSocket(this);

@@ -30,7 +30,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 private:
-    QString m_hote;                             /*!< adresse IP de la partie */
+    QString m_hote;                             /*!< adresse IP du serveur de la partie */
     QGraphicsScene * scene;                     /*!< scène (gère l'affichage des différents éléments du jeu) */
     QGraphicsView * view;                       /*!< vue (fenêtre) */
     QPixmap * background;                       /*!< image de fond */
@@ -49,10 +49,20 @@ private:
     int id;                                     /*!< identifiant du client, également donné à son Joueur */
     QTcpSocket *socket;                         /*!< socket */
     int end;                                    /*!< permet de savoir si la partie est fini, et si les scores sont déjà affichés */
-    QVector < QPair<int,int> > entrer;          /*!< position dans la grille où les personnages aparaissent */
+    QVector < QPair<int,int> > entrer;          /*!< Liste des positions dans la grille où les personnages peuvent apparaitre en début de partie */
 
 private slots:
+    /*!
+     * \brief Slots de lecture
+     * Lit le message reçu et le traite
+     * \author Jérémy VAZ BORGES
+     */
     void readyRead();
+    /*!
+     * \brief Slots de connection
+     * Initie les échanges de messages
+     * \author Jérémy VAZ BORGES
+     */
     void connected();
 
 public:
@@ -319,10 +329,10 @@ public:
     void setHote(QString hote);
 
     /*!
-     * \brief vérifie si le joueur se trouve sur un bonus, et gère son obtntion si c'est le cas
-     * \author Sébastien Trousse
+     * \brief Initialisation et Connection de la socket au serveur
+     * \author Jérémy Vaz Borges
      */
-    void initialiserSocket(QString hote);
+    void connection(QString hote);
 
     /*!
      * \brief affiche l'écran de fin (victoire/défaite et score)
