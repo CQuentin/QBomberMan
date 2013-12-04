@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 
+
 /* Constructeur de la classe MainWindow */
 MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
 {
@@ -29,6 +30,7 @@ MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
     view = new QGraphicsView(scene, this);
 
 
+    scene->setBackgroundBrush(QBrush(QPixmap("../Game1/ressource/fond_colline.jpg")));
 
     timer.start(5, this);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -38,6 +40,10 @@ MainWindow::MainWindow(QString hote, QWidget * parent) : QMainWindow(parent)
     view->show();
 
     this->setFixedSize(largeur, hauteur);
+
+    QSound *musiquePrincipal = new QSound("../Game1/ressource/sons/fond.wav");
+    musiquePrincipal->setLoops(-1);
+    musiquePrincipal->play();
 }
 
 
