@@ -416,6 +416,7 @@ void Joueur::die(){
         case 4:
             setCoordSprite(110,435,31,33);
             step++;
+            QSound::play("../Game1/ressource/sons/mort.wav");
             break;
         case 5:
             setCoordSprite(146,435,31,33);
@@ -431,7 +432,7 @@ void Joueur::die(){
             break;
         case 8:
             state = DEAD;
-            QSound::play("../Game1/ressource/sons/mort.wav");
+
             break;
 
         }
